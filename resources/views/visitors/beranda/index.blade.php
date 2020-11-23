@@ -57,7 +57,7 @@
                 <img src="{{ asset('/images') }}/pic_mail.png" class="img-fluid mb-2" style="width: 115px;" alt="">
                 <h3 class="mb-2">Pengajuan Surat</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sed perspiciatis vel placeat, dicta
-                    molestias quidem sequi. Adipisci, cupiditate laborum.</p>
+                    molestias quidem sequi. Adipisci, cupiditate laborum briliantino.</p>
             </div>
             <div class="col-lg-4 text-center">
                 <img src="{{ asset('/images') }}/pic_mail.png" class="img-fluid mb-2" style="width: 115px;" alt="">
