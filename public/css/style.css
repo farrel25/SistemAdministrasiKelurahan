@@ -454,7 +454,7 @@ h6 {
 
 @media (max-width: 991px) {
     #hero {
-        height: 100vh;
+        /* height: 100vh; */
     }
     #hero .animated {
         -webkit-animation: none;
@@ -470,7 +470,7 @@ h6 {
 
 @media (max-width: 768px) {
     #hero {
-        margin-top: 20px;
+        margin-top: 100px;
     }
     #hero h1 {
         font-size: 28px;
@@ -509,6 +509,13 @@ h6 {
         transform: translateY(-10px);
     }
 }
+
+/* carousel */
+/* @media (max-width: 768px) {
+    #carousel {
+        margin-top: 0;
+    }
+} */
 
 /*--------------------------------------------------------------
 # Sections General

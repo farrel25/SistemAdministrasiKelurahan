@@ -17,4 +17,11 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// Beranda
 Route::get('/', 'HomeController@index');
+
+// Artikel
+Route::view('/artikel', 'visitors.artikel.index');
+
+// pelayanan
+Route::get('/pelayanan/pengajuansurat', 'PengajuanSuratController@index');
