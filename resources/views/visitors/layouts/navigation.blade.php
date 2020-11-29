@@ -29,8 +29,17 @@
                         <li><a href="">Data Umur</a></li>
                     </ul>
                 </li>
-                <li class="drop-down{{ request()->is('pelayanan') ? " active" : "" }}"><a
-                        href="/pelayanan">Pelayanan</a>
+                <?php
+                function activePelayanan($urlPath)
+                {
+                    # code...
+                    if ($urlPath == 'pelayanan/pengajuansurat' || $urlPath == 'pelayanan/pengaduan' || $urlPath == 'pelayanan/kontributor') {
+                        return ' active';
+                    }
+                }
+                ?>
+                <li class="drop-down{{ activePelayanan(request()->path()) }}">
+                    <a href="/pelayanan">Pelayanan</a>
                     <ul>
                         <li><a href="/pelayanan/pengajuansurat">Pengajuan Surat</a></li>
                         <li><a href="">Pengaduan</a></li>
