@@ -39,7 +39,7 @@
                 }
                 ?>
                 <li class="drop-down{{ activePelayanan(request()->path()) }}">
-                    <a href="/pelayanan">Pelayanan</a>
+                    <a href="/pelayanan/pengajuansurat">Pelayanan</a>
                     <ul>
                         <li><a href="/pelayanan/pengajuansurat">Pengajuan Surat</a></li>
                         <li><a href="">Pengaduan</a></li>

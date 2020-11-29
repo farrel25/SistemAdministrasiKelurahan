@@ -1,4 +1,4 @@
-@extends('visitors.layouts.master', ['title' => 'Pelayanan'])
+@extends('visitors.layouts.master', ['title' => 'Layanan - Pengajuan Surat'])
 
 @section('content')
 <section id="page-title-pelayanan">
