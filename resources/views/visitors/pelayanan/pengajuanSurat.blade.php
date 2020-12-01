@@ -2,11 +2,36 @@
 
 @section('content')
 <section id="page-title-pelayanan">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-12 text-center">
+    <div class="container mb-5">
+
+        <div class="row justify-content-center" data-aos="fade-up">
+            <div class="col-lg-6 text-center">
+                <h2>Pengajuan Surat</h2>
+                <nav aria-label="breadcrumb">
+                    <small>
+                        <ol class="breadcrumb justify-content-center" style="background: none">
+                            <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Pengajuan Surat</li>
+                        </ol>
+                    </small>
+                </nav>
+            </div>
+            {{-- <div class="col-lg-5">
                 <h2>Pengajuan Surat</h2>
             </div>
+            <div class="col-lg-5">
+                <nav aria-label="breadcrumb">
+                    <small>
+                        <ol class="breadcrumb d-flex justify-content-end" style="background: none">
+                            <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Pengajuan Surat</li>
+                        </ol>
+                    </small>
+                </nav>
+            </div> --}}
+        </div>
+
+        <div class="row justify-content-center form-box" data-aos="fade-up" data-aos-delay="300">
             <div class="col-lg-10 mt-4">
                 <form action="" method="post">
                     <div class="form-row justify-content-between">
@@ -50,5 +75,6 @@
             </div>
         </div>
     </div>
+
 </section>
 @endsection

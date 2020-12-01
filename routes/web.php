@@ -24,4 +24,4 @@ Route::get('/', 'HomeController@index');
 Route::view('/artikel', 'visitors.artikel.index');
 
 // pelayanan
-Route::get('/pelayanan/pengajuansurat', 'PengajuanSuratController@index');
+Route::get('/pelayanan/pengajuan-surat', 'PengajuanSuratController@index');

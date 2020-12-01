@@ -33,15 +33,15 @@
                 function activePelayanan($urlPath)
                 {
                     # code...
-                    if ($urlPath == 'pelayanan/pengajuansurat' || $urlPath == 'pelayanan/pengaduan' || $urlPath == 'pelayanan/kontributor') {
+                    if ($urlPath == 'pelayanan/pengajuan-surat' || $urlPath == 'pelayanan/pengaduan' || $urlPath == 'pelayanan/kontributor') {
                         return ' active';
                     }
                 }
                 ?>
                 <li class="drop-down{{ activePelayanan(request()->path()) }}">
-                    <a href="/pelayanan/pengajuansurat">Pelayanan</a>
+                    <a href="/pelayanan/pengajuan-surat">Pelayanan</a>
                     <ul>
-                        <li><a href="/pelayanan/pengajuansurat">Pengajuan Surat</a></li>
+                        <li><a href="/pelayanan/pengajuan-surat">Pengajuan Surat</a></li>
                         <li><a href="">Pengaduan</a></li>
                         <li><a href="">Kontributor</a></li>
                     </ul>
