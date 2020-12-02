@@ -18,7 +18,7 @@
 
 {{-- Start carousel section --}}
 <section id="carousel">
-    <div class="container mb-4 mt-4">
+    <div class="container mb-4 mt-4 ">
         <div id="carouselExampleIndicators" class="carousel slide" data-aos="fade-up" data-aos-delay="800" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -48,22 +48,28 @@
 {{-- Start Services Section --}}
 <section id="services">
     <div class="container mt-4">
-        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="400">
-            <div class="col-lg-3 text-center p-3">
-                <img src="{{ asset('/images') }}/pic_mail.png" class="img-fluid mb-2" style="width: 100px;" alt="">
+        <div class="row justify-content-center">
+            <div class="col-lg-3 text-center p-3" data-aos="fade-up" data-aos-delay="400">
+                <span style="color: #EEF5FF;">
+                    <i class="fas fa-envelope fa-3x p-4" style="width: 100px; height: 100px; background-color:#FE5670; border-radius:50%;"></i>
+                </span>
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Pengajuan Surat</h4>
                 <p class=" small"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sed perspiciatis vel placeat, dicta
                     molestias quidem sequi. Adipisci, cupiditate laborum.</p>
             </div>
-            <div class=" col-lg-3 text-center p-3">
-                <img src="{{ asset('/images') }}/pic_complaint.png" class="img-fluid mb-2" style="width: 100px;" alt="">
+            <div class=" col-lg-3 text-center p-3" data-aos="fade-up" data-aos-delay="500">
+                <span style="color: #EEF5FF;">
+                    <i class="fas fa-exclamation-triangle fa-3x p-4" style="width: 100px; height: 100px; background-color:#F8B000; border-radius:50%;"></i>
+                </span>
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Pengaduan</h4>
                 <p class=" small"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sed perspiciatis vel placeat, dicta
                     molestias quidem sequi. Adipisci, cupiditate laborum.</p>
             </div>
-            <div class="col-lg-3 text-center p-3">
-                <img src="{{ asset('/images') }}/pic_umkm.png" class="img-fluid mb-2" style="width: 100px;" alt="">
-                <h4 class="mb-2 mt-2" style="font-weight: 600;">UMKM</h4>
+            <div class="col-lg-3 text-center p-3" data-aos="fade-up" data-aos-delay="800">
+                <span style="color: #EEF5FF;">
+                    <i class="fas fa-pencil-alt fa-3x p-4" style="width: 100px; height: 100px; background-color:#3C50E0; border-radius:50%;"></i>
+                </span>
+                <h4 class="mb-2 mt-2" style="font-weight: 600;">Kontributor Berita</h4>
                 <p class=" small"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sed perspiciatis vel placeat, dicta
                     molestias quidem sequi. Adipisci, cupiditate laborum.</p>
             </div>
@@ -81,29 +87,29 @@
             </div>
         </div>
         <div class="row pl-5 pr-5 pb-3">
-            <div class="col align-self-center  sliderv">
+            <div class="col align-self-center sliderv">
                 <div class="card m-3">
                     <div class="card-body">
                         <img src="{{ asset('/images') }}/img-kp-1.png" class=" float-left mr-4 w-auto mb-3 rounded-lg" alt="Responsive image">
-                        <h5 class="card-title">Kegiatan 1</h5>
-                        <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. <a href="#">readmore..</a> </p>
-                        <a href="#" class="btn btn-red">Button</a>
+                        <h5 class="card-title" style="font-weight: 700;">Kegiatan 1</h5>
+                        <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <a href="#" class="btn btn-yellow">Button</a>
                     </div>
                 </div>
                 <div class="card m-3">
                     <div class="card-body">
                         <img src="{{ asset('/images') }}/img-kp-2.png" class=" float-left mr-4 w-auto  mb-3 rounded-lg" alt="Responsive image">
-                        <h5 class="card-title">Kegiatan 2</h5>
-                        <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. <a href="#">readmore..</a></p>
-                        <a href="#" class="btn btn-red">Button</a>
+                        <h5 class="card-title" style="font-weight: 700;">Kegiatan 2</h5>
+                        <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <a href="#" class="btn btn-yellow">Button</a>
                     </div>
                 </div>
                 <div class="card m-3">
                     <div class="card-body">
                         <img src="{{ asset('/images') }}/img-kp-3.png" class=" float-left mr-4 w-auto mb-3 rounded-lg" alt="Responsive image">
-                        <h5 class="card-title">Kegiatan 3</h5>
-                        <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. <a href="#">readmore..</a></p>
-                        <a href="#" class="btn btn-red">Button</a>
+                        <h5 class="card-title" style="font-weight: 700;">Kegiatan 3</h5>
+                        <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <a href="#" class="btn btn-yellow">Button</a>
                     </div>
                 </div>
 
@@ -127,7 +133,7 @@
                     <div class="card-body ">
                         <h5 class="card-title ">Product 1</h5>
                         <p class="card-text">RP 10.000,-</p>
-                        <a href="#" class="btn btn-yellow">Button</a>
+                        <a href="#" class="btn btn-red">Button</a>
                     </div>
                 </div>
                 <div class="card m-3" style="width: 12rem;">
@@ -135,7 +141,7 @@
                     <div class="card-body ">
                         <h5 class="card-title ">Product 2</h5>
                         <p class="card-text">RP 10.000,-</p>
-                        <a href="#" class="btn btn-yellow">Button</a>
+                        <a href="#" class="btn btn-red">Button</a>
                     </div>
                 </div>
                 <div class="card m-3" style="width: 12rem;">
@@ -143,7 +149,7 @@
                     <div class="card-body ">
                         <h5 class="card-title ">Product 3</h5>
                         <p class="card-text">RP 10.000,-</p>
-                        <a href="#" class="btn btn-yellow">Button</a>
+                        <a href="#" class="btn btn-red">Button</a>
                     </div>
                 </div>
                 <div class="card m-3" style="width: 12rem;">
@@ -151,7 +157,7 @@
                     <div class="card-body ">
                         <h5 class="card-title ">Product 4</h5>
                         <p class="card-text">RP 10.000,-</p>
-                        <a href="#" class="btn btn-yellow">Button</a>
+                        <a href="#" class="btn btn-red">Button</a>
                     </div>
                 </div>
                 <div class="card m-3" style="width: 12rem;">
@@ -159,7 +165,7 @@
                     <div class="card-body ">
                         <h5 class="card-title ">Product 5</h5>
                         <p class="card-text">RP 10.000,-</p>
-                        <a href="#" class="btn btn-yellow">Button</a>
+                        <a href="#" class="btn btn-red">Button</a>
                     </div>
                 </div>
                 <div class="card m-3" style="width: 12rem;">
@@ -167,7 +173,7 @@
                     <div class="card-body ">
                         <h5 class="card-title ">Product 6</h5>
                         <p class="card-text">RP 10.000,-</p>
-                        <a href="#" class="btn btn-yellow">Button</a>
+                        <a href="#" class="btn btn-red">Button</a>
                     </div>
                 </div>
                 <div class="card m-3" style="width: 12rem;">
@@ -175,7 +181,7 @@
                     <div class="card-body ">
                         <h5 class="card-title ">Product 7</h5>
                         <p class="card-text">RP 10.000,-</p>
-                        <a href="#" class="btn btn-yellow">Button</a>
+                        <a href="#" class="btn btn-red">Button</a>
                     </div>
                 </div>
             </div>
@@ -187,16 +193,17 @@
 {{-- End Card 2 Section --}}
 
 {{-- Start Article Section --}}
-<section class="blog-posts grid-system">
-    <div class="container " data-aos="fade-up" data-aos-delay="400">
-        <hr />
-        <div class="row mb-5 mt-5">
+<section id="article" class="blog-posts grid-system">
+    <div class="container ">
+        <hr data-aos="fade-right" data-aos-delay="800" style="border: 1px solid black;">
+        </hr>
+        <div class="row mb-5 mt-5" data-aos="fade-up" data-aos-delay="400">
             <div class=" col text-center ">
                 <h1 style="font-weight: 600;">Artikel</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="800">
                 <div class="all-blog-posts">
                     <div class="row">
                         <div class="col-lg-12">
@@ -316,7 +323,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="1000">
                 <div class="sidebar">
                     <div class="row">
                         <div class="col-lg-12 mb-5">
@@ -355,31 +362,32 @@
                                 <ul>
                                     <li style="background-color: #FE5670; ">
                                         <div class="row">
-                                            <div class=" col-9">
-                                                <h5>Positif</h5>
+                                            <div class=" col-9 ">
+                                                <h5 class="align-middle"> <i class="fas fa-virus fa-lg"></i>Positif
+                                                </h5>
                                             </div>
                                             <div class="col-2 " style="background-color: #FF7D91; ">
-                                                <p>123</p>
+                                                <p data-toggle="counter-up">123</p>
                                             </div>
                                         </div>
                                     </li>
                                     <li style="background-color: #F8B000;">
                                         <div class="row ">
                                             <div class=" col-9">
-                                                <h5>Dalam Pemantauan</h5>
+                                                <h5><i class="fas fa-plus-square fa-lg"></i>Sembuh</h5>
                                             </div>
-                                            <div class="col-2" style="background-color: #FFD878; ">
-                                                <p>123</p>
+                                            <div class="col-2 " style="background-color: #FFD878; ">
+                                                <p data-toggle="counter-up">123</p>
                                             </div>
                                         </div>
                                     </li>
                                     <li style="background-color: #3C50E0;">
                                         <div class="row ">
                                             <div class=" col-9">
-                                                <h5>Sembuh</h5>
+                                                <h5><i class="fas fa-search fa-lg"></i>Dalam Pemantauan</h5>
                                             </div>
                                             <div class="col-2" style="background-color: #717EDA; ">
-                                                <p>123</p>
+                                                <p data-toggle="counter-up">123</p>
                                             </div>
                                         </div>
                                     </li>
@@ -433,18 +441,16 @@
     });
     $('.sliderv').slick({
         dots: true,
-        vertical: true,
         infinite: false,
         slidesToShow: 1,
         slidesToScroll: 1,
-        verticalSwiping: true,
         autoplay: true,
         autoplaySpeed: 2000,
         responsive: [{
                 breakpoint: 1024,
                 settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
                     infinite: true,
                     dots: true
                 }
@@ -452,8 +458,8 @@
             {
                 breakpoint: 600,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
+                    slidesToShow: 1,
+                    slidesToScroll: 1
                 }
             },
             {

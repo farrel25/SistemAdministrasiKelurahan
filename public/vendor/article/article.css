@@ -468,13 +468,25 @@ ul.page-numbers li a:hover {
     background-color: #fff;
 }
 
+.sidebar .covid-posts ul li:hover {
+    margin-top: 10px;
+    filter: none;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
 .sidebar .covid-posts ul li h5 {
     font-size: 15px;
     font-weight: 500;
-    margin-top: 20px;
+    margin-top: 24px;
     margin-bottom: 20px;
     margin-left: 20px;
     color: #fff;
+}
+
+.sidebar .covid-posts ul li h5 i {
+    margin-right: 10px;
 }
 
 .sidebar .covid-posts ul li p {
@@ -526,6 +538,11 @@ ul.page-numbers li a:hover {
 .sidebar .tags ul li a:hover {
     background-color: #3C50E0;
     border-color: #3C50E0;
+    color: #fff;
+}
+
+.prev {
+    background-color: #3C50E0;
     color: #fff;
 }
 

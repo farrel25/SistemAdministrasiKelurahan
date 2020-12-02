@@ -7,6 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? 'Kelurahan'}}</title>
 
+    {{-- Icon --}}
+    <script src="https://kit.fontawesome.com/95e7b49a0c.js" crossorigin="anonymous"></script>
+
     {{-- Font --}}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -18,27 +21,9 @@
     <link rel="stylesheet" href="{{ asset('/vendor') }}/owl.carousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="{{ asset('/vendor') }}/venobox/venobox.css">
     <link rel="stylesheet" href="{{ asset('/vendor') }}/aos/aos.css">
-    {{-- main css file --}}
-    <link rel="stylesheet" href="{{ asset('/css') }}/style.css">
-    <link rel="stylesheet" href="{{ asset('/css') }}/article.css">
-    {{-- Main JS File --}}
-    <script src="{{ asset('/js') }}/main.js"></script>
-
-    {{-- SLIDER --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
-
-
-</head>
-
-<body>
-    <!-- Start Header -->
-    @include('visitors.layouts.navigation')
-    <!-- End Header -->
-
-    @yield('content')
+    <link rel="stylesheet" href="{{ asset('/vendor') }}/article/article.css">
+    <link rel="stylesheet" href="{{ asset('/vendor') }}/slick/slick-theme.css">
+    <link rel="stylesheet" href="{{ asset('/vendor') }}/slick/slick.css">
 
     {{-- Vendor js files --}}
     <script src="{{ asset('/vendor') }}/jquery/jquery.min.js"></script>
@@ -51,15 +36,27 @@
     <script src="{{ asset('/vendor') }}/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="{{ asset('/vendor') }}/venobox/venobox.min.js"></script>
     <script src="{{ asset('/vendor') }}/aos/aos.js"></script>
+    <script src="{{ asset('/vendor') }}/slick/slick.min.js"></script>
+
+    {{-- main css file --}}
+    <link rel="stylesheet" href="{{ asset('/css') }}/style.css">
+
+    {{-- Main JS File --}}
+    <script src="{{ asset('/js') }}/main.js"></script>
+</head>
+
+<body>
+    <!-- Start Header -->
+    @include('visitors.layouts.navigation')
+    <!-- End Header -->
+
+    @yield('content')
+
+
 
     {{-- Main JS File --}}
     <script src="{{ asset('/js') }}/main.js"></script>
 
-    {{-- UMKM --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" />
 
 </body>
 
