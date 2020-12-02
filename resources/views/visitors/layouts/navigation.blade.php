@@ -11,15 +11,23 @@
             <ul>
                 <li class="{{ request()->is('/') ? "active" : "" }}"><a href="/">Beranda</a></li>
                 <li class="{{ request()->is('artikel') ? "active" : "" }}"><a href="/artikel">Artikel</a></li>
-                <li class="drop-down{{ request()->is('profildesa') ? " active" : "" }}"><a href="/profildesa">Profil
-                        Desa</a>
+                <li class="drop-down{{ request()->is('profildesa') ? " active" : "" }}"><a href="/profildesa">Profil Desa</a>
                     <ul>
-                        <li><a href="">Sejarah</a></li>
+                        {{-- <li><a href="">Sejarah</a></li>
                         <li><a href="">Visi Misi</a></li>
-                        <li><a href="">Struktur Pemerintahan</a></li>
+                        <li><a href="">Struktur Pemerintahan</a></li> --}}
+                        <li><a href="/profil_desa">Sejarah dan Visi Misi</a></li>
+                        <li><a href="/profil_desa">Struktur Pemerintahan</a></li>
+                        <li><a href="/profil_desa">Administratif</a></li>
                     </ul>
                 </li>
-                <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a
+                <li class="drop-down{{ request()->is('aktifitasdesa') ? " active" : "" }}"><a href="/profildesa">Kegiatan Masyarakat</a>
+                    <ul>
+                        <li><a href="">UMKM Masyarakat</a></li>
+                        <li><a href="">Kegiatan Pemuda</a></li>
+                    </ul>
+                </li>
+                {{-- <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a
                         href="/administratif">Administratif</a>
                     <ul>
                         <li><a href="">Data Pendidikan</a></li>
@@ -28,7 +36,7 @@
                         <li><a href="">Data Jenis Kelamin</a></li>
                         <li><a href="">Data Umur</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <?php
                 function activePelayanan($urlPath)
                 {
