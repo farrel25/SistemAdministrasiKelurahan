@@ -52,12 +52,10 @@
 
     @yield('content')
 
-
-
     {{-- Main JS File --}}
     <script src="{{ asset('/js') }}/main.js"></script>
 
-
+    @include('visitors.layouts.footer')
 </body>
 
 </html>

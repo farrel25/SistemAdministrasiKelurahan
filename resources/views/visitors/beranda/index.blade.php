@@ -18,18 +18,18 @@
 
 {{-- Start carousel section --}}
 <section id="carousel">
-    <div class="container mb-4 mt-4 ">
-        <div id="carouselExampleIndicators" class="carousel slide" data-aos="fade-up" data-aos-delay="800" data-ride="carousel">
+    <div class="container mb-4 mt-5  ">
+        <div id="carouselExampleIndicators" class="carousel slide " data-aos="fade-up" data-aos-delay="800" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="{{ asset('/images') }}/carousel-1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-item active ">
+                    <img src="{{ asset('/images') }}/carousel-1.jpg" class="d-block w-100 br-full" alt="...">
                 </div>
-                <div class="carousel-item">
-                    <img src="{{ asset('/images') }}/carousel-3.png" class="d-block w-100" alt="...">
+                <div class="carousel-item br-full">
+                    <img src="{{ asset('/images') }}/carousel-3.png" class="d-block w-100 br-full" alt="...">
                 </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -80,7 +80,7 @@
 
 {{-- Start Card 1 Section --}}
 <section id="card1">
-    <div class="container mt-5 mb-4 w-100 rounded-lg " data-aos="fade-up" data-aos-delay="400" style=" background-image:url('images/bgrd-1.png');">
+    <div class="container mt-5 mb-4 w-100 br-full " data-aos="fade-up" data-aos-delay="400" style=" background-image:url('images/bgrd-1.png');">
         <div class="row align-self-center ">
             <div class=" col text-center mt-4 ">
                 <h1 style="font-weight: 600;">Kegiatan Pemuda</h1>
@@ -120,7 +120,7 @@
 
 {{-- Start Card 2 Section --}}
 <section id="card2">
-    <div class="container mt-5 w-100 rounded-lg" data-aos="fade-up" data-aos-delay="400" style="background-image:url('images/bgrd-2.png'); ">
+    <div class=" container mt-5 w-100 br-full" data-aos="fade-up" data-aos-delay="400" style="background-image:url('images/bgrd-2.png'); ">
         <div class="row align-self-center ">
             <div class="col text-center align-self-center mt-4">
                 <h1 style="font-weight: 600;">UMKM</h1>
@@ -195,23 +195,21 @@
 {{-- Start Article Section --}}
 <section id="article" class="blog-posts grid-system">
     <div class="container ">
-        <hr data-aos="fade-right" data-aos-delay="800" style="border: 1px solid black;">
-        </hr>
         <div class="row mb-5 mt-5" data-aos="fade-up" data-aos-delay="400">
             <div class=" col text-center ">
                 <h1 style="font-weight: 600;">Artikel</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="800">
+            <div class="col-lg-8" data-aos="fade-right" data-aos-delay="800">
                 <div class="all-blog-posts">
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="blog-post">
-                                <div class="blog-thumb">
+                            <div class="blog-post  ">
+                                <div class="blog-thumb ">
                                     <img src="{{ asset('/images') }}/img-article-01.png" alt="">
                                 </div>
-                                <div class="down-content">
+                                <div class="down-content ">
                                     <a href="post-details.html">
                                         <h4>Article 1</h4>
                                     </a>
@@ -323,7 +321,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="1000">
+            <div class="col-lg-4" data-aos="fade-left" data-aos-delay="1000">
                 <div class="sidebar">
                     <div class="row">
                         <div class="col-lg-12 mb-5">
