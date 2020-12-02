@@ -69,7 +69,7 @@
                                 href="">persyaratan dan ketentuan</a> yang berlaku</label>
                     </div>
                     <div class="row justify-content-center mt-4">
-                        <button type="submit" class="btn-submit" style="margin: 0 auto;">Kirim</button>
+                        <button type="submit" class="btn-submit">Kirim</button>
                     </div>
                 </form>
             </div>

@@ -11,14 +11,16 @@
             <ul>
                 <li class="{{ request()->is('/') ? "active" : "" }}"><a href="/">Beranda</a></li>
                 <li class="{{ request()->is('artikel') ? "active" : "" }}"><a href="/artikel">Artikel</a></li>
-                <li class="drop-down{{ request()->is('profildesa') ? " active" : "" }}"><a href="/profildesa">Profil Desa</a>
+                <li class="drop-down{{ request()->is('profildesa') ? " active" : "" }}"><a href="/profildesa">Profil
+                        Desa</a>
                     <ul>
                         <li><a href="">Sejarah</a></li>
                         <li><a href="">Visi Misi</a></li>
                         <li><a href="">Struktur Pemerintahan</a></li>
                     </ul>
                 </li>
-                <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a href="/administratif">Administratif</a>
+                <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a
+                        href="/administratif">Administratif</a>
                     <ul>
                         <li><a href="">Data Pendidikan</a></li>
                         <li><a href="">Data Pekerjaan</a></li>
@@ -27,9 +29,17 @@
                         <li><a href="">Data Umur</a></li>
                     </ul>
                 </li>
-                <li class="drop-down{{ request()->is('pelayanan') ? " active" : "" }}"><a href="/pelayanan">Pelayanan</a>
+                <?php
+                function activePelayanan($urlPath)
+                {
+                    if ($urlPath == 'pelayanan/pengajuan-surat' || $urlPath == 'pelayanan/pengaduan' || $urlPath == 'pelayanan/kontributor') {
+                        return ' active';
+                    }
+                }
+                ?>
+                <li class="drop-down{{ activePelayanan(request()->path()) }}"><a href="/pelayanan">Pelayanan</a>
                     <ul>
-                        <li><a href="/pelayanan/pengajuansurat">Pengajuan Surat</a></li>
+                        <li><a href="/pelayanan/pengajuan-surat">Pengajuan Surat</a></li>
                         <li><a href="">Pengaduan</a></li>
                         <li><a href="">Kontributor</a></li>
                     </ul>
