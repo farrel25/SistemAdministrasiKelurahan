@@ -6,7 +6,7 @@
                 <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
 
             </div>
-            <div class="col-lg-6 social-media">
+            <div class="col-lg-3 ml-auto social-media">
                 <span class="social-media">
                     <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
                     <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
