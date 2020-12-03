@@ -1882,6 +1882,13 @@ section {
     margin: 5px;
 }
 
+.carousel-size img {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
 
 /*--------------------------------------------------------------
 # Footer

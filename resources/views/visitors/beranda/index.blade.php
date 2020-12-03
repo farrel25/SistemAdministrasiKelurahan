@@ -15,7 +15,6 @@
 </section>
 {{-- End hero section --}}
 
-
 {{-- Start carousel section --}}
 <section id="carousel">
     <div class="container mb-4 mt-5  ">
@@ -27,18 +26,18 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active ">
+                <div class="carousel-item br-full carousel-size active ">
                     <img src="{{ asset('/images') }}/carousel-1.jpg" class="d-block w-100 br-full" alt="...">
                 </div>
-                <div class="carousel-item br-full">
+                <div class="carousel-item br-full carousel-size">
+                    <img src="{{ asset('/images') }}/carousel-2.jpg" class="d-block w-100 br-full" alt="...">
+                </div>
+                <div class="carousel-item br-full carousel-size">
                     <img src="{{ asset('/images') }}/carousel-3.png" class="d-block w-100 br-full" alt="...">
                 </div>
-                {{-- <div class="carousel-item br-full">
-                    <img src="{{ asset('/images') }}/carousel-3.png" class="d-block w-100 br-full" alt="...">
+                <div class="carousel-item br-full carousel-size">
+                    <img src="{{ asset('/images') }}/carousel-4.jpg" class="d-block w-100 br-full" alt="...">
                 </div>
-                <div class="carousel-item br-full">
-                    <img src="{{ asset('/images') }}/carousel-4.png" class="d-block w-100 br-full" alt="...">
-                </div> --}}
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
