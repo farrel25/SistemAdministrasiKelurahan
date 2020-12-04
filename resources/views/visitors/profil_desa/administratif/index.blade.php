@@ -14,9 +14,19 @@
         <div class="row " data-aos="fade-up">
             <div class="col-lg-12 text-center mb-5 ">
                 <h2>Administratif</h2>
+                <nav aria-label="breadcrumb">
+                    <small>
+                        <ol class="breadcrumb justify-content-center" style="background: none">
+                            <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Profil Desa</li>
+                            <li class="breadcrumb-item active" aria-current="page">Administratif</li>
+                        </ol>
+                    </small>
+                </nav>
                 <div class=" btn-administratif mt-4 ">
                     <button type="button" class="btn btn-outline-dark active btn-responsive">Jenis Kelamin</button>
-                    <a href="/profil_desa/administratif/pendidikan"><button type="button" class="btn btn-outline-dark btn-responsive">Pendidikan</button></a>
+                    <a href="/profil_desa/administratif/pendidikan"><button type="button"
+                            class="btn btn-outline-dark btn-responsive">Pendidikan</button></a>
                     <button type="button" class="btn btn-outline-dark btn-responsive">Pekerjaan</button>
                     <button type="button" class="btn btn-outline-dark btn-responsive">Agama</button>
                     <button type="button" class="btn btn-outline-dark btn-responsive">Wilayah</button>

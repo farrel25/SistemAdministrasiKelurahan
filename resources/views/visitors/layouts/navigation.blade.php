@@ -19,7 +19,7 @@
                 <li class="{{ request()->is('artikel') ? "active" : "" }}">
                     <a href="{{ route('visitors.artikel.index') }}">Artikel</a>
                 </li>
-                <li class="drop-down{{ request()->is('profil-desa') ? " active" : "" }}">
+                <li class="drop-down{{ request()->is('profil-desa/administratif') ? " active" : "" }}">
                     <a href="">Profil Desa</a>
                     <ul>
                         {{-- <li><a href="">Sejarah</a></li>
@@ -27,7 +27,7 @@
                         <li><a href="">Struktur Pemerintahan</a></li> --}}
                         <li><a href="#">Sejarah dan Visi Misi</a></li>
                         <li><a href="#">Struktur Pemerintahan</a></li>
-                        <li><a href="/profil_desa/administratif">Administratif</a></li>
+                        <li><a href="{{ route('visitors.profil_desa.administratif.index') }}">Administratif</a></li>
                     </ul>
                 </li>
                 <li class="drop-down{{ request()->is('kegiatan-masyarakat') ? " active" : "" }}">
@@ -37,7 +37,8 @@
                         <li><a href="">Kegiatan Pemuda</a></li>
                     </ul>
                 </li>
-                {{-- <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a href="/administratif">Administratif</a>
+                {{-- <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a
+                    href="/administratif">Administratif</a>
                 <ul>
                     <li><a href="">Data Pendidikan</a></li>
                     <li><a href="">Data Pekerjaan</a></li>
