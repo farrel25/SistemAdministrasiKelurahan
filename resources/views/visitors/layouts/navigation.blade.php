@@ -11,31 +11,33 @@
             <ul>
                 <li class="{{ request()->is('/') ? "active" : "" }}"><a href="/">Beranda</a></li>
                 <li class="{{ request()->is('artikel') ? "active" : "" }}"><a href="/artikel">Artikel</a></li>
-                <li class="drop-down{{ request()->is('profildesa') ? " active" : "" }}"><a href="/profildesa">Profil Desa</a>
+                <li class="drop-down{{ request()->is('profildesa') ? " active" : "" }}">
+                    <a href="">Profil Desa</a>
                     <ul>
                         {{-- <li><a href="">Sejarah</a></li>
                         <li><a href="">Visi Misi</a></li>
                         <li><a href="">Struktur Pemerintahan</a></li> --}}
-                        <li><a href="/profil_desa">Sejarah dan Visi Misi</a></li>
-                        <li><a href="/profil_desa">Struktur Pemerintahan</a></li>
-                        <li><a href="/profil_desa">Administratif</a></li>
+                        <li><a href="">Sejarah dan Visi Misi</a></li>
+                        <li><a href="">Struktur Pemerintahan</a></li>
+                        <li><a href="">Administratif</a></li>
                     </ul>
                 </li>
-                <li class="drop-down{{ request()->is('aktifitasdesa') ? " active" : "" }}"><a href="/profildesa">Kegiatan Masyarakat</a>
+                <li class="drop-down{{ request()->is('aktifitasdesa') ? " active" : "" }}">
+                    <a href="">Kegiatan Masyarakat</a>
                     <ul>
                         <li><a href="">UMKM Masyarakat</a></li>
                         <li><a href="">Kegiatan Pemuda</a></li>
                     </ul>
                 </li>
                 {{-- <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a
-                        href="/administratif">Administratif</a>
-                    <ul>
-                        <li><a href="">Data Pendidikan</a></li>
-                        <li><a href="">Data Pekerjaan</a></li>
-                        <li><a href="">Data Agama</a></li>
-                        <li><a href="">Data Jenis Kelamin</a></li>
-                        <li><a href="">Data Umur</a></li>
-                    </ul>
+                    href="/administratif">Administratif</a>
+                <ul>
+                    <li><a href="">Data Pendidikan</a></li>
+                    <li><a href="">Data Pekerjaan</a></li>
+                    <li><a href="">Data Agama</a></li>
+                    <li><a href="">Data Jenis Kelamin</a></li>
+                    <li><a href="">Data Umur</a></li>
+                </ul>
                 </li> --}}
                 <?php
                 function activePelayanan($urlPath)
@@ -45,7 +47,8 @@
                     }
                 }
                 ?>
-                <li class="drop-down{{ activePelayanan(request()->path()) }}"><a href="/pelayanan">Pelayanan</a>
+                <li class="drop-down{{ activePelayanan(request()->path()) }}">
+                    <a href="/pelayanan/pengajuan-surat">Pelayanan</a>
                     <ul>
                         <li><a href="/pelayanan/pengajuan-surat">Pengajuan Surat</a></li>
                         <li><a href="">Pengaduan</a></li>

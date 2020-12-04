@@ -6,8 +6,19 @@
 <section id="article" class="blog-posts grid-system">
     <div class="container ">
         <div class="row mb-5 mt-3" data-aos="fade-up" data-aos-delay="400">
-            <div class=" col text-center ">
+            {{-- <div class=" col text-center ">
                 <h1 style="font-weight: 600;">Artikel</h1>
+            </div> --}}
+            <div class="col-lg-12 text-center">
+                <h2>Artikel</h2>
+                <nav aria-label="breadcrumb">
+                    <small>
+                        <ol class="breadcrumb justify-content-center" style="background: none">
+                            <li class="breadcrumb-item"><a href="/">Beranda</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Artikel</li>
+                        </ol>
+                    </small>
+                </nav>
             </div>
         </div>
         <div class="row">
@@ -27,7 +38,9 @@
                                         <li><a href="#">Admin</a></li>
                                         <li><a href="#">May 31, 2020</a></li>
                                     </ul>
-                                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. <a href="#">readmore..</a> </p>
+                                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+                                        officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
+                                        nostrud amet. <a href="#">readmore..</a> </p>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +57,9 @@
                                         <li><a href="#">Admin</a></li>
                                         <li><a href="#">May 22, 2020</a></li>
                                     </ul>
-                                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. <a href="#">readmore..</a> </p>
+                                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+                                        officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
+                                        nostrud amet. <a href="#">readmore..</a> </p>
                                 </div>
                             </div>
                         </div>
@@ -61,7 +76,9 @@
                                         <li><a href="#">Admin</a></li>
                                         <li><a href="#">May 18, 2020</a></li>
                                     </ul>
-                                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. <a href="#">readmore..</a> </p>
+                                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+                                        officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
+                                        nostrud amet. <a href="#">readmore..</a> </p>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +95,9 @@
                                         <li><a href="#">Admin</a></li>
                                         <li><a href="#">May 16, 2020</a></li>
                                     </ul>
-                                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. <a href="#">readmore..</a> </p>
+                                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+                                        officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
+                                        nostrud amet. <a href="#">readmore..</a> </p>
                                 </div>
                             </div>
                         </div>
@@ -95,7 +114,9 @@
                                         <li><a href="#">Admin</a></li>
                                         <li><a href="#">May 12, 2020</a></li>
                                     </ul>
-                                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. <a href="#">readmore..</a> </p>
+                                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+                                        officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
+                                        nostrud amet. <a href="#">readmore..</a> </p>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +133,9 @@
                                         <li><a href="#">Admin</a></li>
                                         <li><a href="#">May 10, 2020</a></li>
                                     </ul>
-                                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. <a href="#">readmore..</a> </p>
+                                    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit
+                                        officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
+                                        nostrud amet. <a href="#">readmore..</a> </p>
                                 </div>
                             </div>
                         </div>
@@ -122,8 +145,11 @@
                                 <li><a href="#">2</a></li>
                                 <li><a href="#">3</a></li>
                                 <li><a href="#">
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                            class="bi bi-arrow-right-short" fill="currentColor"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
                                         </svg>
                                     </a></li>
                             </ul>
@@ -137,7 +163,8 @@
                         <div class="col-lg-12 mb-5">
                             <div class="sidebar-item search">
                                 <form id="search_form" name="gs" method="GET" action="#">
-                                    <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
+                                    <input type="text" name="q" class="searchText" placeholder="type to search..."
+                                        autocomplete="on">
                                 </form>
                             </div>
                         </div>

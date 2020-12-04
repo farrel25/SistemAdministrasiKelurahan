@@ -21,10 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index');
 
 // Profil
-Route::get('profil_desa', 'ProfilDesaController@index');
-Route::get('profil_desa/administratif', 'ProfilDesaController@administratif');
-Route::get('profil_desa/sejarah_visi_misi', 'ProfilDesaController@sejarah_visi_misi');
-Route::get('profil_desa/struktur_pemerintahan', 'ProfilDesaController@struktur_pemerintahan');
+// Route::get('profil_desa', 'ProfilDesaController@index');
+// Route::get('profil_desa/administratif', 'ProfilDesaController@administratif');
+// Route::get('profil_desa/sejarah_visi_misi', 'ProfilDesaController@sejarah_visi_misi');
+// Route::get('profil_desa/struktur_pemerintahan', 'ProfilDesaController@struktur_pemerintahan');
 
 // Artikel
 Route::view('/artikel', 'visitors.artikel.index');

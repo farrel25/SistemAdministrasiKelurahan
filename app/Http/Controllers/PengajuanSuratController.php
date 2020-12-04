@@ -10,6 +10,6 @@ class PengajuanSuratController extends Controller
     public function index()
     {
         # code...
-        return view('visitors.pelayanan.pengajuanSurat');
+        return view('visitors.pelayanan.pengajuan-surat');
     }
 }

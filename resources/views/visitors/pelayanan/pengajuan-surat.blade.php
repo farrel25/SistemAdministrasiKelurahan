@@ -5,7 +5,7 @@
     <div class="container mb-5">
 
         <div class="row justify-content-center" data-aos="fade-up">
-            <div class="col-lg-6 text-center">
+            <div class="col-lg-12 text-center">
                 <h2>Pengajuan Surat</h2>
                 <nav aria-label="breadcrumb">
                     <small>
