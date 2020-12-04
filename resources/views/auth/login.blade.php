@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => 'Kelurahan | Login'])
 
 @section('content')
-<div class="container">
+<!--<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -65,6 +65,78 @@
                             </div>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+<div class="container my-4">
+    <div class="card login-card">
+        <div class="row no-gutters">
+
+            <div class="col-md-5">
+                <img src="{{ asset('auth') }}/images/login_2.jpg" alt="login" class="login-card-img" />
+            </div>
+
+            <div class="col-md-7">
+                <div class="card-body">
+                    <div class="brand-wrapper">
+                        <!-- <img src="assets/images/logo.svg" alt="logo" class="logo" /> -->
+                        <h1 class="font-weight-bold">Kelurahan</h1>
+                    </div>
+
+                    <p class="login-card-description">Sign into your account</p>
+
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+
+                        <div class="form-group">
+                            <label for="email" class="sr-only">{{ __('E-Mail Address') }}</label>
+                            <input type="email" name="email" id="email"
+                                class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"
+                                placeholder="Email address" />
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="password" class="sr-only">Password</label>
+                            <input type="password" name="password" id="password"
+                                class="form-control @error('password') is-invalid @enderror"
+                                placeholder="***********" />
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
+                        <button type="submit" class="btn btn-block login-btn mb-4">
+                            {{ __('Login') }}
+                        </button>
+
+                    </form>
+
+                    @if (Route::has('password.request'))
+                    <a class="forgot-password-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                    @endif
+
+                    <p class="login-card-footer-text">
+                        Don't have an account?
+                        <a href="{{ route('register') }}" class="text-reset">Register here</a>
+                    </p>
+
+                    <nav class="login-card-footer-nav">
+                        <a href="{{ route('visitors.beranda.index') }}">Back to Home page</a>
+                    </nav>
                 </div>
             </div>
         </div>

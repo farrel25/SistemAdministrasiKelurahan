@@ -27,6 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     // pelayanan
     Route::get('/pelayanan/pengajuan-surat', 'PengajuanSuratController@index')->name('visitors.pelayanan.pengajuan-surat');
+    // Route::get('/pelayanan/pengajuan-surat', 'PengajuanSuratController@index')->name('visitors.pelayanan.pengajuan-surat')->withoutMiddleware('auth');
 });
 
 Route::get('/', 'HomeController@beranda')->name('visitors.beranda.index');
@@ -36,7 +37,6 @@ Route::get('/', 'HomeController@beranda')->name('visitors.beranda.index');
 // Route::get('profil_desa/administratif', 'ProfilDesaController@administratif');
 // Route::get('profil_desa/sejarah_visi_misi', 'ProfilDesaController@sejarah_visi_misi');
 // Route::get('profil_desa/struktur_pemerintahan', 'ProfilDesaController@struktur_pemerintahan');
-
 Route::get('/profil_desa/administratif', function () {
     return view('visitors.profil_desa.administratif.index');
 });
