@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,17 @@ use Illuminate\Support\Facades\Route;
 // });
 
 // Beranda
-Route::get('/', 'HomeController@index');
+// Route::get('/', 'HomeController@index');
+
+Auth::routes();
+
+Route::middleware('auth')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    // pelayanan
+    Route::get('/pelayanan/pengajuan-surat', 'PengajuanSuratController@index')->name('visitors.pelayanan.pengajuan-surat');
+});
+
+Route::get('/', 'HomeController@beranda')->name('visitors.beranda.index');
 
 // Profil
 // Route::get('profil_desa', 'ProfilDesaController@index');
@@ -31,7 +42,4 @@ Route::get('/profil_desa/administratif', function () {
 });
 
 // Artikel
-Route::view('/artikel', 'visitors.artikel.index');
-
-// pelayanan
-Route::get('/pelayanan/pengajuan-surat', 'PengajuanSuratController@index');
+Route::view('/artikel', 'visitors.artikel.index')->name('visitors.artikel.index');

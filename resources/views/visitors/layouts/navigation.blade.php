@@ -2,16 +2,24 @@
     <div class="container d-flex align-items-center">
 
         <div class="logo mr-auto">
-            <h1 class="text-light text-uppercase"><a href="/"><span>Kelurahan</span></a></h1>
+            <h1 class="text-light text-uppercase">
+                <a href="{{ route('visitors.beranda.index') }}">
+                    <span>Kelurahan</span>
+                </a>
+            </h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
         </div>
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="{{ request()->is('/') ? "active" : "" }}"><a href="/">Beranda</a></li>
-                <li class="{{ request()->is('artikel') ? "active" : "" }}"><a href="/artikel">Artikel</a></li>
-                <li class="drop-down{{ request()->is('profildesa') ? " active" : "" }}">
+                <li class="{{ request()->is('/') ? "active" : "" }}">
+                    <a href="{{ route('visitors.beranda.index') }}">Beranda</a>
+                </li>
+                <li class="{{ request()->is('artikel') ? "active" : "" }}">
+                    <a href="{{ route('visitors.artikel.index') }}">Artikel</a>
+                </li>
+                <li class="drop-down{{ request()->is('profil-desa') ? " active" : "" }}">
                     <a href="">Profil Desa</a>
                     <ul>
                         {{-- <li><a href="">Sejarah</a></li>
@@ -22,7 +30,7 @@
                         <li><a href="/profil_desa/administratif">Administratif</a></li>
                     </ul>
                 </li>
-                <li class="drop-down{{ request()->is('aktifitasdesa') ? " active" : "" }}">
+                <li class="drop-down{{ request()->is('kegiatan-masyarakat') ? " active" : "" }}">
                     <a href="">Kegiatan Masyarakat</a>
                     <ul>
                         <li><a href="">UMKM Masyarakat</a></li>
@@ -47,16 +55,29 @@
                 }
                 ?>
                 <li class="drop-down{{ activePelayanan(request()->path()) }}">
-                    <a href="/pelayanan/pengajuan-surat">Pelayanan</a>
+                    <a href="{{ route('visitors.pelayanan.pengajuan-surat') }}">Pelayanan</a>
                     <ul>
-                        <li><a href="/pelayanan/pengajuan-surat">Pengajuan Surat</a></li>
+                        <li><a href="{{ route('visitors.pelayanan.pengajuan-surat') }}">Pengajuan Surat</a></li>
                         <li><a href="">Pengaduan</a></li>
                         <li><a href="">Kontributor</a></li>
                     </ul>
                 </li>
 
-                <li class="btn-register"><a href="">Register</a></li>
-                <li class="btn-login"><a href="">Login</a></li>
+                @guest
+                <li class="btn-register"><a href="{{ route('register') }}">Register</a></li>
+                <li class="btn-login"><a href="{{ route('login') }}">Login</a></li>
+                @else
+                <li class="drop-down ml-5">
+                    {{-- <a href="">{{ Auth::user()->name }}</a> --}}
+                    <a href="">Hi, Farrel</a>
+                    {{-- <img src="https://www.pexels.com/photo/man-wearing-black-shirt-3211476/" alt=""
+                        class="img-fluid rounded-circle" width="10%"> --}}
+                    <ul>
+                        <li><a href="">Dashboard</a></li>
+                        <li><a href="">Logout</a></li>
+                    </ul>
+                </li>
+                @endguest
             </ul>
         </nav>
         <!-- .nav-menu -->
