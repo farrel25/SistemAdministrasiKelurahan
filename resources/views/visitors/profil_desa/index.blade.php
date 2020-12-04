@@ -1,4 +1,4 @@
-@extends('visitors.layouts.master', ['title' => "profil desa | Sejarah dan visi misi"])
+@extends('visitors.layouts.master', ['title' => "Profil Desa | Sejarah dan visi misi"])
 
 @section('content')
 {{-- Open Section --}}
@@ -27,7 +27,7 @@
                     <hr>
                     <blockquote class="blockquote">
                         <footer class="blockquote-footer">{{$menu->editor}},<cite title="Source Title">{{$menu->created_at->format("d M, Y")}}</cite></footer>
-                      </blockquote>
+                    </blockquote>
                     <nav aria-label="breadcrumb">
                         <br>
                         <p>{{$menu->text_1}}</p>

@@ -17,9 +17,9 @@
                         {{-- <li><a href="">Sejarah</a></li>
                         <li><a href="">Visi Misi</a></li>
                         <li><a href="">Struktur Pemerintahan</a></li> --}}
-                        <li><a href="">Sejarah dan Visi Misi</a></li>
-                        <li><a href="">Struktur Pemerintahan</a></li>
-                        <li><a href="">Administratif</a></li>
+                        <li><a href="#">Sejarah dan Visi Misi</a></li>
+                        <li><a href="#">Struktur Pemerintahan</a></li>
+                        <li><a href="/profil_desa/administratif">Administratif</a></li>
                     </ul>
                 </li>
                 <li class="drop-down{{ request()->is('aktifitasdesa') ? " active" : "" }}">
@@ -29,8 +29,7 @@
                         <li><a href="">Kegiatan Pemuda</a></li>
                     </ul>
                 </li>
-                {{-- <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a
-                    href="/administratif">Administratif</a>
+                {{-- <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a href="/administratif">Administratif</a>
                 <ul>
                     <li><a href="">Data Pendidikan</a></li>
                     <li><a href="">Data Pekerjaan</a></li>

@@ -3,7 +3,6 @@
 @section('content')
 <section id="page-title-pelayanan">
     <div class="container mb-5">
-
         <div class="row justify-content-center" data-aos="fade-up">
             <div class="col-lg-12 text-center">
                 <h2>Pengajuan Surat</h2>
@@ -16,19 +15,6 @@
                     </small>
                 </nav>
             </div>
-            {{-- <div class="col-lg-5">
-                <h2>Pengajuan Surat</h2>
-            </div>
-            <div class="col-lg-5">
-                <nav aria-label="breadcrumb">
-                    <small>
-                        <ol class="breadcrumb d-flex justify-content-end" style="background: none">
-                            <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Pengajuan Surat</li>
-                        </ol>
-                    </small>
-                </nav>
-            </div> --}}
         </div>
 
         <div class="row justify-content-center form-box" data-aos="fade-up" data-aos-delay="300">
@@ -65,8 +51,7 @@
                     </div>
                     <div class="custom-control custom-checkbox mt-2">
                         <input type="checkbox" class="custom-control-input" id="checkSetuju">
-                        <label class="custom-control-label" for="checkSetuju">Anda telah menyetujui segala <a
-                                href="">persyaratan dan ketentuan</a> yang berlaku</label>
+                        <label class="custom-control-label" for="checkSetuju">Anda telah menyetujui segala <a href="">persyaratan dan ketentuan</a> yang berlaku</label>
                     </div>
                     <div class="row justify-content-center mt-4">
                         <button type="submit" class="btn-submit">Kirim</button>

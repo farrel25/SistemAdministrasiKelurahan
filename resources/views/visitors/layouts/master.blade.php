@@ -11,8 +11,7 @@
     <script src="https://kit.fontawesome.com/95e7b49a0c.js" crossorigin="anonymous"></script>
 
     {{-- Font --}}
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     {{-- Vendor CSS files --}}
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/bootstrap/css/bootstrap.min.css">
@@ -39,6 +38,10 @@
     <script src="{{ asset('/visitors/vendor') }}/aos/aos.js"></script>
     <script src="{{ asset('/visitors/vendor') }}/slick/slick.min.js"></script>
 
+    {{-- Chart.js --}}
+    <script src="{{ asset('/visitors/vendor') }}/chart/Chart.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/chart/Chart.min.css">
+
     {{-- main css file --}}
     <link rel="stylesheet" href="{{ asset('/visitors/css') }}/style.css">
 
@@ -54,6 +57,15 @@
     @yield('content')
 
     <!-- Start Footer -->
+    {{-- Chart.js --}}
+
+    <script src="{{ asset('/visitors/vendor') }}/chart/Chart.min.js"></script>
+    <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/chart/Chart.min.css">
+
+
+    {{-- Main JS File --}}
+    <script src="{{ asset('/visitors/js') }}/main.js"></script>
+
     @include('visitors.layouts.footer')
     <!-- End Footer -->
 </body>

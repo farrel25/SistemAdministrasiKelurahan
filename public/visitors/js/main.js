@@ -242,8 +242,4 @@
     document.getElementById("doubleLink").onclick = function() {
         window.open("/");
     }
-
-    //Underline
-
-
 })(jQuery);
