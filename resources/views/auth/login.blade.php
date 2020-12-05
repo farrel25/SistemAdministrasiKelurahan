@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Kelurahan | Login'])
+@extends('layouts.app', ['title' => 'Kelurahan - Login'])
 
 @section('content')
 <!--<div class="container">
