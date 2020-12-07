@@ -58,7 +58,7 @@
                     <p class="description">Excepteur sint occaecat cupidatat </p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-4 mb-lg-0">
                 <div class="icon-box" data-aos="fade-up" data-aos-delay="400" style="width: 100%;">
                     <div class="icon"><i class="bx bx-world"></i></div>
                     <h4 class="title"><a href="">Category 4</a></h4>

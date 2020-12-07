@@ -143,9 +143,16 @@
             </div>
         </div>
         <div class="row justify-content-center pl-5 pr-5 pb-4">
-            <div class=" col sliderh">
+            <div class=" col sliderh product" id="product">
                 <div class="card m-3">
-                    <img src="{{ asset('/images') }}/img-umkm-1.png" class="card-img-top" alt="...">
+                    <div class="cart">
+                        <div class="cart-img">
+                            <img src="{{ asset('/images') }}/img-umkm-1.png" class="card-img-top" alt="...">
+                            <div class="social">
+                                <a href=""><i class="fas fa-shopping-basket"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body p-3">
                         <h5 class="card-title font-weight-bold  mb-0">Product </h5>
                         <p>Category</p>
@@ -160,7 +167,14 @@
                     </div>
                 </div>
                 <div class="card m-3">
-                    <img src="{{ asset('/images') }}/img-umkm-2.png" class="card-img-top" alt="...">
+                    <div class="cart">
+                        <div class="cart-img">
+                            <img src="{{ asset('/images') }}/img-umkm-2.png" class="card-img-top" alt="...">
+                            <div class="social">
+                                <a href=""><i class="fas fa-shopping-basket"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body p-3">
                         <h5 class="card-title font-weight-bold  mb-0">Product </h5>
                         <p>Category</p>
@@ -175,7 +189,14 @@
                     </div>
                 </div>
                 <div class="card m-3">
-                    <img src="{{ asset('/images') }}/img-umkm-3.png" class="card-img-top" alt="...">
+                    <div class="cart">
+                        <div class="cart-img">
+                            <img src="{{ asset('/images') }}/img-umkm-3.png" class="card-img-top" alt="...">
+                            <div class="social">
+                                <a href=""><i class="fas fa-shopping-basket"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body p-3">
                         <h5 class="card-title font-weight-bold  mb-0">Product </h5>
                         <p>Category</p>
@@ -190,7 +211,14 @@
                     </div>
                 </div>
                 <div class="card m-3">
-                    <img src="{{ asset('/images') }}/img-umkm-4.png" class="card-img-top" alt="...">
+                    <div class="cart">
+                        <div class="cart-img">
+                            <img src="{{ asset('/images') }}/img-umkm-4.png" class="card-img-top" alt="...">
+                            <div class="social">
+                                <a href=""><i class="fas fa-shopping-basket"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body p-3">
                         <h5 class="card-title font-weight-bold  mb-0">Product </h5>
                         <p>Category</p>
@@ -205,7 +233,14 @@
                     </div>
                 </div>
                 <div class="card m-3">
-                    <img src="{{ asset('/images') }}/img-umkm-5.png" class="card-img-top" alt="...">
+                    <div class="cart">
+                        <div class="cart-img">
+                            <img src="{{ asset('/images') }}/img-umkm-5.png" class="card-img-top" alt="...">
+                            <div class="social">
+                                <a href=""><i class="fas fa-shopping-basket"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body p-3">
                         <h5 class="card-title font-weight-bold  mb-0">Product </h5>
                         <p>Category</p>
@@ -220,7 +255,14 @@
                     </div>
                 </div>
                 <div class="card m-3">
-                    <img src="{{ asset('/images') }}/img-umkm-6.png" class="card-img-top" alt="...">
+                    <div class="cart">
+                        <div class="cart-img">
+                            <img src="{{ asset('/images') }}/img-umkm-6.png" class="card-img-top" alt="...">
+                            <div class="social">
+                                <a href=""><i class="fas fa-shopping-basket"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body p-3">
                         <h5 class="card-title font-weight-bold  mb-0">Product </h5>
                         <p>Category</p>
@@ -235,7 +277,14 @@
                     </div>
                 </div>
                 <div class="card m-3">
-                    <img src="{{ asset('/images') }}/img-umkm-7.png" class="card-img-top" alt="...">
+                    <div class="cart">
+                        <div class="cart-img">
+                            <img src="{{ asset('/images') }}/img-umkm-7.png" class="card-img-top" alt="...">
+                            <div class="social">
+                                <a href=""><i class="fas fa-shopping-basket"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body p-3">
                         <h5 class="card-title font-weight-bold  mb-0">Product </h5>
                         <p>Category</p>
@@ -250,7 +299,14 @@
                     </div>
                 </div>
                 <div class="card m-3">
-                    <img src="{{ asset('/images') }}/img-umkm-8.png" class="card-img-top" alt="...">
+                    <div class="cart">
+                        <div class="cart-img">
+                            <img src="{{ asset('/images') }}/img-umkm-8.png" class="card-img-top" alt="...">
+                            <div class="social">
+                                <a href=""><i class="fas fa-shopping-basket"></i></a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card-body p-3">
                         <h5 class="card-title font-weight-bold  mb-0">Product </h5>
                         <p>Category</p>
