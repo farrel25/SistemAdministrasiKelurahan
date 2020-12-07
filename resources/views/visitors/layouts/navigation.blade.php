@@ -33,12 +33,11 @@
                 <li class="drop-down{{ request()->is('kegiatan-masyarakat') ? " active" : "" }}">
                     <a href="">Kegiatan Masyarakat</a>
                     <ul>
-                        <li><a href="">UMKM Masyarakat</a></li>
+                        <li><a href="{{ route('visitors.kegiatan_masyarakat.umkm.index') }}">UMKM Masyarakat</a></li>
                         <li><a href="">Kegiatan Pemuda</a></li>
                     </ul>
                 </li>
-                {{-- <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a
-                    href="/administratif">Administratif</a>
+                {{-- <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a href="/administratif">Administratif</a>
                 <ul>
                     <li><a href="">Data Pendidikan</a></li>
                     <li><a href="">Data Pekerjaan</a></li>

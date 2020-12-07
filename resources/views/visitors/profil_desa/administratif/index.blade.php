@@ -1,36 +1,22 @@
 @extends('visitors.layouts.master', ['title' => "Profil Desa - Administratif"])
 
 @section('content')
-<style>
-    canvas {
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-    }
-</style>
+{{-- Start Breadcumb Section --}}
+@include('visitors.layouts.breadcumb', ['judul' => "Administratif"], ['page1' => "/ Profil Desa", 'page2' => "/ Administratif"])
+{{-- Start end Section --}}
+
 {{-- Start Administratif Section --}}
 <section id="administratif">
     <div class="container mb-5 ">
         <div class="row " data-aos="fade-up">
             <div class="col-lg-12 text-center mb-5 ">
-                <h2>Administratif</h2>
-                <nav aria-label="breadcrumb">
-                    <small>
-                        <ol class="breadcrumb justify-content-center" style="background: none">
-                            <li class="breadcrumb-item"><a href="/">Beranda</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Profil Desa</li>
-                            <li class="breadcrumb-item active" aria-current="page">Administratif</li>
-                        </ol>
-                    </small>
-                </nav>
-                <div class=" btn-administratif mt-4 ">
-                    <button type="button" class="btn btn-outline-dark active btn-responsive">Jenis Kelamin</button>
-                    <a href="/profil_desa/administratif/pendidikan"><button type="button"
-                            class="btn btn-outline-dark btn-responsive">Pendidikan</button></a>
-                    <button type="button" class="btn btn-outline-dark btn-responsive">Pekerjaan</button>
-                    <button type="button" class="btn btn-outline-dark btn-responsive">Agama</button>
-                    <button type="button" class="btn btn-outline-dark btn-responsive">Wilayah</button>
-                    <button type="button" class="btn btn-outline-dark btn-responsive">Warga Negara</button>
+                <div class=" btn-administratif  ">
+                    <button type="button" class="btn btn-outline-dark active btn-responsive rainbow-5">Jenis Kelamin</button>
+                    <button type="button" class="btn btn-outline-dark btn-responsive rainbow-5">Pendidikan</button>
+                    <button type="button" class="btn btn-outline-dark btn-responsive rainbow-5">Pekerjaan</button>
+                    <button type="button" class="btn btn-outline-dark btn-responsive rainbow-5">Agama</button>
+                    <button type="button" class="btn btn-outline-dark btn-responsive rainbow-5">Wilayah</button>
+                    <button type="button" class="btn btn-outline-dark btn-responsive rainbow-5">Warga Negara</button>
                 </div>
             </div>
         </div>
@@ -38,43 +24,22 @@
             <div class="col-11 m-5">
                 <canvas id="kelamin" width="400vw" height="150vh"></canvas>
                 <script>
-                    var options = {
-                        tooltips: {
-                            enabled: false
-                        },
-                        plugins: {
-                            datalabels: {
-                                formatter: (value, ctx) => {
-                                    let datasets = ctx.chart.data.datasets;
-                                    if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
-                                        let sum = datasets[0].data.reduce((a, b) => a + b, 0);
-                                        let percentage = Math.round((value / sum) * 100) + '%';
-                                        return percentage;
-                                    } else {
-                                        return percentage;
-                                    }
-                                },
-                                color: '#fff',
-                            }
-                        }
-                    };
                     var config = {
                         type: 'bar',
                         data: {
                             datasets: [{
                                 data: [19, 20],
                                 backgroundColor: [
-                                    '#aaa',
-                                    '#ddd'
+                                    '#fe5670',
+                                    '#3c50e0'
                                 ],
-                                label: 'Dataset 1'
+                                label: 'Jenis Kelamin'
                             }],
                             labels: [
                                 'Laki-laki',
                                 'Perempuan'
                             ]
                         },
-                        options: options,
                         options: {
                             legend: {
                                 display: true,
@@ -92,8 +57,6 @@
                                     }
                                 }]
                             }
-
-
                         }
                     };
                     window.onload = function() {
@@ -102,7 +65,6 @@
                     };
                 </script>
             </div>
-
         </div>
         <div class="row my-shadow justify-content-center mt-5 pt-5 pb-5 pr-4 pl-4 ">
             <div class="col-12 table-responsive">
@@ -143,39 +105,3 @@
 </section>
 {{-- End Administratif Section --}}
 @endsection
-<script type="text/javascript">
-    $('.mySlider').slick({
-        infinite: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        responsive: [{
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-            // You can unslick at a given breakpoint now by adding:
-            // settings: "unslick"
-            // instead of a settings object
-        ]
-    });
-</script>

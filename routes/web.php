@@ -41,5 +41,10 @@ Route::get('/profil-desa/administratif', function () {
     return view('visitors.profil_desa.administratif.index');
 })->name('visitors.profil_desa.administratif.index');
 
+Route::get('/kegiatan-masyarakat/umkm', function () {
+    return view('visitors.kegiatan_masyarakat.umkm.index');
+})->name('visitors.kegiatan_masyarakat.umkm.index');
+
+
 // Artikel
 Route::view('/artikel', 'visitors.artikel.index')->name('visitors.artikel.index');

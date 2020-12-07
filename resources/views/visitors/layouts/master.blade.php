@@ -47,6 +47,10 @@
 
     {{-- Main JS File --}}
     <script src="{{ asset('/visitors/js') }}/main.js"></script>
+
+    {{-- Comerce.js --}}
+    <script type="text/javascript" src="https://cdn.chec.io/v2/commerce.js"></script>
+
 </head>
 
 <body>
