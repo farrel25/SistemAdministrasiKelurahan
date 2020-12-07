@@ -69,13 +69,19 @@
                 <li class="btn-login"><a href="{{ route('login') }}">Login</a></li>
                 @else
                 <li class="drop-down ml-5">
-                    {{-- <a href="">{{ Auth::user()->name }}</a> --}}
-                    <a href="">Hi, Farrel</a>
+                    <a href="#">Hi, {{ Auth::user()->full_name }}</a>
+                    {{-- <a href="">Hi, Farrel</a> --}}
                     {{-- <img src="https://www.pexels.com/photo/man-wearing-black-shirt-3211476/" alt=""
                         class="img-fluid rounded-circle" width="10%"> --}}
                     <ul>
-                        <li><a href="">Dashboard</a></li>
-                        <li><a href="">Logout</a></li>
+                        <li><a href="#">Dashboard</a></li>
+                        <li>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                        </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
                     </ul>
                 </li>
                 @endguest

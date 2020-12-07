@@ -18,7 +18,7 @@
                         </small>
                     </h4>
 
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" novalidate>
                         @csrf
 
                         <div class="form-row">
@@ -27,20 +27,28 @@
                                 <small>
                                     <label for="nik">NIK</label>
                                 </small>
-                                <input type="text" class="form-control" id="nik" name="nik" placeholder="NIK"
-                                    autofocus />
+
+                                <input type="text" id="nik" name="nik" placeholder="NIK"
+                                    class="form-control @error('nik') is-invalid @enderror" autofocus
+                                    value="{{ old('nik') }}" />
+
+                                @error('nik')
+                                <span class=" invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
 
                             <div class="form-group col-md-6">
                                 <small>
-                                    <label for="nama_lengkap">Nama Lengkap</label>
+                                    <label for="full_name">Nama Lengkap</label>
                                 </small>
 
-                                <input type="text" id="nama_lengkap" placeholder="Nama Lengkap"
-                                    class="form-control @error('name') is-invalid @enderror" name="name"
-                                    value="{{ old('name') }}" required autocomplete="name" />
+                                <input type="text" id="full_name" placeholder="Nama Lengkap"
+                                    class="form-control @error('full_name') is-invalid @enderror" name="full_name"
+                                    value="{{ old('full_name') }}" required />
 
-                                @error('name')
+                                @error('full_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -49,20 +57,38 @@
 
                         </div>
 
-                        <div class="form-group">
-                            <small>
-                                <label for="email">{{ __('E-Mail Address') }}</label>
-                            </small>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <small>
+                                    <label for="email">{{ __('E-Mail') }}</label>
+                                </small>
 
-                            <input type="email" name="email" id="email" placeholder="Email address"
-                                class="form-control @error('email') is-invalid @enderror" name="email"
-                                value="{{ old('email') }}" required autocomplete="email" />
+                                <input type="email" name="email" id="email" placeholder="Email address"
+                                    class="form-control @error('email') is-invalid @enderror" name="email"
+                                    value="{{ old('email') }}" required autocomplete="email" />
 
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <small>
+                                    <label for="phone">No. Hp</label>
+                                </small>
+
+                                <input type="text" id="phone" placeholder="08xxxxxxxxxx"
+                                    class="form-control @error('phone') is-invalid @enderror" name="phone"
+                                    value="{{ old('phone') }}" required />
+
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
 
                         <div class="form-row">
