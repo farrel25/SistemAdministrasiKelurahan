@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserLevelSeeder::class,
             LetterDocumentSeeder::class,
-            LetterTypeSeeder::class
+            LetterTypeSeeder::class,
+            LetterStatusSeeder::class,
         ]);
     }
 }

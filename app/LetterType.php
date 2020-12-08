@@ -12,4 +12,9 @@ class LetterType extends Model
     {
         return $this->belongsToMany(LetterDocument::class);
     }
+
+    public function letterSubmissions()
+    {
+        return $this->hasMany(LetterSubmission::class);
+    }
 }

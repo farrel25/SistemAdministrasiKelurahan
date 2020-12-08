@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(UserLevel::class, 'user_level_id');
     }
+
+    public function letterSubmissions()
+    {
+        return $this->hasMany(LetterSubmission::class);
+    }
 }

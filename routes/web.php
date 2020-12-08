@@ -30,8 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/pelayanan/pengajuan-surat', 'LetterSubmissionController@store')->name('pengajuan-surat.store');
 });
 
+
 // Beranda
 Route::get('/', 'HomeController@beranda')->name('visitors.beranda.index');
+
 
 // Profil
 // Route::get('profil-desa', 'ProfilDesaController@index');
@@ -41,6 +43,7 @@ Route::get('/', 'HomeController@beranda')->name('visitors.beranda.index');
 Route::get('/profil-desa/administratif', function () {
     return view('visitors.profil_desa.administratif.index');
 })->name('visitors.profil_desa.administratif.index');
+
 
 // kegiatan masyarakat
 Route::get('/kegiatan-masyarakat/umkm', function () {

@@ -11,7 +11,8 @@
     <script src="https://kit.fontawesome.com/95e7b49a0c.js" crossorigin="anonymous"></script>
 
     {{-- Font --}}
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     {{-- Vendor CSS files --}}
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/bootstrap/css/bootstrap.min.css">
@@ -72,6 +73,7 @@
 
     @include('visitors.layouts.footer')
     <!-- End Footer -->
+
 </body>
 
 </html>
