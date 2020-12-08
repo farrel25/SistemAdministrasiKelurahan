@@ -37,7 +37,8 @@
                         <li><a href="">Kegiatan Pemuda</a></li>
                     </ul>
                 </li>
-                {{-- <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a href="/administratif">Administratif</a>
+                {{-- <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a
+                    href="/administratif">Administratif</a>
                 <ul>
                     <li><a href="">Data Pendidikan</a></li>
                     <li><a href="">Data Pekerjaan</a></li>
@@ -67,11 +68,13 @@
                 <li class="btn-register"><a href="{{ route('register') }}">Register</a></li>
                 <li class="btn-login"><a href="{{ route('login') }}">Login</a></li>
                 @else
+                <?php
+                $name = explode(' ',Auth::user()->full_name);
+                $nickname = $name[0];
+                ?>
                 <li class="drop-down ml-5">
-                    <a href="#">Hi, {{ Auth::user()->full_name }}</a>
-                    {{-- <a href="">Hi, Farrel</a> --}}
-                    {{-- <img src="https://www.pexels.com/photo/man-wearing-black-shirt-3211476/" alt=""
-                        class="img-fluid rounded-circle" width="10%"> --}}
+                    {{-- <a href="#">Hi, {{ Auth::user()->full_name }}</a> --}}
+                    <a href="#">Hai, {{ $nickname }}</a>
                     <ul>
                         <li><a href="#">Dashboard</a></li>
                         <li>
