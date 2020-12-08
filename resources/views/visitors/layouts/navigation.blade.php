@@ -55,9 +55,9 @@
                 }
                 ?>
                 <li class="drop-down{{ activePelayanan(request()->path()) }}">
-                    <a href="{{ route('visitors.pelayanan.pengajuan-surat') }}">Pelayanan</a>
+                    <a href="{{ route('pengajuan-surat.create') }}">Pelayanan</a>
                     <ul>
-                        <li><a href="{{ route('visitors.pelayanan.pengajuan-surat') }}">Pengajuan Surat</a></li>
+                        <li><a href="{{ route('pengajuan-surat.create') }}">Pengajuan Surat</a></li>
                         <li><a href="">Pengaduan</a></li>
                         <li><a href="">Kontributor</a></li>
                     </ul>

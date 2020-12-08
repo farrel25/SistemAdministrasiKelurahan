@@ -19,7 +19,9 @@
 
         <div class="row justify-content-center form-box" data-aos="fade-up" data-aos-delay="300">
             <div class="col-lg-10 mt-4">
-                <form action="" method="post">
+                <form action="{{ route('pengajuan-surat.store') }}" method="post">
+                    @csrf
+
                     <div class="form-row justify-content-between">
                         <div class="form-group col-md-6">
                             <label for="nik">NIK</label>
@@ -51,7 +53,8 @@
                     </div>
                     <div class="custom-control custom-checkbox mt-2">
                         <input type="checkbox" class="custom-control-input" id="checkSetuju">
-                        <label class="custom-control-label" for="checkSetuju">Anda telah menyetujui segala <a href="">persyaratan dan ketentuan</a> yang berlaku</label>
+                        <label class="custom-control-label" for="checkSetuju">Anda telah menyetujui segala <a
+                                href="">persyaratan dan ketentuan</a> yang berlaku</label>
                     </div>
                     <div class="row justify-content-center mt-4">
                         <button type="submit" class="btn-submit">Kirim</button>

@@ -25,8 +25,9 @@ Auth::routes();
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
     // pelayanan
-    Route::get('/pelayanan/pengajuan-surat', 'PengajuanSuratController@index')->name('visitors.pelayanan.pengajuan-surat');
-    // Route::get('/pelayanan/pengajuan-surat', 'PengajuanSuratController@index')->name('visitors.pelayanan.pengajuan-surat')->withoutMiddleware('auth');
+    // Route::get('/pelayanan/pengajuan-surat', 'LetterSubmissionController@create')->name('visitors.pelayanan.pengajuan-surat')->withoutMiddleware('auth');
+    Route::get('/pelayanan/pengajuan-surat', 'LetterSubmissionController@create')->name('pengajuan-surat.create');
+    Route::post('/pelayanan/pengajuan-surat', 'LetterSubmissionController@store')->name('pengajuan-surat.store');
 });
 
 // Beranda
@@ -41,6 +42,7 @@ Route::get('/profil-desa/administratif', function () {
     return view('visitors.profil_desa.administratif.index');
 })->name('visitors.profil_desa.administratif.index');
 
+// kegiatan masyarakat
 Route::get('/kegiatan-masyarakat/umkm', function () {
     return view('visitors.kegiatan_masyarakat.umkm.index');
 })->name('visitors.kegiatan_masyarakat.umkm.index');
