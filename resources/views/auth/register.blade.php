@@ -33,7 +33,7 @@
                                     value="{{ old('nik') }}" />
 
                                 @error('nik')
-                                <span class=" invalid-feedback" role="alert">
+                                <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror

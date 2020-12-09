@@ -18,7 +18,8 @@
 {{-- Start carousel section --}}
 <section id="carousel">
     <div class="container mb-4 mt-4  ">
-        <div id="carouselExampleIndicators" class="carousel slide " data-aos="fade-up" data-aos-delay="800" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide " data-aos="fade-up" data-aos-delay="800"
+            data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -56,18 +57,21 @@
 <section id="services">
     <div class="container mt-4">
         <div class="row justify-content-center">
-            <div class="col-lg-3 text-center p-3" data-aos="fade-up" data-aos-delay="400">
+            <a href="{{ route('pengajuan-surat.create') }}" class="col-lg-3 text-center text-dark p-3"
+                data-aos="fade-up" data-aos-delay="400">
                 <span style="color: #EEF5FF;">
-                    <i class="fas fa-envelope fa-3x p-4" style="width: 100px; height: 100px; background-color:#FE5670; border-radius:50%;"></i>
+                    <i class="fas fa-envelope fa-3x p-4"
+                        style="width: 100px; height: 100px; background-color:#FE5670; border-radius:50%;"></i>
                 </span>
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Pengajuan Surat</h4>
                 <p class=" small"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sed perspiciatis vel
                     placeat, dicta
                     molestias quidem sequi. Adipisci, cupiditate laborum.</p>
-            </div>
+            </a>
             <div class=" col-lg-3 text-center p-3" data-aos="fade-up" data-aos-delay="500">
                 <span style="color: #EEF5FF;">
-                    <i class="fas fa-exclamation-triangle fa-3x p-4" style="width: 100px; height: 100px; background-color:#F8B000; border-radius:50%;"></i>
+                    <i class="fas fa-exclamation-triangle fa-3x p-4"
+                        style="width: 100px; height: 100px; background-color:#F8B000; border-radius:50%;"></i>
                 </span>
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Pengaduan</h4>
                 <p class=" small"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sed perspiciatis vel
@@ -76,7 +80,8 @@
             </div>
             <div class="col-lg-3 text-center p-3" data-aos="fade-up" data-aos-delay="800">
                 <span style="color: #EEF5FF;">
-                    <i class="fas fa-pencil-alt fa-3x p-4" style="width: 100px; height: 100px; background-color:#3C50E0; border-radius:50%;"></i>
+                    <i class="fas fa-pencil-alt fa-3x p-4"
+                        style="width: 100px; height: 100px; background-color:#3C50E0; border-radius:50%;"></i>
                 </span>
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Kontributor Berita</h4>
                 <p class=" small"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sed perspiciatis vel
@@ -90,7 +95,8 @@
 
 {{-- Start Card 1 Section --}}
 <section id="card1">
-    <div class="container mt-5 mb-4 w-100 br-full " data-aos="fade-up" data-aos-delay="400" style=" background-image:url('images/bgrd-1.png');">
+    <div class="container mt-5 mb-4 w-100 br-full " data-aos="fade-up" data-aos-delay="400"
+        style=" background-image:url('images/bgrd-1.png');">
         <div class="row align-self-center ">
             <div class=" col text-center mt-4 ">
                 <h1 style="font-weight: 600;">Kegiatan Pemuda</h1>
@@ -100,7 +106,8 @@
             <div class="col align-self-center sliderv">
                 <div class="card m-3">
                     <div class="card-body">
-                        <img src="{{ asset('/images') }}/img-kp-1.png" class=" float-left mr-4 w-auto mb-3 rounded-lg" alt="Responsive image">
+                        <img src="{{ asset('/images') }}/img-kp-1.png" class=" float-left mr-4 w-auto mb-3 rounded-lg"
+                            alt="Responsive image">
                         <h5 class="card-title" style="font-weight: 700;">Kegiatan 1</h5>
                         <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
                             Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
@@ -110,7 +117,8 @@
                 </div>
                 <div class="card m-3">
                     <div class="card-body">
-                        <img src="{{ asset('/images') }}/img-kp-2.png" class=" float-left mr-4 w-auto  mb-3 rounded-lg" alt="Responsive image">
+                        <img src="{{ asset('/images') }}/img-kp-2.png" class=" float-left mr-4 w-auto  mb-3 rounded-lg"
+                            alt="Responsive image">
                         <h5 class="card-title" style="font-weight: 700;">Kegiatan 2</h5>
                         <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
                             Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
@@ -120,7 +128,8 @@
                 </div>
                 <div class="card m-3">
                     <div class="card-body">
-                        <img src="{{ asset('/images') }}/img-kp-3.png" class=" float-left mr-4 w-auto mb-3 rounded-lg" alt="Responsive image">
+                        <img src="{{ asset('/images') }}/img-kp-3.png" class=" float-left mr-4 w-auto mb-3 rounded-lg"
+                            alt="Responsive image">
                         <h5 class="card-title" style="font-weight: 700;">Kegiatan 3</h5>
                         <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
                             Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
@@ -136,7 +145,8 @@
 
 {{-- Start Card 2 Section --}}
 <section id="card2">
-    <div class=" container mt-5 w-100 br-full" data-aos="fade-up" data-aos-delay="400" style="background-image:url('images/bgrd-2.png'); ">
+    <div class=" container mt-5 w-100 br-full" data-aos="fade-up" data-aos-delay="400"
+        style="background-image:url('images/bgrd-2.png'); ">
         <div class="row align-self-center ">
             <div class="col text-center align-self-center mt-4">
                 <h1 style="font-weight: 600;">UMKM</h1>
@@ -459,8 +469,11 @@
                                 <li><a href="#">2</a></li>
                                 <li><a href="#">3</a></li>
                                 <li><a href="#">
-                                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                        <svg width="1em" height="1em" viewBox="0 0 16 16"
+                                            class="bi bi-arrow-right-short" fill="currentColor"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
                                         </svg>
                                     </a></li>
                             </ul>

@@ -24,6 +24,11 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
+
+    // dashboard
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+
     // pelayanan
     // Route::get('/pelayanan/pengajuan-surat', 'LetterSubmissionController@create')->name('visitors.pelayanan.pengajuan-surat')->withoutMiddleware('auth');
     Route::get('/pelayanan/pengajuan-surat', 'LetterSubmissionController@create')->name('pengajuan-surat.create');

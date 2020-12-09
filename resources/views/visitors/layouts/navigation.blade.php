@@ -76,7 +76,7 @@
                     {{-- <a href="#">Hi, {{ Auth::user()->full_name }}</a> --}}
                     <a href="#">Hai, {{ $nickname }}</a>
                     <ul>
-                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         <li>
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>

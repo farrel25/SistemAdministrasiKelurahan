@@ -27,14 +27,15 @@
                 </div>
                 @endif
 
-                <form action="{{ route('pengajuan-surat.store') }}" method="post">
+                <form action="{{ route('pengajuan-surat.store') }}" method="post" novalidate>
                     @csrf
 
                     <div class="form-row">
 
                         <div class="form-group col-md-6">
-                            <label for="nik">NIK</label>
-                            <input type="text" name="nik" id="nik" placeholder="16 digit" class="form-control">
+                            <label for="nik">NIK<span class="text-danger">*</span></label>
+                            <input type="text" name="nik" id="nik" placeholder="16 digit" class="form-control"
+                                value="{{ old('nik') }}">
                             @error('nik')
                             <small>
                                 <font style="color: red; font-style: italic">{{$message}}</font>
@@ -43,8 +44,9 @@
                         </div>
 
                         <div class="form-group col-md-6">
-                            <label for="full_name">Nama Lengkap</label>
-                            <input type="text" name="full_name" class="form-control" id="full_name">
+                            <label for="full_name">Nama Lengkap<span class="text-danger">*</span></label>
+                            <input type="text" name="full_name" class="form-control" id="full_name"
+                                value="{{ old('full_name') }}">
                             @error('full_name')
                             <small>
                                 <font style="color: red; font-style: italic">{{$message}}</font>
@@ -57,8 +59,8 @@
                     <div class="form-row">
 
                         <div class="form-group col-md-6">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" id="email">
+                            <label for="email">Email<span class="text-danger">*</span></label>
+                            <input type="email" name="email" class="form-control" id="email" value="{{ old('email') }}">
                             @error('email')
                             <small>
                                 <font style="color: red; font-style: italic">{{$message}}</font>
@@ -68,9 +70,12 @@
 
                         <div class="form-group col-md-6">
 
-                            <label for="letter_type">Jenis Surat</label>
-                            <select name="letter_type_id" id="letter_type" class="form-control">
-                                <option selected>Pilih...</option>
+                            <label for="letter_type">Jenis Surat<span class="text-danger">*</span></label>
+
+                            <select name="letter_type_id" id="letter_type" class="form-control"
+                                value="{{ old('letter_type_id') }}">
+                                <option>Pilih...</option>
+
                                 @foreach ($letterTypes as $letterType)
                                 <option value="{{ $letterType->id }}">
                                     Surat {{$letterType->type}}
@@ -92,7 +97,9 @@
 
                         <div class="form-group col-md-12">
                             <label for="keterangan">Keterangan</label>
-                            <textarea class="form-control" name="keterangan" id="keterangan" rows="4"></textarea>
+                            <textarea class="form-control" name="keterangan" id="keterangan" rows="4">
+                                {{ old('keterangan') }}
+                            </textarea>
                         </div>
 
                     </div>
