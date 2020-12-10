@@ -7,10 +7,11 @@
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
+    <script src="https://kit.fontawesome.com/95e7b49a0c.js" crossorigin="anonymous"></script>
+    <script src="http://www.pixeden.com/icon-fonts/stroke-7-icon-font-set"></script>
     <title>Kelurahan - Dashboard</title>
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
 
@@ -27,6 +28,8 @@
 
     {{-- <link href="./main.css" rel="stylesheet"> --}}
     <link href="{{ asset('/admin') }}/css/main.css" rel="stylesheet">
+    <link href="{{ asset('/admin') }}/css/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="{{ asset('/admin') }}/css/helper.css" rel="stylesheet">
 </head>
 
 <body>
@@ -42,8 +45,7 @@
 
                 <div class="header__pane ml-auto">
                     <div>
-                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
-                            data-class="closed-sidebar">
+                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                             <span class="hamburger-box">
                                 <span class="hamburger-inner"></span>
                             </span>
@@ -65,8 +67,7 @@
 
             <div class="app-header__menu">
                 <span>
-                    <button type="button"
-                        class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                    <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
                         <span class="btn-icon-wrapper">
                             <i class="fa fa-ellipsis-v fa-w-6"></i>
                         </span>
@@ -110,14 +111,11 @@
                             <div class="widget-content-wrapper">
                                 <div class="widget-content-left">
                                     <div class="btn-group">
-                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                            class="p-0 btn">
-                                            <img width="42" class="rounded-circle"
-                                                src="{{ asset('/admin') }}/images/avatars/1.jpg" alt="">
+                                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
+                                            <img width="42" class="rounded-circle" src="{{ asset('/admin') }}/images/avatars/1.jpg" alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
-                                        <div tabindex="-1" role="menu" aria-hidden="true"
-                                            class="dropdown-menu dropdown-menu-right">
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                             <button type="button" tabindex="0" class="dropdown-item">User
                                                 Account</button>
                                             <button type="button" tabindex="0" class="dropdown-item">Settings</button>
@@ -137,8 +135,7 @@
                                     </div>
                                 </div>
                                 <div class="widget-content-right header-user-info ml-3">
-                                    <button type="button"
-                                        class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
+                                    <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
                                         <i class="fa text-white fa-calendar pr-1 pl-1"></i>
                                     </button>
                                 </div>
@@ -524,8 +521,7 @@
                     <div class="logo-src"></div>
                     <div class="header__pane ml-auto">
                         <div>
-                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
-                                data-class="closed-sidebar">
+                            <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                                 <span class="hamburger-box">
                                     <span class="hamburger-inner"></span>
                                 </span>
@@ -546,8 +542,7 @@
 
                 <div class="app-header__menu">
                     <span>
-                        <button type="button"
-                            class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
+                        <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
                             <span class="btn-icon-wrapper">
                                 <i class="fa fa-ellipsis-v fa-w-6"></i>
                             </span>
@@ -746,8 +741,7 @@
                             </li>
                             <li class="app-sidebar__heading">PRO Version</li>
                             <li>
-                                <a href="https://dashboardpack.com/theme-details/architectui-dashboard-html-pro/"
-                                    target="_blank">
+                                <a href="https://dashboardpack.com/theme-details/architectui-dashboard-html-pro/" target="_blank">
                                     <i class="metismenu-icon pe-7s-graph2">
                                     </i>
                                     Upgrade to PRO
@@ -776,20 +770,17 @@
                                 </div>
                             </div>
                             <div class="page-title-actions">
-                                <button type="button" data-toggle="tooltip" title="Example Tooltip"
-                                    data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
+                                <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
                                     <i class="fa fa-star"></i>
                                 </button>
                                 <div class="d-inline-block dropdown">
-                                    <button type="button" data-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
                                         <span class="btn-icon-wrapper pr-2 opacity-7">
                                             <i class="fa fa-business-time fa-w-20"></i>
                                         </span>
                                         Buttons
                                     </button>
-                                    <div tabindex="-1" role="menu" aria-hidden="true"
-                                        class="dropdown-menu dropdown-menu-right">
+                                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
                                                 <a href="javascript:void(0);" class="nav-link">
@@ -894,10 +885,8 @@
                                         Sales Report
                                     </div>
                                     <ul class="nav">
-                                        <li class="nav-item"><a href="javascript:void(0);"
-                                                class="active nav-link">Last</a></li>
-                                        <li class="nav-item"><a href="javascript:void(0);"
-                                                class="nav-link second-tab-toggle">Current</a></li>
+                                        <li class="nav-item"><a href="javascript:void(0);" class="active nav-link">Last</a></li>
+                                        <li class="nav-item"><a href="javascript:void(0);" class="nav-link second-tab-toggle">Current</a></li>
                                     </ul>
                                 </div>
                                 <div class="card-body">
@@ -905,25 +894,21 @@
                                         <div class="tab-pane fade show active" id="tabs-eg-77">
                                             <div class="card mb-3 widget-chart widget-chart2 text-left w-100">
                                                 <div class="widget-chat-wrapper-outer">
-                                                    <div
-                                                        class="widget-chart-wrapper widget-chart-wrapper-lg opacity-10 m-0">
+                                                    <div class="widget-chart-wrapper widget-chart-wrapper-lg opacity-10 m-0">
                                                         <canvas id="canvas"></canvas>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h6
-                                                class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal">
+                                            <h6 class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal">
                                                 Top Authors</h6>
                                             <div class="scroll-area-sm">
                                                 <div class="scrollbar-container">
-                                                    <ul
-                                                        class="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
+                                                    <ul class="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
                                                         <li class="list-group-item">
                                                             <div class="widget-content p-0">
                                                                 <div class="widget-content-wrapper">
                                                                     <div class="widget-content-left mr-3">
-                                                                        <img width="42" class="rounded-circle"
-                                                                            src="assets/images/avatars/9.jpg" alt="">
+                                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/9.jpg" alt="">
                                                                     </div>
                                                                     <div class="widget-content-left">
                                                                         <div class="widget-heading">Ella-Rose Henry
@@ -947,8 +932,7 @@
                                                             <div class="widget-content p-0">
                                                                 <div class="widget-content-wrapper">
                                                                     <div class="widget-content-left mr-3">
-                                                                        <img width="42" class="rounded-circle"
-                                                                            src="assets/images/avatars/5.jpg" alt="">
+                                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/5.jpg" alt="">
                                                                     </div>
                                                                     <div class="widget-content-left">
                                                                         <div class="widget-heading">Ruben Tillman</div>
@@ -970,8 +954,7 @@
                                                             <div class="widget-content p-0">
                                                                 <div class="widget-content-wrapper">
                                                                     <div class="widget-content-left mr-3">
-                                                                        <img width="42" class="rounded-circle"
-                                                                            src="assets/images/avatars/4.jpg" alt="">
+                                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/4.jpg" alt="">
                                                                     </div>
                                                                     <div class="widget-content-left">
                                                                         <div class="widget-heading">Vinnie Wagstaff
@@ -995,8 +978,7 @@
                                                             <div class="widget-content p-0">
                                                                 <div class="widget-content-wrapper">
                                                                     <div class="widget-content-left mr-3">
-                                                                        <img width="42" class="rounded-circle"
-                                                                            src="assets/images/avatars/3.jpg" alt="">
+                                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/3.jpg" alt="">
                                                                     </div>
                                                                     <div class="widget-content-left">
                                                                         <div class="widget-heading">Ella-Rose Henry
@@ -1020,8 +1002,7 @@
                                                             <div class="widget-content p-0">
                                                                 <div class="widget-content-wrapper">
                                                                     <div class="widget-content-left mr-3">
-                                                                        <img width="42" class="rounded-circle"
-                                                                            src="assets/images/avatars/2.jpg" alt="">
+                                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/2.jpg" alt="">
                                                                     </div>
                                                                     <div class="widget-content-left">
                                                                         <div class="widget-heading">Ruben Tillman</div>
@@ -1056,11 +1037,9 @@
                                     </div>
                                     <div class="btn-actions-pane-right">
                                         <div class="nav">
-                                            <a href="javascript:void(0);"
-                                                class="border-0 btn-pill btn-wide btn-transition active btn btn-outline-alternate">Tab
+                                            <a href="javascript:void(0);" class="border-0 btn-pill btn-wide btn-transition active btn btn-outline-alternate">Tab
                                                 1</a>
-                                            <a href="javascript:void(0);"
-                                                class="ml-1 btn-pill btn-wide border-0 btn-transition  btn btn-outline-alternate second-tab-toggle-alt">Tab
+                                            <a href="javascript:void(0);" class="ml-1 btn-pill btn-wide border-0 btn-transition  btn btn-outline-alternate second-tab-toggle-alt">Tab
                                                 2</a>
                                         </div>
                                     </div>
@@ -1096,12 +1075,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="widget-progress-wrapper mt-1">
-                                                                <div
-                                                                    class="progress-bar-sm progress-bar-animated-alt progress">
-                                                                    <div class="progress-bar bg-danger"
-                                                                        role="progressbar" aria-valuenow="63"
-                                                                        aria-valuemin="0" aria-valuemax="100"
-                                                                        style="width: 63%;"></div>
+                                                                <div class="progress-bar-sm progress-bar-animated-alt progress">
+                                                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100" style="width: 63%;"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1121,12 +1096,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="widget-progress-wrapper mt-1">
-                                                                <div
-                                                                    class="progress-bar-sm progress-bar-animated-alt progress">
-                                                                    <div class="progress-bar bg-success"
-                                                                        role="progressbar" aria-valuenow="32"
-                                                                        aria-valuemin="0" aria-valuemax="100"
-                                                                        style="width: 32%;"></div>
+                                                                <div class="progress-bar-sm progress-bar-animated-alt progress">
+                                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100" style="width: 32%;"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1146,12 +1117,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="widget-progress-wrapper mt-1">
-                                                                <div
-                                                                    class="progress-bar-sm progress-bar-animated-alt progress">
-                                                                    <div class="progress-bar bg-primary"
-                                                                        role="progressbar" aria-valuenow="71"
-                                                                        aria-valuemin="0" aria-valuemax="100"
-                                                                        style="width: 71%;"></div>
+                                                                <div class="progress-bar-sm progress-bar-animated-alt progress">
+                                                                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1171,12 +1138,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="widget-progress-wrapper mt-1">
-                                                                <div
-                                                                    class="progress-bar-sm progress-bar-animated-alt progress">
-                                                                    <div class="progress-bar bg-warning"
-                                                                        role="progressbar" aria-valuenow="41"
-                                                                        aria-valuemin="0" aria-valuemax="100"
-                                                                        style="width: 41%;"></div>
+                                                                <div class="progress-bar-sm progress-bar-animated-alt progress">
+                                                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100" style="width: 41%;"></div>
                                                                 </div>
                                                             </div>
                                                         </div>

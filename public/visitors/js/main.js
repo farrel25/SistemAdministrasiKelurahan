@@ -242,4 +242,6 @@
     document.getElementById("doubleLink").onclick = function() {
         window.open("/");
     }
+
+
 })(jQuery);

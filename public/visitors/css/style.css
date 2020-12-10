@@ -1364,7 +1364,7 @@ section {
     overflow: hidden;
 }
 
-.product .cart .social {
+.product .cart .icon {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -1376,7 +1376,7 @@ section {
     background: rgba(255, 255, 255, 0.85);
 }
 
-.product .cart .social a {
+.product .cart .icon a {
     transition: color 0.3s;
     color: #222222;
     margin: 0 10px;
@@ -1384,42 +1384,26 @@ section {
     display: inline-block;
 }
 
-.product .cart .social a:hover {
+.product .cart .icon a:hover {
     color: #fe5670;
 }
 
-.product .cart .social i {
+.product .cart .icon i {
     font-size: 30px;
     margin: 0 2px;
 }
 
-.product .cart .cart-info {
-    padding: 25px 15px;
-}
-
-.product .cart .cart-info h4 {
-    font-weight: 700;
-    margin-bottom: 5px;
-    font-size: 18px;
-    color: #222222;
-}
-
-.product .cart .cart-info span {
-    display: block;
-    font-size: 13px;
-    font-weight: 400;
-    color: #aaaaaa;
-}
-
-.product .cart .cart-info p {
-    font-style: italic;
-    font-size: 14px;
-    line-height: 26px;
-    color: #777777;
-}
-
-.product .cart:hover .social {
+.product .cart:hover .icon {
     opacity: 1;
+}
+
+.product .card-body a {
+    color: #444444;
+    transition: ease-in-out 0.3s;
+}
+
+.product .card-body a:hover {
+    color: #fe5670;
 }
 
 
@@ -1858,6 +1842,19 @@ section {
 .btn-red:hover {
     background: #dd3d55;
     border: 1px solid #dd3d55;
+    color: #fff;
+}
+
+.btn-red-line {
+    background: transparent;
+    color: #444444;
+    border: 2px solid #444444;
+    border-radius: 5px;
+}
+
+.btn-red-line:hover {
+    background: #fe5670;
+    border: 2px solid #fe5670;
     color: #fff;
 }
 
@@ -2499,14 +2496,27 @@ ul.page-numbers li a:hover {
     background-color: #fff;
 }
 
+.sidebar .pop-product ul li img {
+    width: 20%;
+    border-radius: 10px;
+}
+
 .sidebar .pop-product ul li h5 {
-    font-size: 19px;
+    vertical-align: middle;
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: 10px;
     color: #20232e;
     transition: all 0.3s;
+    display: inline-block;
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .sidebar .pop-product ul li h5:hover {
-    color: #3C50E0;
+    color: #FE5670;
 }
 
 .sidebar .pop-store {
@@ -2516,22 +2526,71 @@ ul.page-numbers li a:hover {
     border-radius: 5px;
 }
 
+.sidebar .pop-store ul {
+    text-align: center;
+}
+
 .sidebar .pop-store ul li {
+    width: 42%;
     padding: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 7px;
     border-radius: 5px;
     background-color: #fff;
+    display: inline-block;
+    /* You can also add some margins here to make it look prettier */
+}
+
+.sidebar .pop-store ul li .icon-search {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+.sidebar .pop-store ul li .icon-search .icon {
+    color: black;
+    font-size: 20px;
+    transition: all 0.3s;
+    margin-bottom: 80px;
+    margin-left: 80px;
+}
+
+.sidebar .pop-store ul li:hover img {
+    opacity: 0.3;
+}
+
+.sidebar .pop-store ul li:hover .icon-search {
+    opacity: 1;
+}
+
+.sidebar .pop-store ul li .icon-search .icon:hover {
+    color: #FE5670;
+    font-size: 20px;
+}
+
+.sidebar .pop-store ul li a img {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 100%;
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
 }
 
 .sidebar .pop-store ul li h5 {
-    font-size: 19px;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 10px;
+    text-align: center;
     color: #20232e;
     transition: all 0.3s;
 }
 
 .sidebar .pop-store ul li h5:hover {
-    color: #3C50E0;
+    color: #FE5670;
 }
 
 .sidebar .covid-posts {
@@ -2634,6 +2693,127 @@ ul.page-numbers li a:hover {
 .prev {
     background-color: #3C50E0;
     color: #fff;
+}
+
+.limit-text-sm {
+    white-space: nowrap;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.limit-text-md {
+    white-space: nowrap;
+    width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.limit-text-xl {
+    white-space: nowrap;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#store .card-wrapper {
+    margin-bottom: 30px;
+}
+
+#store .card-image .card .card-img-wrapper {
+    height: 100%;
+}
+
+#store .card-image .card .card-body {
+    display: none;
+}
+
+#store .card-image-title-description .card .card-img-wrapper {
+    max-height: 160px;
+}
+
+#store .card-image-title-description .card {
+    position: relative;
+    min-height: 300px;
+}
+
+#store .card-image-title-description .card .card-body {
+    height: auto;
+    position: relative;
+    top: 0;
+    margin-bottom: -70px;
+}
+
+#store .card-image-title-description .card:hover .card-body {
+    top: -70px;
+}
+
+#store .card-image-title-description .card .card-body .card-title {
+    margin-bottom: .75rem;
+}
+
+#store .card {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    height: 100%;
+}
+
+#store .card:hover {
+    box-shadow: 8px 12px 31px -10px #ab98ab;
+}
+
+#store .card-img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    overflow: hidden;
+}
+
+#store .card-img-wrapper img {
+    transition: 1.5s ease;
+}
+
+#store .card:hover .card-img-wrapper img {
+    transform: scale(1.15);
+}
+
+#store .card-body .card-title {
+    margin-bottom: calc(50% + 20px);
+    transition: 1.5s ease;
+}
+
+#store .card:hover .card-body .card-title {
+    margin-bottom: .75rem;
+}
+
+#store .card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background-color: #fff;
+    transition: 1.5s ease;
+}
+
+#store .card-content {
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    transition: 1.5s ease;
+}
+
+#store .card:hover .card-body {
+    height: 80%;
+}
+
+#store .card:hover .card-content {
+    bottom: 0;
 }
 
 

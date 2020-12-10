@@ -11,16 +11,16 @@
         <div class="row " data-aos="fade-up">
             <div class="col-lg-12 text-center mb-5 ">
                 <div class=" btn-administratif  ">
-                    <button type="button" class="btn btn-outline-dark active btn-responsive rainbow-5">Jenis Kelamin</button>
-                    <button type="button" class="btn btn-outline-dark btn-responsive rainbow-5">Pendidikan</button>
-                    <button type="button" class="btn btn-outline-dark btn-responsive rainbow-5">Pekerjaan</button>
-                    <button type="button" class="btn btn-outline-dark btn-responsive rainbow-5">Agama</button>
-                    <button type="button" class="btn btn-outline-dark btn-responsive rainbow-5">Wilayah</button>
-                    <button type="button" class="btn btn-outline-dark btn-responsive rainbow-5">Warga Negara</button>
+                    <button type="button" class="btn btn-outline-dark active btn-responsive ">Jenis Kelamin</button>
+                    <button type="button" class="btn btn-outline-dark btn-responsive ">Pendidikan</button>
+                    <button type=" button" class="btn btn-outline-dark btn-responsive ">Pekerjaan</button>
+                    <button type="button" class="btn btn-outline-dark btn-responsive ">Agama</button>
+                    <button type="button" class="btn btn-outline-dark btn-responsive ">Wilayah</button>
+                    <button type="button" class="btn btn-outline-dark btn-responsive ">Warga Negara</button>
                 </div>
             </div>
         </div>
-        <div class="row my-shadow justify-content-center ">
+        <div class="row my-shadow justify-content-center " id="page1">
             <div class="col-11 m-5">
                 <canvas id="kelamin" width="400vw" height="150vh"></canvas>
                 <script>
@@ -66,7 +66,7 @@
                 </script>
             </div>
         </div>
-        <div class="row my-shadow justify-content-center mt-5 pt-5 pb-5 pr-4 pl-4 ">
+        <div class="row my-shadow justify-content-center mt-5 pt-5 pb-5 pr-4 pl-4  " id="page2">
             <div class="col-12 table-responsive">
                 <table class=" table">
                     <thead class="thead-dark">
@@ -99,9 +99,9 @@
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 </section>
+
 {{-- End Administratif Section --}}
 @endsection

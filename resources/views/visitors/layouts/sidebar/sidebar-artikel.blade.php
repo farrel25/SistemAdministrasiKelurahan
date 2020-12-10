@@ -1,11 +1,11 @@
-<div class="col-lg-12 mb-5">
+<div class="col-lg-12 mb-4">
     <div class="sidebar-item search">
         <form id="search_form" name="gs" method="GET" action="#">
             <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
         </form>
     </div>
 </div>
-<div class="col-lg-12  mb-5">
+<div class="col-lg-12  mb-4">
     <div class="popular-posts">
         <div class="sidebar-heading text-center">
             <h2>Popular Posts</h2>
@@ -26,7 +26,7 @@
         </ul>
     </div>
 </div>
-<div class="col-lg-12 ">
+<div class="col-lg-12 mb-4">
     <div class="covid-posts">
         <div class="sidebar-heading text-center">
             <h2>Covid-19</h2>
