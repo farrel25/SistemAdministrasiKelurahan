@@ -94,7 +94,9 @@
         <div style=" background-image:url('images/bgrd-1.png'); border-radius:10px;">
             <div class="row align-self-center ">
                 <div class=" col text-center mt-4 ">
-                    <h1 style="font-weight: 600;">Kegiatan Pemuda</h1>
+                    <h1 style="font-weight: 600;">
+                        Kegiatan Pemuda
+                    </h1>
                 </div>
             </div>
             <div class="row pl-5 pr-5 pb-3">

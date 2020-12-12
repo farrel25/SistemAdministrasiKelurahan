@@ -516,67 +516,61 @@
                         <div class="row card-columns ">
                             <div class="col-12 ">
                                 <div class="row">
-                                    <div class=" col-12 sliderstore" id="store">
-                                        <div class="card-wrapper mr-2">
-                                            <div class="card">
-                                                <div class="card-img-wrapper">
-                                                    <img class="card-img-top" src="{{ asset('/images') }}/img-kp-1.png" alt="Card image cap">
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4 class="card-title font-weight-bold text-center">Store Name</h4>
-                                                    <hr>
-                                                    <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product : 10</p>
-                                                    <hr>
-                                                    <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
-                                                    <hr>
-                                                    <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10</p>
-                                                    <hr>
-                                                    <div class=" text-center">
-                                                        <a href="#"><button type="button" class=" btn btn-red ">Kunjungi toko</button></a>
-                                                        <a href="#"><button type="button" class="btn btn-red ">Hubungi penjual</button></a>
-                                                    </div>
+                                    <div class=" col-12 sliderstore " id="store">
+                                        <div class="card-wrapper mr-2 card">
+                                            <div class="card-img-wrapper">
+                                                <img class="card-img-top" src="{{ asset('/images') }}/img-kp-1.png" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title font-weight-bold text-center">Store Name</h4>
+                                                <hr>
+                                                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product : 10</p>
+                                                <hr>
+                                                <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
+                                                <hr>
+                                                <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10</p>
+                                                <hr>
+                                                <div class=" text-center">
+                                                    <a href="#"><button type="button" class=" btn btn-red ">Kunjungi toko</button></a>
+                                                    <a href="#"><button type="button" class="btn btn-red ">Hubungi penjual</button></a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card-wrapper mr-2">
-                                            <div class="card">
-                                                <div class="card-img-wrapper">
-                                                    <img class="card-img-top" src="{{ asset('/images') }}/img-kp-1.png" alt="Card image cap">
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4 class="card-title font-weight-bold text-center">Store Name</h4>
-                                                    <hr>
-                                                    <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product : 10</p>
-                                                    <hr>
-                                                    <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
-                                                    <hr>
-                                                    <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10</p>
-                                                    <hr>
-                                                    <div class=" text-center">
-                                                        <a href="#"><button type="button" class=" btn btn-red ">Kunjungi toko</button></a>
-                                                        <a href="#"><button type="button" class="btn btn-red ">Hubungi penjual</button></a>
-                                                    </div>
+                                        <div class=" card-wrapper mr-2 card">
+                                            <div class="card-img-wrapper">
+                                                <img class="card-img-top" src="{{ asset('/images') }}/img-kp-1.png" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title font-weight-bold text-center">Store Name</h4>
+                                                <hr>
+                                                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product : 10</p>
+                                                <hr>
+                                                <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
+                                                <hr>
+                                                <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10</p>
+                                                <hr>
+                                                <div class=" text-center">
+                                                    <a href="#"><button type="button" class=" btn btn-red ">Kunjungi toko</button></a>
+                                                    <a href="#"><button type="button" class="btn btn-red ">Hubungi penjual</button></a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card-wrapper mr-2">
-                                            <div class="card">
-                                                <div class="card-img-wrapper">
-                                                    <img class="card-img-top" src="{{ asset('/images') }}/img-kp-1.png" alt="Card image cap">
-                                                </div>
-                                                <div class="card-body">
-                                                    <h4 class="card-title font-weight-bold text-center">Store Name</h4>
-                                                    <hr>
-                                                    <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product : 10</p>
-                                                    <hr>
-                                                    <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
-                                                    <hr>
-                                                    <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10</p>
-                                                    <hr>
-                                                    <div class=" text-center">
-                                                        <a href="#"><button type="button" class=" btn btn-red ">Kunjungi toko</button></a>
-                                                        <a href="#"><button type="button" class="btn btn-red ">Hubungi penjual</button></a>
-                                                    </div>
+                                        <div class="card-wrapper mr-2 card">
+                                            <div class="card-img-wrapper">
+                                                <img class="card-img-top" src="{{ asset('/images') }}/img-kp-1.png" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                                <h4 class="card-title font-weight-bold text-center">Store Name</h4>
+                                                <hr>
+                                                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product : 10</p>
+                                                <hr>
+                                                <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
+                                                <hr>
+                                                <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10</p>
+                                                <hr>
+                                                <div class=" text-center">
+                                                    <a href="#"><button type="button" class=" btn btn-red ">Kunjungi toko</button></a>
+                                                    <a href="#"><button type="button" class="btn btn-red ">Hubungi penjual</button></a>
                                                 </div>
                                             </div>
                                         </div>

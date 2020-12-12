@@ -478,9 +478,6 @@ ul {
 }
 
 @media (max-width: 991px) {
-    #page-title {
-        /* height: 100vh; */
-    }
     #page-title .animated {
         -webkit-animation: none;
         animation: none;
@@ -606,9 +603,6 @@ ul {
 }
 
 @media (max-width: 991px) {
-    #hero {
-        /* height: 100vh; */
-    }
     #hero .animated {
         -webkit-animation: none;
         animation: none;
@@ -2716,10 +2710,6 @@ ul.page-numbers li a:hover {
     text-overflow: ellipsis;
 }
 
-#store .card-wrapper {
-    margin-bottom: 30px;
-}
-
 #store .card-image .card .card-img-wrapper {
     height: 100%;
 }
@@ -2758,10 +2748,6 @@ ul.page-numbers li a:hover {
     overflow: hidden;
     min-height: 400px;
     height: 100%;
-}
-
-#store .card:hover {
-    box-shadow: 8px 12px 31px -10px #ab98ab;
 }
 
 #store .card-img-wrapper {
