@@ -10,6 +10,10 @@ use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\JsonResponse;
+
 class RegisterController extends Controller
 {
     /*
@@ -30,7 +34,8 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::LOGIN;
 
     /**
      * Create a new controller instance.
@@ -67,8 +72,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'user_level_id' => 3,
+        $user = User::create([
             'nik' => $data['nik'],
             'full_name' => $data['full_name'],
             'email' => $data['email'],
@@ -76,6 +80,33 @@ class RegisterController extends Controller
             // 'password' => Bcrypt($data['password']),
             'phone' => $data['phone'],
             'is_active' => 1
-        ]);
+        ])->assignRole('Penduduk');
+
+        session()->flash('success', 'Akun anda berhasil dibuat, silahkan login');
+
+        return $user;
+    }
+
+    /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        // $this->guard()->login($user);
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+            ? new JsonResponse([], 201)
+            : redirect($this->redirectPath());
     }
 }

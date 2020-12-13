@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserLevelsTable extends Migration
+class CreateVillagerBloodTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateUserLevelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_levels', function (Blueprint $table) {
+        Schema::create('villager_blood_types', function (Blueprint $table) {
             $table->id();
-            $table->string('level');
+            $table->string('blood_type');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateUserLevelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_levels');
+        Schema::dropIfExists('villager_blood_types');
     }
 }

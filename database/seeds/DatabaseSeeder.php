@@ -16,10 +16,14 @@ class DatabaseSeeder extends Seeder
         // $this->call(LetterDocumentSeeder::class);
         // $this->call(LetterTypeSeeder::class);
         $this->call([
-            UserLevelSeeder::class,
+            RoleTableSeeder::class,
             LetterDocumentSeeder::class,
             LetterTypeSeeder::class,
             LetterStatusSeeder::class,
+            VillagerBloodTypeSeeder::class,
+            VillagerReligionSeeder::class,
+            VillagerSexSeeder::class,
+            VillagerMaritalStatusSeeder::class,
         ]);
     }
 }

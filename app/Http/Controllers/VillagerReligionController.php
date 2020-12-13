@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\UserLevel;
+use App\VillagerReligion;
 use Illuminate\Http\Request;
 
-class UserLevelController extends Controller
+class VillagerReligionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class UserLevelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\UserLevel  $userLevel
+     * @param  \App\VillagerReligion  $villagerReligion
      * @return \Illuminate\Http\Response
      */
-    public function show(UserLevel $userLevel)
+    public function show(VillagerReligion $villagerReligion)
     {
         //
     }
@@ -52,10 +52,10 @@ class UserLevelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\UserLevel  $userLevel
+     * @param  \App\VillagerReligion  $villagerReligion
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserLevel $userLevel)
+    public function edit(VillagerReligion $villagerReligion)
     {
         //
     }
@@ -64,10 +64,10 @@ class UserLevelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\UserLevel  $userLevel
+     * @param  \App\VillagerReligion  $villagerReligion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, UserLevel $userLevel)
+    public function update(Request $request, VillagerReligion $villagerReligion)
     {
         //
     }
@@ -75,10 +75,10 @@ class UserLevelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\UserLevel  $userLevel
+     * @param  \App\VillagerReligion  $villagerReligion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(UserLevel $userLevel)
+    public function destroy(VillagerReligion $villagerReligion)
     {
         //
     }

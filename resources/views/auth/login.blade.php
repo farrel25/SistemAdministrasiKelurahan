@@ -86,6 +86,13 @@
                         <h1 class="font-weight-bold">Kelurahan</h1>
                     </div>
 
+                    @if (session()->has('success'))
+                    <div class="alert alert-success text-center col-md-8">
+                        {{ session()->get('success') }}
+                        {{-- Akun anda berhasil dibuat, silahkan login --}}
+                    </div>
+                    @endif
+
                     <p class="login-card-description">Sign into your account</p>
 
                     <form method="POST" action="{{ route('login') }}">
