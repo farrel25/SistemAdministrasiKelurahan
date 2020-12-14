@@ -15,6 +15,6 @@ class LetterType extends Model
 
     public function letterSubmissions()
     {
-        return $this->hasMany(LetterSubmission::class);
+        return $this->hasMany(LetterSubmission::class);// type punya banyak submission
     }
 }
