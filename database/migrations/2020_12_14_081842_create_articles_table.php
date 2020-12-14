@@ -23,9 +23,8 @@ class CreateArticlesTable extends Migration
             $table->text('body');
             $table->smallInteger('enabled');
             $table->smallInteger('commentable');
-            $table->String('document', 191);
-            $table->String('link_document', 191);
-            $table->timestamp('edited')->nullable();
+            $table->String('document', 191)->nullable();
+            $table->String('link_document', 191)->nullable();
             $table->timestamps();
         });
     }

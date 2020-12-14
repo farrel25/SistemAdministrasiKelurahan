@@ -14,17 +14,18 @@ class ArticleTagSeeder extends Seeder
     {
         //
         $tags = collect([
-            'category1',
-            'category2',
-            'category3',
-            'category4'
+            'Tag1',
+            'Tag2',
+            'Tag3',
+            'Tag4',
+            'Tag5',
         ]);
 
-        $tags ->each(function ($tag) {
+        $tags->each(function ($tag) {
             ArticleTag::create([
                 'name_tag' => $tag,
                 'slug' => \Str::slug($tag),
-                'enabled'=>1
+                'enabled' => 1
             ]);
         });
     }

@@ -13,17 +13,18 @@ class ArticleCategorySeeder extends Seeder
     public function run()
     {
         $categories = collect([
-            'category1',
-            'category2',
-            'category3',
-            'category4'
+            'Category1',
+            'Category2',
+            'Category3',
+            'Category4',
+            'Category5',
         ]);
 
         $categories->each(function ($category) {
             ArticleCategory::create([
                 'category' => $category,
                 'slug' => \Str::slug($category),
-                'enabled'=>1
+                'enabled' => 1
             ]);
         });
     }

@@ -61,4 +61,4 @@ Route::get('/kegiatan-masyarakat/umkm/view-product', function () {
 
 // Artikel
 // Route::view('/artikel', 'visitors.artikel.index')->name('visitors.artikel.index');
-Route::get('Artikel', 'ArticleController@index')->name('visitors.artikel.index');//kolom slug g dibuat brarti id
+Route::get('/artikel', 'ArticleController@index')->name('visitors.artikel.index');//kolom slug g dibuat brarti id
