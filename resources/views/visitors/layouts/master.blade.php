@@ -11,8 +11,7 @@
     <script src="https://kit.fontawesome.com/95e7b49a0c.js" crossorigin="anonymous"></script>
 
     {{-- Font --}}
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     {{-- Vendor CSS files --}}
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/bootstrap/css/bootstrap.min.css">
@@ -49,8 +48,6 @@
     {{-- Main JS File --}}
     <script src="{{ asset('/visitors/js') }}/main.js"></script>
 
-    {{-- Comerce.js --}}
-    <script type="text/javascript" src="https://cdn.chec.io/v2/commerce.js"></script>
 
 </head>
 

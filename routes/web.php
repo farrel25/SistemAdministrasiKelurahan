@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function () {
 
     // dashboard
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('/penduduk', 'DashboardController@penduduk')->name('penduduk');
+    Route::get('/penduduk-aktif', 'DashboardController@penduduk-aktif')->name('penduduk-aktif');
 
 
     // pelayanan
@@ -40,14 +42,15 @@ Route::middleware('auth')->group(function () {
 Route::get('/', 'HomeController@beranda')->name('visitors.beranda.index');
 
 
-// Profil
-// Route::get('profil-desa', 'ProfilDesaController@index');
-// Route::get('profil-desa/administratif', 'ProfilDesaController@administratif');
-// Route::get('profil-desa/sejarah-visi-misi', 'ProfilDesaController@sejarah_visi_misi');
-// Route::get('profil-desa/struktur-pemerintahan', 'ProfilDesaController@struktur_pemerintahan');
-Route::get('/profil-desa/administratif', function () {
-    return view('visitors.profil_desa.administratif.index');
-})->name('visitors.profil_desa.administratif.index');
+// Profil_desa
+Route::prefix('profil-desa/administratif')->group(function () {
+    Route::get('/jenis-kelamin', 'AdministratifController@index')->name('profil-desa.administratif.jenis-kelamin');
+    Route::get('/pendidikan', 'AdministratifController@pendidikan')->name('profil-desa.administratif.pendidikan');
+    Route::get('/pekerjaan', 'AdministratifController@pekerjaan')->name('profil-desa.administratif.pekerjaan');
+    Route::get('/agama', 'AdministratifController@agama')->name('profil-desa.administratif.agama');
+    Route::get('/wilayah', 'AdministratifController@wilayah')->name('profil-desa.administratif.wilayah');
+    Route::get('/warga-negara', 'AdministratifController@warganegara')->name('profil-desa.administratif.warga-negara');
+});
 
 
 // kegiatan masyarakat

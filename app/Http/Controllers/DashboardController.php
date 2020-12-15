@@ -8,6 +8,14 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard.layouts.master');
+        return view('dashboard.beranda.index');
+    }
+    public function penduduk()
+    {
+        return view('dashboard.penduduk.penduduk');
+    }
+    public function pendudukaktif()
+    {
+        return view('dashboard.penduduk.penduduk-aktif');
     }
 }

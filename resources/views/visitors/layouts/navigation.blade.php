@@ -13,40 +13,37 @@
 
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="{{ request()->is('/') ? "active" : "" }}">
+                <li class="{{ request()->is('/') ? 'active' : '' }}">
                     <a href="{{ route('visitors.beranda.index') }}">Beranda</a>
                 </li>
-                <li class="{{ request()->is('artikel') ? "active" : "" }}">
+                <li class="{{ request()->is('artikel') ? 'active' : '' }}">
                     <a href="{{ route('visitors.artikel.index') }}">Artikel</a>
                 </li>
-                <li class="drop-down{{ request()->is('profil-desa/administratif') ? " active" : "" }}">
+                <?php
+                function activeProfilDesa($urlPath)
+                {
+                    if ($urlPath == 'profil-desa/sejarah-visi-misi' || $urlPath == 'profil-desa/struktur-pemerintahan' || $urlPath == 'profil-desa/administratif') {
+                        return ' active';
+                    }
+                }
+                ?>
+                <li class="drop-down{{ activeProfilDesa(request()->path()) }}">
                     <a href="">Profil Desa</a>
                     <ul>
-                        {{-- <li><a href="">Sejarah</a></li>
-                        <li><a href="">Visi Misi</a></li>
-                        <li><a href="">Struktur Pemerintahan</a></li> --}}
                         <li><a href="#">Sejarah dan Visi Misi</a></li>
                         <li><a href="#">Struktur Pemerintahan</a></li>
-                        <li><a href="{{ route('visitors.profil_desa.administratif.index') }}">Administratif</a></li>
+                        <li>
+                            <a href="{{ route('profil-desa.administratif.jenis-kelamin') }}">Administratif</a>
+                        </li>
                     </ul>
                 </li>
-                <li class="drop-down{{ request()->is('kegiatan-masyarakat') ? " active" : "" }}">
+                <li class="drop-down{{ request()->is('kegiatan-masyarakat') ? 'active' : '' }}">
                     <a href="">Kegiatan Masyarakat</a>
                     <ul>
                         <li><a href="{{ route('visitors.kegiatan_masyarakat.umkm.index') }}">UMKM Masyarakat</a></li>
                         <li><a href="">Kegiatan Pemuda</a></li>
                     </ul>
                 </li>
-                {{-- <li class="drop-down{{ request()->is('administratif') ? " active" : "" }}"><a
-                    href="/administratif">Administratif</a>
-                <ul>
-                    <li><a href="">Data Pendidikan</a></li>
-                    <li><a href="">Data Pekerjaan</a></li>
-                    <li><a href="">Data Agama</a></li>
-                    <li><a href="">Data Jenis Kelamin</a></li>
-                    <li><a href="">Data Umur</a></li>
-                </ul>
-                </li> --}}
                 <?php
                 function activePelayanan($urlPath)
                 {
@@ -69,7 +66,7 @@
                 <li class="btn-login"><a href="{{ route('login') }}">Login</a></li>
                 @else
                 <?php
-                $name = explode(' ',Auth::user()->full_name);
+                $name = explode(' ', Auth::user()->full_name);
                 $nickname = $name[0];
                 ?>
                 <li class="drop-down ml-5">
@@ -78,8 +75,7 @@
                     <ul>
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         <li>
-                            <a href="{{ route('logout') }}"
-                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                         </li>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
