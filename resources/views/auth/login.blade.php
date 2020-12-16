@@ -91,6 +91,11 @@
                         {{ session()->get('success') }}
                         {{-- Akun anda berhasil dibuat, silahkan login --}}
                     </div>
+                    @elseIf(session()->has('fail'))
+                    <div class="alert alert-danger text-center col-md-8">
+                        {{ session()->get('fail') }}
+                        {{-- Akun anda berhasil dibuat, silahkan login --}}
+                    </div>
                     @endif
 
                     <p class="login-card-description">Sign into your account</p>
@@ -104,7 +109,7 @@
                                 class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}"
                                 placeholder="Email address" />
 
-                            @error('password')
+                            @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

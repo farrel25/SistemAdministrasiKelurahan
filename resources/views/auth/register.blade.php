@@ -11,6 +11,13 @@
                         <h1 class="font-weight-bold">Kelurahan</h1>
                     </div>
 
+                    @if (session()->has('fail'))
+                    <div class="alert alert-danger text-center col-md-10">
+                        {{ session()->get('fail') }}
+                        {{-- Akun anda berhasil dibuat, silahkan login --}}
+                    </div>
+                    @endif
+
                     <h4 class="mb-4">
                         <div class="text-secondary">Welcome,</div>
                         <small>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Villager;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Support\Facades\Hash;
@@ -60,7 +61,7 @@ class RegisterController extends Controller
             'full_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'phone' => ['required', 'numeric', 'unique:users,phone'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
     }
 
@@ -97,16 +98,23 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
 
-        event(new Registered($user = $this->create($request->all())));
+        $userVillager = Villager::where('nik', $request->nik)->first();
 
-        // $this->guard()->login($user);
+        if (!$userVillager) {
+            session()->flash('fail', 'Anda tidak terdaftar sebagai penduduk kelurahan, silahkan hubungi kantor kelurahan');
 
-        if ($response = $this->registered($request, $user)) {
-            return $response;
+            return redirect()->route('register');
+        } else {
+            event(new Registered($user = $this->create($request->all())));
+
+            $userId = User::where('nik', $request->nik)->value('id');
+            $userVillager->update(['user_id' => $userId]);
+
+            if ($response = $this->registered($request, $user)) {
+                return $response;
+            }
+
+            return $request->wantsJson() ? new JsonResponse([], 201) : redirect($this->redirectPath());
         }
-
-        return $request->wantsJson()
-            ? new JsonResponse([], 201)
-            : redirect($this->redirectPath());
     }
 }

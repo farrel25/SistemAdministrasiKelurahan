@@ -56,7 +56,7 @@ class LetterSubmissionController extends Controller
             'full_name' => 'required|string|max:255',
             'email' => 'required|email',
             'letter_type_id' => 'required',
-            'keterangan' => ''
+            'keperluan' => 'required'
         ]);
         $letterSubmission['user_id'] = Auth::user()->id;
         $letterSubmission['status_id'] = 1;

@@ -18,7 +18,7 @@ class CreateLetterSubmissionsTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('letter_type_id');
             $table->foreignId('status_id');
-            $table->text('keterangan');
+            $table->text('keperluan');
             $table->string('phone');
             $table->timestamps();
         });
