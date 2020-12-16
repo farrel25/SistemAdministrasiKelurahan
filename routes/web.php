@@ -27,8 +27,12 @@ Route::middleware('auth')->group(function () {
 
     // dashboard
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+    //Penduduk
     Route::get('/penduduk', 'DashboardController@penduduk')->name('penduduk');
-    Route::get('/penduduk-aktif', 'DashboardController@penduduk-aktif')->name('penduduk-aktif');
+    Route::get('/penduduk-aktif', 'DashboardController@pendudukaktif')->name('penduduk-aktif');
+    Route::get('/penduduk-tambah', 'DashboardController@penduduktambah')->name('penduduk-tambah');
+    Route::get('/penduduk-edit', 'DashboardController@pendudukedit')->name('penduduk-edit');
 
 
     // pelayanan

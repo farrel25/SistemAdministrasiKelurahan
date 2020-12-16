@@ -9,7 +9,7 @@
 
     <script src="https://kit.fontawesome.com/95e7b49a0c.js" crossorigin="anonymous"></script>
     <script src="http://www.pixeden.com/icon-fonts/stroke-7-icon-font-set"></script>
-    <title>Kelurahan - Dashboard</title>
+    <title>{{ $title ?? 'Dashboard'}}</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="msapplication-tap-highlight" content="no">
@@ -28,9 +28,12 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     @yield('content')
+                    <div class="row">
+                        <div class="scrollbar-container">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
     </div>
     <script type="text/javascript" src="{{ asset('/admin') }}/js/main.js"></script>

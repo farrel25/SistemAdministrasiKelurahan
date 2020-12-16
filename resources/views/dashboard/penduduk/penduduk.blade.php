@@ -1,0 +1,162 @@
+@extends('dashboard.layouts.master', ['title' => "Penduduk"])
+
+@section('content')
+
+<div class="app-page-title">
+    <div class="page-title-wrapper">
+        <div class="page-title-heading">
+            <div class="page-title-icon">
+                <i class="pe-7s-users icon-gradient bg-mean-fruit">
+                </i>
+            </div>
+            <div>Data Penduduk
+                <div class="page-title-subheading">Data Penduduk
+                </div>
+            </div>
+        </div>
+        <div class="page-title-actions">
+            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip" title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark">
+                <i class="fas fa-home"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-header">Data Penduduk
+                <div class="btn-actions-pane-right ">
+                    <div role="group" class="btn-group-sm btn-group">
+                        <a type="button" class="btn btn-lg btn-focus  text-white font-weight-normal" href="{{ route('penduduk-tambah') }}">+ Tambah Data</a>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
+                    <thead>
+                        <tr>
+                            <th class=" text-center">NIK</th>
+                            <th class=" text-center">Nama</th>
+                            <th class=" text-center">Gender</th>
+                            <th class=" text-center">Agama</th>
+                            <th class=" text-center">Pekerjaan</th>
+                            <th class=" text-center">Alamat</th>
+                            <th class=" text-center">Status</th>
+                            <th class=" text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class=" text-center">3373020203000003</td>
+                            <td class=" text-center"> John Doe</td>
+                            <td class=" text-center">Laki-laki</td>
+                            <td class=" text-center">Islam</td>
+                            <td class=" text-center">Mahasiswa</td>
+                            <td class=" text-center">bla bla bla</td>
+                            <td class=" text-center">
+                                <div class="badge badge-success">Aktif</div>
+                            </td>
+                            <td class=" text-center">
+                                <div class="btn-group-sm btn-group">
+                                    <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                    <button class="btn btn-warning text-white"><i class="fas fa-info-circle"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td class=" text-center">3373020203000003</td>
+                            <td class=" text-center"> John Doe</td>
+                            <td class=" text-center">Laki-laki</td>
+                            <td class=" text-center">Islam</td>
+                            <td class=" text-center">Mahasiswa</td>
+                            <td class=" text-center">bla bla bla</td>
+                            <td class=" text-center">
+                                <div class="badge badge-secondary">Tidak Aktif</div>
+                            </td>
+                            <td class=" text-center">
+                                <div class="btn-group-sm btn-group">
+                                    <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                    <button class="btn btn-warning text-white"><i class="fas fa-info-circle"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class=" d-block card-footer ">
+                <div class="card-body ">
+                    <nav class=" " aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center ">
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link" aria-label="Previous"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
+                            <li class="page-item active"><a href="javascript:void(0);" class="page-link">1</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link">2</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link" aria-label="Next"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 col-xl-4">
+        <div class="card mb-3 widget-content ">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Data Penduduk</div>
+                        <div class="widget-subheading">Total Data Penduduk</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-warning">100</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-xl-4">
+        <div class="card mb-3 widget-chart widget-chart2 text-left card">
+            <div class="widget-content">
+                <div class="widget-content-outer">
+                    <div class="widget-content-wrapper">
+                        <div class="widget-content-left pr-2 fsize-1">
+                            <div class="widget-numbers mt-0 fsize-3 text-warning">71%</div>
+                        </div>
+                        <div class="widget-content-right w-100">
+                            <div class="progress-bar-xs progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content-left fsize-1">
+                        <div class="text-muted opacity-6">Persentase Data Penduduk Aktif</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-4 mb-3 ">
+        <div class=" row d-flex">
+            <div class="col-6">
+                <button type="button " class="btn btn-lg btn-block btn-danger text-white font-weight-bold  shadow "> <i class="fas fa-file-pdf fa-2x"></i></button>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-lg btn-block btn-success text-white font-weight-bold  shadow "> <i class="fas fa-file-excel fa-2x"></i></button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@endsection

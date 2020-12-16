@@ -29,55 +29,45 @@
             </button>
         </span>
     </div>
+    <?php
+    function activeSideBar($urlPath)
+    {
+        if ($urlPath == 'profil-desa/sejarah-visi-misi' || $urlPath == 'profil-desa/struktur-pemerintahan' || $urlPath == 'profil-desa/administratif') {
+            return ' active';
+        }
+    }
+    ?>
     <div class="scrollbar-sidebar ">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Dashboards</li>
                 <li>
-                    <a href="index.html" class="mm-active">
+                    <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-rocket"></i>
                         Dashboard
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('visitors.beranda.index') }}" class="mm-active">
+                    <a href="{{ route('visitors.beranda.index') }}">
                         <i class="metismenu-icon pe-7s-home"></i>
                         Kembali ke beranda
                     </a>
                 </li>
-                <li class="app-sidebar__heading">Penduduk</li>
+                <li class="app-sidebar__heading">
+                    Info Kelurahan
+                </li>
                 <li>
-                    <a href="{{ route('penduduk') }}">
-                        <i class="metismenu-icon pe-7s-users"></i>
-                        Data Penduduk
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-culture"></i>
+                        Identitas Kelurahan
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('penduduk-aktif') }}">
-                        <i class="metismenu-icon pe-7s-users"></i>
-                        Data Penduduk Aktif
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-id"></i>
+                        Kepengurusan Kelurahan
                     </a>
                 </li>
-                <li class="app-sidebar__heading">Artikel</li>
-                <li>
-                    <a href="tables-regular.html">
-                        <i class="metismenu-icon pe-7s-pen"></i>
-                        Artikel Create
-                    </a>
-                </li>
-                <li>
-                    <a href="tables-regular.html">
-                        <i class="metismenu-icon pe-7s-news-paper"></i>
-                        Artikel Masuk
-                    </a>
-                </li>
-                <li>
-                    <a href="tables-regular.html">
-                        <i class="metismenu-icon pe-7s-news-paper"></i>
-                        Artikel Keluar
-                    </a>
-                </li>
-                <li class="app-sidebar__heading">Profil Desa</li>
                 <li>
                     <a href="tables-regular.html">
                         <i class="metismenu-icon pe-7s-display2"></i>
@@ -135,6 +125,141 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="app-sidebar__heading">Kependudukan</li>
+                <li>
+                    <a href="{{ route('penduduk') }}" class="{{ request()->is('penduduk') ? 'mm-active' : '' }}">
+                        <i class="metismenu-icon pe-7s-users"></i>
+                        Penduduk
+                    </a>
+                </li>
+
+                <li class="app-sidebar__heading">Manajemen Surat</li>
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-mail-open-file"></i>
+                        Surat Masuk
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-mail"></i>
+                        Surat Keluar
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-mail"></i>
+                        Permohonan Surat
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-keypad"></i>
+                        Jenis Surat
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-note2"></i>
+                        Dokumen Persyaratan
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-print"></i>
+                        Cetak Surat
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="metismenu-icon pe-7s-notebook"></i>
+                        Panduan
+                    </a>
+                </li>
+
+                </li>
+                <li class="app-sidebar__heading">Manajemen Artikel</li>
+                <li>
+                    <a href="tables-regular.html">
+                        <i class="metismenu-icon pe-7s-news-paper"></i>
+                        Artikel
+
+                    </a>
+                </li>
+                <li>
+                    <a href="tables-regular.html">
+                        <i class="metismenu-icon pe-7s-network"></i>
+                        Kategori
+                    </a>
+                </li>
+                <li>
+                    <a href="tables-regular.html">
+                        <i class="metismenu-icon pe-7s-ribbon"></i>
+                        Tag
+                    </a>
+                </li>
+                <li>
+                    <a href="tables-regular.html">
+                        <i class="metismenu-icon pe-7s-chat"></i>
+                        Komentar
+                    </a>
+                </li>
+
+                <li class="app-sidebar__heading">Manajemen Menu</li>
+                <li>
+                    <a href="tables-regular.html">
+                        <i class="metismenu-icon pe-7s-albums"></i>
+                        Menu
+                    </a>
+                </li>
+                <li>
+                    <a href="tables-regular.html">
+                        <i class="metismenu-icon pe-7s-photo-gallery"></i>
+                        Sub Menu
+                    </a>
+                </li>
+
+                <li class="app-sidebar__heading">Manajemen Pengguna</li>
+                <li>
+                    <a href="tables-regular.html">
+                        <i class="metismenu-icon pe-7s-user"></i>
+                        Pengguna
+                    </a>
+                </li>
+                <li>
+                    <a href="tables-regular.html">
+                        <i class="metismenu-icon pe-7s-plugin"></i>
+                        Role
+                    </a>
+                </li>
+                <li>
+                    <a href="tables-regular.html">
+                        <i class="metismenu-icon pe-7s-paper-plane"></i>
+                        Hak Akses
+                    </a>
+                </li>
+
+                <li class="app-sidebar__heading">Layanan</li>
+                <li>
+                    <a href="charts-chartjs.html">
+                        <i class="metismenu-icon pe-7s-mail">
+                        </i> Permohonan Surat
+                    </a>
+                </li>
+                <li>
+                    <a href="charts-chartjs.html">
+                        <i class="metismenu-icon pe-7s-hammer">
+                        </i>Pengaduan
+                    </a>
+                </li>
+                <li>
+                    <a href="charts-chartjs.html">
+                        <i class="metismenu-icon pe-7s-pen">
+                        </i>Kontributor
+                    </a>
+                </li>
+
                 <li class="app-sidebar__heading">Kegiatan Masyarakat</li>
                 <li>
                     <a href="">
@@ -160,24 +285,12 @@
                 </li>
                 <li>
                     <a href="forms-controls.html">
-                        <i class="metismenu-icon pe-7s-mouse">
+                        <i class="metismenu-icon pe-7s-bicycle">
                         </i>Kegiatan Pemuda
                     </a>
                 </li>
                 <li>
-                <li class="app-sidebar__heading">Pelayanan</li>
-                <li>
-                    <a href="charts-chartjs.html">
-                        <i class="metismenu-icon pe-7s-mail">
-                        </i>Surat
-                    </a>
-                </li>
-                <li>
-                    <a href="charts-chartjs.html">
-                        <i class="metismenu-icon pe-7s-graph2">
-                        </i>Pengaduan
-                    </a>
-                </li>
+
             </ul>
         </div>
     </div>

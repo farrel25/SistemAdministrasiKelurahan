@@ -6,64 +6,18 @@
     <div class="page-title-wrapper">
         <div class="page-title-heading">
             <div class="page-title-icon">
-                <i class="pe-7s-car icon-gradient bg-mean-fruit">
+                <i class="pe-7s-rocket icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>Analytics Dashboard
-                <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
+            <div>Dashboard
+                <div class="page-title-subheading">Dashboard
                 </div>
             </div>
         </div>
         <div class="page-title-actions">
-            <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
-                <i class="fa fa-star"></i>
-            </button>
-            <div class="d-inline-block dropdown">
-                <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
-                    <span class="btn-icon-wrapper pr-2 opacity-7">
-                        <i class="fa fa-business-time fa-w-20"></i>
-                    </span>
-                    Buttons
-                </button>
-                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon lnr-inbox"></i>
-                                <span>
-                                    Inbox
-                                </span>
-                                <div class="ml-auto badge badge-pill badge-secondary">86</div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon lnr-book"></i>
-                                <span>
-                                    Book
-                                </span>
-                                <div class="ml-auto badge badge-pill badge-danger">5</div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="javascript:void(0);" class="nav-link">
-                                <i class="nav-link-icon lnr-picture"></i>
-                                <span>
-                                    Picture
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a disabled href="javascript:void(0);" class="nav-link disabled">
-                                <i class="nav-link-icon lnr-file-empty"></i>
-                                <span>
-                                    File Disabled
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip" title="Kembali Ke Beranda" data-placement="left" class="btn-shadow mr-3 btn btn-dark">
+                <i class="fas fa-home"></i>
+            </a>
         </div>
     </div>
 </div>
@@ -113,13 +67,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
-            <div class="card-header">Penduduk Aktif
-                <div class="btn-actions-pane-right mr-2">
-                    <div role="group" class="btn-group-sm btn-group">
-                        <button class="active btn btn-focus">Terbaru</button>
-                        <button class="btn btn-focus">Terlama</button>
-                    </div>
-                </div>
+            <div class="card-header">Data Penduduk Aktif
             </div>
             <div class="table-responsive">
                 <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
@@ -129,9 +77,9 @@
                             <th class=" text-center">Nama</th>
                             <th class=" text-center">Gender</th>
                             <th class=" text-center">Agama</th>
-                            <th class=" text-center">Status</th>
                             <th class=" text-center">Pekerjaan</th>
                             <th class=" text-center">Alamat</th>
+                            <th class=" text-center">Status</th>
                             <th class=" text-center">Actions</th>
                         </tr>
                     </thead>
@@ -141,13 +89,16 @@
                             <td class=" text-center"> John Doe</td>
                             <td class=" text-center">Laki-laki</td>
                             <td class=" text-center">Islam</td>
-                            <td class=" text-center">Menikah</td>
                             <td class=" text-center">Mahasiswa</td>
                             <td class=" text-center">bla bla bla</td>
+                            <td class=" text-center">
+                                <div class="badge badge-success">Aktif</div>
+                            </td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
                                     <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
                                     <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                    <button class="btn btn-warning text-white"><i class="fas fa-info-circle"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -170,11 +121,6 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="scrollbar-container">
     </div>
 </div>
 
