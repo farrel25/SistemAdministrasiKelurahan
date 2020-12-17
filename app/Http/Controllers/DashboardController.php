@@ -14,10 +14,6 @@ class DashboardController extends Controller
     {
         return view('dashboard.penduduk.penduduk');
     }
-    public function pendudukaktif()
-    {
-        return view('dashboard.penduduk.penduduk-aktif');
-    }
     public function penduduktambah()
     {
         return view('dashboard.penduduk.penduduk-tambah');

@@ -30,7 +30,6 @@ Route::middleware('auth')->group(function () {
 
     //Penduduk
     Route::get('/penduduk', 'DashboardController@penduduk')->name('penduduk');
-    Route::get('/penduduk-aktif', 'DashboardController@pendudukaktif')->name('penduduk-aktif');
     Route::get('/penduduk-tambah', 'DashboardController@penduduktambah')->name('penduduk-tambah');
     Route::get('/penduduk-edit', 'DashboardController@pendudukedit')->name('penduduk-edit');
 

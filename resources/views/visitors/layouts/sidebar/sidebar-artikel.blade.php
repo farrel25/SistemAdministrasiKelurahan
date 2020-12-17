@@ -33,35 +33,29 @@
         </div>
         <ul>
             <li style="background-color: #FE5670; ">
-                <div class="row">
-                    <div class=" col-9 ">
-                        <h5 class="align-middle"> <i class="fas fa-virus fa-lg"></i>Positif
-                        </h5>
-                    </div>
-                    <div class="col-2 " style="background-color: #FF7D91; ">
+                <div class="d-flex ">
+                    <h5><i class="fas fa-virus fa-lg"></i>Positif</h5>
+                    <div class=" ml-auto m-2" style="background-color: #FF7D91; ; border-radius:5px; height:50px; width:50px;">
                         <p data-toggle="counter-up">123</p>
                     </div>
                 </div>
             </li>
             <li style="background-color: #F8B000;">
-                <div class="row ">
-                    <div class=" col-9">
-                        <h5><i class="fas fa-plus-square fa-lg"></i>Sembuh</h5>
-                    </div>
-                    <div class="col-2 " style="background-color: #FFD878; ">
+                <div class="d-flex ">
+                    <h5><i class="fas fa-plus-square fa-lg"></i>Sembuh</h5>
+                    <div class=" ml-auto m-2" style="background-color: #FFD878; border-radius:5px; height:50px; width:50px;">
                         <p data-toggle="counter-up">123</p>
                     </div>
                 </div>
             </li>
             <li style="background-color: #3C50E0;">
-                <div class="row ">
-                    <div class=" col-9">
-                        <h5><i class="fas fa-search fa-lg"></i>Pemantauan</h5>
-                    </div>
-                    <div class="col-2" style="background-color: #717EDA; ">
+                <div class="d-flex ">
+                    <h5><i class="fas fa-search fa-lg"></i>ODP</h5>
+                    <div class=" ml-auto m-2" style="background-color: #717EDA; ; border-radius:5px; height:50px; width:50px;">
                         <p data-toggle="counter-up">123</p>
                     </div>
                 </div>
+
             </li>
         </ul>
     </div>

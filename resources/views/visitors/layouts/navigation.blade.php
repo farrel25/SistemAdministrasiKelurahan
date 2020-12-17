@@ -16,7 +16,7 @@
                 <li class="{{ request()->is('/') ? 'active' : '' }}">
                     <a href="{{ route('visitors.beranda.index') }}">Beranda</a>
                 </li>
-                <li class="{{ request()->is('artikel') ? 'active' : '' }}">
+                <li class="{{ request()->is('/artikel') ? 'active' : '' }}">
                     <a href="{{ route('visitors.artikel.index') }}">Artikel</a>
                 </li>
                 <?php
@@ -28,7 +28,7 @@
                 }
                 ?>
                 <li class="drop-down{{ activeProfilDesa(request()->path()) }}">
-                    <a href="">Profil Desa</a>
+                    <a href="#">Profil Desa</a>
                     <ul>
                         <li><a href="#">Sejarah dan Visi Misi</a></li>
                         <li><a href="#">Struktur Pemerintahan</a></li>
@@ -38,7 +38,7 @@
                     </ul>
                 </li>
                 <li class="drop-down{{ request()->is('kegiatan-masyarakat') ? 'active' : '' }}">
-                    <a href="">Kegiatan Masyarakat</a>
+                    <a href="#">Kegiatan Masyarakat</a>
                     <ul>
                         <li><a href="{{ route('visitors.kegiatan_masyarakat.umkm.index') }}">UMKM Masyarakat</a></li>
                         <li><a href="">Kegiatan Pemuda</a></li>
@@ -53,7 +53,7 @@
                 }
                 ?>
                 <li class="drop-down{{ activePelayanan(request()->path()) }}">
-                    <a href="{{ route('pengajuan-surat.create') }}">Pelayanan</a>
+                    <a href="#">Pelayanan</a>
                     <ul>
                         <li><a href="{{ route('pengajuan-surat.create') }}">Pengajuan Surat</a></li>
                         <li><a href="">Pengaduan</a></li>

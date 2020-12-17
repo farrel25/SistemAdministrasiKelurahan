@@ -2,8 +2,7 @@
 
 @section('content')
 {{-- Start Breadcumb Section --}}
-@include('visitors.layouts.breadcumb', ['judul' => "Administratif"], ['page1' => "/ Profil Desa", 'page2' => "/
-Administratif"])
+@include('visitors.layouts.breadcumb', ['judul' => "Pengajuan Surat"], ['page1' => "/ Pelayanan", 'page2' => "/ Pengajuan Surat"])
 {{-- Start end Section --}}
 
 <section id="page-title-pelayanan">
@@ -19,13 +18,11 @@ Administratif"])
 
                 <form action="{{ route('pengajuan-surat.store') }}" method="post" novalidate>
                     @csrf
-
                     <div class="form-row">
 
                         <div class="form-group col-md-6">
                             <label for="nik">NIK<span class="text-danger">*</span></label>
-                            <input type="text" name="nik" id="nik" placeholder="16 digit" class="form-control"
-                                value="{{ old('nik') }}">
+                            <input type="text" name="nik" id="nik" placeholder="16 digit" class="form-control" value="{{ old('nik') }}">
                             @error('nik')
                             <small>
                                 <font style="color: red; font-style: italic">{{$message}}</font>
@@ -35,8 +32,7 @@ Administratif"])
 
                         <div class="form-group col-md-6">
                             <label for="full_name">Nama Lengkap<span class="text-danger">*</span></label>
-                            <input type="text" name="full_name" class="form-control" id="full_name"
-                                value="{{ old('full_name') }}">
+                            <input type="text" name="full_name" class="form-control" id="full_name" value="{{ old('full_name') }}">
                             @error('full_name')
                             <small>
                                 <font style="color: red; font-style: italic">{{$message}}</font>
@@ -62,8 +58,7 @@ Administratif"])
 
                             <label for="letter_type">Jenis Surat<span class="text-danger">*</span></label>
 
-                            <select name="letter_type_id" id="letter_type" class="form-control"
-                                value="{{ old('letter_type_id') }}">
+                            <select name="letter_type_id" id="letter_type" class="form-control" value="{{ old('letter_type_id') }}">
                                 <option>Pilih...</option>
 
                                 @foreach ($letterTypes as $letterType)
@@ -88,7 +83,7 @@ Administratif"])
                         <div class="form-group col-md-12">
                             <label for="keperluan">Keperluan<span class="text-danger">*</span></label>
                             <textarea class="form-control" name="keperluan" id="keperluan" rows="4">
-                                {{ old('keperluan') }}
+                            {{ old('keperluan') }}
                             </textarea>
                             @error('keperluan')
                             <small>
