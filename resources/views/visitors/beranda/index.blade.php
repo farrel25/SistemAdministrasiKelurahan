@@ -16,17 +16,12 @@
 {{-- End hero section --}}
 
 {{-- Start carousel section --}}
-<section id="carousel">
+<section>
     <div class="container mb-4 mt-4  ">
-        <div id="carouselExampleIndicators" class="carousel slide " data-aos="fade-up" data-aos-delay="800" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item br-full carousel-size active ">
+        <div data-aos="fade-up" data-aos-delay="800" data-ride="carousel">
+
+            <div class=" sliderimage">
+                <div class=" br-full carousel-size active ">
                     <img src="{{ asset('/images') }}/carousel-1.jpg" class="d-block w-100 br-full" alt="...">
                 </div>
                 <div class="carousel-item br-full carousel-size">
@@ -39,14 +34,7 @@
                     <img src="{{ asset('/images') }}/carousel-4.jpg" class="d-block w-100 br-full" alt="...">
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+
         </div>
     </div>
 </section>
@@ -92,15 +80,15 @@
 <section id="card1">
     <div class="container mt-5 mb-4 w-100 br-full " data-aos="fade-up" data-aos-delay="400">
         <div style=" background-image:url('images/bgrd-1.png'); border-radius:10px;">
-            <div class="row align-self-center ">
-                <div class=" col text-center mt-4 ">
-                    <h1 style="font-weight: 600;">
-                        Kegiatan Pemuda
-                    </h1>
+            <div class="row pl-5 pr-5 ">
+                <div class="col-lg-3 m-auto">
+                    <div class=" text-center mt-4 ">
+                        <h1 style="font-weight: 600;">
+                            Kegiatan Pemuda
+                        </h1>
+                    </div>
                 </div>
-            </div>
-            <div class="row pl-5 pr-5 pb-3">
-                <div class="col align-self-center sliderv">
+                <div class="col-lg-9 align-self-center sliderv mt-4">
                     <div class="card m-3">
                         <div class="card-body">
                             <img src="{{ asset('/images') }}/img-kp-1.png" class=" float-left mr-4 w-auto mb-3 rounded-lg" alt="Responsive image">
@@ -144,7 +132,7 @@
         <div style="background-image:url('images/bgrd-2.png'); border-radius:10px;">
             <div class="row align-self-center ">
                 <div class="col text-center align-self-center mt-4">
-                    <h1 style="font-weight: 600;">UMKM</h1>
+                    <h1 style="font-weight: 600;">- UMKM -</h1>
                 </div>
             </div>
             <div class="row justify-content-center pl-5 pr-5 pb-4">
@@ -171,7 +159,7 @@
                             <p>Rp 10.000</p>
                         </div>
                     </div>
-                    <div class="card m-3">
+                    <div class="card m-3    ">
                         <div class="cart">
                             <div class="cart-img">
                                 <img src="{{ asset('/images') }}/img-umkm-2.png" class="card-img-top" alt="...">
@@ -337,7 +325,7 @@
     <div class="container ">
         <div class="row mb-5 mt-5" data-aos="fade-up" data-aos-delay="400">
             <div class=" col text-center ">
-                <h1 style="font-weight: 600;">Artikel</h1>
+                <h1 style="font-weight: 600;">- Artikel -</h1>
             </div>
         </div>
         <div class="row">
@@ -489,16 +477,16 @@
 <script type="text/javascript">
     $('.sliderh').slick({
         dots: true,
-        infinite: false,
         slidesToShow: 5,
         slidesToScroll: 1,
         autoplay: true,
+        cssEase: 'linear',
         autoplaySpeed: 2000,
         responsive: [{
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
-                    slidesToScroll: 3,
+                    slidesToScroll: 1,
                     infinite: true,
                     dots: true
                 }
@@ -507,7 +495,7 @@
                 breakpoint: 600,
                 settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 2
+                    slidesToScroll: 1
                 }
             },
             {
@@ -523,12 +511,59 @@
         ]
     });
     $('.sliderv').slick({
+        vertical: true,
+        verticalSwiping: true,
         dots: true,
-        infinite: false,
+        touchThreshold: 100,
         slidesToShow: 1,
+        cssEase: 'ease-in-out',
+        dotsClass: "slick-dots-vertical",
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
+        prevArrow: false,
+        nextArrow: false,
+        responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
+    $('.sliderimage').slick({
+        draggable: true,
+        arrows: true,
+        prevArrow: '<div class="slick-prev-image" ></div>',
+        nextArrow: '<div class="slick-next-image"></div>',
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        fade: true,
+        dotsClass: "slick-dots-image",
+        speed: 900,
+        infinite: true,
+        cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
         responsive: [{
                 breakpoint: 1024,
                 settings: {
