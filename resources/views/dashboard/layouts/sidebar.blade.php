@@ -3,7 +3,8 @@
         <div class="logo-src"></div>
         <div class="header__pane ml-auto">
             <div>
-                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                    data-class="closed-sidebar">
                     <span class="hamburger-box">
                         <span class="hamburger-inner"></span>
                     </span>
@@ -40,12 +41,12 @@
     <div class="scrollbar-sidebar ">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
-                <li class="app-sidebar__heading">Dashboards</li>
+                {{-- <li class="app-sidebar__heading">Dashboards</li>
                 <li>
                     <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'mm-active' : '' }}">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
-                        Dashboard
-                    </a>
+                <i class="metismenu-icon pe-7s-rocket"></i>
+                Dashboard
+                </a>
                 </li>
                 <li>
                     <a href="{{ route('visitors.beranda.index') }}">
@@ -288,9 +289,70 @@
                         <i class="metismenu-icon pe-7s-bicycle">
                         </i>Kegiatan Pemuda
                     </a>
-                </li>
-                <li>
+                </li> --}}
 
+                <?php
+                $path = DB::table('dashboard_sub_menus')->get()->toArray();
+                $countPath = count($path);
+                // dd($path);
+                // for ($i=0; $i < count($path) ; $i++) {
+                //     echo $path[$i]->url_path;
+                // }
+
+                // function activeSideBar($urlPath) {
+                //     for ($i=0; $i < $countPath ; $i++) {
+                //         if ($path[$i]->url_path) {
+
+                //         }
+                //     }
+                // }
+
+                // function activeSideBar($urlPath)
+                // {
+                //     if ($urlPath == 'profil-desa/sejarah-visi-misi' || $urlPath == 'profil-desa/struktur-pemerintahan' || $urlPath == 'profil-desa/administratif') {
+                //         return ' active';
+                //     }
+                // }
+                ?>
+
+                @foreach ($menus as $menu)
+                <li class="app-sidebar__heading">{{ $menu->name }}</li>
+
+                <?php
+                $subMenus = DB::table('dashboard_sub_menus')
+                ->join('permissions', 'dashboard_sub_menus.menu_id', '=', 'permissions.id')
+                ->where('dashboard_sub_menus.menu_id', $menu->id)
+                ->get();
+                ?>
+
+                @foreach ($subMenus as $subMenu)
+                <li>
+                    <a href="{{ $subMenu->url_path }}">
+                        <i class="{{ $subMenu->icon }}"></i>
+                        {{ $subMenu->sub_menu }}
+                        @if ($subMenu->sub_menu == 'UMKM')
+                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                        @endif
+                    </a>
+                    @if ($subMenu->sub_menu == 'UMKM')
+                    <ul>
+                        <li>
+                            <a href="">
+                                <i class="metismenu-icon">
+                                </i>Toko
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="metismenu-icon">
+                                </i>Produk
+                            </a>
+                        </li>
+                    </ul>
+                    @endif
+                </li>
+                @endforeach
+                @endforeach
             </ul>
         </div>
     </div>

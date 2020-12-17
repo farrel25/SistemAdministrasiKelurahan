@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Villager;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Permission;
 
 class VillagerController extends Controller
 {
@@ -14,7 +16,8 @@ class VillagerController extends Controller
      */
     public function index()
     {
-        //
+        $menus = $this->getMenu();
+        return view('dashboard.penduduk.penduduk', compact('menus'));
     }
 
     /**
@@ -81,5 +84,20 @@ class VillagerController extends Controller
     public function destroy(Villager $villager)
     {
         //
+    }
+
+    public function getMenu()
+    {
+        // ambil id user yg sedang login
+        $userId = Auth::user()->id;
+
+        // ambil role user yang sedang login berdasarkan id user
+        $userRoleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
+
+        // ambil menu yang boleh diakses user berdasarkan role user
+        return Permission::select('permissions.id', 'permissions.name')
+            ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+            ->where('role_has_permissions.role_id', $userRoleId)
+            ->get();
     }
 }

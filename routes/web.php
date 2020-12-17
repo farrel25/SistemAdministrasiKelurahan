@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Models\Permission;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,21 +19,21 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-
-
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+    $menu = 'index';
+    $home = 'home';
+    Route::get('/' . $home, 'HomeController@' . $menu)->name('home');
 
     // dashboard
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     //Penduduk
-    Route::get('/penduduk', 'DashboardController@penduduk')->name('penduduk');
-    Route::get('/penduduk-aktif', 'DashboardController@pendudukaktif')->name('penduduk-aktif');
-    Route::get('/penduduk-tambah', 'DashboardController@penduduktambah')->name('penduduk-tambah');
-    Route::get('/penduduk-edit', 'DashboardController@pendudukedit')->name('penduduk-edit');
+    Route::get('/dashboard/kependudukan', 'VillagerController@index')->name('penduduk');
+    Route::get('/dashboard/kependudukan/penduduk-aktif', 'DashboardController@pendudukaktif')->name('penduduk-aktif');
+    Route::get('/dashboard/kependudukan/tambah', 'DashboardController@penduduktambah')->name('penduduk-tambah');
+    Route::get('/dashboard/kependudukan/edit', 'DashboardController@pendudukedit')->name('penduduk-edit');
 
 
     // pelayanan

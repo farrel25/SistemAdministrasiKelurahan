@@ -1,6 +1,5 @@
 <?php
 
-use App\ArticleCategory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,12 +16,12 @@ class DatabaseSeeder extends Seeder
         // $this->call(LetterDocumentSeeder::class);
         // $this->call(LetterTypeSeeder::class);
         $this->call([
+            // Permission
             RoleTableSeeder::class,
-
-            // Letter
-            LetterDocumentSeeder::class,
-            LetterTypeSeeder::class,
-            LetterStatusSeeder::class,
+            PermissionTableSeeder::class,
+            RoleHasPermissionTableSeeder::class,
+            // DashboardSubMenuSeeder::class,
+            DashboardSubMenuSeeder::class,
 
             // Villager
             VillagerSeeder::class,
@@ -36,6 +35,11 @@ class DatabaseSeeder extends Seeder
             VillagerAgeRangeSeeder::class,
             VillagerChronicDiseaseSeeder::class,
             VillagerDisabilitySeeder::class,
+
+            // Letter
+            LetterDocumentSeeder::class,
+            LetterTypeSeeder::class,
+            LetterStatusSeeder::class,
 
             // Article
             ArticleCategorySeeder::class,
