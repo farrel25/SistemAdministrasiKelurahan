@@ -48,15 +48,15 @@ class Villager extends Model
         return $this->belongsTo(VillagerReligion::class, 'religion_id');
     }
 
-    // public function villagerEducation()
-    // {
-    //     return $this->belongsTo(VillagerEducation::class, 'education_id');
-    // }
+    public function villagerEducation()
+    {
+        return $this->belongsTo(VillagerEducation::class, 'education_id');
+    }
 
-    // public function villagerProfession()
-    // {
-    //     return $this->belongsTo(VillagerProfession::class, 'profession_id');
-    // }
+    public function villagerProfession()
+    {
+        return $this->belongsTo(VillagerProfession::class, 'profession_id');
+    }
 
     public function villagerMaritalStatus()
     {

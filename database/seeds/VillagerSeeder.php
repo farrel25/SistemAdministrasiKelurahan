@@ -20,7 +20,7 @@ class VillagerSeeder extends Seeder
             'birth_place' => 'Semarang',
             'birth_date' => '2000-04-01',
             'religion_id' => 1,
-            'education_id' => 1,
+            'education_id' => 8,
             'profession_id' => 1,
             'marital_status_id' => 1,
             'nationality_id' => 1,

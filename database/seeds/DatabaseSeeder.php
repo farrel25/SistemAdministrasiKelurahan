@@ -27,6 +27,8 @@ class DatabaseSeeder extends Seeder
             VillagerSeeder::class,
             VillagerBloodTypeSeeder::class,
             VillagerReligionSeeder::class,
+            VillagerEducationSeeder::class,
+            VillagerProfessionSeeder::class,
             VillagerSexSeeder::class,
             VillagerMaritalStatusSeeder::class,
             VillagerStayStatusSeeder::class,
