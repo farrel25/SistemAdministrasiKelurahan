@@ -145,13 +145,28 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6 col-xl-4">
+    <div class="col-md-6 col-xl-3">
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Artikel Masuk</div>
-                        <div class="widget-subheading">Total Artikel Masuk</div>
+                        <div class="widget-heading">Artikel Total</div>
+                        <div class="widget-subheading">Total Artikel</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-primary">100</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-3">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Artikel Aktif</div>
+                        <div class="widget-subheading">Total Artikel Tampil</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="widget-numbers text-success">100</div>
@@ -160,7 +175,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-xl-4">
+    <div class="col-md-6 col-xl-3">
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
@@ -175,13 +190,13 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6 col-xl-4">
+    <div class="col-md-6 col-xl-3">
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Artikel Keluar</div>
-                        <div class="widget-subheading">Total Artikel Keluar</div>
+                        <div class="widget-heading">Artikel Terhapus</div>
+                        <div class="widget-subheading">Total Artikel Terhapus</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="widget-numbers text-danger">100</div>
