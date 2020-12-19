@@ -15,7 +15,8 @@
             </div>
         </div>
         <div class="page-title-actions">
-            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip" title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark">
+            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip"
+                title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark">
                 <i class="fas fa-home"></i>
             </a>
         </div>
@@ -30,7 +31,8 @@
             <div class="card-header">Data Penduduk
                 <div class="btn-actions-pane-right ">
                     <div role="group" class="btn-group-sm btn-group">
-                        <a type="button" class="btn btn-lg btn-focus  text-white font-weight-normal" href="{{ route('penduduk-tambah') }}">+ Tambah Data</a>
+                        <a type="button" class="btn btn-lg btn-focus  text-white font-weight-normal"
+                            href="{{ route('penduduk-tambah') }}">+ Tambah Data</a>
                     </div>
                 </div>
             </div>
@@ -49,7 +51,33 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($villagers as $villager)
                         <tr>
+                            <td class=" text-center">{{ $villager->nik }}</td>
+                            <td class=" text-center">{{ $villager->full_name }}</td>
+                            <td class=" text-center">{{ $villager->villagerSex->sex }}</td>
+                            <td class=" text-center">{{ $villager->villagerReligion->religion }}</td>
+                            <td class=" text-center">{{ $villager->villagerProfession->profession }}</td>
+                            <td class=" text-center">{{ $villager->address }}</td>
+                            <td class=" text-center">
+                                @if (!$villager->user_id)
+                                <div class="badge badge-secondary">Tidak Aktif</div>
+                                @else
+                                <div class="badge badge-success">Aktif</div>
+                                @endif
+                            </td>
+                            <td class=" text-center">
+                                <div class="btn-group-sm btn-group">
+                                    <a href="{{ route('penduduk-edit') }}" class="btn btn-primary"><i
+                                            class="fas fa-edit"></i></a>
+                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{ route('penduduk-detail') }}" class="btn btn-warning text-white"><i
+                                            class="fas fa-info-circle"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                        {{-- <tr>
                             <td class=" text-center">3373020203000003</td>
                             <td class=" text-center"> John Doe</td>
                             <td class=" text-center">Laki-laki</td>
@@ -61,52 +89,38 @@
                             </td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
-                                    <a href="{{ route('penduduk-edit') }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                    <a href="{{ route('penduduk-detail') }}" class="btn btn-warning text-white"><i class="fas fa-info-circle"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                    <tbody>
-                        <tr>
-                            <td class=" text-center">3373020203000003</td>
-                            <td class=" text-center"> John Doe</td>
-                            <td class=" text-center">Laki-laki</td>
-                            <td class=" text-center">Islam</td>
-                            <td class=" text-center">Mahasiswa</td>
-                            <td class=" text-center">bla bla bla</td>
-                            <td class=" text-center">
-                                <div class="badge badge-secondary">Tidak Aktif</div>
-                            </td>
-                            <td class=" text-center">
-                                <div class="btn-group-sm btn-group">
-                                    <a href="{{ route('penduduk-edit') }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                    <a href="{{ route('penduduk-detail') }}" class="btn btn-warning text-white"><i class="fas fa-info-circle"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                    <a href="{{ route('penduduk-edit') }}" class="btn btn-primary"><i
+                            class="fas fa-edit"></i></a>
+                        <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                        <a href="{{ route('penduduk-detail') }}" class="btn btn-warning text-white"><i
+                                class="fas fa-info-circle"></i></a>
             </div>
-            <div class=" d-block card-footer ">
-                <div class="card-body ">
-                    <nav class=" " aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center ">
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link" aria-label="Previous"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
-                            <li class="page-item active"><a href="javascript:void(0);" class="page-link">1</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">2</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link" aria-label="Next"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
-                        </ul>
-                    </nav>
-                </div>
+            </td>
+            </tr> --}}
+            </tbody>
+            </table>
+        </div>
+        <div class=" d-block card-footer ">
+            <div class="card-body ">
+                <nav class=" " aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center ">
+                        {{-- <li class="page-item"><a href="javascript:void(0);" class="page-link"
+                                aria-label="Previous"><span aria-hidden="true">«</span><span
+                                    class="sr-only">Previous</span></a></li>
+                        <li class="page-item active"><a href="javascript:void(0);" class="page-link">1</a></li>
+                        <li class="page-item"><a href="javascript:void(0);" class="page-link">2</a></li>
+                        <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
+                        <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
+                        <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
+                        <li class="page-item"><a href="javascript:void(0);" class="page-link" aria-label="Next"><span
+                                    aria-hidden="true">»</span><span class="sr-only">Next</span></a></li> --}}
+                        {{ $villagers->links() }}
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <div class="row">
@@ -135,7 +149,8 @@
                         </div>
                         <div class="widget-content-right w-100">
                             <div class="progress-bar-xs progress">
-                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="71"
+                                    aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
                             </div>
                         </div>
                     </div>
@@ -149,10 +164,12 @@
     <div class="col-md-4 col-lg-4 mb-3 ">
         <div class=" row d-flex">
             <div class="col-6">
-                <button type="button " class="btn btn-lg btn-block btn-danger text-white font-weight-bold  shadow "> <i class="fas fa-file-pdf fa-2x"></i></button>
+                <button type="button " class="btn btn-lg btn-block btn-danger text-white font-weight-bold  shadow "> <i
+                        class="fas fa-file-pdf fa-2x"></i></button>
             </div>
             <div class="col-6">
-                <button type="button" class="btn btn-lg btn-block btn-success text-white font-weight-bold  shadow "> <i class="fas fa-file-excel fa-2x"></i></button>
+                <button type="button" class="btn btn-lg btn-block btn-success text-white font-weight-bold  shadow "> <i
+                        class="fas fa-file-excel fa-2x"></i></button>
             </div>
         </div>
     </div>

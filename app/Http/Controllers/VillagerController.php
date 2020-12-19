@@ -17,7 +17,9 @@ class VillagerController extends Controller
     public function index()
     {
         $menus = $this->getMenu();
-        return view('dashboard.penduduk.penduduk', compact('menus'));
+        $villagers = Villager::paginate(5);
+        // dd($villagers);
+        return view('dashboard.penduduk.penduduk', compact('menus', 'villagers'));
     }
 
     /**

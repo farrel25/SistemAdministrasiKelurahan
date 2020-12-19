@@ -97,8 +97,6 @@
                             <td class=" text-center">{{ $villager->address }}</td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
-                                    {{-- <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button> --}}
                                     <button class="btn btn-warning text-white"><i
                                             class="fas fa-info-circle"></i></button>
                                 </div>
