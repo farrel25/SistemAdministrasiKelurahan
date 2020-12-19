@@ -15,7 +15,8 @@
             </div>
         </div>
         <div class="page-title-actions">
-            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip" title="Kembali Ke Beranda" data-placement="left" class="btn-shadow mr-3 btn btn-dark">
+            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip"
+                title="Kembali Ke Beranda" data-placement="left" class="btn-shadow mr-3 btn btn-dark">
                 <i class="fas fa-home"></i>
             </a>
         </div>
@@ -74,18 +75,31 @@
                     <thead>
                         <tr>
                             <th class=" text-center">NIK</th>
+                            <th class=" text-center">Foto</th>
                             <th class=" text-center">Nama</th>
                             <th class=" text-center">Gender</th>
                             <th class=" text-center">Agama</th>
                             <th class=" text-center">Pekerjaan</th>
                             <th class=" text-center">Alamat</th>
-                            <th class=" text-center">Status</th>
-                            <th class=" text-center">Actions</th>
+                            {{-- <th class=" text-center">Status Akun</th> --}}
+                            {{-- <th class=" text-center">Actions</th> --}}
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($villagers as $villager)
                         <tr>
+                            <td class=" text-center">{{ $villager->nik }}</td>
+                            <td class=" text-center"></td>
+                            <td class=" text-center">{{ $villager->full_name }}</td>
+                            <td class=" text-center">{{ $villager->villagerSex->sex }}</td>
+                            <td class=" text-center">{{ $villager->villagerReligion->religion }}</td>
+                            <td class=" text-center">{{ $villager->villagerProfession->profession }}</td>
+                            <td class=" text-center">{{ $villager->address }}</td>
+                        </tr>
+                        @endforeach
+                        {{-- <tr>
                             <td class=" text-center">3373020203000003</td>
+                            <td class=" text-center"></td>
                             <td class=" text-center"> John Doe</td>
                             <td class=" text-center">Laki-laki</td>
                             <td class=" text-center">Islam</td>
@@ -98,10 +112,11 @@
                                 <div class="btn-group-sm btn-group">
                                     <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
                                     <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                                    <button class="btn btn-warning text-white"><i class="fas fa-info-circle"></i></button>
+                                    <button class="btn btn-warning text-white"><i
+                                            class="fas fa-info-circle"></i></button>
                                 </div>
                             </td>
-                        </tr>
+                        </tr> --}}
                     </tbody>
                 </table>
             </div>
@@ -109,13 +124,18 @@
                 <div class="card-body ">
                     <nav class=" " aria-label="Page navigation example">
                         <ul class="pagination justify-content-center ">
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link" aria-label="Previous"><span aria-hidden="true">«</span><span class="sr-only">Previous</span></a></li>
+                            {{-- <li class="page-item"><a href="javascript:void(0);" class="page-link"
+                                    aria-label="Previous"><span aria-hidden="true">«</span><span
+                                        class="sr-only">Previous</span></a></li>
                             <li class="page-item active"><a href="javascript:void(0);" class="page-link">1</a></li>
                             <li class="page-item"><a href="javascript:void(0);" class="page-link">2</a></li>
                             <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
                             <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
                             <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link" aria-label="Next"><span aria-hidden="true">»</span><span class="sr-only">Next</span></a></li>
+                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
+                                    aria-label="Next"><span aria-hidden="true">»</span><span
+                                        class="sr-only">Next</span></a></li> --}}
+                            {{ $villagers->links() }}
                         </ul>
                     </nav>
                 </div>

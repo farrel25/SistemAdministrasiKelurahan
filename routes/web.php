@@ -22,9 +22,9 @@ use Spatie\Permission\Models\Permission;
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
-    $menu = 'index';
-    $home = 'home';
-    Route::get('/' . $home, 'HomeController@' . $menu)->name('home');
+    // $menu = 'index';
+    // $home = 'home';
+    // Route::get('/' . $home, 'HomeController@' . $menu)->name('home');
 
     // dashboard
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');

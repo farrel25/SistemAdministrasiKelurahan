@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Villager;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 
@@ -10,7 +11,9 @@ class DashboardController extends Controller
     public function index()
     {
         $menus = $this->getMenu();
-        return view('dashboard.beranda.index', compact('menus'));
+        $villagers = Villager::where('life_status_id', 1)->where('user_id', '!=', null)->paginate(5);
+        // dd($villagers);
+        return view('dashboard.beranda.index', compact('menus', 'villagers'));
     }
 
     // ini dipindah di VillagerController@index

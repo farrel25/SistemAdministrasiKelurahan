@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Villager::class, function (Faker $faker) {
     return [
-        'nik' => $faker->unique()->randomNumber($nbDigits = 16),
+        'nik' => $faker->unique()->numerify('################'),
         'user_id' => null,
         'full_name' => $faker->firstName(),
         'sex_id' => $faker->numberBetween($min = 1, $max = 2),
@@ -18,8 +18,8 @@ $factory->define(Villager::class, function (Faker $faker) {
         'profession_id' => $faker->numberBetween($min = 1, $max = 89),
         'marital_status_id' => $faker->numberBetween($min = 1, $max = 4),
         'nationality_id' => $faker->numberBetween($min = 1, $max = 3),
-        'father_nik' => $faker->randomNumber($nbDigits = 16),
-        'mother_nik' => $faker->randomNumber($nbDigits = 16),
+        'father_nik' => $faker->numerify('################'),
+        'mother_nik' => $faker->numerify('################'),
         'father_name' => $faker->name($gender = 'male'),
         'mother_name' => $faker->name($gender = 'female'),
         'photo' => null,

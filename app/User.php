@@ -42,4 +42,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(LetterSubmission::class);
     }
+
+    public function villager()
+    {
+        return $this->hasOne(Villager::class);
+    }
 }
