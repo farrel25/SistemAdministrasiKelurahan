@@ -24627,3 +24627,13 @@ a.fc-more:hover {
     object-fit: cover;
     border-radius: 5px;
 }
+
+.answer {
+    position: absolute;
+    margin-left: 150px;
+    white-space: normal;
+}
+
+.answer::before {
+    content: ":";
+}

@@ -26,243 +26,113 @@
     <div class="tab-pane tabs-animation fade show active" role="tabpanel">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class=" col-lg-3 mb-2 mt-1">
                         <img src="{{ asset('/admin') }}/images/avatars/ava-penduduk.jpeg" class="cropped img-fluid mx-auto d-block mt-2 mb-4 img-thumbnail" alt="Responsive image">
                     </div>
                     <div class=" col-lg-9 ">
                         <h4 class="card-title font-weight-bold mt-2">Data Diri</h4>
                         <hr>
-                        <div class="">
+                        <div class="row">
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">NIK</p>
+                                <p class="answer"> 337302020300003</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Nama Lengkap</p>
+                                <p class="answer"> Briliantino Abhista Prabandanu</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Tempat Lahir</p>
+                                <p class="answer"> Semarang</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Tanggal Lahir</p>
+                                <p class="answer"> 15-04-200</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Agama</p>
+                                <p class="answer"> Shinto</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Pendidikan</p>
+                                <p class="answer"> SMA</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Pekerjaan</p>
+                                <p class="answer"> Programmer</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Status Kawin</p>
+                                <p class="answer"> Kawin</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Status Tinggal</p>
+                                <p class="answer"> Menetap</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Status Hidup</p>
+                                <p class="answer"> Hidup</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Kewarganegaraan</p>
+                                <p class="answer"> WNA</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Golongan Darah</p>
+                                <p class="answer"> B-</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">No. Telepon</p>
+                                <p class="answer"> 085641268668</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Email</p>
+                                <p class="answer"> babhistta@gmail.com</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Alamat</p>
+                                <p class="answer"> Klumpit Kel. Sidurejo Kidul Kec.Tingkir RT 002 RW 001, Salatiga</p>
+                            </div>
                         </div>
-                        <form class="">
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">NIK</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Nama Lengkap</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Tempat Lahir</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Tanggal Lahir</label>
-                                        <input name="#" id="#" type="date" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="#" class=" ">Jenis Kelamin</label>
-                                    <div class="position-relative form-check mt-2 mb-3">
-                                        <label class="form-check-label">
-                                            <input name="radio1" type="radio" class="form-check-input"> Laki - Laki
-                                        </label>
-                                        <label class="form-check-label ml-5">
-                                            <input name="radio1" type="radio" class="form-check-input"> Perempuan
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Agama</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Pendidikan</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Pekerjaan</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Status Kawin</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Status Tinggal</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Status Hidup</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Kewarganegaraan</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Golongan Darah</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="position-relative form-group">
-                                <label for="#" class="">Address</label>
-                                <textarea name="#" id="#" class="form-control"></textarea>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Email</label>
-                                        <input name="#" id="#" type="email" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">No. Telepon</label>
-                                        <input name="#" id="#" type="tel" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">Data Orang Tua</h4>
                         <hr>
-                    </div>
-                    <div class=" col-lg-9">
-                        <form class="">
-                            <div class="form-row">
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">NIK Ayah</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Nama Ayah</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">NIK Ibu</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Nama Ibu</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">Riwayat Penyakit</h4>
+                        <h4 class="card-title font-weight-bold mt-2">Data Orang Tua</h4>
                         <hr>
-                    </div>
-                    <div class=" col-lg-9">
-                        <form class="">
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Penyakit Cacat</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Penyakit Menahun</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
+                        <div class="row">
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">NIK Ayah</p>
+                                <p class="answer"> 337302020300003</p>
                             </div>
-                        </form>
-                    </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">Foto</h4>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Nama Lengkap Ayah</p>
+                                <p class="answer"> Briliantino Abhista Prabandanu</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">NIK Ibu</p>
+                                <p class="answer"> 337302020300003</p>
+                            </div>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Nama Lengkap Ibu</p>
+                                <p class="answer"> Briliantino Abhista Prabandanu</p>
+                            </div>
+                        </div>
                         <hr>
-                    </div>
-                    <div class=" col-lg-9">
-                        <form class="">
-                            <div class="form-row ml-1 mb-2 mt-3">
-                                <div class="position-relative form-group">
-                                    <label for="exampleFile" class="">Upload Foto</label>
-                                    <input name="file" id="exampleFile" type="file" class="form-control-file">
-                                    <small class="form-text text-muted">Wajib mengisi foto sesuai dengan aslinya</small>
-                                </div>
+                        <h4 class="card-title font-weight-bold mt-2">Riwayat Penyakit</h4>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Penyakit Cacat</p>
+                                <p class="answer"> -</p>
                             </div>
-                            <button class="mt-2 btn btn-primary">Tambah Data</button>
-                            <button class="mt-2 btn btn-outline-danger">Cancel</button>
-                        </form>
+                            <div class="col-md-12 d-inline-flex ">
+                                <p class="">Penyakit Menahun</p>
+                                <p class="answer"> -</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 </div>
 @endsection
