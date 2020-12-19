@@ -16,10 +16,20 @@ class VillagerController extends Controller
      */
     public function index()
     {
+        // mengambil data menu halaman dashboard
         $menus = $this->getMenu();
+
+        // menghitung total data penduduk
+        $totalVillager = count(Villager::get());
+
+        // menghitung persentase penduduk yg aktif dari total penduduk
+        $activeVillager = count(Villager::where('life_status_id', 1)->where('user_id', '!=', null)->get());
+        $activePercentage = ($activeVillager / $totalVillager) * 100;
+
+        // mengambil data penduduk dan ditampilkan 5 saja per pagination
         $villagers = Villager::paginate(5);
-        // dd($villagers);
-        return view('dashboard.penduduk.penduduk', compact('menus', 'villagers'));
+
+        return view('dashboard.penduduk.penduduk', compact('menus', 'villagers', 'totalVillager', 'activePercentage'));
     }
 
     /**

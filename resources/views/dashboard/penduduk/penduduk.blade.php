@@ -24,6 +24,60 @@
 </div>
 
 
+<div class="row">
+    <div class="col-md-4 col-xl-4">
+        <div class="card mb-3 widget-content ">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Data Penduduk</div>
+                        <div class="widget-subheading">Total Data Penduduk</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-warning">{{ $totalVillager }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-xl-4">
+        <div class="card mb-3 widget-chart widget-chart2 text-left card">
+            <div class="widget-content">
+                <div class="widget-content-outer">
+                    <div class="widget-content-wrapper">
+                        <div class="widget-content-left pr-2 fsize-1">
+                            <div class="widget-numbers mt-0 fsize-3 text-warning">
+                                {{ number_format($activePercentage,2) }}%</div>
+                        </div>
+                        <div class="widget-content-right w-100">
+                            <div class="progress-bar-xs progress">
+                                <div class="progress-bar bg-warning" role="progressbar"
+                                    aria-valuenow="{{ number_format($activePercentage,2) }}" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: {{ number_format($activePercentage,2) }}%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget-content-left fsize-1">
+                        <div class="text-muted opacity-6">Persentase Data Penduduk Aktif</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-lg-4 mb-3 ">
+        <div class=" row d-flex">
+            <div class="col-6">
+                <button type="button " class="btn btn-lg btn-block btn-danger text-white font-weight-bold  shadow "> <i
+                        class="fas fa-file-pdf fa-2x"></i></button>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-lg btn-block btn-success text-white font-weight-bold  shadow "> <i
+                        class="fas fa-file-excel fa-2x"></i></button>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 <div class="row">
     <div class="col-md-12">
@@ -123,57 +177,5 @@
 </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4 col-xl-4">
-        <div class="card mb-3 widget-content ">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Data Penduduk</div>
-                        <div class="widget-subheading">Total Data Penduduk</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-warning">100</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-xl-4">
-        <div class="card mb-3 widget-chart widget-chart2 text-left card">
-            <div class="widget-content">
-                <div class="widget-content-outer">
-                    <div class="widget-content-wrapper">
-                        <div class="widget-content-left pr-2 fsize-1">
-                            <div class="widget-numbers mt-0 fsize-3 text-warning">71%</div>
-                        </div>
-                        <div class="widget-content-right w-100">
-                            <div class="progress-bar-xs progress">
-                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="71"
-                                    aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="widget-content-left fsize-1">
-                        <div class="text-muted opacity-6">Persentase Data Penduduk Aktif</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-lg-4 mb-3 ">
-        <div class=" row d-flex">
-            <div class="col-6">
-                <button type="button " class="btn btn-lg btn-block btn-danger text-white font-weight-bold  shadow "> <i
-                        class="fas fa-file-pdf fa-2x"></i></button>
-            </div>
-            <div class="col-6">
-                <button type="button" class="btn btn-lg btn-block btn-success text-white font-weight-bold  shadow "> <i
-                        class="fas fa-file-excel fa-2x"></i></button>
-            </div>
-        </div>
-    </div>
-
-</div>
 
 @endsection

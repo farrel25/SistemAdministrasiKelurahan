@@ -41,8 +41,8 @@
         <div class="card mb-3 widget-content bg-strong-bliss   ">
             <div class="widget-content-wrapper text-white">
                 <div class="widget-content-left">
-                    <div class="widget-heading">Surat Tertunda</div>
-                    <div class="widget-subheading">Total Surat Tertunda</div>
+                    <div class="widget-heading">Permohonan Surat</div>
+                    <div class="widget-subheading">Total Permohonan Surat</div>
                 </div>
                 <div class="widget-content-right">
                     <div class="widget-numbers text-white"><span>100</span></div>
