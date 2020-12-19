@@ -63,9 +63,9 @@ class DashboardSubMenuSeeder extends Seeder
             '/dashboard/info-kelurahan/kepengurusan',
             '/dashboard/info-kelurahan/sejarah-dan-visi-misi',
             '/dashboard/info-kelurahan/wilayah',
-            '/dashboard/info-kelurahan/administratif',
+            '/dashboard/info-kelurahan/data-administratif',
             // 3
-            '/dashboard/kependudukan',
+            '/dashboard/kependudukan/penduduk',
             // 4
             '/dashboard/manajemen-surat/surat-masuk',
             '/dashboard/manajemen-surat/surat-keluar',

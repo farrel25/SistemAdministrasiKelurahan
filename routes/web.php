@@ -30,11 +30,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     //Penduduk
-    Route::get('/dashboard/kependudukan', 'VillagerController@index')->name('penduduk');
+    Route::get('/dashboard/kependudukan/penduduk', 'VillagerController@index')->name('penduduk');
     Route::get('/dashboard/kependudukan/penduduk-aktif', 'DashboardController@pendudukaktif')->name('penduduk-aktif');
-    Route::get('/dashboard/kependudukan/tambah', 'DashboardController@penduduktambah')->name('penduduk-tambah');
-    Route::get('/dashboard/kependudukan/edit', 'DashboardController@pendudukedit')->name('penduduk-edit');
-    Route::get('/dashboard/kependudukan/detail', 'DashboardController@pendudukdetail')->name('penduduk-detail');
+    Route::get('/dashboard/kependudukan/penduduk/tambah', 'DashboardController@penduduktambah')->name('penduduk-tambah');
+    Route::get('/dashboard/kependudukan/penduduk/edit', 'DashboardController@pendudukedit')->name('penduduk-edit');
+    Route::get('/dashboard/kependudukan/penduduk/detail', 'DashboardController@pendudukdetail')->name('penduduk-detail');
 
 
     // pelayanan

@@ -82,7 +82,7 @@
                             <th class=" text-center">Pekerjaan</th>
                             <th class=" text-center">Alamat</th>
                             {{-- <th class=" text-center">Status Akun</th> --}}
-                            {{-- <th class=" text-center">Actions</th> --}}
+                            <th class=" text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -95,6 +95,14 @@
                             <td class=" text-center">{{ $villager->villagerReligion->religion }}</td>
                             <td class=" text-center">{{ $villager->villagerProfession->profession }}</td>
                             <td class=" text-center">{{ $villager->address }}</td>
+                            <td class=" text-center">
+                                <div class="btn-group-sm btn-group">
+                                    {{-- <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button> --}}
+                                    <button class="btn btn-warning text-white"><i
+                                            class="fas fa-info-circle"></i></button>
+                                </div>
+                            </td>
                         </tr>
                         @endforeach
                         {{-- <tr>

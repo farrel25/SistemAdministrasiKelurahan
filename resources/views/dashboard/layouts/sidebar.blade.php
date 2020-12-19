@@ -3,7 +3,8 @@
         <div class="logo-src"></div>
         <div class="header__pane ml-auto">
             <div>
-                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                    data-class="closed-sidebar">
                     <span class="hamburger-box">
                         <span class="hamburger-inner"></span>
                     </span>
@@ -282,30 +283,6 @@
                     </a>
                 </li> --}}
 
-                <?php
-                $path = DB::table('dashboard_sub_menus')->get()->toArray();
-                $countPath = count($path);
-                // dd($path);
-                // for ($i=0; $i < count($path) ; $i++) {
-                //     echo $path[$i]->url_path;
-                // }
-
-                // function activeSideBar($urlPath) {
-                //     for ($i=0; $i < $countPath ; $i++) {
-                //         if ($path[$i]->url_path) {
-
-                //         }
-                //     }
-                // }
-
-                // function activeSideBar($urlPath)
-                // {
-                //     if ($urlPath == 'profil-desa/sejarah-visi-misi' || $urlPath == 'profil-desa/struktur-pemerintahan' || $urlPath == 'profil-desa/administratif') {
-                //         return ' active';
-                //     }
-                // }
-                ?>
-
                 @foreach ($menus as $menu)
                 <li class="app-sidebar__heading">{{ $menu->name }}</li>
 
@@ -317,8 +294,15 @@
                 ?>
 
                 @foreach ($subMenus as $subMenu)
+                <?php
+                $paths = Request::segments();
+                $path = '';
+                foreach ($paths as $p) {
+                    $path .= '/'.$p;
+                }
+                ?>
                 <li>
-                    <a href="{{ $subMenu->url_path }}">
+                    <a href="{{ $subMenu->url_path }}" class="{{ $path == $subMenu->url_path ? 'mm-active':'' }}">
                         <i class="{{ $subMenu->icon }}"></i>
                         {{ $subMenu->sub_menu }}
                         @if ($subMenu->sub_menu == 'UMKM')
