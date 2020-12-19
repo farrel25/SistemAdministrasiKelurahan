@@ -9,8 +9,8 @@
                 <i class="pe-7s-users icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>Data Penduduk
-                <div class="page-title-subheading">Data Penduduk
+            <div>Penduduk
+                <div class="page-title-subheading">Penduduk
                 </div>
             </div>
         </div>
@@ -61,9 +61,9 @@
                             </td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
-                                    <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                                    <button class="btn btn-warning text-white"><i class="fas fa-info-circle"></i></button>
+                                    <a href="{{ route('penduduk-edit') }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{ route('penduduk-detail') }}" class="btn btn-warning text-white"><i class="fas fa-info-circle"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -81,9 +81,9 @@
                             </td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
-                                    <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                                    <button class="btn btn-warning text-white"><i class="fas fa-info-circle"></i></button>
+                                    <a href="{{ route('penduduk-edit') }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                    <a href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                    <a href="{{ route('penduduk-detail') }}" class="btn btn-warning text-white"><i class="fas fa-info-circle"></i></a>
                                 </div>
                             </td>
                         </tr>

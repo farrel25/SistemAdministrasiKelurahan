@@ -3,8 +3,7 @@
         <div class="logo-src"></div>
         <div class="header__pane ml-auto">
             <div>
-                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
-                    data-class="closed-sidebar">
+                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                     <span class="hamburger-box">
                         <span class="hamburger-inner"></span>
                     </span>
@@ -30,14 +29,6 @@
             </button>
         </span>
     </div>
-    <?php
-    function activeSideBar($urlPath)
-    {
-        if ($urlPath == 'profil-desa/sejarah-visi-misi' || $urlPath == 'profil-desa/struktur-pemerintahan' || $urlPath == 'profil-desa/administratif') {
-            return ' active';
-        }
-    }
-    ?>
     <div class="scrollbar-sidebar ">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
@@ -70,13 +61,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="tables-regular.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-display2"></i>
                         Sejarah & Visi-Misi
                     </a>
                 </li>
                 <li>
-                    <a href="tables-regular.html">
+                    <a href="#l">
                         <i class="metismenu-icon pe-7s-map"></i>
                         Wilayah
                     </a>
@@ -89,37 +80,37 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <i class="metismenu-icon">
                                 </i>Jenis Kelamin
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <i class="metismenu-icon">
                                 </i>Pendidikan
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <i class="metismenu-icon">
                                 </i>Pekerjaan
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <i class="metismenu-icon">
                                 </i>Agama
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <i class="metismenu-icon">
                                 </i>Warga Negara
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <i class="metismenu-icon">
                                 </i>Wilayah
                             </a>
@@ -182,26 +173,26 @@
                 </li>
                 <li class="app-sidebar__heading">Manajemen Artikel</li>
                 <li>
-                    <a href="tables-regular.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-news-paper"></i>
                         Artikel
 
                     </a>
                 </li>
                 <li>
-                    <a href="tables-regular.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-network"></i>
                         Kategori
                     </a>
                 </li>
                 <li>
-                    <a href="tables-regular.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-ribbon"></i>
                         Tag
                     </a>
                 </li>
                 <li>
-                    <a href="tables-regular.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-chat"></i>
                         Komentar
                     </a>
@@ -209,13 +200,13 @@
 
                 <li class="app-sidebar__heading">Manajemen Menu</li>
                 <li>
-                    <a href="tables-regular.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-albums"></i>
                         Menu
                     </a>
                 </li>
                 <li>
-                    <a href="tables-regular.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-photo-gallery"></i>
                         Sub Menu
                     </a>
@@ -223,19 +214,19 @@
 
                 <li class="app-sidebar__heading">Manajemen Pengguna</li>
                 <li>
-                    <a href="tables-regular.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-user"></i>
                         Pengguna
                     </a>
                 </li>
                 <li>
-                    <a href="tables-regular.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-plugin"></i>
                         Role
                     </a>
                 </li>
                 <li>
-                    <a href="tables-regular.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-paper-plane"></i>
                         Hak Akses
                     </a>
@@ -243,19 +234,19 @@
 
                 <li class="app-sidebar__heading">Layanan</li>
                 <li>
-                    <a href="charts-chartjs.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-mail">
                         </i> Permohonan Surat
                     </a>
                 </li>
                 <li>
-                    <a href="charts-chartjs.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-hammer">
                         </i>Pengaduan
                     </a>
                 </li>
                 <li>
-                    <a href="charts-chartjs.html">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-pen">
                         </i>Kontributor
                     </a>
@@ -263,7 +254,7 @@
 
                 <li class="app-sidebar__heading">Kegiatan Masyarakat</li>
                 <li>
-                    <a href="">
+                    <a href="#">
                         <i class="metismenu-icon pe-7s-cart"></i>
                         UMKM
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left">
@@ -271,13 +262,13 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <i class="metismenu-icon">
                                 </i>Toko
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <i class="metismenu-icon">
                                 </i>Produk
                             </a>
@@ -320,9 +311,9 @@
 
                 <?php
                 $subMenus = DB::table('dashboard_sub_menus')
-                ->join('permissions', 'dashboard_sub_menus.menu_id', '=', 'permissions.id')
-                ->where('dashboard_sub_menus.menu_id', $menu->id)
-                ->get();
+                    ->join('permissions', 'dashboard_sub_menus.menu_id', '=', 'permissions.id')
+                    ->where('dashboard_sub_menus.menu_id', $menu->id)
+                    ->get();
                 ?>
 
                 @foreach ($subMenus as $subMenu)
@@ -337,13 +328,13 @@
                     @if ($subMenu->sub_menu == 'UMKM')
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <i class="metismenu-icon">
                                 </i>Toko
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <i class="metismenu-icon">
                                 </i>Produk
                             </a>

@@ -34,6 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/kependudukan/penduduk-aktif', 'DashboardController@pendudukaktif')->name('penduduk-aktif');
     Route::get('/dashboard/kependudukan/tambah', 'DashboardController@penduduktambah')->name('penduduk-tambah');
     Route::get('/dashboard/kependudukan/edit', 'DashboardController@pendudukedit')->name('penduduk-edit');
+    Route::get('/dashboard/kependudukan/detail', 'DashboardController@pendudukdetail')->name('penduduk-detail');
 
 
     // pelayanan

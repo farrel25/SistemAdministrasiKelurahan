@@ -37,6 +37,12 @@ class DashboardController extends Controller
         return view('dashboard.penduduk.penduduk-edit', compact('menus'));
     }
 
+    public function pendudukdetail()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.penduduk.penduduk-detail', compact('menus'));
+    }
+
     public function getMenu()
     {
         // ambil id user yg sedang login

@@ -6,11 +6,11 @@
     <div class="page-title-wrapper">
         <div class="page-title-heading">
             <div class="page-title-icon">
-                <i class="fas fa-edit icon-gradient bg-mean-fruit">
+                <i class="fas fa-info-circle icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>Edit Penduduk
-                <div class="page-title-subheading">Penduduk / Edit Data / Nama Penduduk
+            <div>Detail Penduduk
+                <div class="page-title-subheading">Penduduk / Detail Penduduk / Nama Penduduk
                 </div>
             </div>
         </div>
@@ -21,27 +21,30 @@
         </div>
     </div>
 </div>
+
 <div class="tab-content">
     <div class="tab-pane tabs-animation fade show active" role="tabpanel">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Tambah Data Penduduk</h5>
                 <div tabindex="-1" class="dropdown-divider"></div>
                 <div class="row">
                     <div class=" col-lg-3 mb-2 mt-1">
-                        <h4 class="card-title font-weight-bold">Data Diri</h4>
-                        <hr>
+                        <img src="{{ asset('/admin') }}/images/avatars/ava-penduduk.jpeg" class="cropped img-fluid mx-auto d-block mt-2 mb-4 img-thumbnail" alt="Responsive image">
                     </div>
                     <div class=" col-lg-9 ">
+                        <h4 class="card-title font-weight-bold mt-2">Data Diri</h4>
+                        <hr>
+                        <div class="">
+                        </div>
                         <form class="">
                             <div class="form-row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="#" class="">NIK</label>
                                         <input name="#" id="#" type="text" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-8">
+                                <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="#" class="">Nama Lengkap</label>
                                         <input name="#" id="#" type="text" class="form-control">
@@ -49,13 +52,13 @@
                                 </div>
                             </div>
                             <div class="form-row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="#" class="">Tempat Lahir</label>
                                         <input name="#" id="#" type="text" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="#" class="">Tanggal Lahir</label>
                                         <input name="#" id="#" type="date" class="form-control">
@@ -262,7 +265,4 @@
 
     </div>
 </div>
-
-
-
 @endsection
