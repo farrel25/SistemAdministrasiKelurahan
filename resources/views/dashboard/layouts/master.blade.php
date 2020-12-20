@@ -37,6 +37,31 @@
         </div>
     </div>
     <script type="text/javascript" src="{{ asset('/admin') }}/js/main.js"></script>
+    <script type="text/javascript" src="{{ asset('/admin') }}/js/style.js"></script>
 </body>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="position-relative form-group m-5">
+                <label for="#" class="">Status</label>
+                <select name="#" id="#" class="mb-2 form-control" value="#">
+                    <option>Pilih...</option>
+                    <option value="#"></option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </html>

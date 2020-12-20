@@ -3,8 +3,7 @@
         <div class="logo-src"></div>
         <div class="header__pane ml-auto">
             <div>
-                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
-                    data-class="closed-sidebar">
+                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
                     <span class="hamburger-box">
                         <span class="hamburger-inner"></span>
                     </span>
@@ -33,7 +32,7 @@
     <div class="scrollbar-sidebar ">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
-                {{-- <li class="app-sidebar__heading">Dashboards</li>
+                <!-- {{-- <li class="app-sidebar__heading">Dashboards</li>
                 <li>
                     <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'mm-active' : '' }}">
                 <i class="metismenu-icon pe-7s-rocket"></i>
@@ -129,43 +128,43 @@
 
                 <li class="app-sidebar__heading">Manajemen Surat</li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('surat-masuk') }}">
                         <i class="metismenu-icon pe-7s-mail-open-file"></i>
                         Surat Masuk
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('surat-keluar') }}">
                         <i class="metismenu-icon pe-7s-mail"></i>
                         Surat Keluar
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('surat-permohonan-surat') }}">
                         <i class="metismenu-icon pe-7s-mail"></i>
                         Permohonan Surat
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('jenis-surat') }}">
                         <i class="metismenu-icon pe-7s-keypad"></i>
                         Jenis Surat
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('dokumen-persyaratan') }}">
                         <i class="metismenu-icon pe-7s-note2"></i>
                         Dokumen Persyaratan
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('cetak-surat') }}">
                         <i class="metismenu-icon pe-7s-print"></i>
                         Cetak Surat
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('panduan') }}">
                         <i class="metismenu-icon pe-7s-notebook"></i>
                         Panduan
                     </a>
@@ -281,7 +280,7 @@
                         <i class="metismenu-icon pe-7s-bicycle">
                         </i>Kegiatan Pemuda
                     </a>
-                </li> --}}
+                </li> --}} -->
 
                 @foreach ($menus as $menu)
                 <li class="app-sidebar__heading">{{ $menu->name }}</li>
@@ -298,7 +297,7 @@
                 $paths = Request::segments();
                 $path = '';
                 foreach ($paths as $p) {
-                    $path .= '/'.$p;
+                    $path .= '/' . $p;
                 }
                 ?>
                 <li>

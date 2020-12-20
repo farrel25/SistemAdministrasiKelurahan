@@ -16,6 +16,13 @@ class DashboardController extends Controller
         return view('dashboard.beranda.index', compact('menus', 'villagers'));
     }
 
+    // ini dipindah di VillagerController@index
+    // public function penduduk()
+    // {
+    //     return view('dashboard.penduduk.penduduk');
+    // }
+
+    //penduduk
     public function pendudukaktif()
     {
         $menus = $this->getMenu();
@@ -33,6 +40,107 @@ class DashboardController extends Controller
         $menus = $this->getMenu();
         return view('dashboard.penduduk.penduduk-detail', compact('menus'));
     }
+
+    //Surat
+    public function cetaksurat()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.cetak_surat.cetak-surat', compact('menus'));
+    }
+    public function dokumenpersyaratan()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.dokumen_persyaratan.dokumen-persyaratan', compact('menus'));
+    }
+    public function jenissurat()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.jenis_surat.jenis-surat', compact('menus'));
+    }
+    public function panduan()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.panduan', compact('menus'));
+    }
+    public function permohonansurat()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.permohonan_surat.permohonan-surat', compact('menus'));
+    }
+    public function suratkeluar()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.surat_keluar.surat-keluar', compact('menus'));
+    }
+    public function suratmasuk()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.surat_masuk.surat-masuk', compact('menus'));
+    }
+
+    //tambah
+    public function tambahcetaksurat()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.cetak_surat.tambah-cetak-surat', compact('menus'));
+    }
+    public function tambahdokumenpersyaratan()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.dokumen_persyaratan.tambah-dokumen-persyaratan', compact('menus'));
+    }
+    public function tambahjenissurat()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.jenis_surat.tambah-jenis-surat', compact('menus'));
+    }
+    public function tambahsuratkeluar()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.surat_keluar.tambah-surat-keluar', compact('menus'));
+    }
+    public function tambahsuratmasuk()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.surat_masuk.tambah-surat-masuk', compact('menus'));
+    }
+
+    //edit
+
+    public function editdokumenpersyaratan()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.dokumen_persyaratan.edit-dokumen-persyaratan', compact('menus'));
+    }
+    public function editjenissurat()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.jenis_surat.edit-jenis-surat', compact('menus'));
+    }
+    public function editpermohonansurat()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.surat_masuk.edit-permohonan-suratk', compact('menus'));
+    }
+    public function editsuratkeluar()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.surat_keluar.edit-surat-keluar', compact('menus'));
+    }
+    public function editsuratmasuk()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.surat_masuk.edit-surat-masuk', compact('menus'));
+    }
+
+
+    //buat
+    public function buatcetaksurat()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.cetak_surat.buat-cetak-surat', compact('menus'));
+    }
+
 
     public function getMenu()
     {
