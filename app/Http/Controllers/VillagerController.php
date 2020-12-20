@@ -3,6 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Villager;
+use App\VillagerBloodType;
+use App\VillagerChronicDisease;
+use App\VillagerDisability;
+use App\VillagerEducation;
+use App\VillagerLifeStatus;
+use App\VillagerMaritalStatus;
+use App\VillagerNationalityStatus;
+use App\VillagerProfession;
+use App\VillagerReligion;
+use App\VillagerSex;
+use App\VillagerStayStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
@@ -39,7 +50,32 @@ class VillagerController extends Controller
      */
     public function create()
     {
-        //
+        $menus = $this->getMenu();
+        $sexes = VillagerSex::get();
+        $religions = VillagerReligion::get();
+        $educations = VillagerEducation::get();
+        $professions = VillagerProfession::get();
+        $maritalStatuses = VillagerMaritalStatus::get();
+        $stayStatuses = VillagerStayStatus::get();
+        $lifeStatuses = VillagerLifeStatus::get();
+        $nationalityStatuses = VillagerNationalityStatus::get();
+        $bloodTypes = VillagerBloodType::get();
+        $disabilities = VillagerDisability::get();
+        $chronicDiseases = VillagerChronicDisease::get();
+        return view('dashboard.penduduk.penduduk-tambah', compact(
+            'menus',
+            'sexes',
+            'religions',
+            'educations',
+            'professions',
+            'maritalStatuses',
+            'stayStatuses',
+            'lifeStatuses',
+            'nationalityStatuses',
+            'bloodTypes',
+            'disabilities',
+            'chronicDiseases'
+        ));
     }
 
     /**
@@ -50,7 +86,29 @@ class VillagerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $villager = $request->validate([
+            'nik' => 'required|digits:16',
+            'full_name' => 'required|string|max:255',
+            'sex_id' => 'required',
+            'birth_place' => 'required',
+            'birth_date' => 'required',
+            'religion_id' => 'required',
+            'education_id' => 'required',
+            'profession_id' => 'required',
+            'marital_status_id' => 'required',
+            'nationality_id' => 'required',
+            'fathe_nik' => 'required',
+            'mother_nik' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'blood_type_id' => 'required',
+            'stay_status_id' => 'required',
+            'address' => 'required',
+            'life_status_id' => 'required',
+            'disability_id' => 'required',
+            'chronic_disease_id' => 'required',
+            'phone_number' => 'required',
+        ]);
     }
 
     /**

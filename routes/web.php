@@ -32,7 +32,8 @@ Route::middleware('auth')->group(function () {
     //Penduduk
     Route::get('/dashboard/kependudukan/penduduk', 'VillagerController@index')->name('penduduk');
     Route::get('/dashboard/kependudukan/penduduk-aktif', 'DashboardController@pendudukaktif')->name('penduduk-aktif');
-    Route::get('/dashboard/kependudukan/penduduk/tambah', 'DashboardController@penduduktambah')->name('penduduk-tambah');
+    Route::get('/dashboard/kependudukan/penduduk/tambah', 'VillagerController@create')->name('penduduk-tambah');
+    Route::post('/dashboard/kependudukan/penduduk/tambah', 'VillagerController@store')->name('penduduk-store');
     Route::get('/dashboard/kependudukan/penduduk/edit', 'DashboardController@pendudukedit')->name('penduduk-edit');
     Route::get('/dashboard/kependudukan/penduduk/detail', 'DashboardController@pendudukdetail')->name('penduduk-detail');
 

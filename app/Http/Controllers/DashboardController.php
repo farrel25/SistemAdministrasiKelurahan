@@ -16,22 +16,10 @@ class DashboardController extends Controller
         return view('dashboard.beranda.index', compact('menus', 'villagers'));
     }
 
-    // ini dipindah di VillagerController@index
-    // public function penduduk()
-    // {
-    //     return view('dashboard.penduduk.penduduk');
-    // }
-
     public function pendudukaktif()
     {
         $menus = $this->getMenu();
         return view('dashboard.penduduk.penduduk-aktif', compact('menus'));
-    }
-
-    public function penduduktambah()
-    {
-        $menus = $this->getMenu();
-        return view('dashboard.penduduk.penduduk-tambah', compact('menus'));
     }
 
     public function pendudukedit()
