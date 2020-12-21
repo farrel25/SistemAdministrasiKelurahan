@@ -29,14 +29,23 @@ Route::middleware('auth')->group(function () {
     // dashboard
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-    //Penduduk
-    Route::get('/dashboard/kependudukan/penduduk', 'VillagerController@index')->name('penduduk');
-    Route::get('/dashboard/kependudukan/penduduk-aktif', 'DashboardController@pendudukaktif')->name('penduduk-aktif');
-    Route::get('/dashboard/kependudukan/penduduk/tambah', 'VillagerController@create')->name('penduduk-tambah');
-    Route::post('/dashboard/kependudukan/penduduk/tambah', 'VillagerController@store')->name('penduduk-store');
-    Route::get('/dashboard/kependudukan/penduduk/edit', 'DashboardController@pendudukedit')->name('penduduk-edit');
-    Route::get('/dashboard/kependudukan/penduduk/detail', 'DashboardController@pendudukdetail')->name('penduduk-detail');
+    // Route::get('/pelayanan/pengajuan-surat', 'LetterSubmissionController@create')->name('visitors.pelayanan.pengajuan-surat')->withoutMiddleware('auth');
+    Route::get('/pelayanan/pengajuan-surat', 'LetterSubmissionController@create')->name('pengajuan-surat.create');
+    Route::post('/pelayanan/pengajuan-surat', 'LetterSubmissionController@store')->name('pengajuan-surat.store');
+});
 
+
+Route::middleware('role:Administrator|Redaktur')->group(function () {
+
+    //Kependudukan
+    Route::prefix('dashboard/kependudukan')->group(function () {
+        Route::get('/penduduk', 'VillagerController@index')->name('penduduk');
+        Route::get('/penduduk-aktif', 'DashboardController@pendudukaktif')->name('penduduk-aktif');
+        Route::get('/penduduk/tambah', 'VillagerController@create')->name('penduduk-tambah');
+        Route::post('/penduduk/tambah', 'VillagerController@store')->name('penduduk-store');
+        Route::get('/penduduk/edit', 'DashboardController@pendudukedit')->name('penduduk-edit');
+        Route::get('/penduduk/detail', 'DashboardController@pendudukdetail')->name('penduduk-detail');
+    });
 
     //ManajemenSurat
     Route::prefix('dashboard/manajemen-surat')->group(function () {
@@ -66,10 +75,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/tambah-surat-masuk', 'dashboardController@tambahsuratmasuk')->name('manajemen-surat.tambah-surat-masuk');
         Route::get('/edit-surat-masuk', 'dashboardController@editsuratmasuk')->name('manajemen-surat.editsurat-masuk');
     });
-
-    // Route::get('/pelayanan/pengajuan-surat', 'LetterSubmissionController@create')->name('visitors.pelayanan.pengajuan-surat')->withoutMiddleware('auth');
-    Route::get('/pelayanan/pengajuan-surat', 'LetterSubmissionController@create')->name('pengajuan-surat.create');
-    Route::post('/pelayanan/pengajuan-surat', 'LetterSubmissionController@store')->name('pengajuan-surat.store');
 });
 
 

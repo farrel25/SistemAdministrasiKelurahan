@@ -145,7 +145,8 @@ class VillagerController extends Controller
      */
     public function show(Villager $villager)
     {
-        //
+        $menus = $this->getMenu();
+        return view('dashboard.penduduk.penduduk-detail', compact('menus'));
     }
 
     /**
