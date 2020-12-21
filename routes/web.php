@@ -44,7 +44,7 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
         Route::get('/penduduk/tambah', 'VillagerController@create')->name('penduduk-tambah');
         Route::post('/penduduk/tambah', 'VillagerController@store')->name('penduduk-store');
         Route::get('/penduduk/edit', 'DashboardController@pendudukedit')->name('penduduk-edit');
-        Route::get('/penduduk/detail', 'DashboardController@pendudukdetail')->name('penduduk-detail');
+        Route::get('/penduduk/detail/{villager:nik}', 'VillagerController@show')->name('penduduk-detail');
     });
 
     //ManajemenSurat

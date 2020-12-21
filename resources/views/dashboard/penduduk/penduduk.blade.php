@@ -146,9 +146,9 @@
                                         title="Edit Data" data-placement="bottom"><i class="fas fa-edit"></i></a>
                                     <a href="#" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"
                                         data-placement="bottom"><i class="fas fa-trash-alt"></i></a>
-                                    <a href="{{ route('penduduk-detail') }}" class="btn btn-warning text-white"
-                                        data-toggle="tooltip" title="Detail Data" data-placement="bottom"><i
-                                            class="fas fa-info-circle"></i></a>
+                                    <a href="{{ route('penduduk-detail', $villager->nik) }}"
+                                        class="btn btn-warning text-white" data-toggle="tooltip" title="Detail Data"
+                                        data-placement="bottom"><i class="fas fa-info-circle"></i></a>
                                 </div>
                             </td>
                         </tr>

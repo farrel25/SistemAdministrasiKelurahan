@@ -10,12 +10,15 @@
                 </i>
             </div>
             <div>Detail Penduduk
-                <div class="page-title-subheading">Penduduk / Detail Penduduk / Nama Penduduk
+                <div class="page-title-subheading">
+                    <a href="{{ route('penduduk') }}" style="text-decoration: none">Penduduk</a>
+                    / Detail / {{ $villager->full_name }}
                 </div>
             </div>
         </div>
         <div class="page-title-actions">
-            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip" title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark">
+            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip"
+                title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark">
                 <i class="fas fa-home"></i>
             </a>
         </div>
@@ -28,7 +31,8 @@
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class=" col-lg-3 mb-2 mt-1">
-                        <img src="{{ asset('/admin') }}/images/avatars/ava-penduduk.jpeg" class="cropped img-fluid mx-auto d-block mt-2 mb-4 img-thumbnail" alt="Responsive image">
+                        <img src="{{ $villager->takeImage }}"
+                            class="cropped img-fluid mx-auto d-block mt-2 mb-4 img-thumbnail" alt="Foto Penduduk">
                     </div>
                     <div class=" col-lg-9 ">
                         <h4 class="card-title font-weight-bold mt-2">Data Diri</h4>
@@ -36,63 +40,69 @@
                         <div class="row">
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">NIK</p>
-                                <p class="answer"> 337302020300003</p>
+                                <p class="answer"> {{ $villager->nik }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Nama Lengkap</p>
-                                <p class="answer"> Briliantino Abhista Prabandanu</p>
+                                <p class="answer"> {{ $villager->full_name }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Tempat Lahir</p>
-                                <p class="answer"> Semarang</p>
+                                <p class="answer"> {{ $villager->birth_place }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Tanggal Lahir</p>
-                                <p class="answer"> 15-04-200</p>
+                                <p class="answer"> {{ $villager->birth_date }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Agama</p>
-                                <p class="answer"> Shinto</p>
+                                <p class="answer"> {{ $villager->villagerReligion->religion }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Pendidikan</p>
-                                <p class="answer"> SMA</p>
+                                <p class="answer"> {{ $villager->villagerEducation->education }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Pekerjaan</p>
-                                <p class="answer"> Programmer</p>
+                                <p class="answer"> {{ $villager->villagerProfession->profession }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Status Kawin</p>
-                                <p class="answer"> Kawin</p>
+                                <p class="answer"> {{ $villager->villagerMaritalStatus->marital_status }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Status Tinggal</p>
-                                <p class="answer"> Menetap</p>
+                                <p class="answer"> {{ $villager->villagerStayStatus->stay_status }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Status Hidup</p>
-                                <p class="answer"> Hidup</p>
+                                <p class="answer"> {{ $villager->villagerLifeStatus->life_status }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Kewarganegaraan</p>
-                                <p class="answer"> WNA</p>
+                                <p class="answer"> {{ $villager->villagerNationality->kewarganegaraan }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Golongan Darah</p>
-                                <p class="answer"> B-</p>
+                                <p class="answer"> {{ $villager->villagerBloodType->blood_type }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">No. Telepon</p>
-                                <p class="answer"> 085641268668</p>
+                                <p class="answer"> {{ $villager->phone_number }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Email</p>
-                                <p class="answer"> babhistta@gmail.com</p>
+                                <p class="answer">
+                                    @if ($villager->user_id != null)
+                                    {{ $villager->user->email }}
+                                    @else
+                                    Tidak ada (belum mendaftarkan akun)
+                                    @endif
+                                </p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Alamat</p>
-                                <p class="answer"> Klumpit Kel. Sidurejo Kidul Kec.Tingkir RT 002 RW 001, Salatiga</p>
+                                <p class="answer"> {{ $villager->address }}</p>
                             </div>
                         </div>
                         <hr>
@@ -101,19 +111,19 @@
                         <div class="row">
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">NIK Ayah</p>
-                                <p class="answer"> 337302020300003</p>
+                                <p class="answer"> {{ $villager->father_nik }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Nama Lengkap Ayah</p>
-                                <p class="answer"> Briliantino Abhista Prabandanu</p>
+                                <p class="answer"> {{ $villager->father_name }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">NIK Ibu</p>
-                                <p class="answer"> 337302020300003</p>
+                                <p class="answer"> {{ $villager->mother_nik }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Nama Lengkap Ibu</p>
-                                <p class="answer"> Briliantino Abhista Prabandanu</p>
+                                <p class="answer"> {{ $villager->mother_name }}</p>
                             </div>
                         </div>
                         <hr>
@@ -122,11 +132,11 @@
                         <div class="row">
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Penyakit Cacat</p>
-                                <p class="answer"> -</p>
+                                <p class="answer"> {{ $villager->villagerDisability->disability }}</p>
                             </div>
                             <div class="col-md-12 d-inline-flex ">
                                 <p class="">Penyakit Menahun</p>
-                                <p class="answer"> -</p>
+                                <p class="answer"> {{ $villager->villagerChronicDisease->disease }}</p>
                             </div>
                         </div>
                     </div>

@@ -97,8 +97,8 @@
                             <td class=" text-center">{{ $villager->address }}</td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
-                                    <button class="btn btn-warning text-white"><i
-                                            class="fas fa-info-circle"></i></button>
+                                    <a href="{{ route('penduduk-detail', $villager->nik) }}"
+                                        class="btn btn-warning text-white"><i class="fas fa-info-circle"></i></a>
                                 </div>
                             </td>
                         </tr>
