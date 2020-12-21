@@ -94,6 +94,12 @@
     <div class="col-md-12">
         <div class="main-card mb-3 card">
             <div class="card-header">Penduduk
+                @if (session()->has('success'))
+                <div class="alert alert-success text-center col-md-6 ml-5">
+                    {{ session()->get('success') }}
+                    {{-- Data berhasil dihapus --}}
+                </div>
+                @endif
                 <div class="btn-actions-pane-right ">
                     <a type="button" class="btn btn-lg btn-success btn-sm text-white font-weight-normal "
                         href="{{ route('penduduk-tambah') }}">+ Tambah Data Excel</a>
@@ -144,8 +150,22 @@
                                 <div class="btn-group-sm btn-group">
                                     <a href="{{ route('penduduk-edit') }}" class="btn btn-primary" data-toggle="tooltip"
                                         title="Edit Data" data-placement="bottom"><i class="fas fa-edit"></i></a>
-                                    <a href="#" class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"
-                                        data-placement="bottom"><i class="fas fa-trash-alt"></i></a>
+
+                                    {{-- <a href="{{ route('penduduk-delete', $villager->nik) }}"
+                                    onclick="event.preventDefault(); document.getElementById('delete-form').submit()"
+                                    class="btn btn-danger" data-toggle="tooltip" title="Hapus Data"
+                                    data-placement="bottom"><i class="fas fa-trash-alt"></i></a> --}}
+
+                                    <form id="delete-form" action="{{ route('penduduk-delete', $villager->nik) }}"
+                                        method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger" data-toggle="tooltip"
+                                            title="Hapus Data" data-placement="bottom">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+
                                     <a href="{{ route('penduduk-detail', $villager->nik) }}"
                                         class="btn btn-warning text-white" data-toggle="tooltip" title="Detail Data"
                                         data-placement="bottom"><i class="fas fa-info-circle"></i></a>

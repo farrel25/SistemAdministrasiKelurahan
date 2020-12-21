@@ -39,6 +39,8 @@ class VillagerController extends Controller
 
         // mengambil data penduduk dan ditampilkan 10 saja per pagination
         $villagers = Villager::latest()->paginate(10);
+        // $villagers = Villager::latest()->simplePaginate(10);
+        // $villagers = Villager::latest()->paginate(10)->fragment('villagers');
 
         return view('dashboard.penduduk.penduduk', compact('menus', 'villagers', 'totalVillager', 'activePercentage'));
     }
@@ -180,7 +182,9 @@ class VillagerController extends Controller
      */
     public function destroy(Villager $villager)
     {
-        //
+        $villager->delete();
+        session()->flash('success', "Penduduk berhasil dihapus");
+        return redirect()->route('penduduk');
     }
 
     public function getMenu()

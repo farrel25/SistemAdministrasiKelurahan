@@ -41,10 +41,11 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
     Route::prefix('dashboard/kependudukan')->group(function () {
         Route::get('/penduduk', 'VillagerController@index')->name('penduduk');
         Route::get('/penduduk-aktif', 'DashboardController@pendudukaktif')->name('penduduk-aktif');
+        Route::get('/penduduk/detail/{villager:nik}', 'VillagerController@show')->name('penduduk-detail');
         Route::get('/penduduk/tambah', 'VillagerController@create')->name('penduduk-tambah');
         Route::post('/penduduk/tambah', 'VillagerController@store')->name('penduduk-store');
         Route::get('/penduduk/edit', 'DashboardController@pendudukedit')->name('penduduk-edit');
-        Route::get('/penduduk/detail/{villager:nik}', 'VillagerController@show')->name('penduduk-detail');
+        Route::delete('/penduduk/{villager:nik}/delete', 'VillagerController@destroy')->name('penduduk-delete');
     });
 
     //ManajemenSurat
