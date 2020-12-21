@@ -30,8 +30,15 @@ class Villager extends Model
         'disability_id',
         'chronic_disease_id',
         'phone_number',
-        'age_range_id'
+        'age_range_id',
+        'created_by',
+        'updated_by'
     ];
+
+    public function getTakeImageAttribute()
+    {
+        return "/storage/" . $this->photo;
+    }
 
     public function user()
     {

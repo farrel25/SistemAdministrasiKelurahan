@@ -39,8 +39,8 @@ class CreateVillagersTable extends Migration
             $table->foreignId('chronic_disease_id');
             $table->string('phone_number');
             $table->foreignId('age_range_id')->nullable();
-            $table->foreignId('created_by');
-            $table->foreignId('updated_by');
+            $table->foreignId('created_by')->nullable();
+            $table->foreignId('updated_by')->nullable();
             $table->timestamps();
         });
     }

@@ -37,8 +37,8 @@ class VillagerController extends Controller
         $activeVillager = count(Villager::where('life_status_id', 1)->where('user_id', '!=', null)->get());
         $activePercentage = ($activeVillager / $totalVillager) * 100;
 
-        // mengambil data penduduk dan ditampilkan 5 saja per pagination
-        $villagers = Villager::paginate(5);
+        // mengambil data penduduk dan ditampilkan 10 saja per pagination
+        $villagers = Villager::latest()->paginate(10);
 
         return view('dashboard.penduduk.penduduk', compact('menus', 'villagers', 'totalVillager', 'activePercentage'));
     }
@@ -51,6 +51,7 @@ class VillagerController extends Controller
     public function create()
     {
         $menus = $this->getMenu();
+
         $sexes = VillagerSex::get();
         $religions = VillagerReligion::get();
         $educations = VillagerEducation::get();
@@ -62,6 +63,7 @@ class VillagerController extends Controller
         $bloodTypes = VillagerBloodType::get();
         $disabilities = VillagerDisability::get();
         $chronicDiseases = VillagerChronicDisease::get();
+
         return view('dashboard.penduduk.penduduk-tambah', compact(
             'menus',
             'sexes',
@@ -86,29 +88,53 @@ class VillagerController extends Controller
      */
     public function store(Request $request)
     {
+        // ambil id user yang saat itu login
+        $userId = Auth::user()->id;
+
+        // cek apakah foto sudah di inputkan
+        if ($request->hasFile('photo')) {
+            // ambil file foto
+            $photo = $request->file('photo');
+            // rename file foto
+            $photoName = $request->nik . "." . $photo->extension();
+            // menentukan lokasi penyimpanan foto
+            $photoUrl = $photo->storeAs("images/profile_pic", "{$photoName}");
+        }
+
+        // validasi data yang di submit
         $villager = $request->validate([
-            'nik' => 'required|digits:16',
+            'nik' => 'required|numeric|digits:16|unique:villagers,nik',
             'full_name' => 'required|string|max:255',
-            'sex_id' => 'required',
-            'birth_place' => 'required',
-            'birth_date' => 'required',
-            'religion_id' => 'required',
-            'education_id' => 'required',
-            'profession_id' => 'required',
-            'marital_status_id' => 'required',
-            'nationality_id' => 'required',
-            'fathe_nik' => 'required',
-            'mother_nik' => 'required',
-            'father_name' => 'required',
-            'mother_name' => 'required',
-            'blood_type_id' => 'required',
-            'stay_status_id' => 'required',
-            'address' => 'required',
-            'life_status_id' => 'required',
-            'disability_id' => 'required',
-            'chronic_disease_id' => 'required',
-            'phone_number' => 'required',
+            'sex_id' => 'required|integer',
+            'birth_place' => 'required|string|max:255',
+            'birth_date' => 'required|date',
+            'religion_id' => 'required|integer',
+            'education_id' => 'required|integer',
+            'profession_id' => 'required|integer',
+            'marital_status_id' => 'required|integer',
+            'nationality_id' => 'required|integer',
+            'father_nik' => 'required|numeric|digits:16',
+            'mother_nik' => 'required|numeric|digits:16',
+            'father_name' => 'required|string|max:255',
+            'mother_name' => 'required|string|max:255',
+            'photo' => 'required|image',
+            'blood_type_id' => 'required|integer',
+            'stay_status_id' => 'required|integer',
+            'address' => 'required|string|max:255',
+            'life_status_id' => 'required|integer',
+            'disability_id' => 'required|integer',
+            'chronic_disease_id' => 'required|integer',
+            'phone_number' => 'required|numeric'
         ]);
+        $villager['photo'] = $photoUrl;
+        $villager['created_by'] = $userId;
+        $villager['updated_by'] = $userId;
+
+        Villager::create($villager);
+
+        session()->flash('success', 'Data Penduduk Berhasil Ditambahkan');
+
+        return redirect()->route('penduduk');
     }
 
     /**
