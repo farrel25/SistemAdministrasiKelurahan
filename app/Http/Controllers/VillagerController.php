@@ -182,6 +182,9 @@ class VillagerController extends Controller
      */
     public function destroy(Villager $villager)
     {
+        if ($villager->photo) {
+            \Storage::delete($villager->photo);
+        }
         $villager->delete();
         session()->flash('success', "Penduduk berhasil dihapus");
         return redirect()->route('penduduk');
