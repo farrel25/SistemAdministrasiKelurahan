@@ -91,9 +91,7 @@
             <div class="main-card mb-3 card">
                 <div class="card-header">Penduduk
                     @if (session()->has('success'))
-                        <div id="success">
-                            {{ session()->get('success') }}
-                        </div>
+                        {{ session()->get('success') }}
                     @endif
                     <div class="btn-actions-pane-right ">
                         <a type="button" class="btn btn-lg btn-success btn-sm text-white font-weight-normal " href="{{ route('penduduk-tambah') }}">+ Tambah Data Excel</a>
