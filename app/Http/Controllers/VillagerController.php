@@ -18,6 +18,7 @@ use App\VillagerStayStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
+use Alert;
 
 class VillagerController extends Controller
 {
@@ -112,8 +113,7 @@ class VillagerController extends Controller
         $villager['updated_by'] = $userId;
 
         Villager::create($villager);
-
-        session()->flash('success', 'Data Penduduk Berhasil Ditambahkan');
+        Alert::success(' Berhasil ', ' Data Berhasil Ditambah');
 
         return redirect()->route('penduduk');
     }
@@ -229,8 +229,7 @@ class VillagerController extends Controller
         $attr['updated_by'] = $userId;
 
         $villager->update($attr);
-
-        session()->flash('success', 'Data penduduk berhasil diperbarui');
+        Alert::success(' Berhasil ', ' Data Berhasil Diperbaharui');
 
         return redirect()->route('penduduk');
     }

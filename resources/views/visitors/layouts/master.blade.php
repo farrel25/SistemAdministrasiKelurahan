@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $title ?? 'Kelurahan'}}</title>
+    <title>{{ $title ?? 'Kelurahan' }}</title>
+
 
     {{-- Icon --}}
     <script src="https://kit.fontawesome.com/95e7b49a0c.js" crossorigin="anonymous"></script>
@@ -60,11 +61,8 @@
 
     <!-- Start Footer -->
     {{-- Chart.js --}}
-
     <script src="{{ asset('/visitors/vendor') }}/chart/Chart.min.js"></script>
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/chart/Chart.min.css">
-
-
     {{-- Main JS File --}}
     <script src="{{ asset('/visitors/js') }}/main.js"></script>
 

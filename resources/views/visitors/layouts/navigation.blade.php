@@ -19,14 +19,13 @@
                 <li class="{{ request()->is('/artikel') ? 'active' : '' }}">
                     <a href="{{ route('visitors.artikel.index') }}">Artikel</a>
                 </li>
-                <?php
-                function activeProfilDesa($urlPath)
+                <?php function activeProfilDesa($urlPath)
                 {
-                    if ($urlPath == 'profil-desa/sejarah-visi-misi' || $urlPath == 'profil-desa/struktur-pemerintahan' || $urlPath == 'profil-desa/administratif') {
-                        return ' active';
-                    }
+                if ($urlPath == 'profil-desa/sejarah-visi-misi' || $urlPath == 'profil-desa/struktur-pemerintahan' ||
+                $urlPath == 'profil-desa/administratif') {
+                return ' active';
                 }
-                ?>
+                } ?>
                 <li class="drop-down{{ activeProfilDesa(request()->path()) }}">
                     <a href="#">Profil Desa</a>
                     <ul>
@@ -44,14 +43,13 @@
                         <li><a href="">Kegiatan Pemuda</a></li>
                     </ul>
                 </li>
-                <?php
-                function activePelayanan($urlPath)
+                <?php function activePelayanan($urlPath)
                 {
-                    if ($urlPath == 'pelayanan/pengajuan-surat' || $urlPath == 'pelayanan/pengaduan' || $urlPath == 'pelayanan/kontributor') {
-                        return ' active';
-                    }
+                if ($urlPath == 'pelayanan/pengajuan-surat' || $urlPath == 'pelayanan/pengaduan' || $urlPath ==
+                'pelayanan/kontributor') {
+                return ' active';
                 }
-                ?>
+                } ?>
                 <li class="drop-down{{ activePelayanan(request()->path()) }}">
                     <a href="#">Pelayanan</a>
                     <ul>
@@ -62,26 +60,26 @@
                 </li>
 
                 @guest
-                <li class="btn-register"><a href="{{ route('register') }}">Register</a></li>
-                <li class="btn-login"><a href="{{ route('login') }}">Login</a></li>
+                    <li class="btn-register"><a href="{{ route('register') }}">Register</a></li>
+                    <li class="btn-login"><a href="{{ route('login') }}">Login</a></li>
                 @else
-                <?php
-                $name = explode(' ', Auth::user()->full_name);
-                $nickname = $name[0];
-                ?>
-                <li class="drop-down ml-5">
-                    {{-- <a href="#">Hi, {{ Auth::user()->full_name }}</a> --}}
-                    <a href="#">Hai, {{ $nickname }}</a>
-                    <ul>
-                        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                        <li>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                        </li>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </ul>
-                </li>
+                    <?php
+                    $name = explode(' ', Auth::user()->full_name);
+                    $nickname = $name[0];
+                    ?>
+                    <li class="drop-down ml-5">
+                        <a href="#">Hai, {{ $nickname }}</a>
+                        <ul>
+                            <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </ul>
+                    </li>
                 @endguest
             </ul>
         </nav>

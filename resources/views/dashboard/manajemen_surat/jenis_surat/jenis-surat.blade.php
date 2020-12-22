@@ -34,11 +34,11 @@
         <div class="main-card mb-3 card">
             <div class="card-header">Jenis Surat
                 <div class="btn-actions-pane-right ">
-                    <a type="button" class="btn btn-lg btn-danger btn-sm text-white font-weight-normal mr-2 " href="#" data-toggle="tooltip" title="Download Data PDF" data-placement="bottom"><i class="fas fa-file-pdf "></i></a>
-                    <a type="button" class="btn btn-lg btn-success btn-sm text-white font-weight-normal mr-2" href="#" data-toggle="tooltip" title="Download Data Excel" data-placement="bottom"><i class="fas fa-file-excel "></i></a>
-                    <a type="button" class="btn btn-lg btn-primary btn-sm text-white font-weight-normal mr-2" href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
-                    <a type="button" class="btn btn-lg btn-success btn-sm text-white font-weight-normal mr-2" href="#"><i class="fas fa-file-upload"></i> Unggah Data Excel</a>
-                    <a type="button" class="btn btn-lg btn-focus btn-sm text-white font-weight-normal " href="tambah-jenis-surat">+ Tambah Jenis Surat </a>
+                    <a type="button" class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive" href="#"><i class="fas fa-file-download "> </i> Unduh Data Excel</a>
+                    <a type="button" class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive" href="#"><i class="fas fa-file-upload"></i> Unggah Data Excel</a>
+                    <a type="button" class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive" href="#"><i class="fas fa-print "></i> Cetak Data Terpilih</a>
+                    <a type="button" class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive" href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
+                    <a type="button" class="btn btn-lg btn-focus btn-sm text-white m-1 mb-2 mt-2 font-weight-normal btn-responsive" href="tambah-jenis-surat">+ Tambah Jenis Surat</a>
                 </div>
             </div>
             <div class="table-responsive">
