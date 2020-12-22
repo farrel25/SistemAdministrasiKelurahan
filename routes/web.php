@@ -50,6 +50,8 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
         Route::patch('/penduduk/{villager:nik}/edit', 'VillagerController@update')->name('penduduk-update');
         // delete penduduk
         Route::delete('/penduduk/{villager:nik}/delete', 'VillagerController@destroy')->name('penduduk-delete');
+        // export excel penduduk
+        Route::get('/penduduk/export', 'VillagerController@export')->name('penduduk-export-excel');
     });
 
     //ManajemenSurat

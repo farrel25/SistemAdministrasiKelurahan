@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\VillagerExport;
 use App\Villager;
 use App\VillagerBloodType;
 use App\VillagerChronicDisease;
@@ -291,5 +292,11 @@ class VillagerController extends Controller
             'chronic_disease_id' => 'required|integer',
             'phone_number' => 'required|numeric'
         ]);
+    }
+
+    public function export()
+    {
+        // return Excel::download(new VillagerExport, 'penduduk.xlsx');
+        return (new VillagerExport)->download('data_penduduk.xlsx');
     }
 }

@@ -82,8 +82,9 @@
                         class="fas fa-file-pdf fa-2x"></i></button>
             </div>
             <div class="col-6">
-                <button type="button" class="btn btn-lg btn-block btn-success text-white font-weight-bold  shadow "> <i
-                        class="fas fa-file-excel fa-2x"></i></button>
+                <a href="{{ route('penduduk-export-excel') }}"
+                    class="btn btn-lg btn-block btn-success text-white font-weight-bold  shadow "> <i
+                        class="fas fa-file-excel fa-2x"></i></a>
             </div>
         </div>
     </div>
