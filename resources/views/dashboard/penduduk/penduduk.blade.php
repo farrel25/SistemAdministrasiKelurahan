@@ -148,8 +148,9 @@
                             </td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
-                                    <a href="{{ route('penduduk-edit') }}" class="btn btn-primary" data-toggle="tooltip"
-                                        title="Edit Data" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ route('penduduk-edit', $villager->nik) }}" class="btn btn-primary"
+                                        data-toggle="tooltip" title="Edit Data" data-placement="bottom"><i
+                                            class="fas fa-edit"></i></a>
 
                                     {{-- <a href="{{ route('penduduk-delete', $villager->nik) }}"
                                     onclick="event.preventDefault(); document.getElementById('delete-form').submit()"

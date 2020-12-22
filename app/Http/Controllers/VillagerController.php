@@ -104,30 +104,8 @@ class VillagerController extends Controller
         }
 
         // validasi data yang di submit
-        $villager = $request->validate([
-            'nik' => 'required|numeric|digits:16|unique:villagers,nik',
-            'full_name' => 'required|string|max:255',
-            'sex_id' => 'required|integer',
-            'birth_place' => 'required|string|max:255',
-            'birth_date' => 'required|date',
-            'religion_id' => 'required|integer',
-            'education_id' => 'required|integer',
-            'profession_id' => 'required|integer',
-            'marital_status_id' => 'required|integer',
-            'nationality_id' => 'required|integer',
-            'father_nik' => 'required|numeric|digits:16',
-            'mother_nik' => 'required|numeric|digits:16',
-            'father_name' => 'required|string|max:255',
-            'mother_name' => 'required|string|max:255',
-            'photo' => 'required|image',
-            'blood_type_id' => 'required|integer',
-            'stay_status_id' => 'required|integer',
-            'address' => 'required|string|max:255',
-            'life_status_id' => 'required|integer',
-            'disability_id' => 'required|integer',
-            'chronic_disease_id' => 'required|integer',
-            'phone_number' => 'required|numeric'
-        ]);
+        $villager = $this->validateRequest();
+
         $villager['photo'] = $photoUrl;
         $villager['created_by'] = $userId;
         $villager['updated_by'] = $userId;
@@ -159,7 +137,35 @@ class VillagerController extends Controller
      */
     public function edit(Villager $villager)
     {
-        //
+        $menus = $this->getMenu();
+
+        $sexes = VillagerSex::get();
+        $religions = VillagerReligion::get();
+        $educations = VillagerEducation::get();
+        $professions = VillagerProfession::get();
+        $maritalStatuses = VillagerMaritalStatus::get();
+        $stayStatuses = VillagerStayStatus::get();
+        $lifeStatuses = VillagerLifeStatus::get();
+        $nationalityStatuses = VillagerNationalityStatus::get();
+        $bloodTypes = VillagerBloodType::get();
+        $disabilities = VillagerDisability::get();
+        $chronicDiseases = VillagerChronicDisease::get();
+
+        return view('dashboard.penduduk.penduduk-edit', compact(
+            'menus',
+            'villager',
+            'sexes',
+            'religions',
+            'educations',
+            'professions',
+            'maritalStatuses',
+            'stayStatuses',
+            'lifeStatuses',
+            'nationalityStatuses',
+            'bloodTypes',
+            'disabilities',
+            'chronicDiseases'
+        ));
     }
 
     /**
@@ -171,7 +177,61 @@ class VillagerController extends Controller
      */
     public function update(Request $request, Villager $villager)
     {
-        //
+        // ambil id user yang saat itu login
+        $userId = Auth::user()->id;
+
+        // cek apakah foto sudah di inputkan
+        if ($request->hasFile('photo')) {
+            // cek apakah ada foto lama
+            if ($villager->photo) {
+                // hapus foto lama
+                \Storage::delete($villager->photo);
+            }
+            // ambil file foto
+            $photo = $request->file('photo');
+            // rename file foto
+            $photoName = $villager->nik . "." . $photo->extension();
+            // menentukan lokasi penyimpanan foto
+            $photoUrl = $photo->storeAs("images/profile_pic", "{$photoName}");
+        } else {
+            // jika foto tidak diupdate, simpan yg lama
+            $photoUrl = $villager->photo;
+        }
+
+        // validasi data yang di submit
+        // $attr = $this->validateRequest();
+        $attr = $request->validate([
+            // 'nik' => 'required|numeric|digits:16|unique:villagers,nik',
+            'full_name' => 'required|string|max:255',
+            'sex_id' => 'required|integer',
+            'birth_place' => 'required|string|max:255',
+            'birth_date' => 'required|date',
+            'religion_id' => 'required|integer',
+            'education_id' => 'required|integer',
+            'profession_id' => 'required|integer',
+            'marital_status_id' => 'required|integer',
+            'nationality_id' => 'required|integer',
+            'father_nik' => 'required|numeric|digits:16',
+            'mother_nik' => 'required|numeric|digits:16',
+            'father_name' => 'required|string|max:255',
+            'mother_name' => 'required|string|max:255',
+            'photo' => 'image',
+            'blood_type_id' => 'required|integer',
+            'stay_status_id' => 'required|integer',
+            'address' => 'required|string|max:255',
+            'life_status_id' => 'required|integer',
+            'disability_id' => 'required|integer',
+            'chronic_disease_id' => 'required|integer',
+            'phone_number' => 'required|numeric'
+        ]);
+        $attr['photo'] = $photoUrl;
+        $attr['updated_by'] = $userId;
+
+        $villager->update($attr);
+
+        session()->flash('success', 'Data penduduk berhasil diperbarui');
+
+        return redirect()->route('penduduk');
     }
 
     /**
@@ -203,5 +263,33 @@ class VillagerController extends Controller
             ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
             ->where('role_has_permissions.role_id', $userRoleId)
             ->get();
+    }
+
+    public function validateRequest()
+    {
+        return request()->validate([
+            'nik' => 'required|numeric|digits:16|unique:villagers,nik',
+            'full_name' => 'required|string|max:255',
+            'sex_id' => 'required|integer',
+            'birth_place' => 'required|string|max:255',
+            'birth_date' => 'required|date',
+            'religion_id' => 'required|integer',
+            'education_id' => 'required|integer',
+            'profession_id' => 'required|integer',
+            'marital_status_id' => 'required|integer',
+            'nationality_id' => 'required|integer',
+            'father_nik' => 'required|numeric|digits:16',
+            'mother_nik' => 'required|numeric|digits:16',
+            'father_name' => 'required|string|max:255',
+            'mother_name' => 'required|string|max:255',
+            'photo' => 'image',
+            'blood_type_id' => 'required|integer',
+            'stay_status_id' => 'required|integer',
+            'address' => 'required|string|max:255',
+            'life_status_id' => 'required|integer',
+            'disability_id' => 'required|integer',
+            'chronic_disease_id' => 'required|integer',
+            'phone_number' => 'required|numeric'
+        ]);
     }
 }

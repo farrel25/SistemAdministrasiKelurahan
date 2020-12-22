@@ -23,18 +23,6 @@ class DashboardController extends Controller
         return view('dashboard.penduduk.penduduk-aktif', compact('menus'));
     }
 
-    public function pendudukedit()
-    {
-        $menus = $this->getMenu();
-        return view('dashboard.penduduk.penduduk-edit', compact('menus'));
-    }
-
-    public function pendudukdetail()
-    {
-        $menus = $this->getMenu();
-        return view('dashboard.penduduk.penduduk-detail', compact('menus'));
-    }
-
     //Surat
     public function cetaksurat()
     {

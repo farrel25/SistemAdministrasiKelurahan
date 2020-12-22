@@ -10,7 +10,8 @@
                 </i>
             </div>
             <div>Penduduk
-                <div class="page-title-subheading">Penduduk / Tambah Data
+                <div class="page-title-subheading">
+                    <a href="{{ route('penduduk') }}" style="text-decoration: none">Penduduk</a> / Tambah Data
                 </div>
             </div>
         </div>
