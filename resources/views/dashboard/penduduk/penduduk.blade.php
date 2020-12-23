@@ -166,6 +166,16 @@
                                         <i class="fas fa-edit">
                                         </i>
                                     </a>
+
+                                    <?php
+                                    $userRoleCheck = DB::table('model_has_roles')
+                                                    ->join('users', 'model_has_roles.model_id', '=', 'users.id')
+                                                    ->where('model_has_roles.model_id', $villager->user_id)
+                                                    ->select('role_id', 'id', 'full_name', 'email')
+                                                    ->get()->toArray();
+                                    ?>
+
+                                    @if (!$userRoleCheck || $userRoleCheck[0]->role_id != 1)
                                     <form id="delete-form" action="{{ route('penduduk-delete', $villager->nik) }}"
                                         method="post">
                                         @csrf
@@ -175,6 +185,7 @@
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>
+                                    @endif
 
                                     <a href="{{ route('penduduk-detail', $villager->nik) }}"
                                         class="btn btn-warning text-white" data-toggle="tooltip" title="Detail Data"
