@@ -25,8 +25,8 @@ class VillagerExport implements FromCollection, WithMapping, WithHeadings, WithS
      * @var Villager $villager
      */
     protected $no = 0;
-    protected $photos = '';
-    protected $photo = '';
+    // protected $photos = '';
+    // protected $photo = '';
     public function map($villager): array
     {
         // $this->photos = explode('/', $villager->photo);
@@ -37,7 +37,7 @@ class VillagerExport implements FromCollection, WithMapping, WithHeadings, WithS
         return [
             $this->no,
             $villager->nik,
-            $villager->photo,
+            // $villager->photo,
             $villager->full_name,
             $villager->villagerSex->sex,
             $villager->birth_place,
@@ -66,7 +66,7 @@ class VillagerExport implements FromCollection, WithMapping, WithHeadings, WithS
         return [
             'NO',
             'NIK',
-            'FOTO',
+            // 'FOTO',
             'NAMA LENGKAP',
             'JENIS KELAMIN',
             'TEMPAT LAHIR',

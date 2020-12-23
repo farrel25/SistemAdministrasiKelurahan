@@ -52,6 +52,8 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
         Route::delete('/penduduk/{villager:nik}/delete', 'VillagerController@destroy')->name('penduduk-delete');
         // export excel penduduk
         Route::get('/penduduk/export', 'VillagerController@export')->name('penduduk-export-excel');
+        // import excel penduduk
+        Route::post('/penduduk/import', 'VillagerController@import')->name('penduduk-import-excel');
     });
 
     //ManajemenSurat

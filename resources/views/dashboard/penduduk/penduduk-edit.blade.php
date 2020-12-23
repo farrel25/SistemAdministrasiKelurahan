@@ -744,6 +744,7 @@
                                         class="form-control-file @error('photo') is-invalid @enderror"
                                         value="{{ $villager->photo }}">
                                     <small class="form-text text-muted">Wajib mengisi foto sesuai dengan aslinya</small>
+                                    <small class="form-text text-muted">Ukuran Maksimal : 1MB</small>
                                     @error('photo')
                                     <span class="invalid-feedback mt-2" role="alert">
                                         <i>{{ $message }}</i>

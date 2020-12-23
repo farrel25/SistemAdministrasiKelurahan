@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\VillagerExport;
+use App\Imports\VillagerImport;
 use App\Villager;
 use App\VillagerBloodType;
 use App\VillagerChronicDisease;
@@ -95,14 +96,21 @@ class VillagerController extends Controller
         // ambil id user yang saat itu login
         $userId = Auth::user()->id;
 
+        $photoUrl = null;
+
         // cek apakah foto sudah di inputkan
         if ($request->hasFile('photo')) {
-            // ambil file foto
-            $photo = $request->file('photo');
-            // rename file foto
-            $photoName = $request->nik . "." . $photo->extension();
-            // menentukan lokasi penyimpanan foto
-            $photoUrl = $photo->storeAs("images/profile_pic", "{$photoName}");
+            // ambil ukuran foto
+            $photoSize = $request->file('photo')->getSize();
+            // cek ukuran foto yg diupload
+            if ($photoSize <= 1024) {
+                // ambil file foto
+                $photo = $request->file('photo');
+                // rename file foto
+                $photoName = $request->nik . "." . $photo->extension();
+                // menentukan lokasi penyimpanan foto
+                $photoUrl = $photo->storeAs("images/profile_pic", "{$photoName}");
+            }
         }
 
         // validasi data yang di submit
@@ -183,17 +191,25 @@ class VillagerController extends Controller
 
         // cek apakah foto sudah di inputkan
         if ($request->hasFile('photo')) {
-            // cek apakah ada foto lama
-            if ($villager->photo) {
-                // hapus foto lama
-                \Storage::delete($villager->photo);
+            // ambil ukuran foto
+            $photoSize = $request->file('photo')->getSize();
+            // cek ukuran foto yg diupload
+            if ($photoSize <= 1024) {
+                // cek apakah ada foto lama
+                if ($villager->photo) {
+                    // hapus foto lama
+                    \Storage::delete($villager->photo);
+                }
+                // ambil file foto
+                $photo = $request->file('photo');
+                // rename file foto
+                $photoName = $villager->nik . "." . $photo->extension();
+                // menentukan lokasi penyimpanan foto
+                $photoUrl = $photo->storeAs("images/profile_pic", "{$photoName}");
+            } else {
+                // jika foto yg diupload lebih dari 1024KB, simpan yg lama
+                $photoUrl = $villager->photo;
             }
-            // ambil file foto
-            $photo = $request->file('photo');
-            // rename file foto
-            $photoName = $villager->nik . "." . $photo->extension();
-            // menentukan lokasi penyimpanan foto
-            $photoUrl = $photo->storeAs("images/profile_pic", "{$photoName}");
         } else {
             // jika foto tidak diupdate, simpan yg lama
             $photoUrl = $villager->photo;
@@ -216,7 +232,7 @@ class VillagerController extends Controller
             'mother_nik' => 'required|numeric|digits:16',
             'father_name' => 'required|string|max:255',
             'mother_name' => 'required|string|max:255',
-            'photo' => 'image',
+            'photo' => 'image|max:1024',
             'blood_type_id' => 'required|integer',
             'stay_status_id' => 'required|integer',
             'address' => 'required|string|max:255',
@@ -282,7 +298,7 @@ class VillagerController extends Controller
             'mother_nik' => 'required|numeric|digits:16',
             'father_name' => 'required|string|max:255',
             'mother_name' => 'required|string|max:255',
-            'photo' => 'image',
+            'photo' => 'image|max:1024',
             'blood_type_id' => 'required|integer',
             'stay_status_id' => 'required|integer',
             'address' => 'required|string|max:255',
@@ -293,9 +309,18 @@ class VillagerController extends Controller
         ]);
     }
 
+    // Export data penduduk kedalam excel
     public function export()
     {
         // return Excel::download(new VillagerExport, 'penduduk.xlsx');
         return (new VillagerExport)->download('data_penduduk.xlsx');
+    }
+
+    // import excel data penduduk ke dalam database
+    public function import(Request $request)
+    {
+        (new VillagerImport)->import($request->file('data_penduduk'), 'local', \Maatwebsite\Excel\Excel::XLSX);
+        Alert::success(' Berhasil ', ' Data Penduduk Berhasil Ditambahkan');
+        return redirect()->route('penduduk');
     }
 }
