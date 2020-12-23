@@ -62,23 +62,37 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
         Route::get('/cetak-surat', 'DashboardController@cetaksurat')->name('manajemen-surat.cetak-surat');
         Route::get('/tambah-cetak-surat', 'DashboardController@tambahcetaksurat')->name('manajemen-surat.tambah-cetak-surat');
         Route::get('/buat-cetak-surat', 'DashboardController@buatcetaksurat')->name('manajemen-surat.buat-cetak-surat');
-        //dokumen persyaratans
-        Route::get('/dokumen-persyaratan', 'dashboardController@dokumenpersyaratan')->name('manajemen-surat.dokumen-persyaratan');
-        Route::get('/tambah-dokumen-persyaratan', 'dashboardController@tambahdokumenpersyaratan')->name('manajemen-surat.tambah-dokumen-persyaratan');
-        Route::get('/edit-dokumen-persyaratan', 'dashboardController@editdokumenpersyaratan')->name('manajemen-surat.edit-dokumen-persyaratan');
+
+        // dokumen persyaratan
+        Route::prefix('/dokumen-persyaratan')->group(function () {
+            Route::get('', 'LetterDocumentController@index')->name('manajemen-surat.dokumen-persyaratan');
+            // store document
+            Route::get('/tambah', 'LetterDocumentController@create')->name('dokumen-persyaratan-create');
+            Route::post('/tambah', 'LetterDocumentController@store')->name('dokumen-persyaratan-store');
+            // update document
+            Route::get('/{letter_document}/edit', 'LetterDocumentController@edit')->name('dokumen-persyaratan-edit');
+            Route::patch('/{letter_document}/edit', 'LetterDocumentController@update')->name('dokumen-persyaratan-update');
+            // delete document
+            Route::delete('/{letter_document}/delete', 'LetterDocumentController@destroy')->name('dokumen-persyaratan-delete');
+        });
+
         //jenissurat
         Route::get('/jenis-surat', 'dashboardController@jenissurat')->name('manajemen-surat.jenis-surat');
         Route::get('/tambah-jenis-surat', 'dashboardController@tambahjenissurat')->name('manajemen-surat.tambah-jenis-surat');
         Route::get('/edit-jenis-surat', 'dashboardController@editjenissurat')->name('manajemen-surat.edit-jenis-surat');
+
         //panduan
         Route::get('/panduan', 'dashboardController@panduan')->name('manajemen-surat.panduan');
+
         //permohonan surat
         Route::get('/permohonan-surat', 'dashboardController@permohonansurat')->name('manajemen-surat.permohonan-surat');
         Route::get('/edit-permohonan-surat', 'dashboardController@editpermohonansurat')->name('manajemen-surat.edit-permohonan-surat');
+
         //surat keluar
         Route::get('/surat-keluar', 'dashboardController@suratkeluar')->name('manajemen-surat.surat-keluar');
         Route::get('/tambah-surat-keluar', 'dashboardController@tambahsuratkeluar')->name('manajemen-surat.tambah-surat-keluar');
         Route::get('/edit-surat-keluar', 'dashboardController@editsuratkeluar')->name('manajemen-surat.edit-surat-keluar');
+
         //surat masuk
         Route::get('/surat-masuk', 'dashboardController@suratmasuk')->name('manajemen-surat.surat-masuk');
         Route::get('/tambah-surat-masuk', 'dashboardController@tambahsuratmasuk')->name('manajemen-surat.tambah-surat-masuk');

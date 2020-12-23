@@ -29,11 +29,6 @@ class DashboardController extends Controller
         $menus = $this->getMenu();
         return view('dashboard.manajemen_surat.cetak_surat.cetak-surat', compact('menus'));
     }
-    public function dokumenpersyaratan()
-    {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.dokumen_persyaratan.dokumen-persyaratan', compact('menus'));
-    }
     public function jenissurat()
     {
         $menus = $this->getMenu();
@@ -66,11 +61,6 @@ class DashboardController extends Controller
         $menus = $this->getMenu();
         return view('dashboard.manajemen_surat.cetak_surat.tambah-cetak-surat', compact('menus'));
     }
-    public function tambahdokumenpersyaratan()
-    {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.dokumen_persyaratan.tambah-dokumen-persyaratan', compact('menus'));
-    }
     public function tambahjenissurat()
     {
         $menus = $this->getMenu();
@@ -88,12 +78,6 @@ class DashboardController extends Controller
     }
 
     //edit
-
-    public function editdokumenpersyaratan()
-    {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.dokumen_persyaratan.edit-dokumen-persyaratan', compact('menus'));
-    }
     public function editjenissurat()
     {
         $menus = $this->getMenu();
