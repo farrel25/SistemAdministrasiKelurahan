@@ -262,7 +262,7 @@ class VillagerController extends Controller
             \Storage::delete($villager->photo);
         }
         $villager->delete();
-        session()->flash('success', "Penduduk berhasil dihapus");
+        Alert::success(' Berhasil ', ' Data Penduduk Berhasil Dihapus');
         return redirect()->route('penduduk');
     }
 
