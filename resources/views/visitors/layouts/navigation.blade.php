@@ -21,8 +21,8 @@
                 </li>
                 <?php function activeProfilDesa($urlPath)
                 {
-                if ($urlPath == 'profil-desa/sejarah-visi-misi' || $urlPath == 'profil-desa/struktur-pemerintahan' ||
-                $urlPath == 'profil-desa/administratif') {
+                if ($urlPath == 'profil-desa/sejarah-visi-misi' || $urlPath == 'profil-desa/struktur-pemerintahan' || $urlPath ==
+                'profil-desa/administratif') {
                 return ' active';
                 }
                 } ?>
@@ -43,22 +43,17 @@
                         <li><a href="">Kegiatan Pemuda</a></li>
                     </ul>
                 </li>
-                <?php function activePelayanan($urlPath)
-                {
-                if ($urlPath == 'pelayanan/pengajuan-surat' || $urlPath == 'pelayanan/pengaduan' || $urlPath ==
-                'pelayanan/kontributor') {
-                return ' active';
-                }
-                } ?>
-                <li class="drop-down{{ activePelayanan(request()->path()) }}">
-                    <a href="#">Pelayanan</a>
-                    <ul>
-                        <li><a href="{{ route('pengajuan-surat.create') }}">Pengajuan Surat</a></li>
-                        <li><a href="">Pengaduan</a></li>
-                        <li><a href="">Kontributor</a></li>
-                    </ul>
+                <?php
+                // function activePelayanan($urlPath)
+                // {
+                // if ($urlPath == 'pelayanan/pengajuan-surat' || $urlPath == 'pelayanan/pengaduan' || $urlPath == 'pelayanan/kontributor') {
+                // return ' active';
+                // }
+                // }
+                ?>
+                <li class="{{ request()->is('/pengajuan.surat.create') ? 'active' : '' }}">
+                    <a href="{{ route('pengajuan-surat.create') }}">Pengajuan Surat</a>
                 </li>
-
                 @guest
                     <li class="btn-register"><a href="{{ route('register') }}">Register</a></li>
                     <li class="btn-login"><a href="{{ route('login') }}">Login</a></li>

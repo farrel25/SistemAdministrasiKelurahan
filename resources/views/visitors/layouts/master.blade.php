@@ -19,10 +19,8 @@
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/icofont/icofont.min.css">
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/remixicon/remixicon.css">
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/boxicons/css/boxicons.min.css">
-    <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/owl.carousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/venobox/venobox.css">
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/aos/aos.css">
-    <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/article/article.css">
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/slick/slick-theme.css">
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/slick/slick.css">
 

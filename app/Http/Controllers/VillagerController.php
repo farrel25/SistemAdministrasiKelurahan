@@ -121,7 +121,7 @@ class VillagerController extends Controller
         $villager['updated_by'] = $userId;
 
         Villager::create($villager);
-        Alert::success(' Berhasil ', ' Data Berhasil Ditambah');
+        Alert::success(' Berhasil ', ' Data Berhasil Ditambahkan');
 
         return redirect()->route('penduduk');
     }

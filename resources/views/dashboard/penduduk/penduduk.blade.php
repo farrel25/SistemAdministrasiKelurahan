@@ -75,20 +75,7 @@
             </div>
         </div>
 
-        <div class="col-md-4 col-lg-4 mb-3 ">
-            <div class=" row d-flex">
-                <div class="col-6">
-                    <button type="button " class="btn btn-lg btn-block btn-danger text-white font-weight-bold  shadow " id="delete-form">
-                        <i class="fas fa-file-pdf fa-2x"></i>
-                    </button>
-                </div>
-                <div class="col-6">
-                    <a href="#" class="btn btn-lg btn-block btn-success text-white font-weight-bold  shadow">
-                        <i class="fas fa-file-excel fa-2x"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
+
     </div>
 
     <div class="row">
@@ -215,8 +202,8 @@
             var form = this;
             e.preventDefault();
             swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Hapus Data Ini?',
+                text: "Data Tidak Akan Kembali ",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonText: 'Yes, delete it!',

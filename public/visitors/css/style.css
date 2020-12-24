@@ -1363,7 +1363,7 @@ section {
 }
 
 .product .cart:hover .cart-img img {
-    webkit-transform: scale(1.08);
+    -webkit-transform: scale(1.08);
     transform: scale(1.08);
 }
 
@@ -1871,6 +1871,19 @@ section {
 .btn-yellow:hover {
     background: #cf9502;
     border: 1px solid #cf9502;
+    color: #fff;
+}
+
+.btn-blue {
+    background: #3C50E0;
+    color: #ffffff;
+    border: 1px solid #3C50E0;
+    border-radius: 5px;
+}
+
+.btn-blue:hover {
+    background: #2c399b;
+    border: 1px solid #2c399b;
     color: #fff;
 }
 
