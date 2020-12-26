@@ -88,7 +88,7 @@
                                         class="btn btn-primary" data-toggle="tooltip" title="Edit Dokumen Persyaratan"
                                         data-placement="bottom"><i class="fas fa-edit"></i></a>
 
-                                    <form action="{{ route('dokumen-persyaratan-delete', $document->id) }}"
+                                    <form id="delete-form" action="{{ route('dokumen-persyaratan-delete', $document->id) }}"
                                         method="post">
                                         @csrf
                                         @method('delete')
@@ -109,7 +109,6 @@
                 <div class="card-body ">
                     <nav class=" " aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-
                             {{ $documents->links() }}
                         </ul>
                     </nav>
@@ -120,18 +119,48 @@
 </div>
 
 <script>
-    // $("#deleteSelected").click(function(e) {
-    //     e.preventDefault();
+    $(document).on('click', '#deleteSelected', function(e) {
+        e.preventDefault();
+        swal.fire({
+            title: 'Hapus Data Ini?',
+            text: "Data Tidak Akan Kembali ",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Iya, hapus!',
+            cancelButtonText: 'Tidak, batalkan!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var allIds = [];
+                $("input:checkbox[name=ids]:checked").each(function () {
+                    allIds.push($(this).val());
+                });
+                $.ajax({
+                    url: '{{ route('dokumen-persyaratan-delete-selected') }}',
+                    type: 'DELETE',
+                    data: {
+                    ids:allIds,
+                    _token:$("input[name=_token]").val()
+                    },
+                })
+                // .done(
+                //     function(data){
+                //     $('manajemen-surat.dokumen-persyaratan');
+                //     }
+                // );
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                swal.fire(
+                    'Dibatalkan',
+                    'Data anda masih tersimpan :)',
+                    'error'
+                )
+            }
+        })
+    });
 
-
-
-    // });
     $(document).on('click', '#delete-form', function(e) {
+            var form = this;
             e.preventDefault();
-            var allIds = [];
-            $("input:checkbox[name=ids]:checked").each(function () {
-                allIds.push($(this).val());
-            });
             swal.fire({
                 title: 'Hapus Data Ini?',
                 text: "Data Tidak Akan Kembali ",
@@ -142,22 +171,7 @@
                 reverseButtons: true
             }).then((result) => {
                 if (result.isConfirmed) {
-                    $.ajax({
-                        url: '{{ route('dokumen-persyaratan-delete-selected') }}',
-                        type: 'DELETE',
-                        data: {
-                        ids:allIds,
-                        _token:$("input[name=_token]").val()
-                         },
-                    // success:function(response) {
-            //     $each(allIds, function(key,val))
-            // }
-                    });
-                    swal.fire(
-                        'Terhapus!',
-                        'Data anda berhasil dihapus.',
-                        'success'
-                    )
+                    return form.submit();
                 } else if (
                     /* Read more about handling dismissals below */
                     result.dismiss === Swal.DismissReason.cancel

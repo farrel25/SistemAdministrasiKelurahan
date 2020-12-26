@@ -174,8 +174,7 @@
                                         @csrf
                                         @method('delete')
                                         <button type=" submit" class="btn btn-danger delete" data-toggle="tooltip"
-                                            title="Hapus Data" data-placement="bottom"
-                                            onclick="deleteConfirmation({{ $villager->nik }})">
+                                            title="Hapus Data" data-placement="bottom">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>
@@ -220,11 +219,6 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     return form.submit();
-                    swal.fire(
-                        'Terhapus!',
-                        'Data anda berhasil dihapus.',
-                        'success'
-                    )
                 } else if (
                     /* Read more about handling dismissals below */
                     result.dismiss === Swal.DismissReason.cancel

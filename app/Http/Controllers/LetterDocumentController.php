@@ -96,6 +96,7 @@ class LetterDocumentController extends Controller
     public function destroy(LetterDocument $letterDocument)
     {
         $letterDocument->delete();
+        Alert::success(' Berhasil ', ' Data Dokumen Persyaratan Berhasil Dihapus');
         return redirect()->route('manajemen-surat.dokumen-persyaratan');
     }
 
@@ -105,7 +106,7 @@ class LetterDocumentController extends Controller
         // dd($Ids);
         LetterDocument::whereIn('id', $Ids)->delete();
         // LetterDocument::whereIn('id', explode(',', $Ids))->delete();
-
+        Alert::success(' Berhasil ', ' Data Penduduk Berhasil Dihapus');
         return redirect()->route('manajemen-surat.dokumen-persyaratan');
     }
 
