@@ -9,13 +9,6 @@
 <section id="article" class="blog-posts grid-system">
     <div class="container ">
         <div class="row">
-            <?php $count=count($articles)?>
-            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
-                @if ($count==0)
-                        <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
-                    <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service. Terima kasih.</div>
-                @endif
-            </div>
             <div class="col-lg-8" data-aos="fade-right" data-aos-delay="800">
                 <div class="all-blog-posts">
                     <div class="row mb-5">
@@ -33,7 +26,7 @@
                                         <li><a href="#">{{$article->user_id}}</a></li>
                                         <li><a href="#">{{$article->created_at->diffForHumans()}} {{-- Terahir dibuat --}}</a></li>
                                     </ul>
-                                    <p>{{Str::limit($article->body,100)}} <a href="#">readmore..</a> </p>
+                                    <p>{{Str::limit($article->body,100)}}  <a href="/artikel/{{$article->slug}}">readmore..</a> </p>
                                 </div>
                             </div>
                         </div>
@@ -50,15 +43,19 @@
                             </ul>
                         </div>
                         @empty
-
+                            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                    <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                        <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
+                                    </div>
+                                    <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service. Terima kasih.</div>
+                                </div>
+                            </div>
                         @endforelse
                         {{$articles->links()}}
                     </div>
                 </div>
             </div>
-
-            <?php $count=count($articles)?>
-            @if ($count>0)
             <div class="col-lg-4 mb-5" data-aos="fade-left" data-aos-delay="1000">
                 <div class="sidebar">
                     <div class="row">
@@ -66,7 +63,6 @@
                     </div>
                 </div>
             </div>
-            @endif
         </div>
     </div>
 </section>

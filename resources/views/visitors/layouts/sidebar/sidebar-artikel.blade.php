@@ -10,20 +10,30 @@
         <div class="sidebar-heading text-center">
             <h2>Popular Posts</h2>
         </div>
-        <ul>
-            <li><a href="#">
-                    <h5>Article Popular 1</h5>
-                    <span>May 31, 2020</span>
-                </a></li>
-            <li><a href="#">
-                    <h5>Article Popular 2</h5>
-                    <span>May 28, 2020</span>
-                </a></li>
-            <li><a href="#">
-                    <h5>Article Popular 3</h5>
-                    <span>May 14, 2020</span>
-                </a></li>
-        </ul>
+        @if ($count>0)
+        @forelse ($article_comments as $article_comment)
+            <ul>
+                <li>
+                    {{$article_comment->article_id}}
+                    <span>{{$article_comment->created_at->diffForHumans()}}</span>
+                </li>
+            </ul>
+        @empty
+            <ul>
+                <li><a href="#">
+                    <h5>Belum ada komentar pada postingan.</h5>
+                    <span>Terima kasih.</span>
+                    </a></li>
+            </ul>
+        @endforelse
+        @else
+            <ul>
+                <li><a href="#">
+                    <h5>Mohon maaf Belum ada artikel yang terbit.</h5>
+                    <span>Terima kasih.</span>
+                    </a></li>
+            </ul>
+        @endif
     </div>
 </div>
 <div class="col-lg-12 mb-4">

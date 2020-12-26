@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use  App\Article;
+use  App\ArticleComment;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -29,6 +31,6 @@ class HomeController extends Controller
     public function beranda()
     {
         # code...
-        return view('visitors.beranda.index');
+        return view('visitors.beranda.index', ['count' => Article::all()->count(), 'articles' => Article::orderby('created_at', 'desc')->paginate(6), 'article_comments' => ArticleComment::take(5)->latest()->get()]);
     }
 }
