@@ -29,7 +29,7 @@ Route::middleware('auth')->group(function () {
     // dashboard
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-    // Route::get('/pelayanan/pengajuan-surat', 'LetterSubmissionController@create')->name('visitors.pelayanan.pengajuan-surat')->withoutMiddleware('auth');
+    // peengajuan surat
     Route::get('/pelayanan/pengajuan-surat', 'LetterSubmissionController@create')->name('pengajuan-surat.create');
     Route::post('/pelayanan/pengajuan-surat', 'LetterSubmissionController@store')->name('pengajuan-surat.store');
 });
@@ -74,6 +74,12 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             Route::patch('/{letter_document}/edit', 'LetterDocumentController@update')->name('dokumen-persyaratan-update');
             // delete document
             Route::delete('/{letter_document}/delete', 'LetterDocumentController@destroy')->name('dokumen-persyaratan-delete');
+            // delete selected document
+            Route::delete('/delete-selected', 'LetterDocumentController@destroySelected')->name('dokumen-persyaratan-delete-selected');
+            // export excel dokumen persyaratan
+            Route::get('/export', 'LetterDocumentController@export')->name('dokumen-persyaratan-export-excel');
+            // import excel dokumen persyaratan
+            Route::post('/import', 'LetterDocumentController@import')->name('dokumen-persyaratan-import-excel');
         });
 
         //jenissurat

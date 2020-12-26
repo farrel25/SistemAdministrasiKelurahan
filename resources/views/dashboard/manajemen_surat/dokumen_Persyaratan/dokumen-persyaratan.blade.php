@@ -39,16 +39,26 @@
                 <div class="btn-actions-pane-right ">
                     <a type="button"
                         class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
-                        href="#"><i class="fas fa-file-download "> </i> Unduh Data Excel</a>
-                    <a type="button"
+                        href="{{ route('dokumen-persyaratan-export-excel') }}">
+                        <i class="fas fa-file-download "> </i>
+                        Unduh Data Excel
+                    </a>
+                    <button type="button"
                         class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
-                        href="#"><i class="fas fa-file-upload"></i> Unggah Data Excel</a>
-                    {{-- <a type="button"
-                        class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
-                        href="#"><i class="fas fa-print "></i> Cetak Data Terpilih</a> --}}
-                    <a type="button"
-                        class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
-                        href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
+                        data-toggle="modal" data-target="#importExcelDocumentModal">
+                        <i class="fas fa-file-upload"></i>
+                        Unggah Data Excel
+                    </button>
+                    {{-- <a href="{{ route('dokumen-persyaratan-delete-selected') }}"
+                    class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive">
+                    <i class="fas fa-trash-alt"></i>
+                    Hapus Data Terpilih
+                    </a> --}}
+                    <button type="button" id="deleteSelected"
+                        class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive">
+                        <i class="fas fa-trash-alt"></i>
+                        Hapus Data Terpilih
+                    </button>
                     <a type="button"
                         class="btn btn-lg btn-focus btn-sm text-white m-1 mb-2 mt-2 font-weight-normal btn-responsive"
                         href="{{ route('dokumen-persyaratan-create') }}">+ Tambah Dokumen
@@ -59,6 +69,7 @@
                 <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
                     <thead>
                         <tr>
+                            {{-- <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th> --}}
                             <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No</th>
                             <th class=" text-center">Aksi</th>
@@ -66,13 +77,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        $no = 1;
-                        ?>
-                        @foreach ($documents as $document)
+                        @foreach ($documents as $no => $document)
                         <tr>
-                            <td class="text-center"><input type="checkbox" name="chkbox[]" value="1"></td>
-                            <td class="text-center">{{ $no++ }}</td>
+                            {{-- <td class="text-center"><input type="checkbox" name="chkbox[]" value="1"></td> --}}
+                            <td class="text-center"><input type="checkbox" name="ids" value="{{ $document->id }}"></td>
+                            <td class="text-center">{{ ++$no }}</td>
                             <td class="text-center">
                                 <div class="btn-group-sm btn-group">
                                     <a href="{{ route('dokumen-persyaratan-edit', $document->id) }}"
@@ -119,5 +128,26 @@
     </div>
 </div>
 
+<script>
+    $("#deleteSelected").click(function(e) {
+        e.preventDefault();
+        var allIds = [];
+        $("input:checkbox[name=ids]:checked").each(function () {
+            allIds.push($(this).val());
+        });
+
+        $.ajax({
+            url: '{{ route('dokumen-persyaratan-delete-selected') }}',
+            type: 'DELETE',
+            data: {
+                ids:allIds,
+                _token:$("input[name=_token]").val()
+            },
+            // success:function(response) {
+            //     $each(allIds, function(key,val))
+            // }
+        });
+    });
+</script>
 
 @endsection

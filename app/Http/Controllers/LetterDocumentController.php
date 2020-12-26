@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Alert;
+use App\Exports\LetterDocumentExport;
+use App\Imports\LetterDocumentImport;
 
 class LetterDocumentController extends Controller
 {
@@ -97,6 +99,16 @@ class LetterDocumentController extends Controller
         return redirect()->route('manajemen-surat.dokumen-persyaratan');
     }
 
+    public function destroySelected(Request $request)
+    {
+        $Ids = $request->ids;
+        // dd($Ids);
+        LetterDocument::whereIn('id', $Ids)->delete();
+        // LetterDocument::whereIn('id', explode(',', $Ids))->delete();
+
+        return redirect()->route('manajemen-surat.dokumen-persyaratan');
+    }
+
     public function getMenu()
     {
         // ambil id user yg sedang login
@@ -117,5 +129,20 @@ class LetterDocumentController extends Controller
         return request()->validate([
             'document' => 'required|string|max:255|unique:letter_documents,document'
         ]);
+    }
+
+    public function export()
+    {
+        return (new LetterDocumentExport)->download('data_dokumen_persyaratan.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'dokumen_persyaratan' => 'required|file|mimes:xlsx,xls'
+        ]);
+        (new LetterDocumentImport)->import($request->file('dokumen_persyaratan'), 'local', \Maatwebsite\Excel\Excel::XLSX);
+        Alert::success(' Berhasil ', ' Dokumen persyaratan Berhasil Ditambahkan');
+        return redirect()->route('manajemen-surat.dokumen-persyaratan');
     }
 }
