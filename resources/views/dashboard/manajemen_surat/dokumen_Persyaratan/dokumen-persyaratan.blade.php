@@ -109,16 +109,7 @@
                 <div class="card-body ">
                     <nav class=" " aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                            <!-- {{-- <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                aria-label="Previous"><span aria-hidden="true">«</span><span
-                                    class="sr-only">Previous</span></a></li>
-                        <li class="page-item active"><a href="javascript:void(0);" class="page-link">1</a></li>
-                        <li class="page-item"><a href="javascript:void(0);" class="page-link">2</a></li>
-                        <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
-                        <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
-                        <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
-                        <li class="page-item"><a href="javascript:void(0);" class="page-link" aria-label="Next"><span
-                                    aria-hidden="true">»</span><span class="sr-only">Next</span></a></li> --}} -->
+
                             {{ $documents->links() }}
                         </ul>
                     </nav>
@@ -129,25 +120,56 @@
 </div>
 
 <script>
-    $("#deleteSelected").click(function(e) {
-        e.preventDefault();
-        var allIds = [];
-        $("input:checkbox[name=ids]:checked").each(function () {
-            allIds.push($(this).val());
-        });
+    // $("#deleteSelected").click(function(e) {
+    //     e.preventDefault();
 
-        $.ajax({
-            url: '{{ route('dokumen-persyaratan-delete-selected') }}',
-            type: 'DELETE',
-            data: {
-                ids:allIds,
-                _token:$("input[name=_token]").val()
-            },
-            // success:function(response) {
+
+
+    // });
+    $(document).on('click', '#delete-form', function(e) {
+            e.preventDefault();
+            var allIds = [];
+            $("input:checkbox[name=ids]:checked").each(function () {
+                allIds.push($(this).val());
+            });
+            swal.fire({
+                title: 'Hapus Data Ini?',
+                text: "Data Tidak Akan Kembali ",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Iya, hapus!',
+                cancelButtonText: 'Tidak, batalkan!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: '{{ route('dokumen-persyaratan-delete-selected') }}',
+                        type: 'DELETE',
+                        data: {
+                        ids:allIds,
+                        _token:$("input[name=_token]").val()
+                         },
+                    // success:function(response) {
             //     $each(allIds, function(key,val))
             // }
+                    });
+                    swal.fire(
+                        'Terhapus!',
+                        'Data anda berhasil dihapus.',
+                        'success'
+                    )
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swal.fire(
+                        'Dibatalkan',
+                        'Data anda masih tersimpan :)',
+                        'error'
+                    )
+                }
+            })
         });
-    });
 </script>
 
 @endsection

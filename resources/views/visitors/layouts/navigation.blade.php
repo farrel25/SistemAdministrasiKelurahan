@@ -78,7 +78,5 @@
                 @endguest
             </ul>
         </nav>
-        <!-- .nav-menu -->
-
     </div>
 </header>
