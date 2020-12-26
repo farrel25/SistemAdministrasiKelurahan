@@ -82,11 +82,17 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             Route::post('/import', 'LetterDocumentController@import')->name('dokumen-persyaratan-import-excel');
         });
 
-        //jenissurat
+        //jenis surat
         Route::prefix('/jenis-surat')->group(function () {
             Route::get('', 'LetterTypeController@index')->name('manajemen-surat.jenis-surat');
-            Route::get('/tambah', 'LetterTypeController@create')->name('manajemen-surat.jenis-surat.tambah');
-            Route::get('/edit', 'dashboardController@editjenissurat')->name('manajemen-surat.jenis-surat.edit');
+            // store jenis
+            Route::get('/tambah', 'LetterTypeController@create')->name('manajemen-surat.jenis-surat.create');
+            Route::post('/tambah', 'LetterTypeController@store')->name('manajemen-surat.jenis-surat.store');
+            // update jenis
+            Route::get('/{letter_type:letter_code}/edit', 'LetterTypeController@edit')->name('manajemen-surat.jenis-surat.edit');
+            Route::patch('/{letter_type:letter_code}/edit', 'LetterTypeController@update')->name('manajemen-surat.jenis-surat.update');
+            // delete jenis
+            Route::delete('/{letter_type:letter_code}/delete', 'LetterTypeController@destroy')->name('manajemen-surat.jenis-surat.delete');
         });
 
         //panduan

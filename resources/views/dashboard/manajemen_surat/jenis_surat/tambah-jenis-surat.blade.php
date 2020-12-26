@@ -41,13 +41,13 @@
             <div class="card-body">
                 <h5 class="card-title">Tambah Jenis Surat</h5>
                 <hr>
-                <form action="" method="POST" class="">
+                <form action="{{ route('manajemen-surat.jenis-surat.store') }}" method="POST" class="">
                     @csrf
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="position-relative form-group">
-                                <label for="#" class="">Kode</label>
-                                <input name="#" id="#" type="text" class="form-control">
+                                <label for="letter_code" class="">Kode</label>
+                                <input name="letter_code" id="letter_code" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -91,7 +91,7 @@
                         <label for="#" class="">Keterangan</label>
                         <textarea name="#" id="#" type="text" class="form-control"></textarea>
                     </div> --}}
-                    <button class="mt-2 btn btn-primary">Tambah</button>
+                    <button type="submit" class="mt-2 btn btn-primary">Tambah</button>
                     <a href="{{ route('manajemen-surat.jenis-surat') }}" class="mt-2 btn btn-outline-danger">Batal</a>
                 </form>
             </div>

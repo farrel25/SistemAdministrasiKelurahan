@@ -73,11 +73,6 @@ class DashboardController extends Controller
     }
 
     //edit
-    public function editjenissurat()
-    {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.jenis_surat.edit-jenis-surat', compact('menus'));
-    }
     public function editpermohonansurat()
     {
         $menus = $this->getMenu();

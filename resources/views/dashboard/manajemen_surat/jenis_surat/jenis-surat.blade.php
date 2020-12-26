@@ -51,7 +51,7 @@
                         href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
                     <a type="button"
                         class="btn btn-lg btn-focus btn-sm text-white m-1 mb-2 mt-2 font-weight-normal btn-responsive"
-                        href="{{ route('manajemen-surat.jenis-surat.tambah') }}">+ Tambah Jenis Surat</a>
+                        href="{{ route('manajemen-surat.jenis-surat.create') }}">+ Tambah Jenis Surat</a>
                 </div>
             </div>
             <div class="table-responsive">
@@ -74,12 +74,14 @@
                             <td class=" text-center">{{ $number + $letterTypes->firstItem() }}</td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
-                                    <a href="edit-jenis-surat" class="btn btn-primary" data-toggle="tooltip"
-                                        title="Edit Jenis Surat" data-placement="bottom"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ route('manajemen-surat.jenis-surat.edit', $type->letter_code) }}"
+                                        class="btn btn-primary" data-toggle="tooltip" title="Edit Jenis Surat"
+                                        data-placement="bottom"><i class="fas fa-edit"></i></a>
                                     <a href="#" class="btn btn-secondary text-white" data-toggle="tooltip"
                                         title="Blokir Jenis Surat" data-placement="bottom"><i
                                             class="fas fa-lock"></i></a>
-                                    <a href="#" class="btn btn-danger" data-toggle="tooltip" title="Hapus Jenis Surat"
+                                    <a href="{{ route('manajemen-surat.jenis-surat.delete', $type->letter_code) }}"
+                                        class="btn btn-danger" data-toggle="tooltip" title="Hapus Jenis Surat"
                                         data-placement="bottom"><i class="fas fa-trash-alt"></i></a>
                                 </div>
                             </td>
