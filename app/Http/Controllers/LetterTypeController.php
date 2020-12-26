@@ -6,6 +6,8 @@ use App\LetterType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
+use Alert;
+// use RealRashid\SweetAlert\Facades\Alert;
 
 class LetterTypeController extends Controller
 {
@@ -43,7 +45,17 @@ class LetterTypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $letterType = $request->validate([
+            'letter_code' => 'required|alpha_dash|unique:letter_types,letter_code',
+            'type' => 'required|string|max:255',
+            // 'validity_period' => 'required|numeric|min:1|max:31',
+            // 'validity_period_unit' => 'required|alpha',
+        ]);
+
+        // LetterType::create($letterType);
+        // Alert::success(' Berhasil ', 'Jenis Surat berhasil Ditambahkan');
+
+        return redirect()->route('manajemen-surat.jenis-surat');
     }
 
     /**
@@ -65,7 +77,8 @@ class LetterTypeController extends Controller
      */
     public function edit(LetterType $letterType)
     {
-        //
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_surat.jenis_surat.edit-jenis-surat', compact('menus', 'letterType'));
     }
 
     /**
@@ -77,7 +90,16 @@ class LetterTypeController extends Controller
      */
     public function update(Request $request, LetterType $letterType)
     {
-        //
+        $attr = $request->validate([
+            'type' => 'required|string|max:255',
+            // 'validity_period' => 'required|numeric|min:1|max:31',
+            // 'validity_period_unit' => 'required|alpha',
+        ]);
+
+        // $letterType->update($attr);
+        // Alert::success(' Berhasil ', 'Jenis Surat berhasil Diperbarui');
+
+        return redirect()->route('manajemen-surat.jenis-surat');
     }
 
     /**
@@ -88,7 +110,9 @@ class LetterTypeController extends Controller
      */
     public function destroy(LetterType $letterType)
     {
-        //
+        // $letterType->delete();
+        // Alert::success(' Berhasil ', 'Jenis Surat berhasil Dihapus');
+        return redirect()->route('manajemen-surat.jenis-surat');
     }
 
     public function getMenu()
