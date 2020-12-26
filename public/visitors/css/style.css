@@ -2327,9 +2327,6 @@ ul.page-numbers li a:hover {
     display: inline;
 }
 
-.blog-posts .comments ul li .right-content {
-    margin-left: 130px;
-}
 
 .blog-posts .comments ul li .right-content h4 {
     color: #20232e;
@@ -2360,7 +2357,7 @@ ul.page-numbers li a:hover {
     color: #7a7a7a;
     outline: none;
     padding: 0px 15px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .blog-posts .submit-comment textarea {
@@ -2373,7 +2370,7 @@ ul.page-numbers li a:hover {
     color: #7a7a7a;
     outline: none;
     padding: 10px 15px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     height: 180px;
     max-height: 220px;
     max-width: 100%;

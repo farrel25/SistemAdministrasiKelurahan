@@ -339,7 +339,7 @@
                                         <img src="{{ asset('/images') }}/img-article-01.png" alt="">
                                     </div>
                                     <div class="down-content ">
-                                        <a href="#">
+                                        <a href="{{ route('visitors.artikel.view') }}">
                                             <h4>Article 1</h4>
                                         </a>
                                         <ul class="post-info ">
@@ -434,7 +434,7 @@
                                         <img src="{{ asset('/images') }}/img-article-06.png" alt="">
                                     </div>
                                     <div class="down-content">
-                                        <a href="post-details.html">
+                                        <a href="#">
                                             <h4>Article 6</h4>
                                         </a>
                                         <ul class="post-info ">

@@ -134,6 +134,7 @@ Route::prefix('profil-desa/administratif')->group(function () {
 Route::get('/kegiatan-masyarakat/umkm', function () {
     return view('visitors.kegiatan_masyarakat.umkm.index');
 })->name('visitors.kegiatan_masyarakat.umkm.index');
+
 Route::get('/kegiatan-masyarakat/umkm/view-product', function () {
     return view('visitors.kegiatan_masyarakat.umkm.view-product');
 })->name('visitors.kegiatan_masyarakat.umkm.view-product');
@@ -141,4 +142,5 @@ Route::get('/kegiatan-masyarakat/umkm/view-product', function () {
 
 // Artikel
 // Route::view('/artikel', 'visitors.artikel.index')->name('visitors.artikel.index');
-Route::get('/artikel', 'ArticleController@index')->name('visitors.artikel.index');//kolom slug g dibuat brarti id
+Route::get('/artikel', 'ArticleController@index')->name('visitors.artikel.index'); //kolom slug g dibuat brarti id
+Route::get('/artikel/view', 'ArticleController@viewartikel')->name('visitors.artikel.view');//kolom slug g dibuat brarti id
