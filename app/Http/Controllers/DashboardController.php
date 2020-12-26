@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Villager;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
@@ -11,8 +12,12 @@ class DashboardController extends Controller
     public function index()
     {
         $menus = $this->getMenu();
+
+        // $userName = Auth::user()->full_name;
+        // $userRole = Auth::user()->roles->toArray()[0]['name'];
+
         $villagers = Villager::where('life_status_id', 1)->where('user_id', '!=', null)->paginate(5);
-        // dd($villagers);
+
         return view('dashboard.beranda.index', compact('menus', 'villagers'));
     }
 
@@ -28,11 +33,6 @@ class DashboardController extends Controller
     {
         $menus = $this->getMenu();
         return view('dashboard.manajemen_surat.cetak_surat.cetak-surat', compact('menus'));
-    }
-    public function jenissurat()
-    {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.jenis_surat.jenis-surat', compact('menus'));
     }
     public function panduan()
     {
@@ -60,11 +60,6 @@ class DashboardController extends Controller
     {
         $menus = $this->getMenu();
         return view('dashboard.manajemen_surat.cetak_surat.tambah-cetak-surat', compact('menus'));
-    }
-    public function tambahjenissurat()
-    {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.jenis_surat.tambah-jenis-surat', compact('menus'));
     }
     public function tambahsuratkeluar()
     {

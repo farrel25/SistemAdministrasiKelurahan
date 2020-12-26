@@ -5,7 +5,8 @@
         </div>
         <div class="header__pane ml-auto">
             <div>
-                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                    data-class="closed-sidebar">
                     <span class="hamburger-box">
                         <span class="hamburger-inner"></span>
                     </span>
@@ -58,10 +59,12 @@
                         <div class="widget-content-left">
                             <div class="btn-group">
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                    <img width="42" class="rounded-circle" src="{{ asset('/admin') }}/images/avatars/4.jpg" alt="">
+                                    <img width="42" class="rounded-circle"
+                                        src="{{ asset('/admin') }}/images/avatars/4.jpg" alt="">
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
-                                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
+                                <div tabindex="-1" role="menu" aria-hidden="true"
+                                    class="dropdown-menu dropdown-menu-right">
                                     <button type="button" tabindex="0" class="dropdown-item">User Account</button>
                                     <button type="button" tabindex="0" class="dropdown-item">Settings</button>
                                     <button type="button" tabindex="0" class="dropdown-item">Actions</button>
@@ -78,10 +81,10 @@
                         </div>
                         <div class="widget-content-left  ml-3 header-user-info">
                             <div class="widget-heading">
-                                Nama Akun
+                                {{ Auth::user()->full_name }}
                             </div>
                             <div class="widget-subheading">
-                                Role
+                                {{ Auth::user()->roles->toArray()[0]['name'] }}
                             </div>
                         </div>
                         {{-- <div class="widget-content-right header-user-info ml-3">

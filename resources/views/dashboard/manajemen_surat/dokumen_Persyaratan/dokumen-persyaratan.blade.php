@@ -81,7 +81,7 @@
                         <tr>
                             {{-- <td class="text-center"><input type="checkbox" name="chkbox[]" value="1"></td> --}}
                             <td class="text-center"><input type="checkbox" name="ids" value="{{ $document->id }}"></td>
-                            <td class="text-center">{{ ++$no }}</td>
+                            <td class="text-center">{{ $no + $documents->firstItem() }}</td>
                             <td class="text-center">
                                 <div class="btn-group-sm btn-group">
                                     <a href="{{ route('dokumen-persyaratan-edit', $document->id) }}"

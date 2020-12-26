@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -46,5 +47,10 @@ class User extends Authenticatable
     public function villager()
     {
         return $this->hasOne(Villager::class);
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'model_has_roles', 'role_id');
     }
 }

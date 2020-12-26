@@ -83,9 +83,11 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
         });
 
         //jenissurat
-        Route::get('/jenis-surat', 'dashboardController@jenissurat')->name('manajemen-surat.jenis-surat');
-        Route::get('/tambah-jenis-surat', 'dashboardController@tambahjenissurat')->name('manajemen-surat.tambah-jenis-surat');
-        Route::get('/edit-jenis-surat', 'dashboardController@editjenissurat')->name('manajemen-surat.edit-jenis-surat');
+        Route::prefix('/jenis-surat')->group(function () {
+            Route::get('', 'LetterTypeController@index')->name('manajemen-surat.jenis-surat');
+            Route::get('/tambah', 'LetterTypeController@create')->name('manajemen-surat.jenis-surat.tambah');
+            Route::get('/edit', 'dashboardController@editjenissurat')->name('manajemen-surat.jenis-surat.edit');
+        });
 
         //panduan
         Route::get('/panduan', 'dashboardController@panduan')->name('manajemen-surat.panduan');
