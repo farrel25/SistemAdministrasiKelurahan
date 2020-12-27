@@ -83,8 +83,14 @@ class LetterTypeController extends Controller
         $menus = $this->getMenu();
         // $letterDocuments = LetterDocument::paginate(10);
         $letterDocuments = LetterDocument::get();
+        // dd($letterDocuments[2]->document);
 
-        return view('dashboard.manajemen_surat.jenis_surat.edit-jenis-surat', compact('menus', 'letterType', 'letterDocuments'));
+        // $requirementCheck = \DB::table('letter_requirements')->where('letter_type_id', $letterType->id)->get();
+        $requirementCheck = \DB::table('letter_requirements')->where('letter_type_id', $letterType->id)->pluck('letter_document_id')->toArray();
+        // $requirementCheck = \DB::table('letter_requirements')->where('letter_type_id', $letterType->id)->get()->toArray();
+        // dd($requirementCheck);
+
+        return view('dashboard.manajemen_surat.jenis_surat.edit-jenis-surat', compact('menus', 'letterType', 'letterDocuments', 'requirementCheck'));
     }
 
     /**
@@ -96,13 +102,30 @@ class LetterTypeController extends Controller
      */
     public function update(Request $request, LetterType $letterType)
     {
+        // dd($request->letter_document_id);
+
         $attr = $request->validate([
             'type' => 'required|string|max:255',
-            // 'validity_period' => 'required|numeric|min:1|max:31',
-            // 'validity_period_unit' => 'required|alpha',
+            'validity_period' => 'required|numeric|min:1|max:31',
+            'validity_period_unit' => 'required|alpha',
         ]);
 
         // $letterType->update($attr);
+
+        $requirements = $request->letter_document_id;
+        $requirementCheck = \DB::table('letter_requirements')->where('letter_type_id', $letterType->id)->get();
+
+        if ($requirementCheck->isEmpty()) {
+            foreach ($requirements as $requirement) {
+                \DB::table('letter_requirements')->insert([
+                    'letter_type_id' => $letterType->id,
+                    'letter_document_id' => $requirement
+                ]);
+            }
+        } else {
+            return 'udah ada isinya';
+        }
+
         // Alert::success(' Berhasil ', 'Jenis Surat berhasil Diperbarui');
 
         return redirect()->route('manajemen-surat.jenis-surat');
