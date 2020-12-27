@@ -2,44 +2,31 @@
 
 @section('content')
 
-<div class="app-page-title">
-    <div class="page-title-wrapper">
-        <div class="page-title-heading">
-            <div class="page-title-icon">
-                <i class="pe-7s-plus icon-gradient bg-mean-fruit">
-                </i>
-            </div>
-            <div>Penduduk
-                <div class="page-title-subheading">
-                    <a href="{{ route('penduduk') }}" style="text-decoration: none">Penduduk</a> / Tambah Data
-                </div>
-            </div>
-        </div>
-        <div class="page-title-actions">
-            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip"
-                title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark">
-                <i class="fas fa-home"></i>
-            </a>
-        </div>
-    </div>
-</div>
+<?php
+    $data=[
+        'icon' => "pe-7s-plus",
+        'judul' => "Tambah Penduduk",
+        'link' => route('penduduk') ,
+        'page1' => "Penduduk",
+        'page2' => "/ Tambah",
+    ]
+?>
+@include('dashboard.layouts.page-title',$data)
+
 <div class="tab-content">
     <div class="tab-pane tabs-animation fade show active" role="tabpanel">
         <div class="main-card mb-3 card">
             <div class="card-body">
                 <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Tambah Data Penduduk</h5>
                 <div tabindex="-1" class="dropdown-divider"></div>
-
                 <form action="{{ route('penduduk-store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-
                     <div class="row">
                         <div class=" col-lg-3 mb-2 mt-1">
                             <h4 class="card-title font-weight-bold">Data Diri</h4>
                             <hr>
                         </div>
                         <div class=" col-lg-9 ">
-
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <div class="position-relative form-group">
@@ -51,9 +38,6 @@
                                         <span class="invalid-feedback mt-2" role="alert">
                                             <i>{{ $message }}</i>
                                         </span>
-                                        {{-- <small>
-                                        <font class="mb-3" style="color: red; font-style: italic">{{$message}}</font>
-                                        </small> --}}
                                         @enderror
                                     </div>
 
@@ -106,9 +90,10 @@
                                     <label for="sex_id">Jenis Kelamin</label>
                                     <div class="position-relative form-check mt-2 mb-3">
                                         @foreach ($sexes as $sex)
-                                        <label class="form-check-label{{ ($sex->id == 2) ? ' ml-5' : '' }}">
+                                        <label class="form-check-label{{ $sex->id == 2 ? ' ml-5' : '' }}">
                                             <input value="{{ $sex->id ?? old('sex_id') }}" name="sex_id" type="radio"
-                                                class="form-check-input"> {{ $sex->sex }}
+                                                class="form-check-input">
+                                            {{ $sex->sex }}
                                         </label>
                                         @endforeach
                                     </div>
@@ -131,7 +116,7 @@
                                             {{ old('religion_id') ?? 'Pilih...' }}
                                             </option> --}}
                                             <option value="{{ old('religion_id') ?? '' }}">
-                                                {{ $religions[old('religion_id')-1]->religion ?? 'Pilih...' }}
+                                                {{ $religions[old('religion_id') - 1]->religion ?? 'Pilih...' }}
                                             </option>
                                             @foreach ($religions as $religion)
                                             <option value="{{ $religion->id }}">{{ $religion->religion }}</option>
@@ -148,14 +133,14 @@
                                     <div class="position-relative form-group">
                                         <label for="education_id" class="">Pendidikan</label>
                                         {{-- <input name="education_id" id="education_id" type="text"
-                                            class="form-control @error('education_id') is-invalid @enderror"
-                                            value="{{ old('education_id') }}"> --}}
+                                                class="form-control @error('education_id') is-invalid @enderror" value="{{ old('education_id') }}">
+                                        --}}
                                         <select name="education_id" id="education_id"
                                             class="mb-2 form-control @error('education_id') is-invalid @enderror"
                                             value="{{ old('education_id') }}">
                                             {{-- <option>Pilih...</option> --}}
                                             <option value="{{ old('education_id') ?? '' }}">
-                                                {{ $educations[old('education_id')-1]->education ?? 'Pilih...' }}
+                                                {{ $educations[old('education_id') - 1]->education ?? 'Pilih...' }}
                                             </option>
                                             @foreach ($educations as $education)
                                             <option value="{{ $education->id }}">{{ $education->education }}</option>
@@ -176,7 +161,7 @@
                                             value="{{ old('profession_id') }}">
                                             {{-- <option>Pilih...</option> --}}
                                             <option value="{{ old('profession_id') ?? '' }}">
-                                                {{ $professions[old('profession_id')-1]->profession ?? 'Pilih...' }}
+                                                {{ $professions[old('profession_id') - 1]->profession ?? 'Pilih...' }}
                                             </option>
                                             @foreach ($professions as $profession)
                                             <option value="{{ $profession->id }}">{{ $profession->profession }}</option>
@@ -199,7 +184,7 @@
                                             value="{{ old('marital_status_id') }}">
                                             {{-- <option>Pilih...</option> --}}
                                             <option value="{{ old('marital_status_id') ?? '' }}">
-                                                {{ $maritalStatuses[old('marital_status_id')-1]->marital_status ?? 'Pilih...' }}
+                                                {{ $maritalStatuses[old('marital_status_id') - 1]->marital_status ?? 'Pilih...' }}
                                             </option>
                                             @foreach ($maritalStatuses as $maritalStatus)
                                             <option value="{{ $maritalStatus->id }}">
@@ -222,7 +207,7 @@
                                             value="{{ old('stay_status_id') }}">
                                             {{-- <option>Pilih...</option> --}}
                                             <option value="{{ old('stay_status_id') ?? '' }}">
-                                                {{ $stayStatuses[old('stay_status_id')-1]->stay_status ?? 'Pilih...' }}
+                                                {{ $stayStatuses[old('stay_status_id') - 1]->stay_status ?? 'Pilih...' }}
                                             </option>
                                             @foreach ($stayStatuses as $stayStatus)
                                             <option value="{{ $stayStatus->id }}">
@@ -245,7 +230,7 @@
                                             value="{{ old('life_status_id') }}">
                                             {{-- <option>Pilih...</option> --}}
                                             <option value="{{ old('life_status_id') ?? '' }}">
-                                                {{ $lifeStatuses[old('life_status_id')-1]->life_status ?? 'Pilih...' }}
+                                                {{ $lifeStatuses[old('life_status_id') - 1]->life_status ?? 'Pilih...' }}
                                             </option>
                                             @foreach ($lifeStatuses as $lifeStatus)
                                             <option value="{{ $lifeStatus->id }}">
@@ -270,7 +255,7 @@
                                             value="{{ old('nationality_id') }}">
                                             {{-- <option>Pilih...</option> --}}
                                             <option value="{{ old('nationality_id') ?? '' }}">
-                                                {{ $nationalityStatuses[old('nationality_id')-1]->kewarganegaraan ?? 'Pilih...' }}
+                                                {{ $nationalityStatuses[old('nationality_id') - 1]->kewarganegaraan ?? 'Pilih...' }}
                                             </option>
                                             @foreach ($nationalityStatuses as $nationalityStatus)
                                             <option value="{{ $nationalityStatus->id }}">
@@ -293,7 +278,7 @@
                                             value="{{ old('blood_type_id') }}">
                                             {{-- <option>Pilih...</option> --}}
                                             <option value="{{ old('blood_type_id') ?? '' }}">
-                                                {{ $bloodTypes[old('blood_type_id')-1]->blood_type ?? 'Pilih...' }}
+                                                {{ $bloodTypes[old('blood_type_id') - 1]->blood_type ?? 'Pilih...' }}
                                             </option>
                                             @foreach ($bloodTypes as $bloodType)
                                             <option value="{{ $bloodType->id }}">
@@ -322,18 +307,18 @@
                             </div>
                             <div class="form-row">
                                 <!--<div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Email</label>
-                                        <input name="#" id="#" type="email"
-                                            class="form-control @error('full_name') is-invalid @enderror"
-                                            value="{{ old('full_name') }}">
-                                        @error('full_name')
-                                        <span class="invalid-feedback mt-2" role="alert">
-                                            <i>{{ $message }}</i>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>-->
+                                                <div class="position-relative form-group">
+                                                    <label for="#" class="">Email</label>
+                                                    <input name="#" id="#" type="email"
+                                                        class="form-control @error('full_name') is-invalid @enderror"
+                                                        value="{{ old('full_name') }}">
+                                                    @error('full_name')
+                                                                <span class="invalid-feedback mt-2" role="alert">
+                                                                    <i>{{ $message }}</i>
+                                                                </span>
+                                                    @enderror
+                                                </div>
+                                            </div>-->
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="phone_number" class="">No. Telepon</label>
@@ -433,7 +418,7 @@
                                             value="{{ old('disability_id') }}">
                                             {{-- <option>Pilih...</option> --}}
                                             <option value="{{ old('disability_id') ?? '' }}">
-                                                {{ $disabilities[old('disability_id')-1]->disability ?? 'Pilih...' }}
+                                                {{ $disabilities[old('disability_id') - 1]->disability ?? 'Pilih...' }}
                                             </option>
                                             @foreach ($disabilities as $disability)
                                             <option value="{{ $disability->id }}">
@@ -456,7 +441,7 @@
                                             value="{{ old('chronic_disease_id') }}">
                                             {{-- <option>Pilih...</option> --}}
                                             <option value="{{ old('chronic_disease_id') ?? '' }}">
-                                                {{ $chronicDiseases[old('chronic_disease_id')-1]->disease ?? 'Pilih...' }}
+                                                {{ $chronicDiseases[old('chronic_disease_id') - 1]->disease ?? 'Pilih...' }}
                                             </option>
                                             @foreach ($chronicDiseases as $chronicDisease)
                                             <option value="{{ $chronicDisease->id }}">

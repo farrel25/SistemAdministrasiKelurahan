@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Article;
+use App\ArticleDashboard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Alert;
 // use RealRashid\SweetAlert\Facades\Alert;
 
-class ArticleControllerDashboard extends Controller
+class ArticleDashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,10 +20,10 @@ class ArticleControllerDashboard extends Controller
     {
         $menus = $this->getMenu();
 
-        $letterTypes = LetterType::paginate(10);
+        // $letterTypes = LetterType::paginate(10);
         // dd($letterTypes);
 
-        return view('dashboard.manajemen_surat.jenis_surat.jenis-surat', compact('menus', 'letterTypes'));
+        return view('dashboard.manajemen_artikel.artikel.artikel', compact('menus'));
     }
 
     /**
@@ -34,7 +34,7 @@ class ArticleControllerDashboard extends Controller
     public function create()
     {
         $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.jenis_surat.tambah-jenis-surat', compact('menus'));
+        return view('dashboard.manajemen_artikel.artikel.artikel-tambah', compact('menus'));
     }
 
     // /**
@@ -53,9 +53,9 @@ class ArticleControllerDashboard extends Controller
     //     ]);
 
     //     // LetterType::create($letterType);
-    //     // Alert::success(' Berhasil ', 'Jenis Surat berhasil Ditambahkan');
+    //     // Alert::success(' Berhasil ', 'Jenis artikel berhasil Ditambahkan');
 
-    //     return redirect()->route('manajemen-surat.jenis-surat');
+    //     return redirect()->route('manajemen-artikel.jenis-artikel');
     // }
 
     // /**
@@ -75,10 +75,10 @@ class ArticleControllerDashboard extends Controller
     //  * @param  \App\LetterType  $letterType
     //  * @return \Illuminate\Http\Response
     //  */
-    public function edit(LetterType $letterType)
+    public function edit()
     {
         $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.jenis_surat.edit-jenis-surat', compact('menus', 'letterType'));
+        return view('dashboard.manajemen_artikel.artikel.artikel-edit', compact('menus'));
     }
 
     // /**
@@ -97,9 +97,9 @@ class ArticleControllerDashboard extends Controller
     //     ]);
 
     //     // $letterType->update($attr);
-    //     // Alert::success(' Berhasil ', 'Jenis Surat berhasil Diperbarui');
+    //     // Alert::success(' Berhasil ', 'Jenis artikel berhasil Diperbarui');
 
-    //     return redirect()->route('manajemen-surat.jenis-surat');
+    //     return redirect()->route('manajemen-artikel.jenis-artikel');
     // }
 
     // /**
@@ -111,8 +111,8 @@ class ArticleControllerDashboard extends Controller
     // public function destroy(LetterType $letterType)
     // {
     //     // $letterType->delete();
-    //     // Alert::success(' Berhasil ', 'Jenis Surat berhasil Dihapus');
-    //     return redirect()->route('manajemen-surat.jenis-surat');
+    //     // Alert::success(' Berhasil ', 'Jenis artikel berhasil Dihapus');
+    //     return redirect()->route('manajemen-artikel.jenis-artikel');
     // }
 
     public function getMenu()

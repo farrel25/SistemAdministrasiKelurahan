@@ -116,11 +116,15 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
     //ManajemenArtikel
     Route::prefix('dashboard/manajemen-artikel')->group(function () {
         Route::prefix('/artikel')->group(function () {
-
-            //store document
-
-            //update document
-            //delete document
+            Route::get('', 'ArticleDashboardController@index')->name('manajemen-artikel.artikel');
+            // store jenis
+            Route::get('/tambah', 'ArticleDashboardController@create')->name('manajemen-artikel.artikel.create');
+            // Route::post('/tambah', 'ArticleDashboardController@store')->name('manajemen-surat.jenis-surat.store');
+            // update jenis
+            Route::get('/edit', 'ArticleDashboardController@edit')->name('manajemen-artikel.artikel.edit');
+            // Route::patch('/{letter_type:letter_code}/edit', 'ArticleDashboardController@update')->name('manajemen-surat.jenis-surat.update');
+            // delete jenis
+            // Route::delete('/{letter_type:letter_code}/delete', 'ArticleDashboardController@destroy')->name('manajemen-surat.jenis-surat.delete');
         });
     });
 });

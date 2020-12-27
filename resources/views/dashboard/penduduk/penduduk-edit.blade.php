@@ -2,269 +2,260 @@
 
 @section('content')
 
-<div class="app-page-title">
-    <div class="page-title-wrapper">
-        <div class="page-title-heading">
-            <div class="page-title-icon">
-                <i class="fas fa-edit icon-gradient bg-mean-fruit">
-                </i>
-            </div>
-            <div>Edit Penduduk
-                <div class="page-title-subheading">
-                    <a href="{{ route('penduduk') }}" style="text-decoration: none">Penduduk</a>
-                    / Edit / {{ $villager->full_name }}
-                </div>
-            </div>
-        </div>
-        <div class="page-title-actions">
-            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip"
-                title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark">
-                <i class="fas fa-home"></i>
-            </a>
-        </div>
-    </div>
-</div>
+<?php
+    $data=[
+        'icon' => "fas fa-edit",
+        'judul' => "Edit Penduduk",
+        'link' => route('penduduk') ,
+        'page1' => "Penduduk",
+        'page2' => "/ Edit",
+        'page3' => "/  $villager->full_name "
+    ]
+?>
+@include('dashboard.layouts.page-title',$data)
+
+
 {{-- <div class="tab-content">
-    <div class="tab-pane tabs-animation fade show active" role="tabpanel">
-        <div class="main-card mb-3 card">
-            <div class="card-body">
-                <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Tambah Data Penduduk</h5>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3 mb-2 mt-1">
-                        <h4 class="card-title font-weight-bold">Data Diri</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9 ">
-                        <form class="">
-                            <div class="form-row">
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">NIK</label>
-                                        <input name="#" id="#" type="text" class="form-control">
+        <div class="tab-pane tabs-animation fade show active" role="tabpanel">
+            <div class="main-card mb-3 card">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Tambah Data Penduduk</h5>
+                    <div tabindex="-1" class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class=" col-lg-3 mb-2 mt-1">
+                            <h4 class="card-title font-weight-bold">Data Diri</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9 ">
+                            <form class="">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">NIK</label>
+                                            <input name="#" id="#" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Nama Lengkap</label>
+                                            <input name="#" id="#" type="text" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Nama Lengkap</label>
-                                        <input name="#" id="#" type="text" class="form-control">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Tempat Lahir</label>
+                                            <input name="#" id="#" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Tanggal Lahir</label>
+                                            <input name="#" id="#" type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="#" class=" ">Jenis Kelamin</label>
+                                        <div class="position-relative form-check mt-2 mb-3">
+                                            <label class="form-check-label">
+                                                <input name="radio1" type="radio" class="form-check-input"> Laki - Laki
+                                            </label>
+                                            <label class="form-check-label ml-5">
+                                                <input name="radio1" type="radio" class="form-check-input"> Perempuan
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Tempat Lahir</label>
-                                        <input name="#" id="#" type="text" class="form-control">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Agama</label>
+                                            <select class="mb-2 form-control ">
+                                                <option>Pilihan 1</option>
+                                                <option>Pilihan 2</option>
+                                                <option>Pilihan 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Pendidikan</label>
+                                            <input name="#" id="#" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Pekerjaan</label>
+                                            <input name="#" id="#" type="text" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Tanggal Lahir</label>
-                                        <input name="#" id="#" type="date" class="form-control">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Status Kawin</label>
+                                            <select class="mb-2 form-control ">
+                                                <option>Pilihan 1</option>
+                                                <option>Pilihan 2</option>
+                                                <option>Pilihan 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Status Tinggal</label>
+                                            <select class="mb-2 form-control ">
+                                                <option>Pilihan 1</option>
+                                                <option>Pilihan 2</option>
+                                                <option>Pilihan 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Status Hidup</label>
+                                            <select class="mb-2 form-control ">
+                                                <option>Pilihan 1</option>
+                                                <option>Pilihan 2</option>
+                                                <option>Pilihan 3</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="#" class=" ">Jenis Kelamin</label>
-                                    <div class="position-relative form-check mt-2 mb-3">
-                                        <label class="form-check-label">
-                                            <input name="radio1" type="radio" class="form-check-input"> Laki - Laki
-                                        </label>
-                                        <label class="form-check-label ml-5">
-                                            <input name="radio1" type="radio" class="form-check-input"> Perempuan
-                                        </label>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Kewarganegaraan</label>
+                                            <select class="mb-2 form-control ">
+                                                <option>Pilihan 1</option>
+                                                <option>Pilihan 2</option>
+                                                <option>Pilihan 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Golongan Darah</label>
+                                            <select class="mb-2 form-control ">
+                                                <option>Pilihan 1</option>
+                                                <option>Pilihan 2</option>
+                                                <option>Pilihan 3</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Agama</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Pendidikan</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Pekerjaan</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Status Kawin</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Status Tinggal</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Status Hidup</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Kewarganegaraan</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Golongan Darah</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="position-relative form-group">
-                                <label for="#" class="">Address</label>
-                                <textarea name="#" id="#" class="form-control"></textarea>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Email</label>
-                                        <input name="#" id="#" type="email" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">No. Telepon</label>
-                                        <input name="#" id="#" type="tel" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">Data Orang Tua</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9">
-                        <form class="">
-                            <div class="form-row">
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">NIK Ayah</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Nama Ayah</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">NIK Ibu</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Nama Ibu</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">Riwayat Penyakit</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9">
-                        <form class="">
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Penyakit Cacat</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Penyakit Menahun</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">Foto</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9">
-                        <form class="">
-                            <div class="form-row ml-1 mb-2 mt-3">
                                 <div class="position-relative form-group">
-                                    <label for="exampleFile" class="">Upload Foto</label>
-                                    <input name="file" id="exampleFile" type="file" class="form-control-file">
-                                    <small class="form-text text-muted">Wajib mengisi foto sesuai dengan aslinya</small>
+                                    <label for="#" class="">Address</label>
+                                    <textarea name="#" id="#" class="form-control"></textarea>
                                 </div>
-                            </div>
-                            <button class="mt-2 btn btn-primary">Tambah Data</button>
-                            <button class="mt-2 btn btn-outline-danger">Cancel</button>
-                        </form>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Email</label>
+                                            <input name="#" id="#" type="email" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">No. Telepon</label>
+                                            <input name="#" id="#" type="tel" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
+                    <div tabindex="-1" class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class=" col-lg-3">
+                            <h4 class="card-title">Data Orang Tua</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9">
+                            <form class="">
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">NIK Ayah</label>
+                                            <input name="#" id="#" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Nama Ayah</label>
+                                            <input name="#" id="#" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-4">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">NIK Ibu</label>
+                                            <input name="#" id="#" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Nama Ibu</label>
+                                            <input name="#" id="#" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div tabindex="-1" class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class=" col-lg-3">
+                            <h4 class="card-title">Riwayat Penyakit</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9">
+                            <form class="">
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Penyakit Cacat</label>
+                                            <input name="#" id="#" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Penyakit Menahun</label>
+                                            <input name="#" id="#" type="text" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div tabindex="-1" class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class=" col-lg-3">
+                            <h4 class="card-title">Foto</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9">
+                            <form class="">
+                                <div class="form-row ml-1 mb-2 mt-3">
+                                    <div class="position-relative form-group">
+                                        <label for="exampleFile" class="">Upload Foto</label>
+                                        <input name="file" id="exampleFile" type="file" class="form-control-file">
+                                        <small class="form-text text-muted">Wajib mengisi foto sesuai dengan aslinya</small>
+                                    </div>
+                                </div>
+                                <button class="mt-2 btn btn-primary">Tambah Data</button>
+                                <button class="mt-2 btn btn-outline-danger">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
-
             </div>
-        </div>
 
-    </div>
-</div> --}}
+        </div>
+    </div> --}}
 
 <div class="tab-content">
     <div class="tab-pane tabs-animation fade show active" role="tabpanel">
@@ -277,7 +268,6 @@
                     enctype="multipart/form-data">
                     @csrf
                     @method('patch')
-
                     <div class="row">
                         <div class=" col-lg-3 mb-2 mt-1">
                             <h4 class="card-title font-weight-bold">Data Diri</h4>
@@ -297,7 +287,8 @@
                                             <i>{{ $message }}</i>
                                         </span>
                                         {{-- <small>
-                                        <font class="mb-3" style="color: red; font-style: italic">{{$message}}</font>
+                                                    <font class="mb-3" style="color: red; font-style: italic">{{ $message }}
+                                        </font>
                                         </small> --}}
                                         @enderror
                                     </div>
@@ -351,7 +342,7 @@
                                     <label for="sex_id">Jenis Kelamin</label>
                                     <div class="position-relative form-check mt-2 mb-3">
                                         @foreach ($sexes as $sex)
-                                        <label class="form-check-label{{ ($sex->id == 2) ? ' ml-5' : '' }}">
+                                        <label class="form-check-label{{ $sex->id == 2 ? ' ml-5' : '' }}">
                                             <input value="{{ old('sex_id') ?? $villager->villagerSex->id }}"
                                                 name="sex_id" type="radio" class="form-check-input"> {{ $sex->sex }}
                                         </label>
@@ -376,7 +367,7 @@
                                             {{ old('religion_id') ?? 'Pilih...' }}
                                             </option> --}}
                                             <option value="{{ old('religion_id') ?? $villager->villagerReligion->id }}">
-                                                {{ $religions[old('religion_id')-1]->religion ?? $villager->villagerReligion->religion }}
+                                                {{ $religions[old('religion_id') - 1]->religion ?? $villager->villagerReligion->religion }}
                                             </option>
                                             @foreach ($religions as $religion)
                                             <option value="{{ $religion->id }}">{{ $religion->religion }}</option>
@@ -393,15 +384,15 @@
                                     <div class="position-relative form-group">
                                         <label for="education_id" class="">Pendidikan</label>
                                         {{-- <input name="education_id" id="education_id" type="text"
-                                            class="form-control @error('education_id') is-invalid @enderror"
-                                            value="{{ old('education_id') }}"> --}}
+                                                class="form-control @error('education_id') is-invalid @enderror" value="{{ old('education_id') }}">
+                                        --}}
                                         <select name="education_id" id="education_id"
                                             class="mb-2 form-control @error('education_id') is-invalid @enderror"
                                             value="{{ old('education_id') ?? $villager->villagerEducation->id }}">
                                             {{-- <option>Pilih...</option> --}}
                                             <option
                                                 value="{{ old('education_id') ?? $villager->villagerEducation->id }}">
-                                                {{ $educations[old('education_id')-1]->education ?? $villager->villagerEducation->education }}
+                                                {{ $educations[old('education_id') - 1]->education ?? $villager->villagerEducation->education }}
                                             </option>
                                             @foreach ($educations as $education)
                                             <option value="{{ $education->id }}">{{ $education->education }}</option>
@@ -423,7 +414,7 @@
                                             {{-- <option>Pilih...</option> --}}
                                             <option
                                                 value="{{ old('profession_id') ?? $villager->villagerProfession->id }}">
-                                                {{ $professions[old('profession_id')-1]->profession ?? $villager->villagerProfession->profession }}
+                                                {{ $professions[old('profession_id') - 1]->profession ?? $villager->villagerProfession->profession }}
                                             </option>
                                             @foreach ($professions as $profession)
                                             <option value="{{ $profession->id }}">{{ $profession->profession }}</option>
@@ -447,7 +438,7 @@
                                             {{-- <option>Pilih...</option> --}}
                                             <option
                                                 value="{{ old('marital_status_id') ?? $villager->villagerMaritalStatus->id }}">
-                                                {{ $maritalStatuses[old('marital_status_id')-1]->marital_status ?? $villager->villagerMaritalStatus->marital_status }}
+                                                {{ $maritalStatuses[old('marital_status_id') - 1]->marital_status ?? $villager->villagerMaritalStatus->marital_status }}
                                             </option>
                                             @foreach ($maritalStatuses as $maritalStatus)
                                             <option value="{{ $maritalStatus->id }}">
@@ -471,7 +462,7 @@
                                             {{-- <option>Pilih...</option> --}}
                                             <option
                                                 value="{{ old('stay_status_id') ?? $villager->villagerStayStatus->id }}">
-                                                {{ $stayStatuses[old('stay_status_id')-1]->stay_status ?? $villager->villagerStayStatus->stay_status }}
+                                                {{ $stayStatuses[old('stay_status_id') - 1]->stay_status ?? $villager->villagerStayStatus->stay_status }}
                                             </option>
                                             @foreach ($stayStatuses as $stayStatus)
                                             <option value="{{ $stayStatus->id }}">
@@ -495,7 +486,7 @@
                                             {{-- <option>Pilih...</option> --}}
                                             <option
                                                 value="{{ old('life_status_id') ?? $villager->villagerLifeStatus->id }}">
-                                                {{ $lifeStatuses[old('life_status_id')-1]->life_status ?? $villager->villagerLifeStatus->life_status }}
+                                                {{ $lifeStatuses[old('life_status_id') - 1]->life_status ?? $villager->villagerLifeStatus->life_status }}
                                             </option>
                                             @foreach ($lifeStatuses as $lifeStatus)
                                             <option value="{{ $lifeStatus->id }}">
@@ -521,7 +512,7 @@
                                             {{-- <option>Pilih...</option> --}}
                                             <option
                                                 value="{{ old('nationality_id') ?? $villager->villagerNationality->id }}">
-                                                {{ $nationalityStatuses[old('nationality_id')-1]->kewarganegaraan ?? $villager->villagerNationality->kewarganegaraan }}
+                                                {{ $nationalityStatuses[old('nationality_id') - 1]->kewarganegaraan ?? $villager->villagerNationality->kewarganegaraan }}
                                             </option>
                                             @foreach ($nationalityStatuses as $nationalityStatus)
                                             <option value="{{ $nationalityStatus->id }}">
@@ -545,7 +536,7 @@
                                             {{-- <option>Pilih...</option> --}}
                                             <option
                                                 value="{{ old('blood_type_id') ?? $villager->villagerBloodType->id }}">
-                                                {{ $bloodTypes[old('blood_type_id')-1]->blood_type ?? $villager->villagerBloodType->blood_type }}
+                                                {{ $bloodTypes[old('blood_type_id') - 1]->blood_type ?? $villager->villagerBloodType->blood_type }}
                                             </option>
                                             @foreach ($bloodTypes as $bloodType)
                                             <option value="{{ $bloodType->id }}">
@@ -566,7 +557,7 @@
                                 <textarea name="address" id="address"
                                     class="form-control @error('address') is-invalid @enderror">
                                     {{ old('address') ?? $villager->address }}
-                                </textarea>
+                                    </textarea>
                                 @error('address')
                                 <span class="invalid-feedback mt-2" role="alert">
                                     <i>{{ $message }}</i>
@@ -575,18 +566,18 @@
                             </div>
                             <div class="form-row">
                                 <!--<div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Email</label>
-                                        <input name="#" id="#" type="email"
-                                            class="form-control @error('full_name') is-invalid @enderror"
-                                            value="{{ old('full_name') }}">
-                                        @error('full_name')
-                                        <span class="invalid-feedback mt-2" role="alert">
-                                            <i>{{ $message }}</i>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>-->
+                                                                                                                        <div class="position-relative form-group">
+                                                                                                                            <label for="#" class="">Email</label>
+                                                                                                                            <input name="#" id="#" type="email"
+                                                                                                                                class="form-control @error('full_name') is-invalid @enderror"
+                                                                                                                                value="{{ old('full_name') }}">
+                                                                                                                            @error('full_name')
+                                                                                                                                                                                                                <span class="invalid-feedback mt-2" role="alert">
+                                                                                                                                                                                                                    <i>{{ $message }}</i>
+                                                                                                                                                                                                                </span>
+                                                                                                                            @enderror
+                                                                                                                        </div>
+                                                                                                                    </div>-->
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="phone_number" class="">No. Telepon</label>
@@ -687,7 +678,7 @@
                                             {{-- <option>Pilih...</option> --}}
                                             <option
                                                 value="{{ old('disability_id') ?? $villager->villagerDisability->id }}">
-                                                {{ $disabilities[old('disability_id')-1]->disability ?? $villager->villagerDisability->disability }}
+                                                {{ $disabilities[old('disability_id') - 1]->disability ?? $villager->villagerDisability->disability }}
                                             </option>
                                             @foreach ($disabilities as $disability)
                                             <option value="{{ $disability->id }}">
@@ -711,7 +702,7 @@
                                             {{-- <option>Pilih...</option> --}}
                                             <option
                                                 value="{{ old('chronic_disease_id') ?? $villager->villagerChronicDisease->id }}">
-                                                {{ $chronicDiseases[old('chronic_disease_id')-1]->disease ?? $villager->villagerChronicDisease->disease }}
+                                                {{ $chronicDiseases[old('chronic_disease_id') - 1]->disease ?? $villager->villagerChronicDisease->disease }}
                                             </option>
                                             @foreach ($chronicDiseases as $chronicDisease)
                                             <option value="{{ $chronicDisease->id }}">
