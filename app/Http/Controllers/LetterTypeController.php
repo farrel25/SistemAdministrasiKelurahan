@@ -22,7 +22,7 @@ class LetterTypeController extends Controller
     {
         $menus = $this->getMenu();
 
-        $letterTypes = LetterType::paginate(10);
+        $letterTypes = LetterType::latest()->paginate(10);
         // dd($letterTypes);
 
         return view('dashboard.manajemen_surat.jenis_surat.jenis-surat', compact('menus', 'letterTypes'));
@@ -36,7 +36,8 @@ class LetterTypeController extends Controller
     public function create()
     {
         $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.jenis_surat.tambah-jenis-surat', compact('menus'));
+        $letterDocuments = LetterDocument::get();
+        return view('dashboard.manajemen_surat.jenis_surat.tambah-jenis-surat', compact('menus', 'letterDocuments'));
     }
 
     /**
@@ -47,14 +48,18 @@ class LetterTypeController extends Controller
      */
     public function store(Request $request)
     {
-        $letterType = $request->validate([
+        // dd($request->letter_document_id);
+
+        $attr = $request->validate([
             'letter_code' => 'required|alpha_dash|unique:letter_types,letter_code',
             'type' => 'required|string|max:255',
             'validity_period' => 'required|numeric|min:1|max:31',
             'validity_period_unit' => 'required|alpha',
         ]);
 
-        LetterType::create($letterType);
+        $letterType = LetterType::create($attr);
+        $letterType->letterDocuments()->attach($request->letter_document_id);
+
         Alert::success(' Berhasil ', 'Jenis Surat berhasil Ditambahkan');
 
         return redirect()->route('manajemen-surat.jenis-surat');
@@ -81,12 +86,10 @@ class LetterTypeController extends Controller
     {
         // dd($letterType->letter_code);
         $menus = $this->getMenu();
-        // $letterDocuments = LetterDocument::paginate(10);
         $letterDocuments = LetterDocument::get();
-        // dd($letterDocuments[2]->document);
 
         // $requirementCheck = \DB::table('letter_requirements')->where('letter_type_id', $letterType->id)->get();
-        $requirementCheck = \DB::table('letter_requirements')->where('letter_type_id', $letterType->id)->pluck('letter_document_id')->toArray();
+        $requirementCheck = \DB::table('letter_document_letter_type')->where('type_id', $letterType->id)->pluck('document_id')->toArray();
         // $requirementCheck = \DB::table('letter_requirements')->where('letter_type_id', $letterType->id)->get()->toArray();
         // dd($requirementCheck);
 
@@ -110,24 +113,10 @@ class LetterTypeController extends Controller
             'validity_period_unit' => 'required|alpha',
         ]);
 
-        // $letterType->update($attr);
+        $letterType->update($attr);
+        $letterType->letterDocuments()->sync($request->letter_document_id);
 
-        $requirements = $request->letter_document_id;
-        $requirementCheck = \DB::table('letter_requirements')->where('letter_type_id', $letterType->id)->get();
-
-        if ($requirementCheck->isEmpty()) {
-            foreach ($requirements as $requirement) {
-                \DB::table('letter_requirements')->insert([
-                    'letter_type_id' => $letterType->id,
-                    'letter_document_id' => $requirement
-                ]);
-            }
-        } else {
-            return 'udah ada isinya';
-        }
-
-        // Alert::success(' Berhasil ', 'Jenis Surat berhasil Diperbarui');
-
+        Alert::success(' Berhasil ', ' Jenis Surat Berhasil Diperbarui');
         return redirect()->route('manajemen-surat.jenis-surat');
     }
 
@@ -139,6 +128,7 @@ class LetterTypeController extends Controller
      */
     public function destroy(LetterType $letterType)
     {
+        $letterType->letterDocuments()->detach();
         $letterType->delete();
         Alert::success(' Berhasil ', 'Jenis Surat berhasil Dihapus');
         return redirect()->route('manajemen-surat.jenis-surat');
@@ -158,4 +148,11 @@ class LetterTypeController extends Controller
             ->where('role_has_permissions.role_id', $userRoleId)
             ->get();
     }
+
+    // public function editRequirement(Request $request, LetterType $letterType)
+    // {
+    //     $letter_type_id = $request->letter_type_id;
+    //     $letter_document_id = $request->letter_document_id;
+    //     $requirementCheck = \DB::table('letter_requirements')->where('letter_type_id', $letter_type_id)->where('letter_document_id')->get();
+    // }
 }

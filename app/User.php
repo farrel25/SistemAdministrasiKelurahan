@@ -49,8 +49,8 @@ class User extends Authenticatable
         return $this->hasOne(Villager::class);
     }
 
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class, 'model_has_roles', 'role_id');
-    }
+    // public function roles()
+    // {
+    //     return $this->belongsToMany(Role::class, 'model_has_roles', 'role_id');
+    // }
 }

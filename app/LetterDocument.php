@@ -11,6 +11,6 @@ class LetterDocument extends Model
 
     public function letterTypes()
     {
-        return $this->belongsToMany(LetterType::class);
+        return $this->belongsToMany(LetterType::class, 'letter_document_letter_type', 'document_id', 'type_id');
     }
 }

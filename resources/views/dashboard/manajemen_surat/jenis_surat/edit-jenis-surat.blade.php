@@ -131,17 +131,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- {{ dd($requirementCheck[0]) }} --}}
                                             @foreach ($letterDocuments as $no => $document)
                                             <tr>
                                                 <td class="text-center">
-                                                    <input type="checkbox" name="letter_document_id[]"
-                                                        value="{{ $document->id }}" @if (in_array($document->id,
-                                                    $requirementCheck)) checked @endif
-                                                    >
+                                                    <input name="letter_document_id[]" value="{{ $document->id }}"
+                                                        type="checkbox" @if (in_array($document->id,$requirementCheck))
+                                                    checked @endif>
                                                 </td>
-                                                {{-- <td class="text-center">{{ $no + $letterDocuments->firstItem() }}
-                                                </td> --}}
                                                 <td class="text-center">{{ ++$no }}</td>
                                                 <td>{{ $document->document }}</td>
                                             </tr>
@@ -161,8 +157,5 @@
         </div>
     </div>
 </div>
-
-
-
 
 @endsection

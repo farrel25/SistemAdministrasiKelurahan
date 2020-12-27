@@ -108,6 +108,39 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="tab-content col-md-12 ">
+                            <div class="tab-pane active mb-3" id="tab-eg15-0" role="tabpanel">
+                                <div class="card-header">Syarat Surat</div>
+                                <div class="table-responsive mb-3">
+                                    <table
+                                        class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
+                                        <thead>
+                                            <tr>
+                                                <th class=" text-center"><input type="checkbox"
+                                                        onchange="checkAll(this)" name="chk[]"></th>
+                                                <th class=" text-center">No</th>
+                                                <th>Nama Dokumen</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($letterDocuments as $no => $document)
+                                            <tr>
+                                                <td class="text-center">
+                                                    <input name="letter_document_id[]" value="{{ $document->id }}"
+                                                        type="checkbox">
+                                                </td>
+                                                <td class="text-center">{{ ++$no }}</td>
+                                                <td>{{ $document->document }}</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab-eg15-1" role="tabpanel">
+                            </div>
+                        </div>
                     </div>
                     <button type="submit" class="mt-2 btn btn-primary">Tambah</button>
                     <a href="{{ route('manajemen-surat.jenis-surat') }}" class="mt-2 btn btn-outline-danger">Batal</a>
