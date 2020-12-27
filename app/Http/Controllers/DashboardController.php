@@ -27,7 +27,6 @@ class DashboardController extends Controller
         $menus = $this->getMenu();
         return view('dashboard.penduduk.penduduk-aktif', compact('menus'));
     }
-
     //Surat
     public function cetaksurat()
     {
@@ -97,6 +96,12 @@ class DashboardController extends Controller
         return view('dashboard.manajemen_surat.cetak_surat.buat-cetak-surat', compact('menus'));
     }
 
+    //Artikel
+    public function artikel()
+    {
+        $menus = $this->getMenu();
+        return view('dashboard.manajemen_artikel.artikel.artikel', compact('menus'));
+    }
 
     public function getMenu()
     {

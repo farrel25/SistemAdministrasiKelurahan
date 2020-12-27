@@ -112,6 +112,17 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
         Route::get('/tambah-surat-masuk', 'dashboardController@tambahsuratmasuk')->name('manajemen-surat.tambah-surat-masuk');
         Route::get('/edit-surat-masuk', 'dashboardController@editsuratmasuk')->name('manajemen-surat.editsurat-masuk');
     });
+
+    //ManajemenArtikel
+    Route::prefix('dashboard/manajemen-artikel')->group(function () {
+        Route::prefix('/artikel')->group(function () {
+
+            //store document
+
+            //update document
+            //delete document
+        });
+    });
 });
 
 
