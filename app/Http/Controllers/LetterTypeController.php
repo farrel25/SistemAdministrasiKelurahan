@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Alert;
+use App\LetterDocument;
+
 // use RealRashid\SweetAlert\Facades\Alert;
 
 class LetterTypeController extends Controller
@@ -48,12 +50,12 @@ class LetterTypeController extends Controller
         $letterType = $request->validate([
             'letter_code' => 'required|alpha_dash|unique:letter_types,letter_code',
             'type' => 'required|string|max:255',
-            // 'validity_period' => 'required|numeric|min:1|max:31',
-            // 'validity_period_unit' => 'required|alpha',
+            'validity_period' => 'required|numeric|min:1|max:31',
+            'validity_period_unit' => 'required|alpha',
         ]);
 
-        // LetterType::create($letterType);
-        // Alert::success(' Berhasil ', 'Jenis Surat berhasil Ditambahkan');
+        LetterType::create($letterType);
+        Alert::success(' Berhasil ', 'Jenis Surat berhasil Ditambahkan');
 
         return redirect()->route('manajemen-surat.jenis-surat');
     }
@@ -77,8 +79,12 @@ class LetterTypeController extends Controller
      */
     public function edit(LetterType $letterType)
     {
+        // dd($letterType->letter_code);
         $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.jenis_surat.edit-jenis-surat', compact('menus', 'letterType'));
+        // $letterDocuments = LetterDocument::paginate(10);
+        $letterDocuments = LetterDocument::get();
+
+        return view('dashboard.manajemen_surat.jenis_surat.edit-jenis-surat', compact('menus', 'letterType', 'letterDocuments'));
     }
 
     /**
@@ -110,8 +116,8 @@ class LetterTypeController extends Controller
      */
     public function destroy(LetterType $letterType)
     {
-        // $letterType->delete();
-        // Alert::success(' Berhasil ', 'Jenis Surat berhasil Dihapus');
+        $letterType->delete();
+        Alert::success(' Berhasil ', 'Jenis Surat berhasil Dihapus');
         return redirect()->route('manajemen-surat.jenis-surat');
     }
 

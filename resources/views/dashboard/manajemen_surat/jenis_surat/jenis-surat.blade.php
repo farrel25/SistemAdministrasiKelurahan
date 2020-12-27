@@ -76,13 +76,31 @@
                                 <div class="btn-group-sm btn-group">
                                     <a href="{{ route('manajemen-surat.jenis-surat.edit', $type->letter_code) }}"
                                         class="btn btn-primary" data-toggle="tooltip" title="Edit Jenis Surat"
-                                        data-placement="bottom"><i class="fas fa-edit"></i></a>
+                                        data-placement="bottom">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+
                                     <a href="#" class="btn btn-secondary text-white" data-toggle="tooltip"
                                         title="Blokir Jenis Surat" data-placement="bottom"><i
                                             class="fas fa-lock"></i></a>
-                                    <a href="{{ route('manajemen-surat.jenis-surat.delete', $type->letter_code) }}"
-                                        class="btn btn-danger" data-toggle="tooltip" title="Hapus Jenis Surat"
-                                        data-placement="bottom"><i class="fas fa-trash-alt"></i></a>
+
+                                    {{-- <a href="{{ route('manajemen-surat.jenis-surat.delete', $type->letter_code) }}"
+                                    class="btn btn-danger"
+                                    onclick="event.preventDefault(); document.getElementById('delete-form').submit();"
+                                    data-toggle="tooltip" title="Hapus Jenis Surat" data-placement="bottom">
+                                    <i class="fas fa-trash-alt"></i>
+                                    </a> --}}
+
+                                    <form id="delete-form"
+                                        action="{{ route('manajemen-surat.jenis-surat.delete', $type->letter_code) }}"
+                                        method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger" data-toggle="tooltip"
+                                            title="Hapus Jenis Surat" data-placement="bottom">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                             <td class=" text-center">{{ $type->letter_code }}</td>
@@ -133,5 +151,33 @@
     </div>
 </div>
 
+<script>
+    $(document).on('click', '#delete-form', function(e) {
+        var form = this;
+        e.preventDefault();
+        swal.fire({
+            title: 'Anda yakin ingin menghapus data ini?',
+            text: "Data Tidak Akan Kembali",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Iya, hapus!',
+            cancelButtonText: 'Tidak, batalkan!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                return form.submit();
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swal.fire(
+                    'Dibatalkan',
+                    'Data anda masih tersimpan',
+                    'error'
+                )
+            }
+        });
+    });
+</script>
 
 @endsection

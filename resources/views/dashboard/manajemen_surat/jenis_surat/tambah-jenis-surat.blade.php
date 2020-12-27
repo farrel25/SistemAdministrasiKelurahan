@@ -44,53 +44,71 @@
                 <form action="{{ route('manajemen-surat.jenis-surat.store') }}" method="POST" class="">
                     @csrf
                     <div class="form-row">
-                        <div class="col-md-6">
+                        <div class="col-md-2">
                             <div class="position-relative form-group">
                                 <label for="letter_code" class="">Kode</label>
-                                <input name="letter_code" id="letter_code" type="text" class="form-control">
+                                <input name="letter_code" id="letter_code" type="text"
+                                    class="form-control @error('letter_code') is-invalid @enderror"
+                                    value="{{ old('letter_code') }}">
+                                @error('letter_code')
+                                <span class="invalid-feedback mt-2" role="alert">
+                                    <i>{{ $message }}</i>
+                                </span>
+                                @enderror
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-7">
                             <div class="position-relative form-group">
-                                <label for="type" class="">Nama</label>
+                                <label for="type" class="">Nama Layanan</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">Surat</div>
                                     </div>
-                                    <input name="type" id="type" type="text" class="form-control">
+                                    <input name="type" id="type" type="text"
+                                        class="form-control @error('type') is-invalid @enderror"
+                                        value="{{ old('type') }}">
+                                    @error('type')
+                                    <span class="invalid-feedback mt-2" role="alert">
+                                        <i>{{ $message }}</i>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="position-relative form-group">
+                                <label for="validity_period" class="">Masa Berlaku</label>
+                                <div class="form-row">
+                                    <div class="col-4">
+                                        <input name="validity_period" id="validity_period" type="number"
+                                            class="form-control  @error('validity_period') is-invalid @enderror"
+                                            value="{{ old('validity_period') ?? 1 }}" min="1" max="31">
+                                        @error('validity_period')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-8">
+                                        <select name="validity_period_unit" id="validity_period_unit"
+                                            class="form-control @error('validity_period_unit') is-invalid @enderror"
+                                            value="{{ old('validity_period_unit') }}">
+                                            <option>{{ old('validity_period_unit') ?? 'Pilih...' }}</option>
+                                            <option value="D">Hari</option>
+                                            <option value="W">Minggu</option>
+                                            <option value="M">Bulan</option>
+                                            <option value="Y">Tahun</option>
+                                        </select>
+                                        @error('validity_period_unit')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <label for="#" class="">Masa Berlaku</label>
-                    </div>
-                    <div class="form-row">
-                        <div class="col-md-2">
-                            <div class="position-relative form-group">
-                                <label for="validity_period" class=""></label>
-                                <input name="validity_period" id="validity_period" type="number" class="form-control"
-                                    value="1">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="position-relative form-group">
-                                <label for="validity_period_unit" class=""></label>
-                                {{-- <input name="#" id="#" type="text" class="form-control"> --}}
-                                <select id="validity_period_unit" class="form-control">
-                                    {{-- <option selected>Choose...</option> --}}
-                                    <option selected>Hari</option>
-                                    <option>Minggu</option>
-                                    <option>Bulan</option>
-                                    <option>Tahun</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- <div class="position-relative form-group">
-                        <label for="#" class="">Keterangan</label>
-                        <textarea name="#" id="#" type="text" class="form-control"></textarea>
-                    </div> --}}
                     <button type="submit" class="mt-2 btn btn-primary">Tambah</button>
                     <a href="{{ route('manajemen-surat.jenis-surat') }}" class="mt-2 btn btn-outline-danger">Batal</a>
                 </form>
