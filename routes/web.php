@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('role:Administrator|Redaktur')->group(function () {
 
     //Kependudukan
-    Route::prefix('dashboard/kependudukan')->group(function () {
+    Route::prefix('/dashboard/kependudukan')->group(function () {
         Route::get('/penduduk', 'VillagerController@index')->name('penduduk');
         // Route::get('/penduduk-aktif', 'DashboardController@pendudukaktif')->name('penduduk-aktif');
         Route::get('/penduduk/detail/{villager:nik}', 'VillagerController@show')->name('penduduk-detail');

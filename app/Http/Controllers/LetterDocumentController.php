@@ -104,10 +104,13 @@ class LetterDocumentController extends Controller
     {
         $Ids = $request->ids;
         // dd($Ids);
+
         LetterDocument::whereIn('id', $Ids)->delete();
         // LetterDocument::whereIn('id', explode(',', $Ids))->delete();
         Alert::success(' Berhasil ', ' Data Penduduk Berhasil Dihapus');
+
         return redirect()->route('manajemen-surat.dokumen-persyaratan');
+        // return response()->json(['status' => true, 'message' => "deleted successfully."]);
     }
 
     public function getMenu()
