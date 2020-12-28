@@ -44,14 +44,12 @@
                                     </div>
                                 </div>
                             </div>
-
                         </form>
                         <div id="editor" class="mb-3">
-
                         </div>
                     </div>
                 </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
+                <div tabindex="-1" class="dropdown-divider mt-4"></div>
                 <div class="row">
                     <div class=" col-lg-3">
                         <h4 class="card-title">Tag</h4>
@@ -62,9 +60,12 @@
                             <div class="position-relative form-group">
                                 <label for="#" class="">Tag</label>
                                 <input name="#" id="#" type="text" class="form-control">
-                                <button class="mt-2 mr-2 btn btn-light ">Light
-                                    <span class="badge badge-pill badge-light">x</span>
-                                </button>
+                                <div class="mt-2 ">
+                                    <label for="#" class=" bg-light pl-2 pr-2 p-1  border rounded">Tag
+                                        <a href="#" class="hover-red"><i class="fas fa-times-circle"></i></a>
+                                    </label>
+                                </div>
+
                             </div>
                         </form>
                     </div>
@@ -81,7 +82,9 @@
                                 <div class="position-relative form-group">
                                     <label for="exampleFile" class="">Upload Gambar</label>
                                     <input name="file" id="exampleFile" type="file" class="form-control-file">
-                                    <small class="form-text text-muted">Untuk artikel yang membutuhkan Lampiran</small>
+                                    <small class="form-text text-muted">Wajib mengisi Gambar sesuai dengan
+                                        aslinya
+                                    </small>
                                 </div>
                             </div>
                         </form>
@@ -97,10 +100,9 @@
                         <form class="">
                             <div class="form-row ml-1 mb-2 mt-3">
                                 <div class="position-relative form-group">
-                                    <label for="exampleFile" class="">Upload Foto</label>
+                                    <label for="exampleFile" class="">Upload Lampiran</label>
                                     <input name="file" id="exampleFile" type="file" class="form-control-file">
-                                    <small class="form-text text-muted">Wajib mengisi Gambar sesuai dengan
-                                        aslinya</small>
+                                    <small class="form-text text-muted">Untuk artikel yang membutuhkan Lampiran</small>
                                 </div>
                             </div>
                             <button class="mt-2 btn btn-primary">Tambah Data</button>
@@ -108,13 +110,10 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 </div>
-
 
 <script>
     ClassicEditor

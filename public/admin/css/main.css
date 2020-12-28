@@ -25152,3 +25152,11 @@ a.fc-more:hover {
         display: block;
     }
 }
+
+.hover-red{
+    color: #da083c;
+}
+.hover-red:hover{
+    color: #a31c3c;
+}
+

@@ -56,6 +56,14 @@
             <div class="header-btn-lg pr-0">
                 <div class="widget-content p-0">
                     <div class="widget-content-wrapper">
+                        <div class="widget-content-left text-right  mr-3 header-user-info">
+                            <div class="widget-heading">
+                                {{ Auth::user()->full_name }}
+                            </div>
+                            <div class="widget-subheading">
+                                {{ Auth::user()->roles->toArray()[0]['name'] }}
+                            </div>
+                        </div>
                         <div class="widget-content-left">
                             <div class="btn-group">
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
@@ -77,14 +85,6 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="widget-content-left  ml-3 header-user-info">
-                            <div class="widget-heading">
-                                {{ Auth::user()->full_name }}
-                            </div>
-                            <div class="widget-subheading">
-                                {{ Auth::user()->roles->toArray()[0]['name'] }}
                             </div>
                         </div>
                         {{-- <div class="widget-content-right header-user-info ml-3">
