@@ -30,8 +30,6 @@ class VillagerController extends Controller
      */
     public function index()
     {
-        // mengambil data menu halaman dashboard
-        $menus = $this->getMenu();
 
         // menghitung total data penduduk
         $totalVillager = count(Villager::get());
@@ -45,7 +43,7 @@ class VillagerController extends Controller
         // $villagers = Villager::latest()->simplePaginate(10);
         // $villagers = Villager::latest()->paginate(10)->fragment('villagers');
 
-        return view('dashboard.penduduk.penduduk', compact('menus', 'villagers', 'totalVillager', 'activePercentage'));
+        return view('dashboard.penduduk.penduduk', compact('villagers', 'totalVillager', 'activePercentage'));
     }
 
     /**
@@ -55,7 +53,6 @@ class VillagerController extends Controller
      */
     public function create()
     {
-        $menus = $this->getMenu();
 
         $sexes = VillagerSex::get();
         $religions = VillagerReligion::get();
@@ -70,7 +67,6 @@ class VillagerController extends Controller
         $chronicDiseases = VillagerChronicDisease::get();
 
         return view('dashboard.penduduk.penduduk-tambah', compact(
-            'menus',
             'sexes',
             'religions',
             'educations',
@@ -134,8 +130,7 @@ class VillagerController extends Controller
      */
     public function show(Villager $villager)
     {
-        $menus = $this->getMenu();
-        return view('dashboard.penduduk.penduduk-detail', compact('menus', 'villager'));
+        return view('dashboard.penduduk.penduduk-detail', compact('villager'));
     }
 
     /**
@@ -146,7 +141,6 @@ class VillagerController extends Controller
      */
     public function edit(Villager $villager)
     {
-        $menus = $this->getMenu();
 
         $sexes = VillagerSex::get();
         $religions = VillagerReligion::get();
@@ -161,7 +155,6 @@ class VillagerController extends Controller
         $chronicDiseases = VillagerChronicDisease::get();
 
         return view('dashboard.penduduk.penduduk-edit', compact(
-            'menus',
             'villager',
             'sexes',
             'religions',
@@ -264,21 +257,6 @@ class VillagerController extends Controller
         $villager->delete();
         Alert::success(' Berhasil ', ' Data Penduduk Berhasil Dihapus');
         return redirect()->route('penduduk');
-    }
-
-    public function getMenu()
-    {
-        // ambil id user yg sedang login
-        $userId = Auth::user()->id;
-
-        // ambil role user yang sedang login berdasarkan id user
-        $userRoleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
-
-        // ambil menu yang boleh diakses user berdasarkan role user
-        return Permission::select('permissions.id', 'permissions.name')
-            ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
-            ->where('role_has_permissions.role_id', $userRoleId)
-            ->get();
     }
 
     public function validateRequest()

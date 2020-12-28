@@ -19,9 +19,8 @@ class LetterDocumentController extends Controller
      */
     public function index()
     {
-        $menus = $this->getMenu();
         $documents = LetterDocument::latest()->paginate(10);
-        return view('dashboard.manajemen_surat.dokumen_persyaratan.dokumen-persyaratan', compact('menus', 'documents'));
+        return view('dashboard.manajemen_surat.dokumen_persyaratan.dokumen-persyaratan', compact('documents'));
     }
 
     /**
@@ -31,8 +30,7 @@ class LetterDocumentController extends Controller
      */
     public function create()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.dokumen_persyaratan.tambah-dokumen-persyaratan', compact('menus'));
+        return view('dashboard.manajemen_surat.dokumen_persyaratan.tambah-dokumen-persyaratan');
     }
 
     /**
@@ -68,8 +66,7 @@ class LetterDocumentController extends Controller
      */
     public function edit(LetterDocument $letterDocument)
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.dokumen_persyaratan.edit-dokumen-persyaratan', compact('menus', 'letterDocument'));
+        return view('dashboard.manajemen_surat.dokumen_persyaratan.edit-dokumen-persyaratan', compact('letterDocument'));
     }
 
     /**
@@ -111,21 +108,6 @@ class LetterDocumentController extends Controller
 
         return redirect()->route('manajemen-surat.dokumen-persyaratan');
         // return response()->json(['status' => true, 'message' => "deleted successfully."]);
-    }
-
-    public function getMenu()
-    {
-        // ambil id user yg sedang login
-        $userId = Auth::user()->id;
-
-        // ambil role user yang sedang login berdasarkan id user
-        $userRoleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
-
-        // ambil menu yang boleh diakses user berdasarkan role user
-        return Permission::select('permissions.id', 'permissions.name')
-            ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
-            ->where('role_has_permissions.role_id', $userRoleId)
-            ->get();
     }
 
     public function validateRequest()

@@ -11,96 +11,76 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $menus = $this->getMenu();
-
         // $userName = Auth::user()->full_name;
         // $userRole = Auth::user()->roles->toArray()[0]['name'];
 
         $villagers = Villager::where('life_status_id', 1)->where('user_id', '!=', null)->paginate(5);
 
-        return view('dashboard.beranda.index', compact('menus', 'villagers'));
+        return view('dashboard.beranda.index', compact('villagers'));
     }
 
     //penduduk
     public function pendudukaktif()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.penduduk.penduduk-aktif', compact('menus'));
+        return view('dashboard.penduduk.penduduk-aktif');
     }
     //Surat
     public function cetaksurat()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.cetak_surat.cetak-surat', compact('menus'));
+        return view('dashboard.manajemen_surat.cetak_surat.cetak-surat');
     }
     public function panduan()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.panduan', compact('menus'));
-    }
-    public function permohonansurat()
-    {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.permohonan_surat.permohonan-surat', compact('menus'));
+        return view('dashboard.manajemen_surat.panduan');
     }
     public function suratkeluar()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.surat_keluar.surat-keluar', compact('menus'));
+        return view('dashboard.manajemen_surat.surat_keluar.surat-keluar');
     }
     public function suratmasuk()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.surat_masuk.surat-masuk', compact('menus'));
+        return view('dashboard.manajemen_surat.surat_masuk.surat-masuk');
     }
 
     //tambah
     public function tambahcetaksurat()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.cetak_surat.tambah-cetak-surat', compact('menus'));
+        return view('dashboard.manajemen_surat.cetak_surat.tambah-cetak-surat');
     }
     public function tambahsuratkeluar()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.surat_keluar.tambah-surat-keluar', compact('menus'));
+        return view('dashboard.manajemen_surat.surat_keluar.tambah-surat-keluar');
     }
     public function tambahsuratmasuk()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.surat_masuk.tambah-surat-masuk', compact('menus'));
+        return view('dashboard.manajemen_surat.surat_masuk.tambah-surat-masuk');
     }
 
     //edit
     public function editpermohonansurat()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.surat_masuk.edit-permohonan-suratk', compact('menus'));
+        return view('dashboard.manajemen_surat.surat_masuk.edit-permohonan-suratk');
     }
     public function editsuratkeluar()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.surat_keluar.edit-surat-keluar', compact('menus'));
+        return view('dashboard.manajemen_surat.surat_keluar.edit-surat-keluar');
     }
     public function editsuratmasuk()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.surat_masuk.edit-surat-masuk', compact('menus'));
+        return view('dashboard.manajemen_surat.surat_masuk.edit-surat-masuk');
     }
 
 
     //buat
     public function buatcetaksurat()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_surat.cetak_surat.buat-cetak-surat', compact('menus'));
+        return view('dashboard.manajemen_surat.cetak_surat.buat-cetak-surat');
     }
 
     //Artikel
     public function artikel()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_artikel.artikel.artikel', compact('menus'));
+        return view('dashboard.manajemen_artikel.artikel.artikel');
     }
 
     public function getMenu()

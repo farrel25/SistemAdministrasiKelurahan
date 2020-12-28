@@ -98,9 +98,11 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
         //panduan
         Route::get('/panduan', 'dashboardController@panduan')->name('manajemen-surat.panduan');
 
-        //permohonan surat
-        Route::get('/permohonan-surat', 'dashboardController@permohonansurat')->name('manajemen-surat.permohonan-surat');
-        Route::get('/edit-permohonan-surat', 'dashboardController@editpermohonansurat')->name('manajemen-surat.edit-permohonan-surat');
+        //pengajuan surat
+        Route::prefix('/pengajuan-surat')->group(function () {
+            Route::get('', 'LetterSubmissionController@index')->name('manajemen-surat.pengajuan-surat');
+            Route::get('/edit', 'dashboardController@editpermohonansurat')->name('manajemen-surat.edit-permohonan-surat');
+        });
 
         //surat keluar
         Route::get('/surat-keluar', 'dashboardController@suratkeluar')->name('manajemen-surat.surat-keluar');

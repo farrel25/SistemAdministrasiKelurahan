@@ -3,7 +3,8 @@
         <div class="logo-src"></div>
         <div class="header__pane ml-auto">
             <div>
-                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
+                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
+                    data-class="closed-sidebar">
                     <span class="hamburger-box">
                         <span class="hamburger-inner"></span>
                     </span>
@@ -281,6 +282,20 @@
                         </i>Kegiatan Pemuda
                     </a>
                 </li> --}} -->
+
+                <?php
+                    // ambil id user yg sedang login
+                    $userId = Auth::user()->id;
+
+                    // ambil role user yang sedang login berdasarkan id user
+                    $userRoleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
+
+                    // ambil menu yang boleh diakses user berdasarkan role user
+                    $menus = \DB::table('permissions')->select('permissions.id', 'permissions.name')
+                        ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                        ->where('role_has_permissions.role_id', $userRoleId)
+                        ->get();
+                ?>
 
                 @foreach ($menus as $menu)
                 <li class="app-sidebar__heading">{{ $menu->name }}</li>

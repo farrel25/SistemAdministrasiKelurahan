@@ -28,7 +28,7 @@ class DashboardSubMenuSeeder extends Seeder
             // 4
             'Surat Masuk',
             'Surat Keluar',
-            'Permohonan Surat',
+            'Pengajuan Surat',
             'Jenis Surat',
             'Dokumen Persyaratan',
             'Cetak Surat',
@@ -46,7 +46,7 @@ class DashboardSubMenuSeeder extends Seeder
             'Role',
             'Hak Akses',
             // 8
-            'Permohonan Surat',
+            'Pengajuan Surat',
             'Pengaduan',
             'Kontributor',
             // 9
@@ -69,7 +69,7 @@ class DashboardSubMenuSeeder extends Seeder
             // 4
             '/dashboard/manajemen-surat/surat-masuk',
             '/dashboard/manajemen-surat/surat-keluar',
-            '/dashboard/manajemen-surat/permohonan-surat',
+            '/dashboard/manajemen-surat/pengajuan-surat',
             '/dashboard/manajemen-surat/jenis-surat',
             '/dashboard/manajemen-surat/dokumen-persyaratan',
             '/dashboard/manajemen-surat/cetak-surat',
@@ -87,7 +87,7 @@ class DashboardSubMenuSeeder extends Seeder
             '/dashboard/manajemen-pengguna/role',
             '/dashboard/manajemen-pengguna/hak-akses',
             // 8
-            '/dashboard/layanan/permohonan-surat',
+            '/dashboard/layanan/pengajuan-surat',
             '/dashboard/layanan/pengaduan',
             '/dashboard/layanan/kontributor',
             // 9

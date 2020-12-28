@@ -20,12 +20,10 @@ class LetterTypeController extends Controller
      */
     public function index()
     {
-        $menus = $this->getMenu();
-
         $letterTypes = LetterType::latest()->paginate(10);
         // dd($letterTypes);
 
-        return view('dashboard.manajemen_surat.jenis_surat.jenis-surat', compact('menus', 'letterTypes'));
+        return view('dashboard.manajemen_surat.jenis_surat.jenis-surat', compact('letterTypes'));
     }
 
     /**
@@ -35,9 +33,8 @@ class LetterTypeController extends Controller
      */
     public function create()
     {
-        $menus = $this->getMenu();
         $letterDocuments = LetterDocument::get();
-        return view('dashboard.manajemen_surat.jenis_surat.tambah-jenis-surat', compact('menus', 'letterDocuments'));
+        return view('dashboard.manajemen_surat.jenis_surat.tambah-jenis-surat', compact('letterDocuments'));
     }
 
     /**
@@ -85,7 +82,6 @@ class LetterTypeController extends Controller
     public function edit(LetterType $letterType)
     {
         // dd($letterType->letter_code);
-        $menus = $this->getMenu();
         $letterDocuments = LetterDocument::get();
 
         // $requirementCheck = \DB::table('letter_requirements')->where('letter_type_id', $letterType->id)->get();
@@ -93,7 +89,7 @@ class LetterTypeController extends Controller
         // $requirementCheck = \DB::table('letter_requirements')->where('letter_type_id', $letterType->id)->get()->toArray();
         // dd($requirementCheck);
 
-        return view('dashboard.manajemen_surat.jenis_surat.edit-jenis-surat', compact('menus', 'letterType', 'letterDocuments', 'requirementCheck'));
+        return view('dashboard.manajemen_surat.jenis_surat.edit-jenis-surat', compact('letterType', 'letterDocuments', 'requirementCheck'));
     }
 
     /**
@@ -133,26 +129,4 @@ class LetterTypeController extends Controller
         Alert::success(' Berhasil ', 'Jenis Surat berhasil Dihapus');
         return redirect()->route('manajemen-surat.jenis-surat');
     }
-
-    public function getMenu()
-    {
-        // ambil id user yg sedang login
-        $userId = Auth::user()->id;
-
-        // ambil role user yang sedang login berdasarkan id user
-        $userRoleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
-
-        // ambil menu yang boleh diakses user berdasarkan role user
-        return Permission::select('permissions.id', 'permissions.name')
-            ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
-            ->where('role_has_permissions.role_id', $userRoleId)
-            ->get();
-    }
-
-    // public function editRequirement(Request $request, LetterType $letterType)
-    // {
-    //     $letter_type_id = $request->letter_type_id;
-    //     $letter_document_id = $request->letter_document_id;
-    //     $requirementCheck = \DB::table('letter_requirements')->where('letter_type_id', $letter_type_id)->where('letter_document_id')->get();
-    // }
 }
