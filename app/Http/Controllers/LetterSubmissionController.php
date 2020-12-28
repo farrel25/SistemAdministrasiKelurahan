@@ -6,6 +6,7 @@ use App\LetterSubmission;
 use App\LetterType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Alert;
 
 class LetterSubmissionController extends Controller
 {
@@ -29,7 +30,8 @@ class LetterSubmissionController extends Controller
     {
         //
         $letterTypes = LetterType::get();
-        return view('visitors.pelayanan.pengajuan-surat', compact('letterTypes'));
+        $user = Auth::user();
+        return view('visitors.pelayanan.pengajuan-surat', compact('letterTypes', 'user'));
     }
 
     /**
@@ -56,15 +58,15 @@ class LetterSubmissionController extends Controller
             'full_name' => 'required|string|max:255',
             'email' => 'required|email',
             'letter_type_id' => 'required',
-            'keperluan' => 'required'
+            'keperluan' => 'required|string'
         ]);
         $letterSubmission['user_id'] = Auth::user()->id;
         $letterSubmission['status_id'] = 1;
         $letterSubmission['phone'] = Auth::user()->phone;
 
         LetterSubmission::create($letterSubmission);
-
-        session()->flash('success', 'Permohonan pengajuan surat berhasil dikirim, silahkan ke halaman dashboard anda untuk info lebih lanjut');
+        // Alert::success('Permohonan pengajuan surat berhasil dikirim', "Silahkan ke <a href=" . route('dashboard') . ">halaman dashboard</a>anda untuk info lebih lanjut");
+        session()->flash('success', 'Pengajuan surat terkirim');
 
         return redirect(route('pengajuan-surat.create'));
     }

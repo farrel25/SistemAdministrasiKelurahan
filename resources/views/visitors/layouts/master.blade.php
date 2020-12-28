@@ -12,7 +12,11 @@
     <script src="https://kit.fontawesome.com/95e7b49a0c.js" crossorigin="anonymous"></script>
 
     {{-- Font --}}
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     {{-- Vendor CSS files --}}
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/bootstrap/css/bootstrap.min.css">
@@ -37,6 +41,8 @@
     <script src="{{ asset('/visitors/vendor') }}/aos/aos.js"></script>
     <script src="{{ asset('/visitors/vendor') }}/slick/slick.min.js"></script>
 
+
+
     {{-- Chart.js --}}
     <script src="{{ asset('/visitors/vendor') }}/chart/Chart.min.js"></script>
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/chart/Chart.min.css">
@@ -51,6 +57,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <!-- Start Header -->
     @include('visitors.layouts.navigation')
     <!-- End Header -->
