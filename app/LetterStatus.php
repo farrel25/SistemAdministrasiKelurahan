@@ -10,6 +10,6 @@ class LetterStatus extends Model
 
     public function letterSubmission()
     {
-        return $this->hasMany(LetterSubmission::class);
+        return $this->hasMany(LetterSubmission::class, 'status_id');
     }
 }

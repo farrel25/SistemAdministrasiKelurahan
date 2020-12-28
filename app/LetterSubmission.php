@@ -20,6 +20,6 @@ class LetterSubmission extends Model
 
     public function letterStatus()
     {
-        return $this->belongsTo(LetterStatus::class);
+        return $this->belongsTo(LetterStatus::class, 'status_id');
     }
 }

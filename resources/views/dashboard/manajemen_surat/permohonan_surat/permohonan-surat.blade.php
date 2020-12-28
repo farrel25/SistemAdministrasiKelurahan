@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.master', ['title' => "Permohonan Surat"])
+@extends('dashboard.layouts.master', ['title' => "Pengajuan Surat"])
 
 @section('content')
 
@@ -9,19 +9,22 @@
                 <i class="  pe-7s-mail icon-gradient bg-mean-fruit">
                 </i>
             </div>
-            <div>Permohonan Surat
-                <div class="page-title-subheading">Permohonan Surat
+            <div>Pengajuan Surat
+                <div class="page-title-subheading">Pengajuan Surat
                 </div>
             </div>
         </div>
         <div class="page-title-actions d-flex">
-            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip" title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark pt-2">
+            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip"
+                title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark pt-2">
                 <i class="fas fa-home"></i>
             </a>
             <div class="input-group ml-3">
-                <input type="text" class="form-control" id="#" placeholder="Search" aria-describedby="inputGroupPrepend" required>
+                <input type="text" class="form-control" id="#" placeholder="Search" aria-describedby="inputGroupPrepend"
+                    required>
                 <a href="#" class="input-group-prepend text-decoration-none ">
-                    <span class="input-group-text rounded-right" id="inputGroupPrepend"><i class="fas fa-search"></i></span>
+                    <span class="input-group-text rounded-right" id="inputGroupPrepend"><i
+                            class="fas fa-search"></i></span>
                 </a>
             </div>
         </div>
@@ -38,7 +41,7 @@
                         <div class="widget-subheading">Total Surat Masuk</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-primary">100</div>
+                        <div class="widget-numbers text-primary">#</div>
                     </div>
                 </div>
             </div>
@@ -53,7 +56,7 @@
                         <div class="widget-subheading">Total Surat Keluar</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-warning">100</div>
+                        <div class="widget-numbers text-warning">#</div>
                     </div>
                 </div>
             </div>
@@ -64,11 +67,11 @@
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Permohonan Surat</div>
-                        <div class="widget-subheading">Total Permohonan Surat</div>
+                        <div class="widget-heading">Pengajuan Surat</div>
+                        <div class="widget-subheading">Total Pengajuan Surat</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-success">100</div>
+                        <div class="widget-numbers text-success">{{$letterSubmissionTotal}}</div>
                     </div>
                 </div>
             </div>
@@ -79,12 +82,20 @@
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
-            <div class="card-header">Tabel Permohonan Surat
+            <div class="card-header">Tabel Pengajuan Surat
                 <div class="btn-actions-pane-right ">
-                    <a type="button" class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive" href="#"><i class="fas fa-file-download "> </i> Unduh Data Excel</a>
-                    <a type="button" class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive" href="#"><i class="fas fa-file-upload"></i> Unggah Data Excel</a>
-                    <a type="button" class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive" href="#"><i class="fas fa-print "></i> Cetak Data Terpilih</a>
-                    <a type="button" class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive" href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
+                    <a type="button"
+                        class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
+                        href="#"><i class="fas fa-file-download "> </i> Unduh Data Excel</a>
+                    <a type="button"
+                        class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
+                        href="#"><i class="fas fa-file-upload"></i> Unggah Data Excel</a>
+                    <a type="button"
+                        class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
+                        href="#"><i class="fas fa-print "></i> Cetak Data Terpilih</a>
+                    <a type="button"
+                        class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
+                        href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
 
                 </div>
             </div>
@@ -95,35 +106,65 @@
                             <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No</th>
                             <th class=" text-center">Actions</th>
-                            <th class=" text-center">No. Urut</th>
+                            <th class=" text-center">Kode Surat</th>
                             <th class=" text-center">Jenis Surat</th>
                             <th class=" text-center">Nama Penduduk</th>
-                            <th class=" text-center">Keterangan</th>
+                            <th class=" text-center">Keperluan</th>
                             <th class=" text-center">Ditangani Oleh</th>
                             <th class=" text-center">Tanggal</th>
-                            <th class=" text-center">User</th>
+                            <th class=" text-center">Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($letterSubmissions as $number => $letterSubmission)
                         <tr>
-                            <td class=" text-center"><input type="checkbox" name="chkbox[]" value="1"></td>
-                            <td class=" text-center">#</td>
+                            <td class=" text-center"><input type="checkbox" name="chkbox[]"
+                                    value="{{ $letterSubmission->id }}"></td>
+                            <td class=" text-center">{{ ++$number }}</td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
-                                    <button data-toggle="modal" data-target="#exampleModal" class="btn btn-info" data-toggle="tooltip" title="Ubah Permohonan Surat" data-placement="bottom"><i class="fas fa-edit"></i></button>
+                                    <button data-toggle="modal" data-target="#exampleModal" class="btn btn-info"
+                                        data-toggle="tooltip" title="Ubah Permohonan Surat" data-placement="bottom"><i
+                                            class="fas fa-edit"></i></button>
                                     <!-- Modal ada di master -->
-                                    <a href="#" class="btn btn-danger" data-toggle="tooltip" title="Hapus Permohonan Surat" data-placement="bottom"><i class="fas fa-trash-alt"></i></a>
-                                    <a href="#" class="btn btn-alternate text-white" data-toggle="tooltip" title="Cetak Permohonan Surat" data-placement="bottom"><i class="fas fa-print"></i></a>
+                                    <a href="#" class="btn btn-danger" data-toggle="tooltip"
+                                        title="Hapus Permohonan Surat" data-placement="bottom"><i
+                                            class="fas fa-trash-alt"></i></a>
+                                    <a href="#" class="btn btn-alternate text-white" data-toggle="tooltip"
+                                        title="Cetak Permohonan Surat" data-placement="bottom"><i
+                                            class="fas fa-print"></i></a>
                                 </div>
                             </td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
+                            <td class=" text-center">{{ $letterSubmission->letterType->letter_code }}</td>
+                            <td class=" text-center">{{ $letterSubmission->letterType->type }}</td>
+                            <td class=" text-center">{{ $letterSubmission->user->full_name }}</td>
+                            <td class=" text-center">{{ $letterSubmission->keperluan }}</td>
+                            <td class=" text-center">Bapaq</td>
+                            <td class=" text-center">
+                                {{ date('d-m-Y', strtotime($letterSubmission->updated_at)) }}
+                                {{-- {{ $letterSubmission->updated_at }} --}}
+                            </td>
+                            <td class=" text-center">
+                                @if ($letterSubmission->status_id == 1)
+                                <div class="badge badge-primary">
+                                    {{ $letterSubmission->letterStatus->status }}
+                                </div>
+                                @elseif($letterSubmission->status_id == 2)
+                                <div class="badge badge-warning">
+                                    {{ $letterSubmission->letterStatus->status }}
+                                </div>
+                                @elseif($letterSubmission->status_id == 3)
+                                <div class="badge badge-success">
+                                    {{ $letterSubmission->letterStatus->status }}
+                                </div>
+                                @else
+                                <div class="badge badge-secondary">
+                                    {{ $letterSubmission->letterStatus->status }}
+                                </div>
+                                @endif
+                            </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

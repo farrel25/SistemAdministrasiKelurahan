@@ -19,7 +19,8 @@ class LetterSubmissionController extends Controller
     public function index()
     {
         $letterSubmissions = LetterSubmission::get();
-        return view('dashboard.manajemen_surat.permohonan_surat.permohonan-surat', compact('letterSubmissions'));
+        $letterSubmissionTotal = count(LetterSubmission::where('status_id', '!=', 4)->get());
+        return view('dashboard.manajemen_surat.permohonan_surat.permohonan-surat', compact('letterSubmissions', 'letterSubmissionTotal'));
     }
 
     /**
