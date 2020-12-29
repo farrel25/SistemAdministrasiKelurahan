@@ -4,20 +4,25 @@
 
 use App\Article;
 use Faker\Generator as Faker;
+use Illuminate\Support\Str;
 
+// factory(App\Article::class, 20)->create();
+// factory(App\Article::class, 20)->create('id_ID');
 $factory->define(Article::class, function (Faker $faker) {
+    $title = $faker->sentence($nbWords = 3);
+    $slug = Str::slug($title);
+
     return [
         // 'category_id'=>$faker->randomDigit,
         'category_id' => $faker->numberBetween($min = 1, $max = 5),
-        'user_id' => $faker->randomDigit,
-        'title' => $faker->sentence(),
-        'thumbnail' => $faker->sentence(),
-        'slug' => \Str::slug($faker->sentence()),
-        'body' => $faker->paragraph(10),
+        'user_id' => 1,
+        'title' => $title,
+        'thumbnail' => $faker->imageUrl($width = 640, $height = 480),
+        'slug' => $slug,
+        'body' => $faker->paragraph($nbSentences = 15, $variableNbSentences = true),
         'enabled' => 1,
         'commentable' => 1,
-        'document' => $faker->sentence(),
-        'link_document' => $faker->sentence()
-        // $faker->unique()->randomDigit
+        'document' => null,
+        'link_document' => null
     ];
 });

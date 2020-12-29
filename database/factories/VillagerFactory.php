@@ -5,6 +5,8 @@
 use App\Villager;
 use Faker\Generator as Faker;
 
+// factory(App\Villager::class, 20)->create();
+// factory(App\Villager::class, 20)->create('id_ID');
 $factory->define(Villager::class, function (Faker $faker) {
     return [
         'nik' => $faker->unique()->numerify('################'),
