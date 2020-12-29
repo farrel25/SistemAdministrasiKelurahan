@@ -7,6 +7,7 @@ use App\LetterType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Alert;
+use App\LetterStatus;
 
 class LetterSubmissionController extends Controller
 {
@@ -18,9 +19,10 @@ class LetterSubmissionController extends Controller
 
     public function index()
     {
-        $letterSubmissions = LetterSubmission::get();
+        $letterSubmissions = LetterSubmission::paginate(10);
         $letterSubmissionTotal = count(LetterSubmission::where('status_id', '!=', 4)->get());
-        return view('dashboard.manajemen_surat.permohonan_surat.permohonan-surat', compact('letterSubmissions', 'letterSubmissionTotal'));
+        $letterStatuses = LetterStatus::get();
+        return view('dashboard.manajemen_surat.permohonan_surat.permohonan-surat', compact('letterSubmissions', 'letterSubmissionTotal', 'letterStatuses'));
     }
 
     /**
@@ -104,7 +106,19 @@ class LetterSubmissionController extends Controller
      */
     public function update(Request $request, LetterSubmission $letterSubmission)
     {
-        //
+        // if ($request->ajax() && $request->isMethod('patch')) {
+        //     //partially update record here
+        //     dd($request->method());
+        // }
+        $letterSubmissionId = LetterSubmission::findOrFail($request->letter_id);
+        $attr = $request->validate([
+            'status_id' => 'required|numeric'
+        ]);
+
+        $letterSubmissionId->update($attr);
+
+        Alert::success('Berhasil', 'Status pengajuan surat berhasil diperbarui');
+        return redirect()->route('manajemen-surat.pengajuan-surat');
     }
 
     /**

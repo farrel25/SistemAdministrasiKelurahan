@@ -93,6 +93,8 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             Route::patch('/{letter_type:letter_code}/edit', 'LetterTypeController@update')->name('manajemen-surat.jenis-surat.update');
             // delete jenis
             Route::delete('/{letter_type:letter_code}/delete', 'LetterTypeController@destroy')->name('manajemen-surat.jenis-surat.delete');
+            // export excel jenis surat
+            Route::get('/export', 'LetterTypeController@export')->name('manajemen-surat.jenis-surat.export-excel');
         });
 
         //panduan
@@ -101,7 +103,12 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
         //pengajuan surat
         Route::prefix('/pengajuan-surat')->group(function () {
             Route::get('', 'LetterSubmissionController@index')->name('manajemen-surat.pengajuan-surat');
-            Route::get('/edit', 'dashboardController@editpermohonansurat')->name('manajemen-surat.edit-permohonan-surat');
+            Route::patch('edit', 'LetterSubmissionController@update')->name('manajemen-surat.pengajuan-surat.update');
+
+            // Route::patch('/{letter_status}/edit', function () {
+            //     return 'Berhasil';
+            // })->name('manajemen-surat.pengajuan-surat.update');
+            // Route::get('/edit', 'dashboardController@editpermohonansurat')->name('manajemen-surat.edit-permohonan-surat');
         });
 
         //surat keluar

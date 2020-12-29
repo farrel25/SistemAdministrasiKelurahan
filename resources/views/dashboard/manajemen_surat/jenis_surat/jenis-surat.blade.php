@@ -39,7 +39,10 @@
                 <div class="btn-actions-pane-right ">
                     <a type="button"
                         class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
-                        href="#"><i class="fas fa-file-download "> </i> Unduh Data Excel</a>
+                        href="{{ route('manajemen-surat.jenis-surat.export-excel') }}">
+                        <i class="fas fa-file-download "></i>
+                        Unduh Data Excel
+                    </a>
                     <a type="button"
                         class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
                         href="#"><i class="fas fa-file-upload"></i> Unggah Data Excel</a>

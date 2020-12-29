@@ -1,28 +1,42 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+@if (Request::url() == route('manajemen-surat.pengajuan-surat'))
+<div class="modal fade" id="updateStatusModal" tabindex="-1" role="dialog" aria-labelledby="updateStatusModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 class="modal-title" id="updateStatusModalLabel">Perbarui Status Pengajuan Surat</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="position-relative form-group m-5">
-                <label for="#" class="">Status</label>
-                <select name="#" id="#" class="mb-2 form-control" value="#">
-                    <option>Pilih...</option>
-                    <option value="#"></option>
-                </select>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+
+            <form id="editStatusForm" action="{{route('manajemen-surat.pengajuan-surat.update')}}" method="post">
+                @csrf
+                @method('patch')
+
+                <input type="text" name="letter_id" id="letter_id" value="">
+
+                <div class="position-relative form-group m-5">
+                    <label for="status_id" class="">Status</label>
+                    <select name="status_id" id="status_id" class="mb-2 form-control" value="">
+                        <option id="">Pilih...</option>
+                        @foreach ($letterStatuses as $status)
+                        <option value="{{ $status->id }}">{{ $status->status }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+
         </div>
     </div>
 </div>
+@endif
 
 <!-- Modal Import Excel Data Penduduk -->
 <div class="modal fade" id="importExcelVillagerModal" tabindex="-1" aria-labelledby="importExcelVillagerModalLabel"

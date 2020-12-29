@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Alert;
+use App\Exports\LetterTypeExport;
 use App\LetterDocument;
 
 // use RealRashid\SweetAlert\Facades\Alert;
@@ -128,5 +129,10 @@ class LetterTypeController extends Controller
         $letterType->delete();
         Alert::success(' Berhasil ', 'Jenis Surat berhasil Dihapus');
         return redirect()->route('manajemen-surat.jenis-surat');
+    }
+
+    public function export()
+    {
+        return (new LetterTypeExport)->download('data_jenis_surat.xlsx');
     }
 }

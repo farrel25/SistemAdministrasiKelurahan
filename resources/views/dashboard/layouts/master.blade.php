@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <script src="https://kit.fontawesome.com/95e7b49a0c.js" crossorigin="anonymous"></script>
     <script src="http://www.pixeden.com/icon-fonts/stroke-7-icon-font-set"></script>

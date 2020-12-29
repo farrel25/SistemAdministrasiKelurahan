@@ -42,7 +42,7 @@
             <div class="card-body">
                 <h5 class="card-title">Edit Dokumen Persyaratan</h5>
                 <hr>
-                <form action="" method="POST" class="">
+                <form action="{{route('dokumen-persyaratan-update', $letterDocument->id)}}" method="POST" class="">
                     @csrf
                     @method('patch')
 
@@ -59,7 +59,7 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="mt-2 btn btn-primary">Edit Dokumen Persyaratan</button>
+                    <button type="submit" class="mt-2 btn btn-primary">Simpan</button>
                     <a href="{{ route('manajemen-surat.dokumen-persyaratan') }}" class="mt-2 btn btn-outline-danger">
                         Batal
                     </a>

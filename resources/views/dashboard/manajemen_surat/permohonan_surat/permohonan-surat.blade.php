@@ -120,13 +120,23 @@
                         <tr>
                             <td class=" text-center"><input type="checkbox" name="chkbox[]"
                                     value="{{ $letterSubmission->id }}"></td>
-                            <td class=" text-center">{{ ++$number }}</td>
+                            <td class=" text-center">{{ $number + $letterSubmissions->firstItem() }}</td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
-                                    <button data-toggle="modal" data-target="#exampleModal" class="btn btn-info"
-                                        data-toggle="tooltip" title="Ubah Permohonan Surat" data-placement="bottom"><i
-                                            class="fas fa-edit"></i></button>
                                     <!-- Modal ada di master -->
+                                    {{-- <button data-toggle="modal" data-target="#exampleModal" class="btn btn-info"
+                                        data-toggle="tooltip" title="Ubah Permohonan Surat" data-placement="bottom">
+                                        <i class="fas fa-edit"></i>
+                                    </button> --}}
+                                    <button data-toggle="modal" data-target="#updateStatusModal"
+                                        name="btn-update-status" id="btn-update-status"
+                                        class="btn btn-info openUpdateStatusModal"
+                                        data-letterId="{{$letterSubmission->id}}"
+                                        data-statusid="{{$letterSubmission->status_id}}"
+                                        data-statusname="{{$letterSubmission->letterStatus->status}}"
+                                        data-toggle="tooltip" title="Ubah Permohonan Surat" data-placement="bottom">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
                                     <a href="#" class="btn btn-danger" data-toggle="tooltip"
                                         title="Hapus Permohonan Surat" data-placement="bottom"><i
                                             class="fas fa-trash-alt"></i></a>
@@ -142,7 +152,6 @@
                             <td class=" text-center">Bapaq</td>
                             <td class=" text-center">
                                 {{ date('d-m-Y', strtotime($letterSubmission->updated_at)) }}
-                                {{-- {{ $letterSubmission->updated_at }} --}}
                             </td>
                             <td class=" text-center">
                                 @if ($letterSubmission->status_id == 1)
@@ -182,6 +191,7 @@
                         <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
                         <li class="page-item"><a href="javascript:void(0);" class="page-link" aria-label="Next"><span
                                     aria-hidden="true">»</span><span class="sr-only">Next</span></a></li> --}} -->
+                            {{ $letterSubmissions->links() }}
                         </ul>
                     </nav>
                 </div>
@@ -189,6 +199,73 @@
         </div>
     </div>
 </div>
-<!-- Modal -->
+
+<script>
+    // $('#exampleModal').on('show.bs.modal', function(e) {
+    //     var button = e.relatedTarget();
+    //     var modal = $(this);
+    //     const letter_id = button.attr('data-id');
+    //     const status_id = button.data("statusid");
+    //     const status_name = button.data("statusname");
+    //     console.log(letter_id);
+
+    //     modal.find("#exampleModal #letter_id").attr('value', letter_id);
+    // });
+
+    // $(document).on('click', '#btn-update-status', function(e){
+    //     e.preventDefault();
+    //     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    //     const status_id = $(this).data('statusid');
+    //     const statuses = $(this).data('statuses');
+    //     const urlUpdate = $(this).data('url');
+
+    //     var statusData = {};
+    //     statuses.forEach(status => {
+    //         statusData[status.id] = status.status;
+    //     });
+
+    //     const { value:status } = Swal.fire({
+    //       title: 'Perbarui status',
+    //       input: 'select',
+    //       inputOptions: statusData,
+    //       inputPlaceholder: 'Pilih...',
+    //       showCancelButton: true,
+    //       confirmButtonText: 'Simpan',
+    //       cancelButtonText: 'Batal',
+    //       inputValidator: (value) => {
+    //         return new Promise((resolve) => {
+    //           if (!value) {
+    //             // resolve();
+    //             resolve('Anda belum memilih status');
+    //           }
+    //           else if(value == status_id) {
+    //             resolve('Anda memilih status yang sama');
+    //           }
+    //         });
+    //       }
+    //     }).then((value) => {
+    //         if(value.isConfirmed && value.value) {
+    //             $.ajax({
+    //                 url: urlUpdate,
+    //                 type:'PATCH',
+    //                 beforeSend: function (xhr) {
+    //                     var token = $('meta[name="csrf_token"]').attr('content');
+    //                     if (token) {
+    //                         return xhr.setRequestHeader('X-CSRF-TOKEN', token);
+    //                     }
+    //                 },
+    //                 headers: {
+    //                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    //                 },
+    //                 data:{
+    //                     _token : CSRF_TOKEN,
+    //                     _method: "PATCH",
+    //                     status_id : value.value,
+    //                 }
+    //             });
+    //         }
+    //     });
+    // });
+</script>
 
 @endsection

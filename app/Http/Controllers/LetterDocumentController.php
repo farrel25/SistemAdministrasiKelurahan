@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\LetterDocument;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Permission;
 use Alert;
 use App\Exports\LetterDocumentExport;
 use App\Imports\LetterDocumentImport;

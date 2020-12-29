@@ -59,7 +59,7 @@ class DashboardController extends Controller
     //edit
     public function editpermohonansurat()
     {
-        return view('dashboard.manajemen_surat.surat_masuk.edit-permohonan-suratk');
+        return view('dashboard.manajemen_surat.surat_masuk.edit-permohonan-surat');
     }
     public function editsuratkeluar()
     {
