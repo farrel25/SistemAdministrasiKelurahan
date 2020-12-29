@@ -134,15 +134,19 @@
                                         data-letterId="{{$letterSubmission->id}}"
                                         data-statusid="{{$letterSubmission->status_id}}"
                                         data-statusname="{{$letterSubmission->letterStatus->status}}"
-                                        data-toggle="tooltip" title="Ubah Permohonan Surat" data-placement="bottom">
+                                        data-toggle="tooltip" title="Ubah Status Surat" data-placement="bottom">
                                         <i class="fas fa-edit"></i>
                                     </button>
-                                    <a href="#" class="btn btn-danger" data-toggle="tooltip"
-                                        title="Hapus Permohonan Surat" data-placement="bottom"><i
-                                            class="fas fa-trash-alt"></i></a>
+                                    @if ($letterSubmission->status_id >= 3)
                                     <a href="#" class="btn btn-alternate text-white" data-toggle="tooltip"
-                                        title="Cetak Permohonan Surat" data-placement="bottom"><i
-                                            class="fas fa-print"></i></a>
+                                        title="Cetak Permohonan Surat" data-placement="bottom">
+                                        <i class="fas fa-print"></i>
+                                    </a>
+                                    @endif
+                                    <a href="#" class="btn btn-danger" data-toggle="tooltip"
+                                        title="Hapus Permohonan Surat" data-placement="bottom">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
                                 </div>
                             </td>
                             <td class=" text-center">{{ $letterSubmission->letterType->letter_code }}</td>

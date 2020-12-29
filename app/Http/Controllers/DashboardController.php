@@ -25,10 +25,6 @@ class DashboardController extends Controller
         return view('dashboard.penduduk.penduduk-aktif');
     }
     //Surat
-    public function cetaksurat()
-    {
-        return view('dashboard.manajemen_surat.cetak_surat.cetak-surat');
-    }
     public function panduan()
     {
         return view('dashboard.manajemen_surat.panduan');

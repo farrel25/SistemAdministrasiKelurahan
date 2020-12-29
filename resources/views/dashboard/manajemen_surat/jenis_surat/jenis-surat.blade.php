@@ -148,6 +148,7 @@
                             <li class="page-item"><a href="javascript:void(0);" class="page-link"
                                     aria-label="Next"><span aria-hidden="true">»</span><span
                                         class="sr-only">Next</span></a></li> --}}
+                            {{-- {{ $letterTypes->links() }} --}}
                             {{ $letterTypes->links() }}
                         </ul>
                     </nav>

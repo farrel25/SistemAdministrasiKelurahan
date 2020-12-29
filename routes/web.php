@@ -58,10 +58,11 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
 
     //ManajemenSurat
     Route::prefix('dashboard/manajemen-surat')->group(function () {
+
         //cetak
-        Route::get('/cetak-surat', 'DashboardController@cetaksurat')->name('manajemen-surat.cetak-surat');
+        Route::get('/cetak-surat', 'LetterPrintController@index')->name('manajemen-surat.cetak-surat');
         Route::get('/tambah-cetak-surat', 'DashboardController@tambahcetaksurat')->name('manajemen-surat.tambah-cetak-surat');
-        Route::get('/buat-cetak-surat', 'DashboardController@buatcetaksurat')->name('manajemen-surat.buat-cetak-surat');
+        Route::get('/buat-surat', 'DashboardController@buatcetaksurat')->name('manajemen-surat.buat-cetak-surat');
 
         // dokumen persyaratan
         Route::prefix('/dokumen-persyaratan')->group(function () {
