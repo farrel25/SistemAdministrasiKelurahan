@@ -1,13 +1,13 @@
-@extends('dashboard.layouts.master', ['title' => "Komentar"])
+@extends('dashboard.layouts.master', ['title' => "Kategori"])
 
 @section('content')
 
 <?php
     $data=[
         'icon' => "pe-7s-news-paper",
-        'judul' => "Komentar",
-        'link' => route('manajemen-artikel.artikel') ,
-        'page1' => "Komentar"
+        'judul' => "Kategori",
+        'link' => route('manajemen-Kategori.Kategori') ,
+        'page1' => "Kategori"
     ]
 ?>
 @include('dashboard.layouts.page-title',$data)
@@ -15,12 +15,12 @@
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
-            <div class="card-header">Komentar
+            <div class="card-header">Kategori
                 <div class="btn-actions-pane-right "><a type="button"
                         class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
                         href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
                     <a type="button" class="btn btn-lg btn-focus btn-sm text-white font-weight-normal "
-                        href="{{ route('manajemen-artikel.artikel.create') }}">+
+                        href="{{ route('manajemen-Kategori.Kategori.create') }}">+
                         Tambah Data </a>
                 </div>
             </div>
@@ -42,11 +42,11 @@
                             <td class=" text-center">#</td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
-                                    <a href="{{ route('manajemen-artikel.artikel.edit') }}" class="btn btn-primary"
-                                        data-toggle="tooltip" title="Edit Komentar" data-placement="bottom"><i
+                                    <a href="{{ route('manajemen-Kategori.Kategori.edit') }}" class="btn btn-primary"
+                                        data-toggle="tooltip" title="Edit Kategori" data-placement="bottom"><i
                                             class="fas fa-edit"></i>
                                     </a>
-                                    <a href="#" class="btn btn-danger" data-toggle="tooltip" title="Hapus Komentar"
+                                    <a href="#" class="btn btn-danger" data-toggle="tooltip" title="Hapus Kategori"
                                         data-placement="bottom"><i class="fas fa-trash-alt"></i>
                                     </a>
                                     <a href="#" class="btn btn-warning text-white" data-toggle="tooltip"
@@ -57,10 +57,10 @@
                                         {{-- <i class="fas fa-comment-slash"></i> buat aktifkan komen --}}
                                     </a>
                                     <a href="#" class="btn btn-secondary" data-toggle="tooltip"
-                                        title="Non Aktifkan Komentar" data-placement="bottom">
+                                        title="Non Aktifkan Kategori" data-placement="bottom">
                                         <i class="fas fa-lock-open"></i>
                                     </a>
-                                    <a href="#" class="btn btn-success" data-toggle="tooltip" title="Lihat Komentar"
+                                    <a href="#" class="btn btn-success" data-toggle="tooltip" title="Lihat Kategori"
                                         data-placement="bottom"><i class="fas fa-eye"></i>
                                     </a>
                                 </div>

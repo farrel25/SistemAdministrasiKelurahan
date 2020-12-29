@@ -1,15 +1,15 @@
-@extends('dashboard.layouts.master', ['title' => "Edit Artikel"])
+@extends('dashboard.layouts.master', ['title' => "Edit Tag"])
 
 @section('content')
 
 <?php
     $data=[
         'icon' => "fas fa-edit",
-        'judul' => "Edit Artikel",
+        'judul' => "Edit Tag",
         'link' => route('manajemen-artikel.artikel') ,
-        'page1' => "Artikel",
+        'page1' => "Tag",
         'page2' => "/ Edit",
-        'page3' => "/  Judul Artikel"
+        'page3' => "/  Judul Tag"
     ]
 ?>
 @include('dashboard.layouts.page-title',$data)
@@ -18,11 +18,11 @@
     <div class="tab-pane tabs-animation fade show active" role="tabpanel">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Tambah Artikel</h5>
+                <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Tambah Data Penduduk</h5>
                 <div tabindex="-1" class="dropdown-divider"></div>
                 <div class="row">
                     <div class=" col-lg-3 mb-2 mt-1">
-                        <h4 class="card-title font-weight-bold">Artikel</h4>
+                        <h4 class="card-title font-weight-bold">Tag</h4>
                         <hr>
                     </div>
                     <div class=" col-lg-9 ">
@@ -30,7 +30,7 @@
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
-                                        <label for="#" class="">Judul Artikel</label>
+                                        <label for="#" class="">Judul Tag</label>
                                         <input name="#" id="#" type="text" class="form-control">
                                     </div>
                                 </div>

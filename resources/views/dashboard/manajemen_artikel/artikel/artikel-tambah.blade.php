@@ -17,7 +17,7 @@
     <div class="tab-pane tabs-animation fade show active" role="tabpanel">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Tambah Data Penduduk</h5>
+                <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Edit Data Artikel</h5>
                 <div tabindex="-1" class="dropdown-divider"></div>
                 <div class="row">
                     <div class=" col-lg-3 mb-2 mt-1">
