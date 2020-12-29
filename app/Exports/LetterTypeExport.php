@@ -26,28 +26,30 @@ class LetterTypeExport implements FromCollection, WithMapping, WithHeadings, Wit
      * @var LetterType $letterType
      */
     protected $no = 0;
-    protected $validity_period = "";
+    // protected $validity_period = "";
     protected $validity_period_unit = "";
 
     public function map($letterType): array
     {
         if ($letterType->validity_period_unit == "D") {
-            $this->validity_period_unit = " Hari";
+            $this->validity_period_unit = "Hari";
         } elseif ($letterType->validity_period_unit == "W") {
-            $this->validity_period_unit = " Minggu";
+            $this->validity_period_unit = "Minggu";
         } elseif ($letterType->validity_period_unit == "M") {
-            $this->validity_period_unit = " Bulan";
+            $this->validity_period_unit = "Bulan";
         } elseif ($letterType->validity_period_unit == "Y") {
-            $this->validity_period_unit = " Tahun";
+            $this->validity_period_unit = "Tahun";
         }
 
+        // $this->validity_period = $letterType->validity_period . $this->validity_period_unit;
         $this->no += 1;
-        $this->validity_period = $letterType->validity_period . $this->validity_period_unit;
         return [
             $this->no,
             $letterType->letter_code,
             $letterType->type,
-            $this->validity_period
+            // $this->validity_period
+            $letterType->validity_period,
+            $this->validity_period_unit
         ];
     }
 
@@ -57,7 +59,8 @@ class LetterTypeExport implements FromCollection, WithMapping, WithHeadings, Wit
             'NOMOR',
             'KODE SURAT',
             'JENIS SURAT',
-            'MASA BERLAKU'
+            'MASA BERLAKU',
+            'SATUAN MASA BERLAKU',
         ];
     }
 

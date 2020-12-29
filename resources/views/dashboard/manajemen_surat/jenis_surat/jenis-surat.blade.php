@@ -43,9 +43,12 @@
                         <i class="fas fa-file-download "></i>
                         Unduh Data Excel
                     </a>
-                    <a type="button"
+                    <button type="button"
                         class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
-                        href="#"><i class="fas fa-file-upload"></i> Unggah Data Excel</a>
+                        data-toggle="modal" data-target="#importExcelTypeModal">
+                        <i class="fas fa-file-upload"></i>
+                        Unggah Data Excel
+                    </button>
                     <a type="button"
                         class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
                         href="#"><i class="fas fa-print "></i> Cetak Data Terpilih</a>

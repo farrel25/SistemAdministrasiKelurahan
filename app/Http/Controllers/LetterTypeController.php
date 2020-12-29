@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use App\LetterType;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Permission;
 use Alert;
 use App\Exports\LetterTypeExport;
+use App\Imports\LetterTypeImport;
 use App\LetterDocument;
 
 // use RealRashid\SweetAlert\Facades\Alert;
@@ -21,7 +20,7 @@ class LetterTypeController extends Controller
      */
     public function index()
     {
-        $letterTypes = LetterType::latest()->paginate(10);
+        $letterTypes = LetterType::orderBy('letter_code', 'asc')->paginate(10);
         // dd($letterTypes);
 
         return view('dashboard.manajemen_surat.jenis_surat.jenis-surat', compact('letterTypes'));
@@ -134,5 +133,15 @@ class LetterTypeController extends Controller
     public function export()
     {
         return (new LetterTypeExport)->download('data_jenis_surat.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'letter_types' => 'required|file|mimes:xlsx,xls'
+        ]);
+        (new LetterTypeImport)->import($request->file('letter_types'), 'local', \Maatwebsite\Excel\Excel::XLSX);
+        Alert::success(' Berhasil ', ' Jenis Surat Berhasil Ditambahkan');
+        return redirect()->route('manajemen-surat.jenis-surat');
     }
 }

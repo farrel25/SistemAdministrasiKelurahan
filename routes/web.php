@@ -95,6 +95,8 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             Route::delete('/{letter_type:letter_code}/delete', 'LetterTypeController@destroy')->name('manajemen-surat.jenis-surat.delete');
             // export excel jenis surat
             Route::get('/export', 'LetterTypeController@export')->name('manajemen-surat.jenis-surat.export-excel');
+            // import excel jenis surat
+            Route::post('/import', 'LetterTypeController@import')->name('manajemen-surat.jenis-surat.import-excel');
         });
 
         //panduan
