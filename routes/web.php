@@ -129,9 +129,9 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
     Route::prefix('dashboard/manajemen-artikel')->group(function () {
         Route::prefix('/artikel')->group(function () {
             Route::get('', 'ArticleDashboardController@index')->name('manajemen-artikel.artikel');
-            // store jenis
+            // store article
             Route::get('/tambah', 'ArticleDashboardController@create')->name('manajemen-artikel.artikel.create');
-            // Route::post('/tambah', 'ArticleDashboardController@store')->name('manajemen-surat.jenis-surat.store');
+            Route::post('/tambah', 'ArticleDashboardController@store')->name('manajemen-artikel.artikel.store');
             // update jenis
             Route::get('/edit', 'ArticleDashboardController@edit')->name('manajemen-artikel.artikel.edit');
             // Route::patch('/{letter_type:letter_code}/edit', 'ArticleDashboardController@update')->name('manajemen-surat.jenis-surat.update');

@@ -205,16 +205,16 @@
 </div>
 
 <script>
-    // $('#exampleModal').on('show.bs.modal', function(e) {
-    //     var button = e.relatedTarget();
-    //     var modal = $(this);
-    //     const letter_id = button.attr('data-id');
-    //     const status_id = button.data("statusid");
-    //     const status_name = button.data("statusname");
-    //     console.log(letter_id);
+    $('#updateStatusModal').on('show.bs.modal', function(e) {
+        var button = e.relatedTarget();
+        var modal = $(this);
+        const letter_id = button.attr('data-id');
+        const status_id = button.data("statusid");
+        const status_name = button.data("statusname");
+        console.log(letter_id);
 
-    //     modal.find("#exampleModal #letter_id").attr('value', letter_id);
-    // });
+        modal.find("#updateStatusModal #letter_id").attr('value', letter_id);
+    });
 
     // $(document).on('click', '#btn-update-status', function(e){
     //     e.preventDefault();

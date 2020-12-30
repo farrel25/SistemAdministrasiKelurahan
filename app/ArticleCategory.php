@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ArticleCategory extends Model
 {
-    public function article() {
+    protected $fillable = ['category', 'slug', 'enabled'];
+
+    public function articles()
+    {
         return $this->hasMany(Article::class);
     }
 }

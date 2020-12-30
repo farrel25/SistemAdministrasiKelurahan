@@ -6,7 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ArticleTag extends Model
 {
-    public function article() {
-        return $this->hasMany(Article::class);
+    protected $fillable = ['name_tag', 'slug', 'enabled'];
+
+    public function articles()
+    {
+        return $this->belongsToMany(Article::class, 'article_article_tag', 'tag_id', 'article_id');
     }
 }

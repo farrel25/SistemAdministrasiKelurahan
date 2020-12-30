@@ -49,8 +49,18 @@ class User extends Authenticatable
         return $this->hasOne(Villager::class);
     }
 
-    // public function roles()
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'model_has_roles', 'role_id');
+    }
+
+    // public function articleComments()
     // {
-    //     return $this->belongsToMany(Role::class, 'model_has_roles', 'role_id');
+    //     return $this->hasMany(ArticleComment::class, 'email', 'email');
     // }
 }

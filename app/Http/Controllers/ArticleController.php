@@ -11,8 +11,11 @@ class ArticleController extends Controller
     //
     public function index()
     {
-        return view('visitors.artikel.index', ['count' => Article::all()->count(), 'articles' => Article::orderby('created_at', 'desc')->paginate(6), 'article_comments' => ArticleComment::take(5)->latest()->get()]);
+        $articles = Article::orderby('updated_at', 'desc')->paginate(6);
+
+        return view('visitors.artikel.index', ['count' => Article::all()->count(), 'articles' => $articles, 'article_comments' => ArticleComment::take(5)->latest()->get()]);
     }
+
     public function viewartikel(Article $article)
     // public function viewartikel()
     {

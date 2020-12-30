@@ -483,7 +483,7 @@
                             </div>
 
                             <button type="submit" class="mt-2 btn btn-primary">Tambah Data</button>
-                            <a href="{{ route('penduduk') }}" class="mt-2 btn btn-outline-danger">Cancel</a>
+                            <a href="{{ route('penduduk') }}" class="mt-2 btn btn-outline-danger">Batal</a>
                         </div>
                     </div>
                 </form>

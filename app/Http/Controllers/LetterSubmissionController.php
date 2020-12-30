@@ -46,17 +46,6 @@ class LetterSubmissionController extends Controller
      */
     public function store(Request $request)
     {
-        // if (request()->nik != Auth::user()->nik) {
-        //     session()->flash('nik_check', 'Masukkan NIK milik anda dengan benar');
-        // }
-        // if (request()->full_name != Auth::user()->full_name) {
-        //     session()->flash('full_name_check', 'Masukkan nama lengkap anda dengan benar');
-        // }
-        // if (request()->email != Auth::user()->email) {
-        //     session()->flash('email_check', 'Masukkan email anda dengan benar');
-        // }
-
-        // if (!session()->has('nik_check') && !session()->has('full_name_check') && !session()->has('email_check'))
         $letterSubmission = request()->validate([
             'nik' => 'required|digits:16',
             'full_name' => 'required|string|max:255',

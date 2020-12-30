@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\ArticleDashboard;
+use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Alert;
+use App\ArticleCategory;
+use App\ArticleTag;
+use Illuminate\Validation\Rule;
+
 // use RealRashid\SweetAlert\Facades\Alert;
 
 class ArticleDashboardController extends Controller
@@ -18,12 +22,9 @@ class ArticleDashboardController extends Controller
      */
     public function index()
     {
-        $menus = $this->getMenu();
+        $articles = Article::orderBy('updated_at', 'desc')->paginate(10);
 
-        // $letterTypes = LetterType::paginate(10);
-        // dd($letterTypes);
-
-        return view('dashboard.manajemen_artikel.artikel.artikel', compact('menus'));
+        return view('dashboard.manajemen_artikel.artikel.artikel', compact('articles'));
     }
 
     /**
@@ -33,100 +34,134 @@ class ArticleDashboardController extends Controller
      */
     public function create()
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_artikel.artikel.artikel-tambah', compact('menus'));
+        $categories = ArticleCategory::get();
+        $tags = ArticleTag::get();
+        return view('dashboard.manajemen_artikel.artikel.artikel-tambah', compact('categories', 'tags'));
     }
 
-    // /**
-    //  * Store a newly created resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function store(Request $request)
-    // {
-    //     $letterType = $request->validate([
-    //         'letter_code' => 'required|alpha_dash|unique:letter_types,letter_code',
-    //         'type' => 'required|string|max:255',
-    //         // 'validity_period' => 'required|numeric|min:1|max:31',
-    //         // 'validity_period_unit' => 'required|alpha',
-    //     ]);
-
-    //     // LetterType::create($letterType);
-    //     // Alert::success(' Berhasil ', 'Jenis artikel berhasil Ditambahkan');
-
-    //     return redirect()->route('manajemen-artikel.jenis-artikel');
-    // }
-
-    // /**
-    //  * Display the specified resource.
-    //  *
-    //  * @param  \App\LetterType  $letterType
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function show(LetterType $letterType)
-    // {
-    //     //
-    // }
-
-    // /**
-    //  * Show the form for editing the specified resource.
-    //  *
-    //  * @param  \App\LetterType  $letterType
-    //  * @return \Illuminate\Http\Response
-    //  */
-    public function edit()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        $menus = $this->getMenu();
-        return view('dashboard.manajemen_artikel.artikel.artikel-edit', compact('menus'));
-    }
-
-    // /**
-    //  * Update the specified resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @param  \App\LetterType  $letterType
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function update(Request $request, LetterType $letterType)
-    // {
-    //     $attr = $request->validate([
-    //         'type' => 'required|string|max:255',
-    //         // 'validity_period' => 'required|numeric|min:1|max:31',
-    //         // 'validity_period_unit' => 'required|alpha',
-    //     ]);
-
-    //     // $letterType->update($attr);
-    //     // Alert::success(' Berhasil ', 'Jenis artikel berhasil Diperbarui');
-
-    //     return redirect()->route('manajemen-artikel.jenis-artikel');
-    // }
-
-    // /**
-    //  * Remove the specified resource from storage.
-    //  *
-    //  * @param  \App\LetterType  $letterType
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function destroy(LetterType $letterType)
-    // {
-    //     // $letterType->delete();
-    //     // Alert::success(' Berhasil ', 'Jenis artikel berhasil Dihapus');
-    //     return redirect()->route('manajemen-artikel.jenis-artikel');
-    // }
-
-    public function getMenu()
-    {
-        // ambil id user yg sedang login
+        dd($request->body);
         $userId = Auth::user()->id;
 
-        // ambil role user yang sedang login berdasarkan id user
-        $userRoleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
+        $thumbnailUrl = null;
+        $documentUrl = null;
+        $documentName = null;
 
-        // ambil menu yang boleh diakses user berdasarkan role user
-        return Permission::select('permissions.id', 'permissions.name')
-            ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
-            ->where('role_has_permissions.role_id', $userRoleId)
-            ->get();
+        // cek apakah thumbnail sudah di inputkan
+        if ($request->hasFile('thumbnail')) {
+            $thumbnailSize = $request->file('thumbnail')->getSize();
+            // cek ukuran thumbnail yg diupload
+            if ($thumbnailSize <= 3000000) {
+                // ambil file thumbnail
+                $thumbnail = $request->file('thumbnail');
+                // rename file thumbnail
+                $originalName = explode('.', $thumbnail->getClientOriginalName());
+                $thumbnailName = $originalName[0] . time() . $thumbnail->extension();
+                // menentukan lokasi penyimpanan thumbnail
+                $thumbnailUrl = $thumbnail->storeAs("images/thumbnail", "{$thumbnailName}");
+            }
+        }
+
+        // cek apakah document sudah di inputkan
+        if ($request->hasFile('document')) {
+            // ambil ukuran document
+            $documentSize = $request->file('document')->getSize();
+            // cek ukuran document yg diupload
+            if ($documentSize <= 5000000) {
+                // ambil file document
+                $document = $request->file('document');
+                // rename file document
+                $originalName = explode('.', $document);
+                $documentName = $originalName[0] . time() . $document->extension();
+                // menentukan lokasi penyimpanan document
+                $documentUrl = $document->storeAs("images/article_document", "{$documentName}");
+            }
+        }
+
+        $attr = $request->validate([
+            'category_id' => 'required|numeric',
+            'title' => 'required|string',
+            'thumbnail' => 'required|image|max:3000',
+            'body' => 'required|string',
+            'document' => 'file|max:5000',
+        ]);
+
+        $attr['user_id'] = $userId;
+        $attr['slug'] = \Str::slug($attr['title']);
+        $attr['thumbnail'] = $thumbnailUrl;
+        $attr['enabled'] = 1;
+        $attr['commentable'] = 1;
+        $attr['document'] = $documentName;
+        $attr['link_document'] = $documentUrl;
+
+        $article = Article::create($attr);
+        $article->tags()->attach($request->tags);
+
+        Alert::success(' Berhasil ', 'Artikel berhasil Ditambahkan');
+
+        return redirect()->route('manajemen-artikel.artikel');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Article  $article
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Article $article)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Article  $article
+     * @return \Illuminate\Http\Response
+     */
+    public function edit()
+    {
+        return view('dashboard.manajemen_artikel.artikel.artikel-edit');
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Article  $article
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Article $article)
+    {
+        //     $attr = $request->validate([
+        //         'type' => 'required|string|max:255',
+        //         // 'validity_period' => 'required|numeric|min:1|max:31',
+        //         // 'validity_period_unit' => 'required|alpha',
+        //     ]);
+
+        //     // $letterType->update($attr);
+        //     // Alert::success(' Berhasil ', 'Jenis artikel berhasil Diperbarui');
+
+        //     return redirect()->route('manajemen-artikel.jenis-artikel');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Article  $article
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Article $article)
+    {
+        //     // $letterType->delete();
+        //     // Alert::success(' Berhasil ', 'Jenis artikel berhasil Dihapus');
+        //     return redirect()->route('manajemen-artikel.jenis-artikel');
     }
 }

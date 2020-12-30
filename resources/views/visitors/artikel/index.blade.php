@@ -16,22 +16,31 @@
                         <div class="col-lg-12">
                             <div class="blog-post">
                                 <div class="blog-thumb">
-                                    <img src="{{ asset('/images') }}/img-article-01.png" alt="">
+                                    {{-- <img src="{{ asset('/images') }}/img-article-01.png" alt=""> --}}
+                                    <img src="{{ $article->thumbnail }}" alt="">
                                 </div>
                                 <div class="down-content">
-                                    <a href="post-details.html">
-                                        <h4>{{$article->title}}</h4>
+                                    <a href="#">
+                                        <h4>{!!$article->title!!}</h4>
                                     </a>
                                     <ul class="post-info ">
-                                        <li><a href="#">{{$article->user_id}}</a></li>
-                                        <li><a href="#">{{$article->created_at->diffForHumans()}} {{-- Terahir dibuat --}}</a></li>
+                                        <li><a href="#">{{ $article->user_id }}</a></li>
+                                        <li>
+                                            <a href="#">
+                                                {{$article->created_at->diffForHumans()}}
+                                                {{-- Terahir dibuat --}}
+                                            </a>
+                                        </li>
                                     </ul>
-                                    <p>{{Str::limit($article->body,100)}}  <a href="/artikel/{{$article->slug}}">readmore..</a> </p>
+                                    <p>
+                                        {{Str::limit($article->body,200)}}
+                                        <a href="/artikel/{{$article->slug}}">lebih lanjut...</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-12 mb-5">
-                            <ul >
+                            <ul>
                                 {{-- <li class="active"><a href="#">1</a></li>
                                 <li><a href="#">2</a></li>
                                 <li><a href="#">3</a></li>
@@ -43,14 +52,16 @@
                             </ul>
                         </div>
                         @empty
-                            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
-                                <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800">
-                                    <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
-                                        <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
-                                    </div>
-                                    <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service. Terima kasih.</div>
+                        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                            <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                    <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
                                 </div>
+                                <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat
+                                    menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service.
+                                    Terima kasih.</div>
                             </div>
+                        </div>
                         @endforelse
                         {{$articles->links()}}
                     </div>

@@ -31,29 +31,33 @@
                             <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No.</th>
                             <th class=" text-center">Aksi</th>
-                            <th class=" text-center">Judul</th>
+                            <th class=" text-left">Judul</th>
                             <th class=" text-center">Kategori</th>
                             <th class=" text-center">Tanggal Posting</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($articles as $number => $article)
                         <tr>
                             <td class=" text-center"><input type="checkbox" name="chkbox[]" value="1"></td>
-                            <td class=" text-center">#</td>
+                            <td class=" text-center">{{ $number + $articles->firstItem() }}</td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
                                     <a href="{{ route('manajemen-artikel.artikel.edit') }}" class="btn btn-primary"
-                                        data-toggle="tooltip" title="Edit Artikel" data-placement="bottom"><i
-                                            class="fas fa-edit"></i>
+                                        data-toggle="tooltip" title="Edit Artikel" data-placement="bottom">
+                                        <i class="fas fa-edit"></i>
                                     </a>
                                     <a href="#" class="btn btn-danger" data-toggle="tooltip" title="Hapus Artikel"
-                                        data-placement="bottom"><i class="fas fa-trash-alt"></i>
+                                        data-placement="bottom">
+                                        <i class="fas fa-trash-alt"></i>
                                     </a>
                                     <a href="#" class="btn btn-warning text-white" data-toggle="tooltip"
-                                        title="Ubah Kategori" data-placement="bottom"><i class="fas fa-layer-group"></i>
+                                        title="Ubah Kategori" data-placement="bottom">
+                                        <i class="fas fa-layer-group"></i>
                                     </a>
                                     <a href="#" class="btn btn-focus text-white" data-toggle="tooltip"
-                                        title="Tutup Komentar" data-placement="bottom"><i class="fas fa-comment"></i>
+                                        title="Tutup Komentar" data-placement="bottom">
+                                        <i class="fas fa-comment"></i>
                                         {{-- <i class="fas fa-comment-slash"></i> buat aktifkan komen --}}
                                     </a>
                                     <a href="#" class="btn btn-secondary" data-toggle="tooltip"
@@ -62,21 +66,24 @@
                                         {{-- <i class="fas fa-lock"></i> Tutup Lock--}}
                                     </a>
                                     <a href="#" class="btn btn-success" data-toggle="tooltip" title="Lihat Artikel"
-                                        data-placement="bottom"><i class="fas fa-eye"></i>
+                                        data-placement="bottom">
+                                        <i class="fas fa-eye"></i>
                                     </a>
                                 </div>
                             </td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
+                            <td class=" text-left">{{ $article->title }}</td>
+                            <td class=" text-center">{{ $article->category->category }}</td>
+                            <td class=" text-center">{{ date('d-m-Y', strtotime($article->created_at)) }}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
             <div class=" d-block card-footer ">
                 <div class="card-body ">
                     <nav class=" " aria-label="Page navigation example">
-                        <ul class="pagination ">
+                        <ul class="pagination justify-content-center">
+                            {{ $articles->links() }}
                         </ul>
                     </nav>
                 </div>

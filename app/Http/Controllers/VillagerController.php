@@ -187,7 +187,7 @@ class VillagerController extends Controller
             // ambil ukuran foto
             $photoSize = $request->file('photo')->getSize();
             // cek ukuran foto yg diupload
-            if ($photoSize <= 1024) {
+            if ($photoSize <= 1000000) {
                 // cek apakah ada foto lama
                 if ($villager->photo) {
                     // hapus foto lama

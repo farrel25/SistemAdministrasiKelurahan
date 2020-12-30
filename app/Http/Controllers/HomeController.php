@@ -23,14 +23,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
-    }
+    // public function index()
+    // {
+    //     return view('home');
+    // }
 
     public function beranda()
     {
-        # code...
-        return view('visitors.beranda.index', ['count' => Article::all()->count(), 'articles' => Article::orderby('created_at', 'desc')->paginate(6), 'article_comments' => ArticleComment::take(5)->latest()->get()]);
+        $articles = Article::orderby('updated_at', 'desc')->paginate(3);
+
+        return view('visitors.beranda.index', ['count' => Article::all()->count(), 'articles' => $articles, 'article_comments' => ArticleComment::take(5)->latest()->get()]);
     }
 }
