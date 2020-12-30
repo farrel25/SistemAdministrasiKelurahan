@@ -16,6 +16,10 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
     {{-- <script src="{{ asset('/vendor') }}/ckeditor/src/ckeditor.js"></script> --}}
 
+    {{-- select2.org --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
     <title>{{ $title ?? 'Dashboard' }}</title>
 
     <meta name="viewport"

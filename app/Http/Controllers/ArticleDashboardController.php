@@ -47,7 +47,6 @@ class ArticleDashboardController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->body);
         $userId = Auth::user()->id;
 
         $thumbnailUrl = null;
@@ -63,7 +62,7 @@ class ArticleDashboardController extends Controller
                 $thumbnail = $request->file('thumbnail');
                 // rename file thumbnail
                 $originalName = explode('.', $thumbnail->getClientOriginalName());
-                $thumbnailName = $originalName[0] . time() . $thumbnail->extension();
+                $thumbnailName = $originalName[0] . time() . '.' . $thumbnail->extension();
                 // menentukan lokasi penyimpanan thumbnail
                 $thumbnailUrl = $thumbnail->storeAs("images/thumbnail", "{$thumbnailName}");
             }
@@ -78,8 +77,8 @@ class ArticleDashboardController extends Controller
                 // ambil file document
                 $document = $request->file('document');
                 // rename file document
-                $originalName = explode('.', $document);
-                $documentName = $originalName[0] . time() . $document->extension();
+                $originalName = explode('.', $document->getClientOriginalName());
+                $documentName = $originalName[0] . time() . '.' .  $document->extension();
                 // menentukan lokasi penyimpanan document
                 $documentUrl = $document->storeAs("images/article_document", "{$documentName}");
             }
@@ -91,6 +90,7 @@ class ArticleDashboardController extends Controller
             'thumbnail' => 'required|image|max:3000',
             'body' => 'required|string',
             'document' => 'file|max:5000',
+            'tags' => 'required|array',
         ]);
 
         $attr['user_id'] = $userId;
