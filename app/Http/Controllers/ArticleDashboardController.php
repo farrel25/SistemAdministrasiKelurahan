@@ -80,7 +80,7 @@ class ArticleDashboardController extends Controller
                 $originalName = explode('.', $document->getClientOriginalName());
                 $documentName = $originalName[0] . time() . '.' .  $document->extension();
                 // menentukan lokasi penyimpanan document
-                $documentUrl = $document->storeAs("images/article_document", "{$documentName}");
+                $documentUrl = $document->storeAs("document/article_document", "{$documentName}");
             }
         }
 
@@ -160,8 +160,20 @@ class ArticleDashboardController extends Controller
      */
     public function destroy(Article $article)
     {
-        //     // $letterType->delete();
-        //     // Alert::success(' Berhasil ', 'Jenis artikel berhasil Dihapus');
-        //     return redirect()->route('manajemen-artikel.jenis-artikel');
+        $article->tags()->detach();
+
+        if ($article->thumbnail) {
+            \Storage::delete($article->thumbnail);
+        }
+
+        if ($article->link_document) {
+            \Storage::delete($article->link_document);
+        }
+
+        $article->delete();
+
+        Alert::success(' Berhasil ', 'Artikel berhasil Dihapus');
+
+        return redirect()->route('manajemen-artikel.artikel');
     }
 }

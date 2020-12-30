@@ -47,10 +47,18 @@
                                         data-toggle="tooltip" title="Edit Artikel" data-placement="bottom">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <a href="#" class="btn btn-danger" data-toggle="tooltip" title="Hapus Artikel"
-                                        data-placement="bottom">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
+
+                                    <form id="delete-form"
+                                        action="{{ route('manajemen-artikel.artikel.destroy', $article->id) }}"
+                                        method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger" data-toggle="tooltip"
+                                            title="Hapus Artikel" data-placement="bottom">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
+
                                     <a href="#" class="btn btn-warning text-white" data-toggle="tooltip"
                                         title="Ubah Kategori" data-placement="bottom">
                                         <i class="fas fa-layer-group"></i>
