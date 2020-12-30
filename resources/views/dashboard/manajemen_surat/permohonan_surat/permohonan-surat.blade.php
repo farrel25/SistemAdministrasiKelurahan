@@ -129,8 +129,8 @@
                                         <i class="fas fa-edit"></i>
                                     </button> --}}
                                     <button data-toggle="modal" data-target="#updateStatusModal"
-                                        name="btn-update-status" id="btn-update-status"
-                                        class="btn btn-info openUpdateStatusModal"
+                                        data-community="{{ json_encode($letterSubmission) }}" name=" btn-update-status"
+                                        id="btn-update-status" class="btn btn-info openUpdateStatusModal"
                                         data-letterId="{{$letterSubmission->id}}"
                                         data-statusid="{{$letterSubmission->status_id}}"
                                         data-statusname="{{$letterSubmission->letterStatus->status}}"
@@ -185,16 +185,6 @@
                 <div class="card-body ">
                     <nav class=" " aria-label="Page navigation example">
                         <ul class="pagination ">
-                            <!-- {{-- <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                aria-label="Previous"><span aria-hidden="true">«</span><span
-                                    class="sr-only">Previous</span></a></li>
-                        <li class="page-item active"><a href="javascript:void(0);" class="page-link">1</a></li>
-                        <li class="page-item"><a href="javascript:void(0);" class="page-link">2</a></li>
-                        <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
-                        <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
-                        <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
-                        <li class="page-item"><a href="javascript:void(0);" class="page-link" aria-label="Next"><span
-                                    aria-hidden="true">»</span><span class="sr-only">Next</span></a></li> --}} -->
                             {{ $letterSubmissions->links() }}
                         </ul>
                     </nav>
