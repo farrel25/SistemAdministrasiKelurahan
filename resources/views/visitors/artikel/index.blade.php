@@ -3,7 +3,39 @@
 @section('content')
 
 {{-- Start Breadcumb Section --}}
-@include('visitors.layouts.breadcumb', ['judul' => "Artikel"],['page1' => "/ Artikel"])
+@isset($category)
+<?php
+    $data=[
+        'judul' => "Artikel",
+        'link1' => route('visitors.artikel.index'),
+        'page1' => '/ Artikel',
+        'page2' => '/ '.$category->category
+    ]
+?>
+@endisset
+
+@isset($tag)
+<?php
+    $data=[
+        'judul' => "Artikel",
+        'link1' => route('visitors.artikel.index'),
+        'page1' => '/ Artikel',
+        'page2' => '/ '.$tag->name_tag
+    ]
+?>
+@endisset
+
+@if (!isset($category) && !isset($tag))
+<?php
+$data=[
+    'judul' => "Artikel",
+    'link1' => route('visitors.artikel.index'),
+    'page2' => '/ Artikel',
+]
+?>
+@endif
+
+@include('visitors.layouts.breadcumb', $data)
 {{-- Start end Section --}}
 
 {{-- Start Article Section --}}
