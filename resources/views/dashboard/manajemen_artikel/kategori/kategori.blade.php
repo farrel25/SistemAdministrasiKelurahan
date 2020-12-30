@@ -31,9 +31,8 @@
                             <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No.</th>
                             <th class=" text-center">Aksi</th>
-                            <th class=" text-center">Judul</th>
                             <th class=" text-center">Kategori</th>
-                            <th class=" text-center">Tanggal Posting</th>
+                            <th class=" text-center">Slug</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,23 +48,13 @@
                                     <a href="#" class="btn btn-danger" data-toggle="tooltip" title="Hapus Kategori"
                                         data-placement="bottom"><i class="fas fa-trash-alt"></i>
                                     </a>
-                                    <a href="#" class="btn btn-warning text-white" data-toggle="tooltip"
-                                        title="Ubah Kategori" data-placement="bottom"><i class="fas fa-layer-group"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-focus text-white" data-toggle="tooltip"
-                                        title="Tutup Komentar" data-placement="bottom"><i class="fas fa-comment"></i>
-                                        {{-- <i class="fas fa-comment-slash"></i> buat aktifkan komen --}}
-                                    </a>
                                     <a href="#" class="btn btn-secondary" data-toggle="tooltip"
                                         title="Non Aktifkan Kategori" data-placement="bottom">
                                         <i class="fas fa-lock-open"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-success" data-toggle="tooltip" title="Lihat Kategori"
-                                        data-placement="bottom"><i class="fas fa-eye"></i>
+                                        {{-- <i class="fas fa-lock"></i> Tutup Lock--}}
                                     </a>
                                 </div>
                             </td>
-                            <td class=" text-center">#</td>
                             <td class=" text-center">#</td>
                             <td class=" text-center">#</td>
                         </tr>

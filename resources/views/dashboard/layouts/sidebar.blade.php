@@ -33,19 +33,21 @@
     <div class="scrollbar-sidebar ">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
-                <!-- {{-- <li class="app-sidebar__heading">Dashboards</li>
+                <li class="app-sidebar__heading">Coba <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
+                </li>
                 <li>
                     <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'mm-active' : '' }}">
-                <i class="metismenu-icon pe-7s-rocket"></i>
-                Dashboard
-                </a>
+                        <i class="metismenu-icon pe-7s-rocket"></i>
+                        Dropdown 1
+                    </a>
                 </li>
                 <li>
                     <a href="{{ route('visitors.beranda.index') }}">
                         <i class="metismenu-icon pe-7s-home"></i>
-                        Kembali ke beranda
+                        Dropdown 2
                     </a>
                 </li>
+                <!-- {{--
                 <li class="app-sidebar__heading">
                     Info Kelurahan
                 </li>
@@ -73,6 +75,7 @@
                         Wilayah
                     </a>
                 </li>
+
                 <li>
                     <a href="#">
                         <i class="metismenu-icon pe-7s-copy-file"></i>

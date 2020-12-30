@@ -59,6 +59,7 @@
                                     <a href="#" class="btn btn-secondary" data-toggle="tooltip"
                                         title="Non Aktifkan Artikel" data-placement="bottom">
                                         <i class="fas fa-lock-open"></i>
+                                        {{-- <i class="fas fa-lock"></i> Tutup Lock--}}
                                     </a>
                                     <a href="#" class="btn btn-success" data-toggle="tooltip" title="Lihat Artikel"
                                         data-placement="bottom"><i class="fas fa-eye"></i>
