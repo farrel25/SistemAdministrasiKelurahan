@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ArticleComment;
 use App\ArticleTag;
 use Illuminate\Http\Request;
 
@@ -44,9 +45,14 @@ class ArticleTagController extends Controller
      * @param  \App\ArticleTag  $articleTag
      * @return \Illuminate\Http\Response
      */
-    public function show(ArticleTag $articleTag)
+    public function show(ArticleTag $tag)
     {
-        //
+        $articles = $tag->articles()->latest()->paginate(6);
+        // dd($articles);
+        $count = $articles->count();
+        $article_comments = ArticleComment::take(5)->latest()->get();
+
+        return view('visitors.artikel.index', compact('articles', 'tag', 'count', 'article_comments'));
     }
 
     /**

@@ -354,7 +354,8 @@
                                     <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="">
                                 </div>
                                 <div class="down-content">
-                                    <a href="post-details.html">
+                                    {{-- <a href="post-details.html"> --}}
+                                    <a href="{{ route('visitors.artikel.show', $article->slug) }}">
                                         <h4>{{$article->title}}</h4>
                                     </a>
 
@@ -377,7 +378,9 @@
                                     </ul>
                                     <p>{!!Str::limit($article->body,200)!!}
                                         <br>
-                                        <a href="/artikel/{{$article->slug}}">lebih lanjut...</a>
+                                        <a href="{{ route('visitors.artikel.show', $article->slug) }}">
+                                            lebih lanjut...
+                                        </a>
                                     </p>
                                 </div>
                             </div>

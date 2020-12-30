@@ -5,6 +5,7 @@
 {{-- Start Breadcumb Section --}}
 @include('visitors.layouts.breadcumb', ['judul' => "Artikel"],['page1' => "/ Artikel"])
 {{-- Start end Section --}}
+
 {{-- Start Article Section --}}
 <section id="article" class="blog-posts grid-system">
     <div class="container ">
@@ -17,24 +18,37 @@
                             <div class="blog-post">
                                 <div class="blog-thumb">
                                     {{-- <img src="{{ asset('/images') }}/img-article-01.png" alt=""> --}}
-                                    <img src="{{ $article->thumbnail }}" alt="">
+                                    {{-- <img src="{{ $article->thumbnail }}" alt=""> --}}
+                                    <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="">
                                 </div>
                                 <div class="down-content">
-                                    <a href="#">
-                                        <h4>{!!$article->title!!}</h4>
+                                    <a href="{{ route('visitors.artikel.show', $article->slug) }}">
+                                        <h4>{{$article->title}}</h4>
                                     </a>
+
+                                    <?php
+                                    $userId = $article->user_id;
+                                    $roleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
+                                    $role = \DB::table('roles')->select('model_has_roles.model_id','model_has_roles.role_id', 'roles.name')
+                                    ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
+                                    ->where('model_has_roles.role_id', $roleId)->get()->toArray();
+                                    ?>
+
                                     <ul class="post-info ">
-                                        <li><a href="#">{{ $article->user_id }}</a></li>
+                                        <li><a href="#">{{$role[0]->name}}</a></li>
                                         <li>
                                             <a href="#">
-                                                {{$article->created_at->diffForHumans()}}
-                                                {{-- Terahir dibuat --}}
+                                                {{-- {{$article->created_at->diffForHumans()}} --}}
+                                                {{$article->created_at->format('d F, Y')}}
                                             </a>
                                         </li>
                                     </ul>
                                     <p>
-                                        {{Str::limit($article->body,200)}}
-                                        <a href="/artikel/{{$article->slug}}">lebih lanjut...</a>
+                                        {!! Str::limit($article->body,200) !!}
+                                        <br>
+                                        <a href="{{ route('visitors.artikel.show', $article->slug) }}">
+                                            lebih lanjut...
+                                        </a>
                                     </p>
                                 </div>
                             </div>
@@ -67,6 +81,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-lg-4 mb-5" data-aos="fade-left" data-aos-delay="1000">
                 <div class="sidebar">
                     <div class="row">
@@ -74,6 +89,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>

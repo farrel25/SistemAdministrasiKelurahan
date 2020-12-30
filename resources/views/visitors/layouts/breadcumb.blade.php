@@ -6,9 +6,11 @@
                 <nav aria-label="breadcrumb">
                     <small>
                         <ol class="breadcrumb justify-content-center" style="background: none; content: none;">
-                            <li class=" "><a href="/">Beranda </a></li>
-                            <li class=" active" aria-current="page">&nbsp;{{ $page1 ?? ' '}}</li>
-                            <li class=" active" aria-current="page">&nbsp;{{ $page2 ?? ' '}}</li>
+                            <li class=" "><a href="{{ route('visitors.beranda.index') }}">Beranda </a></li>
+                            <li class=" active" aria-current="page">
+                                <a href="{{ $link1 ?? '#' }}">&nbsp;{{ $page1 ?? ' '}} </a>
+                            </li>
+                            <li class=" active" aria-current="page">&nbsp;{{ $page2 ?? ' '}} </li>
                             <li class=" active" aria-current="page">&nbsp;{{ $page3 ?? ' '}}</li>
                         </ol>
                     </small>

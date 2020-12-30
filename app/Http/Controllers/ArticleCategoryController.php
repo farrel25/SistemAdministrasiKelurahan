@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ArticleCategory;
+use App\ArticleComment;
 use Illuminate\Http\Request;
 
 class ArticleCategoryController extends Controller
@@ -45,9 +46,14 @@ class ArticleCategoryController extends Controller
      * @param  \App\ArticleCategory  $articleCategory
      * @return \Illuminate\Http\Response
      */
-    public function show(ArticleCategory $articleCategory)
+    public function show(ArticleCategory $category)
     {
-        //
+        $articles = $category->articles()->latest()->paginate(6);
+        // dd($articles);
+        $count = $articles->count();
+        $article_comments = ArticleComment::take(5)->latest()->get();
+
+        return view('visitors.artikel.index', compact('articles', 'category', 'count', 'article_comments'));
     }
 
     /**

@@ -141,6 +141,11 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
 });
 
 
+
+/**
+ * VISITOR ROUTE
+ */
+
 // Beranda
 Route::get('/', 'HomeController@beranda')->name('visitors.beranda.index');
 
@@ -167,6 +172,9 @@ Route::get('/kegiatan-masyarakat/umkm/view-product', function () {
 
 
 // Artikel
-// Route::view('/artikel', 'visitors.artikel.index')->name('visitors.artikel.index');
-Route::get('/artikel', 'ArticleController@index')->name('visitors.artikel.index'); //kolom slug g dibuat brarti id
-Route::get('/artikel/{article:slug}', 'ArticleController@viewartikel')->name('visitors.artikel.view');//kolom slug g dibuat brarti id
+Route::prefix('/artikel')->group(function () {
+    Route::get('', 'ArticleController@index')->name('visitors.artikel.index');
+    Route::get('/{article:slug}', 'ArticleController@show')->name('visitors.artikel.show');
+    Route::get('/categories/{category:slug}', 'ArticleCategoryController@show')->name('visitors.artikel.category.show');
+    Route::get('/tags/{tag:slug}', 'ArticleTagController@show')->name('visitors.artikel.tag.show');
+});
