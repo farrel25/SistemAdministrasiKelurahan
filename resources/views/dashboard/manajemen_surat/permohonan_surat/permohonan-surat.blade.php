@@ -86,10 +86,12 @@
                 <div class="btn-actions-pane-right ">
                     <a type="button"
                         class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
-                        href="#"><i class="fas fa-file-download "> </i> Unduh Data Excel</a>
-                    <a type="button"
+                        href="#">
+                        <i class="fas fa-file-download "></i> Unduh Data Excel
+                    </a>
+                    {{-- <a type="button"
                         class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
-                        href="#"><i class="fas fa-file-upload"></i> Unggah Data Excel</a>
+                        href="#"><i class="fas fa-file-upload"></i> Unggah Data Excel</a> --}}
                     <a type="button"
                         class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
                         href="#"><i class="fas fa-print "></i> Cetak Data Terpilih</a>
@@ -105,12 +107,13 @@
                         <tr>
                             <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No</th>
-                            <th class=" text-center">Actions</th>
+                            <th class=" text-center">Aksi</th>
                             <th class=" text-center">Kode Surat</th>
                             <th class=" text-center">Jenis Surat</th>
                             <th class=" text-center">Nama Penduduk</th>
                             <th class=" text-center">Keperluan</th>
-                            <th class=" text-center">Ditangani Oleh</th>
+                            {{-- yg menandatangani masih statis --}}
+                            <th class=" text-center">Ditandatangani Oleh</th>
                             <th class=" text-center">Tanggal</th>
                             <th class=" text-center">Status</th>
                         </tr>
@@ -122,7 +125,8 @@
                                     value="{{ $letterSubmission->id }}"></td>
                             <td class=" text-center">{{ $number + $letterSubmissions->firstItem() }}</td>
                             <td class=" text-center">
-                                <div class="btn-group-sm btn-group">
+                                {{-- <div class="btn-group-sm btn-group"> --}}
+                                <div class="d-flex justify-content-center">
                                     <!-- Modal ada di master -->
                                     {{-- <button data-toggle="modal" data-target="#exampleModal" class="btn btn-info"
                                         data-toggle="tooltip" title="Ubah Permohonan Surat" data-placement="bottom">
@@ -130,29 +134,38 @@
                                     </button> --}}
                                     <button data-toggle="modal" data-target="#updateStatusModal"
                                         data-community="{{ json_encode($letterSubmission) }}" name=" btn-update-status"
-                                        id="btn-update-status" class="btn btn-primary openUpdateStatusModal"
+                                        id="btn-update-status" class="btn btn-primary openUpdateStatusModal btn-sm mr-1"
                                         data-letterId="{{$letterSubmission->id}}"
                                         data-statusid="{{$letterSubmission->status_id}}"
                                         data-statusname="{{$letterSubmission->letterStatus->status}}"
                                         data-toggle="tooltip" title="Ubah Status Surat" data-placement="bottom">
                                         <i class="fas fa-edit"></i>
                                     </button>
+
                                     @if ($letterSubmission->status_id >= 3)
-                                    <a href="#" class="btn btn-alternate text-white" data-toggle="tooltip"
+                                    <a href="#" class="btn btn-alternate text-white btn-sm mr-1" data-toggle="tooltip"
                                         title="Cetak Permohonan Surat" data-placement="bottom">
                                         <i class="fas fa-print"></i>
                                     </a>
                                     @endif
-                                    <a href="#" class="btn btn-danger" data-toggle="tooltip"
-                                        title="Hapus Permohonan Surat" data-placement="bottom">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
+
+                                    <form id="delete-form"
+                                        action="{{ route('manajemen-surat.pengajuan-surat.destroy', $letterSubmission->id) }}"
+                                        method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
+                                            title="Hapus Permohonan Surat" data-placement="bottom">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                             <td class=" text-center">{{ $letterSubmission->letterType->letter_code }}</td>
                             <td class=" text-center">{{ $letterSubmission->letterType->type }}</td>
                             <td class=" text-center">{{ $letterSubmission->user->full_name }}</td>
                             <td class=" text-center">{{ $letterSubmission->keperluan }}</td>
+                            {{-- yg menandatangani masih statis --}}
                             <td class=" text-center">Bapaq</td>
                             <td class=" text-center">
                                 {{ date('d-m-Y', strtotime($letterSubmission->updated_at)) }}
@@ -260,6 +273,33 @@
     //         }
     //     });
     // });
+
+    $(document).on('click', '#delete-form', function(e) {
+        var form = this;
+        e.preventDefault();
+        swal.fire({
+            title: 'Hapus Data Ini?',
+            text: "Data Tidak Akan Kembali ",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Iya, hapus!',
+            cancelButtonText: 'Tidak, batalkan!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                return form.submit();
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swal.fire(
+                    'Dibatalkan',
+                    'Data anda masih tersimpan :)',
+                    'error'
+                )
+            }
+        })
+    });
 </script>
 
 @endsection

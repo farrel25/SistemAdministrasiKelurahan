@@ -107,6 +107,7 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
         Route::prefix('/pengajuan-surat')->group(function () {
             Route::get('', 'LetterSubmissionController@index')->name('manajemen-surat.pengajuan-surat');
             Route::patch('edit', 'LetterSubmissionController@update')->name('manajemen-surat.pengajuan-surat.update');
+            Route::delete('{letter_submission}/delete', 'LetterSubmissionController@destroy')->name('manajemen-surat.pengajuan-surat.destroy');
 
             // Route::patch('/{letter_status}/edit', function () {
             //     return 'Berhasil';

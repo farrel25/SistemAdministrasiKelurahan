@@ -88,51 +88,20 @@
                 <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
                     <thead>
                         <tr>
+                            <th class=" text-center">No</th>
+                            <th class=" text-center">Aksi</th>
                             <th class=" text-center">NIK</th>
                             <th class=" text-center">Foto</th>
                             <th class=" text-center">Nama</th>
                             <th class=" text-center">Nomor Hp</th>
-                            {{-- <th class=" text-center">Jenis Kelamin</th>
-                                --}}
-                            {{-- <th class=" text-center">Agama</th>
-                                --}}
-                            {{-- <th class=" text-center">Pekerjaan</th>
-                                --}}
                             <th class=" text-center">Alamat</th>
                             <th class=" text-center">Status</th>
-                            <th class=" text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($villagers as $villager)
+                        @foreach ($villagers as $number => $villager)
                         <tr>
-                            <td class="text-center">{{ $villager->nik }}</td>
-                            <td class="text-center">
-                                <img src="{{ asset('storage/' . $villager->photo) }}" alt="" width="70">
-                            </td>
-                            {{-- <td class="text-center">
-                                        <img src="{{ $villager->takeImage }}" alt="" width="70">
-                            </td> --}}
-                            <td class="text-center">{{ $villager->full_name }}</td>
-                            <td class="text-center">{{ $villager->phone_number }}</td>
-                            {{-- <td class="text-center">
-                                        {{ $villager->villagerSex->sex }}
-                            </td> --}}
-                            {{-- <td class=" text-center">
-                                        {{ $villager->villagerReligion->religion }}
-                            </td> --}}
-                            {{-- <td class=" text-center">
-                                        {{ $villager->villagerProfession->profession }}
-                            </td>
-                            --}}
-                            <td class="text-center">{{ $villager->address }}</td>
-                            <td class="text-center">
-                                @if (!$villager->user_id)
-                                <div class="badge badge-secondary">Tidak Aktif</div>
-                                @else
-                                <div class="badge badge-success">Aktif</div>
-                                @endif
-                            </td>
+                            <td class="text-center">{{ $number + $villagers->firstItem()}}</td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
                                     <a href="{{ route('penduduk-edit', $villager->nik) }}" class="btn btn-primary"
@@ -164,6 +133,20 @@
                                         class="btn btn-warning text-white" data-toggle="tooltip" title="Detail Data"
                                         data-placement="bottom"><i class="fas fa-info-circle"></i></a>
                                 </div>
+                            </td>
+                            <td class="text-center">{{ $villager->nik }}</td>
+                            <td class="text-center">
+                                <img src="{{ asset('storage/' . $villager->photo) }}" alt="" width="70">
+                            </td>
+                            <td class="text-center">{{ $villager->full_name }}</td>
+                            <td class="text-center">{{ $villager->phone_number }}</td>
+                            <td class="text-center">{{ $villager->address }}</td>
+                            <td class="text-center">
+                                @if (!$villager->user_id)
+                                <div class="badge badge-secondary">Tidak Aktif</div>
+                                @else
+                                <div class="badge badge-success">Aktif</div>
+                                @endif
                             </td>
                         </tr>
                         @endforeach

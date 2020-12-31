@@ -45,11 +45,8 @@
 
                                     <ul class="post-info">
                                         <li>
-                                            {{-- <a href="#">{{$role[0]->name}}</a> --}}
-                                            <li><a href="#">{{"Administrator"}}</a></li>
-                                            {{-- @php
-                                            var_dump($role)
-                                            @endphp --}}
+                                            <a href="#">{{$role[0]->name}}</a>
+                                            {{-- <li><a href="#">{{"Administrator"}}</a></li> --}}
                                         </li>
                                         <li>
                                             <a href="#">{{$article->created_at->format('d F, Y')}}</a>
@@ -151,27 +148,27 @@
                             <div class="sidebar-item submit-comment">
                                 <hr class="mb-3">
                                 <div class="sidebar-heading mb-4">
-                                    <h2>Your comment</h2>
+                                    <h2>Komentar</h2>
                                 </div>
                                 <div class="content">
                                     <form id="comment" action="#" method="post">
                                         <div class="row">
                                             <div class="col-md-6 col-sm-12">
                                                 <fieldset>
-                                                    <input name="name" type="text" id="name" placeholder="Your name"
+                                                    <input name="name" type="text" id="name" placeholder="Nama anda"
                                                         required="">
                                                 </fieldset>
                                             </div>
                                             <div class="col-md-6 col-sm-12">
                                                 <fieldset>
-                                                    <input name="email" type="text" id="email" placeholder="Your email"
+                                                    <input name="email" type="text" id="email" placeholder="Email anda"
                                                         required="">
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset>
                                                     <textarea name="message" rows="6" id="message"
-                                                        placeholder="Type your comment" required=""></textarea>
+                                                        placeholder="Masukkan komentar anda" required=""></textarea>
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">

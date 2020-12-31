@@ -8,24 +8,23 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    //
     public function index()
     {
+        $all_articles = Article::get();
         $articles = Article::orderby('updated_at', 'desc')->paginate(6);
         $count = Article::all()->count();
         $article_comments = ArticleComment::take(5)->latest()->get();
-        $all_articles = Article::get();
 
-        return view('visitors.artikel.index', compact('all_articles','count', 'articles', 'article_comments'));
+        return view('visitors.artikel.index', compact('all_articles', 'count', 'articles', 'article_comments'));
     }
 
     public function show(Article $article)
     {
-        $count = Article::all()->count();
-        $article_comments = ArticleComment::take(5)->latest()->get();
-        $countComments = ArticleComment::get()->count();
         $all_articles = Article::get();
+        $count = $all_articles->count();
+        $article_comments = ArticleComment::take(5)->latest()->get();
+        $countComments = $article->comments->count();
 
-        return view('visitors.artikel.view-artikel', compact('all_articles','article', 'count', 'article_comments', 'countComments'));
+        return view('visitors.artikel.view-artikel', compact('all_articles', 'article', 'count', 'article_comments', 'countComments'));
     }
 }

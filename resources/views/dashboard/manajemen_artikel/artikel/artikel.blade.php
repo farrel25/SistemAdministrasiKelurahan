@@ -108,8 +108,9 @@
                                     </form>
                                     @endif
 
-                                    <a href="#" class="btn btn-success btn-sm mr-1" data-toggle="tooltip"
-                                        title="Lihat Artikel" data-placement="bottom">
+                                    <a href="{{ route('visitors.artikel.show', $article->slug) }}" target="_blank"
+                                        class="btn btn-success btn-sm mr-1" data-toggle="tooltip" title="Lihat Artikel"
+                                        data-placement="bottom">
                                         <i class="fas fa-eye"></i>
                                     </a>
                                 </div>

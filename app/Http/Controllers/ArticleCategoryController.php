@@ -7,6 +7,7 @@ use App\ArticleComment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Alert;
+use App\Article;
 
 class ArticleCategoryController extends Controller
 {
@@ -54,12 +55,13 @@ class ArticleCategoryController extends Controller
      */
     public function show(ArticleCategory $category)
     {
+        $all_articles = Article::get();
         $articles = $category->articles()->latest()->paginate(6);
         // dd($articles);
         $count = $articles->count();
         $article_comments = ArticleComment::take(5)->latest()->get();
 
-        return view('visitors.artikel.index'/*, compact('articles', 'category', 'count', 'article_comments')*/);
+        return view('visitors.artikel.index', compact('all_articles', 'articles', 'category', 'count', 'article_comments'));
     }
 
     /**

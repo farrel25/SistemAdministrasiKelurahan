@@ -118,6 +118,8 @@ class LetterSubmissionController extends Controller
      */
     public function destroy(LetterSubmission $letterSubmission)
     {
-        //
+        $letterSubmission->delete();
+        Alert::success('Berhasil', 'Data pengajuan surat berhasil Ddhapus');
+        return redirect()->route('manajemen-surat.pengajuan-surat');
     }
 }

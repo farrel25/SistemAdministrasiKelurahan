@@ -7,6 +7,7 @@ use App\ArticleTag;
 use App\ArticleCategory;
 use Illuminate\Support\Facades\Auth;
 use Alert;
+use App\Article;
 
 class ArticleTagController extends Controller
 {
@@ -50,12 +51,13 @@ class ArticleTagController extends Controller
      */
     public function show(ArticleTag $tag)
     {
+        $all_articles = Article::get();
         $articles = $tag->articles()->latest()->paginate(6);
         // dd($articles);
         $count = $articles->count();
         $article_comments = ArticleComment::take(5)->latest()->get();
 
-        return view('visitors.artikel.index', compact('articles', 'tag', 'count', 'article_comments'));
+        return view('visitors.artikel.index', compact('all_articles', 'articles', 'tag', 'count', 'article_comments'));
     }
 
     /**
