@@ -4,7 +4,7 @@
 
 <?php
     $data=[
-        'icon' => "pe-7s-news-paper",
+        'icon' => "pe-7s-ribbon",
         'judul' => "Tag",
         'link' => route('manajemen-artikel.tag') ,
         'page1' => "Tag"
