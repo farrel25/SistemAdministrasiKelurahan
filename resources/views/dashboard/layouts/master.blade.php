@@ -29,6 +29,7 @@
     {{--
     <link href="./main.css" rel="stylesheet"> --}}
     <link href="{{ asset('/admin') }}/css/main.css" rel="stylesheet">
+    <link href="{{ asset('/admin') }}/css/style.css" rel="stylesheet">
     <link href="{{ asset('/admin') }}/css/pe-icon-7-stroke.css" rel="stylesheet">
     <link href="{{ asset('/admin') }}/css/helper.css" rel="stylesheet">
 
