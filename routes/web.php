@@ -135,8 +135,10 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             // update artikel
             Route::get('/{article}/edit', 'ArticleDashboardController@edit')->name('manajemen-artikel.artikel.edit');
             Route::patch('/{article}/edit', 'ArticleDashboardController@update')->name('manajemen-artikel.artikel.update');
-            // comment actvation
+            // comment activation
             Route::patch('/{article}/aktivasi-komentar', 'ArticleDashboardController@commentActivation')->name('manajemen-artikel.artikel.comment-activation');
+            // show activation
+            Route::patch('/{article}/aktivasi', 'ArticleDashboardController@showActivation')->name('manajemen-artikel.artikel.activation');
             // delete article
             Route::delete('/{article}/delete', 'ArticleDashboardController@destroy')->name('manajemen-artikel.artikel.destroy');
         });

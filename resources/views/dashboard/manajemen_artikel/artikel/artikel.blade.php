@@ -85,7 +85,8 @@
                                     @endif
 
                                     @if ($article->enabled == 1)
-                                    <form method="POST" action="#">
+                                    <form method="POST"
+                                        action="{{ route('manajemen-artikel.artikel.activation', $article->id) }}">
                                         @csrf
                                         @method('patch')
                                         <input type="hidden" name="enabled" value="0">
@@ -95,7 +96,8 @@
                                         </button>
                                     </form>
                                     @else
-                                    <form method="POST" action="#">
+                                    <form method="POST"
+                                        action="{{ route('manajemen-artikel.artikel.activation', $article->id) }}">
                                         @csrf
                                         @method('patch')
                                         <input type="hidden" name="enabled" value="1">

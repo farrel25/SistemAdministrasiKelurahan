@@ -260,7 +260,6 @@ class ArticleDashboardController extends Controller
 
     public function commentActivation(Request $request, Article $article)
     {
-        // dd($article);
         $attr = $request->validate([
             'commentable' => 'required|boolean'
         ]);
@@ -271,6 +270,23 @@ class ArticleDashboardController extends Controller
             Alert::success(' Berhasil ', 'Komentar artikel berhasil di aktifkan');
         } else {
             Alert::success(' Berhasil ', 'Komentar artikel berhasil di non-aktifkan');
+        }
+
+        return redirect()->route('manajemen-artikel.artikel');
+    }
+
+    public function showActivation(Request $request, Article $article)
+    {
+        $attr = $request->validate([
+            'enabled' => 'required|boolean'
+        ]);
+
+        $article->update($attr);
+
+        if ($request->enabled == 1) {
+            Alert::success(' Berhasil ', 'Artikel berhasil di aktifkan');
+        } else {
+            Alert::success(' Berhasil ', 'Artikel berhasil di non-aktifkan');
         }
 
         return redirect()->route('manajemen-artikel.artikel');
