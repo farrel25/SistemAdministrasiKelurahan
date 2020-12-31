@@ -45,7 +45,11 @@
 
                                     <ul class="post-info">
                                         <li>
-                                            <a href="#">{{$role[0]->name}}</a>
+                                            {{-- <a href="#">{{$role[0]->name}}</a> --}}
+                                            <li><a href="#">{{"Administrator"}}</a></li>
+                                            {{-- @php
+                                            var_dump($role)
+                                            @endphp --}}
                                         </li>
                                         <li>
                                             <a href="#">{{$article->created_at->format('d F, Y')}}</a>

@@ -26,3 +26,4 @@ $factory->define(Article::class, function (Faker $faker) {
         'link_document' => null
     ];
 });
+// factory ('App\Article', 10)->create();

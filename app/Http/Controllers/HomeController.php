@@ -32,6 +32,6 @@ class HomeController extends Controller
     {
         $articles = Article::orderby('updated_at', 'desc')->paginate(3);
 
-        return view('visitors.beranda.index', ['count' => Article::all()->count(), 'articles' => $articles, 'article_comments' => ArticleComment::take(5)->latest()->get()]);
+        return view('visitors.beranda.index',  ['all_articles' => Article::get(), 'count' => Article::all()->count(),'articles' => Article::orderby('created_at', 'desc')->paginate(6), 'article_comments' => ArticleComment::get()]);
     }
 }
