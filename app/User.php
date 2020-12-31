@@ -54,10 +54,12 @@ class User extends Authenticatable
         return $this->hasMany(Article::class);
     }
 
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class, 'model_has_roles', 'role_id');
-    }
+    // ini jangan di uncomment dulu, ntar eror pas register
+    // SQLSTATE[HY000]: General error: 1364 Field 'model_type' doesn't have a default value
+    // public function roles()
+    // {
+    //     return $this->belongsToMany(Role::class, 'model_has_roles', 'model_id', 'role_id');
+    // }
 
     // public function articleComments()
     // {

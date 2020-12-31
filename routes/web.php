@@ -133,8 +133,10 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             Route::get('/tambah', 'ArticleDashboardController@create')->name('manajemen-artikel.artikel.create');
             Route::post('/tambah', 'ArticleDashboardController@store')->name('manajemen-artikel.artikel.store');
             // update artikel
-            Route::get('{article}/edit', 'ArticleDashboardController@edit')->name('manajemen-artikel.artikel.edit');
-            Route::patch('{article}/edit', 'ArticleDashboardController@update')->name('manajemen-artikel.artikel.update');
+            Route::get('/{article}/edit', 'ArticleDashboardController@edit')->name('manajemen-artikel.artikel.edit');
+            Route::patch('/{article}/edit', 'ArticleDashboardController@update')->name('manajemen-artikel.artikel.update');
+            // comment actvation
+            Route::patch('/{article}/aktivasi-komentar', 'ArticleDashboardController@commentActivation')->name('manajemen-artikel.artikel.comment-activation');
             // delete article
             Route::delete('/{article}/delete', 'ArticleDashboardController@destroy')->name('manajemen-artikel.artikel.destroy');
         });

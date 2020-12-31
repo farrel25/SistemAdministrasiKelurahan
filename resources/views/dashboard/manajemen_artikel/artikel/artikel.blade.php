@@ -60,21 +60,52 @@
                                         </button>
                                     </form>
 
-                                    {{-- <a href="#" class="btn btn-warning text-white" data-toggle="tooltip"
-                                        title="Ubah Kategori" data-placement="bottom">
-                                        <i class="fas fa-layer-group"></i>
-                                    </a> --}}
+                                    @if ($article->commentable == 1)
+                                    <form method="POST"
+                                        action="{{ route('manajemen-artikel.artikel.comment-activation', $article->id) }}">
+                                        @csrf
+                                        @method('patch')
+                                        <input type="hidden" name="commentable" value="0">
+                                        <button type="submit" class="btn btn-focus text-white" data-toggle="tooltip"
+                                            title="Tutup Komentar" data-placement="bottom">
+                                            <i class="fas fa-comment"></i>
+                                        </button>
+                                    </form>
+                                    @else
+                                    <form method="POST"
+                                        action="{{ route('manajemen-artikel.artikel.comment-activation', $article->id) }}">
+                                        @csrf
+                                        @method('patch')
+                                        <input type="hidden" name="commentable" value="1">
+                                        <button type="submit" class="btn btn-focus text-white" data-toggle="tooltip"
+                                            title="Aktifkan Komentar" data-placement="bottom">
+                                            <i class="fas fa-comment-slash"></i>
+                                        </button>
+                                    </form>
+                                    @endif
 
-                                    <a href="#" class="btn btn-focus text-white" data-toggle="tooltip"
-                                        title="Tutup Komentar" data-placement="bottom">
-                                        <i class="fas fa-comment"></i>
-                                        {{-- <i class="fas fa-comment-slash"></i> buat aktifkan komen --}}
-                                    </a>
-                                    <a href="#" class="btn btn-secondary" data-toggle="tooltip"
-                                        title="Non Aktifkan Artikel" data-placement="bottom">
-                                        <i class="fas fa-lock-open"></i>
-                                        {{-- <i class="fas fa-lock"></i> Tutup Lock--}}
-                                    </a>
+                                    @if ($article->enabled == 1)
+                                    <form method="POST" action="#">
+                                        @csrf
+                                        @method('patch')
+                                        <input type="hidden" name="enabled" value="0">
+                                        <button type="submit" class="btn btn-secondary" data-toggle="tooltip"
+                                            title="Non Aktifkan Artikel" data-placement="bottom">
+                                            <i class="fas fa-lock-open"></i>
+                                        </button>
+                                    </form>
+                                    @else
+                                    <form method="POST" action="#">
+                                        @csrf
+                                        @method('patch')
+                                        <input type="hidden" name="enabled" value="1">
+                                        <button type="submit" class="btn btn-secondary" data-toggle="tooltip"
+                                            title="Aktifkan Artikel" data-placement="bottom">
+                                            <i class="fas fa-lock"></i>
+                                        </button>
+                                    </form>
+                                    @endif
+
                                     <a href="#" class="btn btn-success" data-toggle="tooltip" title="Lihat Artikel"
                                         data-placement="bottom">
                                         <i class="fas fa-eye"></i>

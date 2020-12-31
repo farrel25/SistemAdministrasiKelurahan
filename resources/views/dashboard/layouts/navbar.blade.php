@@ -61,7 +61,7 @@
                                 {{ Auth::user()->full_name }}
                             </div>
                             <div class="widget-subheading">
-                                {{ Auth::user()->roles->toArray()[0]['name'] }}
+                                {{ Auth::user()->roles[0]->name }}
                             </div>
                         </div>
                         <div class="widget-content-left">

@@ -257,4 +257,22 @@ class ArticleDashboardController extends Controller
 
         return redirect()->route('manajemen-artikel.artikel');
     }
+
+    public function commentActivation(Request $request, Article $article)
+    {
+        // dd($article);
+        $attr = $request->validate([
+            'commentable' => 'required|boolean'
+        ]);
+
+        $article->update($attr);
+
+        if ($request->commentable == 1) {
+            Alert::success(' Berhasil ', 'Komentar artikel berhasil di aktifkan');
+        } else {
+            Alert::success(' Berhasil ', 'Komentar artikel berhasil di non-aktifkan');
+        }
+
+        return redirect()->route('manajemen-artikel.artikel');
+    }
 }
