@@ -43,8 +43,9 @@
                             <td class=" text-center">{{ $number + $articles->firstItem() }}</td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
-                                    <a href="{{ route('manajemen-artikel.artikel.edit') }}" class="btn btn-primary"
-                                        data-toggle="tooltip" title="Edit Artikel" data-placement="bottom">
+                                    <a href="{{ route('manajemen-artikel.artikel.edit', $article->id) }}"
+                                        class="btn btn-primary" data-toggle="tooltip" title="Edit Artikel"
+                                        data-placement="bottom">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
@@ -59,10 +60,11 @@
                                         </button>
                                     </form>
 
-                                    <a href="#" class="btn btn-warning text-white" data-toggle="tooltip"
+                                    {{-- <a href="#" class="btn btn-warning text-white" data-toggle="tooltip"
                                         title="Ubah Kategori" data-placement="bottom">
                                         <i class="fas fa-layer-group"></i>
-                                    </a>
+                                    </a> --}}
+
                                     <a href="#" class="btn btn-focus text-white" data-toggle="tooltip"
                                         title="Tutup Komentar" data-placement="bottom">
                                         <i class="fas fa-comment"></i>

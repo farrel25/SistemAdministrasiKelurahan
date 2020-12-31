@@ -132,8 +132,9 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             // store article
             Route::get('/tambah', 'ArticleDashboardController@create')->name('manajemen-artikel.artikel.create');
             Route::post('/tambah', 'ArticleDashboardController@store')->name('manajemen-artikel.artikel.store');
-            // update jenis
-            Route::get('/edit', 'ArticleDashboardController@edit')->name('manajemen-artikel.artikel.edit');
+            // update artikel
+            Route::get('{article}/edit', 'ArticleDashboardController@edit')->name('manajemen-artikel.artikel.edit');
+            Route::patch('{article}/edit', 'ArticleDashboardController@update')->name('manajemen-artikel.artikel.update');
             // delete article
             Route::delete('/{article}/delete', 'ArticleDashboardController@destroy')->name('manajemen-artikel.artikel.destroy');
         });
@@ -148,6 +149,15 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
 
 // Beranda
 Route::get('/', 'HomeController@beranda')->name('visitors.beranda.index');
+
+
+// Artikel
+Route::prefix('/artikel')->group(function () {
+    Route::get('', 'ArticleController@index')->name('visitors.artikel.index');
+    Route::get('/{article:slug}', 'ArticleController@show')->name('visitors.artikel.show');
+    Route::get('/categories/{category:slug}', 'ArticleCategoryController@show')->name('visitors.artikel.category.show');
+    Route::get('/tags/{tag:slug}', 'ArticleTagController@show')->name('visitors.artikel.tag.show');
+});
 
 
 // Profil_desa
@@ -169,12 +179,3 @@ Route::get('/kegiatan-masyarakat/umkm', function () {
 Route::get('/kegiatan-masyarakat/umkm/view-product', function () {
     return view('visitors.kegiatan_masyarakat.umkm.view-product');
 })->name('visitors.kegiatan_masyarakat.umkm.view-product');
-
-
-// Artikel
-Route::prefix('/artikel')->group(function () {
-    Route::get('', 'ArticleController@index')->name('visitors.artikel.index');
-    Route::get('/{article:slug}', 'ArticleController@show')->name('visitors.artikel.show');
-    Route::get('/categories/{category:slug}', 'ArticleCategoryController@show')->name('visitors.artikel.category.show');
-    Route::get('/tags/{tag:slug}', 'ArticleTagController@show')->name('visitors.artikel.tag.show');
-});

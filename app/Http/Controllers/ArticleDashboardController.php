@@ -126,9 +126,13 @@ class ArticleDashboardController extends Controller
      * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(Article $article)
     {
-        return view('dashboard.manajemen_artikel.artikel.artikel-edit');
+        $categories = ArticleCategory::get();
+        $tags = ArticleTag::get();
+        $tagCheck = \DB::table('article_article_tag')->where('article_id', $article->id)->pluck('tag_id')->toArray();
+
+        return view('dashboard.manajemen_artikel.artikel.artikel-edit', compact('article', 'categories', 'tags', 'tagCheck'));
     }
 
     /**
@@ -140,16 +144,93 @@ class ArticleDashboardController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //     $attr = $request->validate([
-        //         'type' => 'required|string|max:255',
-        //         // 'validity_period' => 'required|numeric|min:1|max:31',
-        //         // 'validity_period_unit' => 'required|alpha',
-        //     ]);
+        $attr = $request->validate([
+            'category_id' => 'required|numeric',
+            'title' => 'required|string',
+            'thumbnail' => 'image|max:3000',
+            'body' => 'required|string',
+            'tags' => 'required|array',
+            'document' => 'file|max:5000',
+        ]);
 
-        //     // $letterType->update($attr);
-        //     // Alert::success(' Berhasil ', 'Jenis artikel berhasil Diperbarui');
 
-        //     return redirect()->route('manajemen-artikel.jenis-artikel');
+        $userId = Auth::user()->id;
+
+        $thumbnailUrl = null;
+        $documentUrl = null;
+        $documentName = null;
+
+        // cek apakah thumbnail sudah di inputkan
+        if ($request->hasFile('thumbnail')) {
+            $thumbnailSize = $request->file('thumbnail')->getSize();
+            // cek ukuran thumbnail yg diupload
+            if ($thumbnailSize <= 3000000) {
+                // cek apakah ada thumbnail lama
+                if ($article->thumbnail) {
+                    // hapus thumbnail lama
+                    \Storage::delete($article->thumbnail);
+                }
+                // ambil file thumbnail
+                $thumbnail = $request->file('thumbnail');
+                // rename file thumbnail
+                $originalName = explode('.', $thumbnail->getClientOriginalName());
+                $thumbnailName = $originalName[0] . time() . '.' . $thumbnail->extension();
+                // menentukan lokasi penyimpanan thumbnail
+                $thumbnailUrl = $thumbnail->storeAs("images/thumbnail", "{$thumbnailName}");
+            } else {
+                // jika thumbnail yg diupload lebih dari 3MB, simpan yg lama
+                $thumbnailUrl = $article->thumbnail;
+            }
+        } else {
+            // jika thumbnail tidak diupdate, simpan yg lama
+            $thumbnailUrl = $article->thumbnail;
+        }
+
+        // cek apakah document sudah di inputkan
+        if ($request->hasFile('document')) {
+            // ambil ukuran document
+            $documentSize = $request->file('document')->getSize();
+            // cek ukuran document yg diupload
+            if ($documentSize <= 5000000) {
+                // cek apakah ada document lama
+                if ($article->link_document) {
+                    // hapus document lama
+                    \Storage::delete($article->link_document);
+                }
+                // ambil file document
+                $document = $request->file('document');
+                // rename file document
+                $originalName = explode('.', $document->getClientOriginalName());
+                $documentName = $originalName[0] . time() . '.' .  $document->extension();
+                // menentukan lokasi penyimpanan document
+                $documentUrl = $document->storeAs("document/article_document", "{$documentName}");
+            } else {
+                // jika document yg diupload lebih dari 5MB, simpan yg lama
+                $documentName = $article->document;
+                $documentUrl = $article->link_document;
+            }
+        } else {
+            // jika document tidak diupdate, simpan yg lama
+            $documentName = $article->document;
+            $documentUrl = $article->link_document;
+        }
+
+
+        $attr['user_id'] = $userId;
+        $attr['slug'] = \Str::slug($attr['title']);
+        $attr['thumbnail'] = $thumbnailUrl;
+        // $attr['enabled'] = 1;
+        // $attr['commentable'] = 1;
+        $attr['document'] = $documentName;
+        $attr['link_document'] = $documentUrl;
+        // dd($attr);
+
+        $article->update($attr);
+        $article->tags()->sync($request->tags);
+
+        Alert::success(' Berhasil ', 'Artikel berhasil Diperbarui');
+
+        return redirect()->route('manajemen-artikel.artikel');
     }
 
     /**

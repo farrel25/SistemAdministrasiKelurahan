@@ -135,8 +135,8 @@
                                             <tr>
                                                 <td class="text-center">
                                                     <input name="letter_document_id[]" value="{{ $document->id }}"
-                                                        type="checkbox" @if (in_array($document->id,$requirementCheck))
-                                                    checked @endif>
+                                                        type="checkbox"
+                                                        {{ in_array($document->id,$requirementCheck) ? 'checked' : ''}}>
                                                 </td>
                                                 <td class="text-center">{{ ++$no }}</td>
                                                 <td>{{ $document->document }}</td>

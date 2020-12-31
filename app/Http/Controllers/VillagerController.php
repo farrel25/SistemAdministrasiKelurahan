@@ -99,7 +99,7 @@ class VillagerController extends Controller
             // ambil ukuran foto
             $photoSize = $request->file('photo')->getSize();
             // cek ukuran foto yg diupload
-            if ($photoSize <= 1024) {
+            if ($photoSize <= 1000000) {
                 // ambil file foto
                 $photo = $request->file('photo');
                 // rename file foto
