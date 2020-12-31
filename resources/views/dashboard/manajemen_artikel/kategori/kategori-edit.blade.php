@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class=" col-lg-9">
                         <form class="">
-                            <button class="mt-2 btn btn-primary">Tambah Data</button>
+                            <button class="mt-2 btn btn-primary">Edit Data</button>
                             <button class="mt-2 btn btn-outline-danger">Cancel</button>
                         </form>
                     </div>

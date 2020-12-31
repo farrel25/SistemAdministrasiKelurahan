@@ -20,7 +20,7 @@
                         class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
                         href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
                     {{-- <a type="button" class="btn btn-lg btn-focus btn-sm text-white font-weight-normal "
-                        href="{{ route('manajemen-artikel.artikel.create') }}">+
+                                href="{{ route('manajemen-artikel.kategori.create') }}">+
                     Tambah Data </a> --}}
                 </div>
             </div>
@@ -31,9 +31,7 @@
                             <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No.</th>
                             <th class=" text-center">Aksi</th>
-                            <th class=" text-center">Judul</th>
-                            <th class=" text-center">Kategori</th>
-                            <th class=" text-center">Tanggal Posting</th>
+                            <th class=" text-center">Tag</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,32 +39,21 @@
                             <td class=" text-center"><input type="checkbox" name="chkbox[]" value="1"></td>
                             <td class=" text-center">#</td>
                             <td class=" text-center">
-                                <div class="btn-group-sm btn-group">
-                                    <a href="{{ route('manajemen-artikel.tag.edit') }}" class="btn btn-primary"
-                                        data-toggle="tooltip" title="Edit Tag" data-placement="bottom"><i
-                                            class="fas fa-edit"></i>
+                                <div class=" d-flex justify-content-center">
+                                    <a href="{{ route('manajemen-artikel.tag.edit') }}"
+                                        class="btn btn-primary btn-sm mr-1" data-toggle="tooltip" title="Edit Kategori"
+                                        data-placement="bottom"><i class="fas fa-edit "></i>
                                     </a>
-                                    <a href="#" class="btn btn-danger" data-toggle="tooltip" title="Hapus Tag"
-                                        data-placement="bottom"><i class="fas fa-trash-alt"></i>
+                                    <a href="#" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
+                                        title="Hapus Kategori" data-placement="bottom"><i class="fas fa-trash-alt"></i>
                                     </a>
-                                    <a href="#" class="btn btn-warning text-white" data-toggle="tooltip"
-                                        title="Ubah Kategori" data-placement="bottom"><i class="fas fa-layer-group"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-focus text-white" data-toggle="tooltip"
-                                        title="Tutup Komentar" data-placement="bottom"><i class="fas fa-comment"></i>
-                                        {{-- <i class="fas fa-comment-slash"></i> buat aktifkan komen --}}
-                                    </a>
-                                    <a href="#" class="btn btn-secondary" data-toggle="tooltip" title="Non Aktifkan Tag"
-                                        data-placement="bottom">
+                                    <a href="#" class="btn btn-secondary btn-sm mr-1" data-toggle="tooltip"
+                                        title="Non Aktifkan Kategori" data-placement="bottom">
                                         <i class="fas fa-lock-open"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-success" data-toggle="tooltip" title="Lihat Tag"
-                                        data-placement="bottom"><i class="fas fa-eye"></i>
+                                        {{-- <i class="fas fa-lock"></i> Tutup Lock--}}
                                     </a>
                                 </div>
                             </td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
                             <td class=" text-center">#</td>
                         </tr>
                     </tbody>

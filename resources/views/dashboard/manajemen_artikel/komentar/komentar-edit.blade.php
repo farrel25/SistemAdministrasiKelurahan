@@ -51,11 +51,8 @@
                             <button class="mt-2 btn btn-outline-danger">Cancel</button>
                         </form>
                     </div>
-
                 </div>
             </div>
-
-
         </div>
     </div>
 </div>

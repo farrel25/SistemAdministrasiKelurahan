@@ -33,6 +33,7 @@
                             <th class=" text-center">Aksi</th>
                             <th class=" text-center">Pengirim</th>
                             <th class=" text-center">Email Pengirim</th>
+                            <th class=" text-center">Judul Artikel</th>
                             <th class=" text-center">Isi Komentar</th>
                         </tr>
                     </thead>
@@ -56,6 +57,7 @@
                                     </a>
                                 </div>
                             </td>
+                            <td class=" text-center">#</td>
                             <td class=" text-center">#</td>
                             <td class=" text-center">#</td>
                             <td class=" text-center">#</td>
