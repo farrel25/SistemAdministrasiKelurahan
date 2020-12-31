@@ -13,7 +13,7 @@
             <form id="editStatusForm" action="{{route('manajemen-surat.pengajuan-surat.update')}}" method="post">
                 @csrf
                 @method('patch')
-                <input type="text" name="letter_id" id="letter_id" value="">
+                <input type="text" name="letter_id" id="letter_id" value="" class="d-none">
                 <div class="position-relative form-group m-5">
                     <label for="status_id" class="">Status</label>
                     <select name="status_id" id="status_id" class="mb-2 form-control" value="">

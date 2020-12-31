@@ -42,9 +42,9 @@
                             <td class=" text-center"><input type="checkbox" name="chkbox[]" value="1"></td>
                             <td class=" text-center">{{ $number + $articles->firstItem() }}</td>
                             <td class=" text-center">
-                                <div class="btn-group-sm btn-group">
+                                <div class="d-flex justify-content-center">
                                     <a href="{{ route('manajemen-artikel.artikel.edit', $article->id) }}"
-                                        class="btn btn-primary" data-toggle="tooltip" title="Edit Artikel"
+                                        class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip" title="Edit Artikel"
                                         data-placement="bottom">
                                         <i class="fas fa-edit"></i>
                                     </a>
@@ -54,7 +54,7 @@
                                         method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger" data-toggle="tooltip"
+                                        <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
                                             title="Hapus Artikel" data-placement="bottom">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
@@ -66,8 +66,8 @@
                                         @csrf
                                         @method('patch')
                                         <input type="hidden" name="commentable" value="0">
-                                        <button type="submit" class="btn btn-focus text-white" data-toggle="tooltip"
-                                            title="Tutup Komentar" data-placement="bottom">
+                                        <button type="submit" class="btn btn-focus text-white btn-sm mr-1"
+                                            data-toggle="tooltip" title="Tutup Komentar" data-placement="bottom">
                                             <i class="fas fa-comment"></i>
                                         </button>
                                     </form>
@@ -77,8 +77,8 @@
                                         @csrf
                                         @method('patch')
                                         <input type="hidden" name="commentable" value="1">
-                                        <button type="submit" class="btn btn-focus text-white" data-toggle="tooltip"
-                                            title="Aktifkan Komentar" data-placement="bottom">
+                                        <button type="submit" class="btn btn-focus text-white btn-sm mr-1"
+                                            data-toggle="tooltip" title="Aktifkan Komentar" data-placement="bottom">
                                             <i class="fas fa-comment-slash"></i>
                                         </button>
                                     </form>
@@ -90,8 +90,8 @@
                                         @csrf
                                         @method('patch')
                                         <input type="hidden" name="enabled" value="0">
-                                        <button type="submit" class="btn btn-secondary" data-toggle="tooltip"
-                                            title="Non Aktifkan Artikel" data-placement="bottom">
+                                        <button type="submit" class="btn btn-secondary btn-sm mr-1"
+                                            data-toggle="tooltip" title="Non Aktifkan Artikel" data-placement="bottom">
                                             <i class="fas fa-lock-open"></i>
                                         </button>
                                     </form>
@@ -101,15 +101,15 @@
                                         @csrf
                                         @method('patch')
                                         <input type="hidden" name="enabled" value="1">
-                                        <button type="submit" class="btn btn-secondary" data-toggle="tooltip"
-                                            title="Aktifkan Artikel" data-placement="bottom">
+                                        <button type="submit" class="btn btn-secondary btn-sm mr-1"
+                                            data-toggle="tooltip" title="Aktifkan Artikel" data-placement="bottom">
                                             <i class="fas fa-lock"></i>
                                         </button>
                                     </form>
                                     @endif
 
-                                    <a href="#" class="btn btn-success" data-toggle="tooltip" title="Lihat Artikel"
-                                        data-placement="bottom">
+                                    <a href="#" class="btn btn-success btn-sm mr-1" data-toggle="tooltip"
+                                        title="Lihat Artikel" data-placement="bottom">
                                         <i class="fas fa-eye"></i>
                                     </a>
                                 </div>

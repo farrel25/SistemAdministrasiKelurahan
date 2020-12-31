@@ -368,7 +368,7 @@
                                     ?>
 
                                     <ul class="post-info ">
-                                        {{-- <li><a href="#">{{$role[0]->name}}</a></li> --}}
+                                        <li><a href="#">{{$role[0]->name}}</a></li>
                                         <li><a href="#">{{"Administrator"}}</a></li>
                                         <li>
                                             <a href="#">

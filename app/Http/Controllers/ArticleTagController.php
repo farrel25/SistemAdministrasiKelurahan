@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\ArticleComment;
 use App\ArticleTag;
-use Illuminate\Http\Request;
+use App\ArticleCategory;
+use Illuminate\Support\Facades\Auth;
+use Alert;
 
 class ArticleTagController extends Controller
 {
@@ -15,8 +17,9 @@ class ArticleTagController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.manajemen_artikel.tag.tag'/*, compact('articles')*/);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -63,7 +66,7 @@ class ArticleTagController extends Controller
      */
     public function edit(ArticleTag $articleTag)
     {
-        //
+        return view('dashboard.manajemen_artikel.tag.tag-edit'/*, compact('article', 'categories', 'tags', 'tagCheck')*/);
     }
 
     /**

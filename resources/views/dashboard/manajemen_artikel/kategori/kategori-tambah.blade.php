@@ -6,7 +6,7 @@
     $data=[
         'icon' => "pe-7s-plus",
         'judul' => "Tambah Kategori",
-        'link' => route('manajemen-Kategori.Kategori') ,
+        'link' => route('manajemen-artikel.kategori') ,
         'page1' => "Kategori",
         'page2' => "/ Tambah",
     ]

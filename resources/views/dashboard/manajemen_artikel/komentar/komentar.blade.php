@@ -4,9 +4,9 @@
 
 <?php
     $data=[
-        'icon' => "pe-7s-news-paper",
+        'icon' => "pe-7s-chat",
         'judul' => "Komentar",
-        'link' => route('manajemen-artikel.artikel') ,
+        'link' => route('manajemen-artikel.komentar') ,
         'page1' => "Komentar"
     ]
 ?>
@@ -19,9 +19,9 @@
                 <div class="btn-actions-pane-right "><a type="button"
                         class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
                         href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
-                    <a type="button" class="btn btn-lg btn-focus btn-sm text-white font-weight-normal "
-                        href="{{ route('manajemen-artikel.artikel.create') }}">+
-                        Tambah Data </a>
+                    {{-- <a type="button" class="btn btn-lg btn-focus btn-sm text-white font-weight-normal "
+                            href="{{ route('manajemen-artikel.kategori.create') }}">+
+                    Tambah Data </a> --}}
                 </div>
             </div>
             <div class="table-responsive">
@@ -31,9 +31,9 @@
                             <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No.</th>
                             <th class=" text-center">Aksi</th>
-                            <th class=" text-center">Judul</th>
-                            <th class=" text-center">Kategori</th>
-                            <th class=" text-center">Tanggal Posting</th>
+                            <th class=" text-center">Pengirim</th>
+                            <th class=" text-center">Email Pengirim</th>
+                            <th class=" text-center">Isi Komentar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,27 +41,18 @@
                             <td class=" text-center"><input type="checkbox" name="chkbox[]" value="1"></td>
                             <td class=" text-center">#</td>
                             <td class=" text-center">
-                                <div class="btn-group-sm btn-group">
-                                    <a href="{{ route('manajemen-artikel.artikel.edit') }}" class="btn btn-primary"
-                                        data-toggle="tooltip" title="Edit Komentar" data-placement="bottom"><i
-                                            class="fas fa-edit"></i>
+                                <div class=" d-flex justify-content-center">
+                                    <a href="{{ route('manajemen-artikel.komentar.edit') }}"
+                                        class="btn btn-primary btn-sm mr-1" data-toggle="tooltip" title="Edit Komentar"
+                                        data-placement="bottom"><i class="fas fa-edit "></i>
                                     </a>
-                                    <a href="#" class="btn btn-danger" data-toggle="tooltip" title="Hapus Komentar"
-                                        data-placement="bottom"><i class="fas fa-trash-alt"></i>
+                                    <a href="#" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
+                                        title="Hapus Komentar" data-placement="bottom"><i class="fas fa-trash-alt"></i>
                                     </a>
-                                    <a href="#" class="btn btn-warning text-white" data-toggle="tooltip"
-                                        title="Ubah Kategori" data-placement="bottom"><i class="fas fa-layer-group"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-focus text-white" data-toggle="tooltip"
-                                        title="Tutup Komentar" data-placement="bottom"><i class="fas fa-comment"></i>
-                                        {{-- <i class="fas fa-comment-slash"></i> buat aktifkan komen --}}
-                                    </a>
-                                    <a href="#" class="btn btn-secondary" data-toggle="tooltip"
+                                    <a href="#" class="btn btn-secondary btn-sm mr-1" data-toggle="tooltip"
                                         title="Non Aktifkan Komentar" data-placement="bottom">
                                         <i class="fas fa-lock-open"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-success" data-toggle="tooltip" title="Lihat Komentar"
-                                        data-placement="bottom"><i class="fas fa-eye"></i>
+                                        {{-- <i class="fas fa-lock"></i> Tutup Lock--}}
                                     </a>
                                 </div>
                             </td>

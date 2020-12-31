@@ -130,7 +130,7 @@
                                     </button> --}}
                                     <button data-toggle="modal" data-target="#updateStatusModal"
                                         data-community="{{ json_encode($letterSubmission) }}" name=" btn-update-status"
-                                        id="btn-update-status" class="btn btn-info openUpdateStatusModal"
+                                        id="btn-update-status" class="btn btn-primary openUpdateStatusModal"
                                         data-letterId="{{$letterSubmission->id}}"
                                         data-statusid="{{$letterSubmission->status_id}}"
                                         data-statusname="{{$letterSubmission->letterStatus->status}}"

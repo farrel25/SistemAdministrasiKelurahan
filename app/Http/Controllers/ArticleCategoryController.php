@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\ArticleCategory;
 use App\ArticleComment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Alert;
 
 class ArticleCategoryController extends Controller
 {
@@ -16,7 +18,9 @@ class ArticleCategoryController extends Controller
     public function index()
     {
         //
-        return view('visitors.artikel.index', ['articles' => ArticleCategory::orderby('created_at', 'desc')->paginate(6)]);
+        // $articles = Article::orderBy('updated_at', 'desc')->paginate(10);
+
+        return view('dashboard.manajemen_artikel.kategori.kategori'/*, compact('articles')*/);
     }
 
     /**
@@ -26,7 +30,9 @@ class ArticleCategoryController extends Controller
      */
     public function create()
     {
-        //
+        // $categories = ArticleCategory::get();
+        // $tags = ArticleTag::get();
+        return view('dashboard.manajemen_artikel.kategori.kategori-tambah'/*, compact('categories', 'tags')*/);
     }
 
     /**
@@ -53,7 +59,7 @@ class ArticleCategoryController extends Controller
         $count = $articles->count();
         $article_comments = ArticleComment::take(5)->latest()->get();
 
-        return view('visitors.artikel.index', compact('articles', 'category', 'count', 'article_comments'));
+        return view('visitors.artikel.index'/*, compact('articles', 'category', 'count', 'article_comments')*/);
     }
 
     /**
@@ -64,7 +70,11 @@ class ArticleCategoryController extends Controller
      */
     public function edit(ArticleCategory $articleCategory)
     {
-        //
+        // $categories = ArticleCategory::get();
+        // $tags = ArticleTag::get();
+        // $tagCheck = \DB::table('article_article_tag')->where('article_id', $article->id)->pluck('tag_id')->toArray();
+
+        return view('dashboard.manajemen_artikel.kategori.kategori-edit'/*, compact('article', 'categories', 'tags', 'tagCheck')*/);
     }
 
     /**

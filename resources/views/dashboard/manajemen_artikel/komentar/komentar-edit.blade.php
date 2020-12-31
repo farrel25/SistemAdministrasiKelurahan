@@ -6,10 +6,10 @@
     $data=[
         'icon' => "fas fa-edit",
         'judul' => "Edit Komentar",
-        'link' => route('manajemen-artikel.artikel') ,
+        'link' => route('manajemen-artikel.komentar') ,
         'page1' => "Komentar",
         'page2' => "/ Edit",
-        'page3' => "/  Judul Komentar"
+        'page3' => "/  Pengirim"
     ]
 ?>
 @include('dashboard.layouts.page-title',$data)
@@ -18,110 +18,47 @@
     <div class="tab-pane tabs-animation fade show active" role="tabpanel">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Tambah Data Penduduk</h5>
+                <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Edit Data Komentar</h5>
                 <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3 mb-2 mt-1">
-                        <h4 class="card-title font-weight-bold">Komentar</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9 ">
-                        <form class="">
-                            <div class="form-row">
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Judul Komentar</label>
-                                        <input name="#" id="#" type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="position-relative form-group">
-                                        <label for="#" class="">Kategori</label>
-                                        <select class="mb-2 form-control ">
-                                            <option>Pilihan 1</option>
-                                            <option>Pilihan 2</option>
-                                            <option>Pilihan 3</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                        <div id="editor" class="mb-3">
-                        </div>
-                    </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider mt-4"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">Tag</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9">
+                <div class="form-row">
+                    <div class=" col-lg-6 ">
                         <form class="">
                             <div class="position-relative form-group">
-                                <label for="#" class="">Tag</label>
+                                <label for="#" class="">Nama Pengirim</label>
                                 <input name="#" id="#" type="text" class="form-control">
-                                <div class="mt-2 ">
-                                    <label for="#" class=" bg-light pl-2 pr-2 p-1  border rounded">Tag
-                                        <a href="#" class="hover-red"><i class="fas fa-times-circle"></i></a>
-                                    </label>
-                                </div>
-
                             </div>
                         </form>
                     </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">Gambar</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9">
+                    <div class=" col-lg-6 ">
                         <form class="">
-                            <div class="form-row ml-1 mb-2 mt-3">
-                                <div class="position-relative form-group">
-                                    <label for="exampleFile" class="">Upload Gambar</label>
-                                    <input name="file" id="exampleFile" type="file" class="form-control-file">
-                                    <small class="form-text text-muted">Wajib mengisi Gambar sesuai dengan
-                                        aslinya
-                                    </small>
-                                </div>
+                            <div class="position-relative form-group">
+                                <label for="#" class="">Email</label>
+                                <input name="#" id="#" type="text" class="form-control">
                             </div>
                         </form>
                     </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">Lampiran</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9">
+                    <div class="col-lg-12">
                         <form class="">
-                            <div class="form-row ml-1 mb-2 mt-3">
-                                <div class="position-relative form-group">
-                                    <label for="exampleFile" class="">Upload Lampiran</label>
-                                    <input name="file" id="exampleFile" type="file" class="form-control-file">
-                                    <small class="form-text text-muted">Untuk artikel yang membutuhkan Lampiran</small>
-                                </div>
+                            <div class="position-relative form-group">
+                                <label for="#" class="">Isi Komentar</label>
+                                <textarea name="#" id="#" type="text" class="form-control"></textarea>
                             </div>
-                            <button class="mt-2 btn btn-primary">Tambah Data</button>
+                        </form>
+                    </div>
+                    <div class=" col-lg-12 ">
+                        <form class="ml-1">
+                            <button class="mt-2 btn btn-primary">Edit Data</button>
                             <button class="mt-2 btn btn-outline-danger">Cancel</button>
                         </form>
                     </div>
+
                 </div>
             </div>
+
+
         </div>
     </div>
 </div>
 
-<script>
-    ClassicEditor
-            .create( document.querySelector( '#editor' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-</script>
 
 @endsection

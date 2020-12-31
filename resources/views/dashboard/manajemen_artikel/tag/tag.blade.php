@@ -6,7 +6,7 @@
     $data=[
         'icon' => "pe-7s-news-paper",
         'judul' => "Tag",
-        'link' => route('manajemen-artikel.artikel') ,
+        'link' => route('manajemen-artikel.tag') ,
         'page1' => "Tag"
     ]
 ?>
@@ -19,9 +19,9 @@
                 <div class="btn-actions-pane-right "><a type="button"
                         class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
                         href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
-                    <a type="button" class="btn btn-lg btn-focus btn-sm text-white font-weight-normal "
+                    {{-- <a type="button" class="btn btn-lg btn-focus btn-sm text-white font-weight-normal "
                         href="{{ route('manajemen-artikel.artikel.create') }}">+
-                        Tambah Data </a>
+                    Tambah Data </a> --}}
                 </div>
             </div>
             <div class="table-responsive">
@@ -42,7 +42,7 @@
                             <td class=" text-center">#</td>
                             <td class=" text-center">
                                 <div class="btn-group-sm btn-group">
-                                    <a href="{{ route('manajemen-artikel.artikel.edit') }}" class="btn btn-primary"
+                                    <a href="{{ route('manajemen-artikel.tag.edit') }}" class="btn btn-primary"
                                         data-toggle="tooltip" title="Edit Tag" data-placement="bottom"><i
                                             class="fas fa-edit"></i>
                                     </a>

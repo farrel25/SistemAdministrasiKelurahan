@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\ArticleComment;
 use Illuminate\Http\Request;
+use App\ArticleCategory;
+use Illuminate\Support\Facades\Auth;
+use Alert;
 
 class ArticleCommentController extends Controller
 {
@@ -14,7 +17,7 @@ class ArticleCommentController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.manajemen_artikel.komentar.komentar'/*, compact('articles')*/);
     }
 
     /**
@@ -57,7 +60,7 @@ class ArticleCommentController extends Controller
      */
     public function edit(ArticleComment $articleComment)
     {
-        //
+        return view('dashboard.manajemen_artikel.komentar.komentar-edit'/*, compact('article', 'categories', 'tags', 'tagCheck')*/);
     }
 
     /**
