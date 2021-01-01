@@ -15,7 +15,3 @@ function checkAll(ele) {
     }
 }
 
-$('#ma_link').click(function(e) {
-     doSomething();
-     return false;
-});

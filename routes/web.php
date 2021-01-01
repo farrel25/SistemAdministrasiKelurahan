@@ -37,6 +37,56 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('role:Administrator|Redaktur')->group(function () {
 
+    //InfoKelurahan
+    Route::prefix('/dashboard/info-kelurahan')->group(function () {
+
+        // Identitas
+        Route::prefix('/identitas')->group(function () {
+            Route::get('', 'InfoIdentityController@index')->name('info-kelurahan.identitas');
+            // store Identitas
+            // Route::get('/tambah', 'InfoIdentityController@create')->name('info-kelurahan.identitas-kelurahan.create');
+            // Route::post('/tambah', 'InfoIdentityController@store')->name('info-kelurahan.identitas-kelurahan.store');
+            // update artikel
+            Route::get('/edit', 'InfoIdentityController@edit')->name('info-kelurahan.identitas-edit');
+            Route::patch('/edit', 'InfoIdentityController@update')->name('info-kelurahan.identitas-update');
+            // comment activation
+            // Route::patch('/{article}/aktivasi-komentar', 'InfoIdentityController@commentActivation')->name('info-kelurahan.identitas-kelurahan.comment-activation');
+            // show activation
+            // Route::patch('/{article}/aktivasi', 'InfoIdentityController@showActivation')->name('info-kelurahan.identitas-kelurahan.activation');
+            // delete article
+            // Route::delete('/{article}/delete', 'InfoIdentityController@destroy')->name('info-kelurahan.identitas-kelurahan.destroy');
+        });
+
+        // WilayahKelurahan
+        Route::prefix('/wilayah')->group(function () {
+            Route::get('', 'InfoRegionController@index')->name('info-kelurahan.wilayah');
+            // store Wilayah
+            Route::get('/tambah', 'InfoRegionController@create')->name('info-kelurahan.wilayah-create');
+            Route::post('/tambah', 'InfoRegionController@store')->name('info-kelurahan.wilayah-store');
+            // update category
+            Route::get('/edit', 'InfoRegionController@edit')->name('info-kelurahan.wilayah-edit');
+            Route::patch('/edit', 'InfoRegionController@update')->name('info-kelurahan-wilayah.update');
+            // delete category
+            // Route::delete('/{article_category}/delete', 'ArticleCategoryController@destroy')->name('info-kelurahan.identitas-kelurahan.destroy');
+            // category activation
+            // Route::patch('/{article_category}/aktivasi', 'ArticleCategoryController@activation')->name('info-kelurahan.identitas-kelurahan.activation');
+        });
+
+        // Kepengurusan Kelurahan
+        Route::prefix('/kepengurusan')->group(function () {
+            Route::get('', 'InfoOrganizerController@index')->name('info-kelurahan.kepengurusan');
+            // store Kepengurusan
+            Route::get('/tambah', 'InfoOrganizerController@create')->name('info-kelurahan.kepengurusan-create');
+            Route::post('/tambah', 'InfoOrganizerController@store')->name('info-kelurahan.kepengurusan-store');
+            // update comment
+            Route::get('/edit', 'InfoOrganizerController@edit')->name('info-kelurahan.kepengurusan-edit');
+            Route::patch('/edit', 'InfoOrganizerController@update')->name('info-kelurahan.kepengurusan-update');
+            // delete comment
+            // Route::delete('/delete', 'ArticleCommentController@destroy')->name('manajemen-artikel.komentar.destroy');
+            // comment activation
+            // Route::patch('/aktivasi', 'ArticleCommentController@activation')->name('manajemen-artikel.komentar.activation');
+        });
+    });
     //Kependudukan
     Route::prefix('/dashboard/kependudukan')->group(function () {
         Route::get('/penduduk', 'VillagerController@index')->name('penduduk');
@@ -189,6 +239,8 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             // Route::delete('/{article}/delete', 'ArticleDashboardController@destroy')->name('manajemen-artikel.artikel.destroy');
         });
     });
+
+    //InfoKelurahan
 });
 
 
