@@ -240,7 +240,39 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
         });
     });
 
-    //InfoKelurahan
+    //ManajemenPengguna
+    Route::prefix('/dashboard/manajemen-pengguna')->group(function () {
+
+        // Pengguna
+        Route::prefix('/pengguna')->group(function () {
+            Route::get('', 'UserController@index')->name('manajemen-pengguna.pengguna');
+            // store Wilayah
+            Route::get('/tambah', 'UserController@create')->name('manajemen-pengguna.pengguna-create');
+            Route::post('/tambah', 'UserController@store')->name('manajemen-pengguna.pengguna-store');
+            // update category
+            Route::get('/edit', 'UserController@edit')->name('manajemen-pengguna.pengguna-edit');
+            Route::patch('/edit', 'UserController@update')->name('info-kelurahan-wilayah.update');
+            // delete category
+            // Route::delete('/{article_category}/delete', 'ArticleCategoryController@destroy')->name('info-kelurahan.identitas-kelurahan.destroy');
+            // category activation
+            // Route::patch('/{article_category}/aktivasi', 'ArticleCategoryController@activation')->name('info-kelurahan.identitas-kelurahan.activation');
+        });
+
+        // RoleDanHakAkses
+        Route::prefix('/role')->group(function () {
+            Route::get('', 'UserRoleAccessController@index')->name('manajemen-pengguna.role');
+            // store Kepengurusan
+            Route::get('/tambah', 'UserRoleAccessController@create')->name('manajemen-pengguna.role-create');
+            Route::post('/tambah', 'UserRoleAccessController@store')->name('manajemen-pengguna.role-store');
+            // update comment
+            Route::get('/edit', 'UserRoleAccessController@edit')->name('manajemen-pengguna.role-edit');
+            Route::patch('/edit', 'UserRoleAccessController@update')->name('manajemen-pengguna.role-update');
+            // delete staff
+            // Route::delete('{staff}/delete', 'StaffController@destroy')->name('manajemen-pengguna.role-dan-hak-akses-destroy');
+            // staff activation
+            // Route::patch('{staff}/aktivasi', 'StaffController@activation')->name('manajemen-pengguna.role-dan-hak-akses-activation');
+        });
+    });
 });
 
 
