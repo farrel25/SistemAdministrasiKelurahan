@@ -74,7 +74,7 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
 
         // Kepengurusan Kelurahan
         Route::prefix('/kepengurusan')->group(function () {
-            Route::get('', 'InfoOrganizerController@index')->name('info-kelurahan.kepengurusan');
+            Route::get('', 'StaffController@index')->name('info-kelurahan.kepengurusan');
             // store Kepengurusan
             Route::get('/tambah', 'InfoOrganizerController@create')->name('info-kelurahan.kepengurusan-create');
             Route::post('/tambah', 'InfoOrganizerController@store')->name('info-kelurahan.kepengurusan-store');

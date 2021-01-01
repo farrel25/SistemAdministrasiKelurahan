@@ -13,14 +13,14 @@ class InfoOrganizerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        // $categories = ArticleCategory::get();
-        //
-        // $articles = Article::orderBy('updated_at', 'desc')->paginate(10);
+    // public function index()
+    // {
+    //     // $categories = ArticleCategory::get();
+    //     //
+    //     // $articles = Article::orderBy('updated_at', 'desc')->paginate(10);
 
-        return view('dashboard.info_kelurahan.kepengurusan.kepengurusan'/*, compact('categories')*/);
-    }
+    //     return view('dashboard.info_kelurahan.kepengurusan.kepengurusan'/*, compact('categories')*/);
+    // }
 
     /**
      * Show the form for creating a new resource.

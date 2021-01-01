@@ -55,9 +55,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($staff as $number => $st)
                         <tr>
                             <td class=" text-center"><input type="checkbox" name="chkbox[]" value="1"></td>
-                            <td class=" text-center">#</td>
+                            <td class=" text-center">{{ ++$number }}</td>
                             <td class=" text-center">
                                 <div class="d-flex justify-content-center">
                                     <a href="#" target="_blank" class="btn btn-success btn-sm mr-1"
@@ -95,12 +96,30 @@
                                     </a>
                                 </div>
                             </td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
+                            <td class=" text-center">
+                                @if ($st->photo)
+                                <img src="{{ asset('storage/' . $st->photo) }}" alt="" width="70">
+                                @else
+                                <i>Belum ada foto</i>
+                                @endif
+                            </td>
+                            <td class=" text-center">{{ $st->full_name }}</td>
+                            <td class=" text-center">
+                                {{ $st->villager->birth_place }},
+                                {{-- {{ date('d-m-Y', strtotime($st->villager->birth_date)) }} --}}
+                                {{ date('d F Y', strtotime($st->villager->birth_date)) }}
+                            </td>
+                            @php
+                            $sex = \DB::table('villager_sexes')->select('villagers.sex_id', 'villager_sexes.sex')
+                            ->join('villagers', 'villagers.sex_id', '=', 'villager_sexes.id')
+                            ->where('villagers.user_id', $st->user_id)
+                            ->where('villager_sexes.id', $st->villager->sex_id)->pluck('sex')->first();
+                            // var_dump($sex);
+                            @endphp
+                            <td class=" text-center">{{ $sex }}</td>
+                            <td class=" text-center">{{ $st->staff_position }}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

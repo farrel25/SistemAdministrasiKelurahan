@@ -14,7 +14,8 @@ class StaffController extends Controller
      */
     public function index()
     {
-        //
+        $staff = Staff::get();
+        return view('dashboard.info_kelurahan.kepengurusan.kepengurusan', compact('staff'));
     }
 
     /**
