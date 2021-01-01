@@ -81,10 +81,10 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             // update comment
             Route::get('/edit', 'InfoOrganizerController@edit')->name('info-kelurahan.kepengurusan-edit');
             Route::patch('/edit', 'InfoOrganizerController@update')->name('info-kelurahan.kepengurusan-update');
-            // delete comment
-            // Route::delete('/delete', 'ArticleCommentController@destroy')->name('manajemen-artikel.komentar.destroy');
-            // comment activation
-            // Route::patch('/aktivasi', 'ArticleCommentController@activation')->name('manajemen-artikel.komentar.activation');
+            // delete staff
+            Route::delete('{staff}/delete', 'StaffController@destroy')->name('info-kelurahan.kepengurusan-destroy');
+            // staff activation
+            Route::patch('{staff}/aktivasi', 'StaffController@activation')->name('info-kelurahan.kepengurusan-activation');
         });
     });
     //Kependudukan
