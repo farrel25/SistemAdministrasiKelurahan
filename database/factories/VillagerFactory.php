@@ -28,7 +28,7 @@ $factory->define(Villager::class, function (Faker $faker) {
         'blood_type_id' => $faker->numberBetween($min = 1, $max = 13),
         'stay_status_id' => $faker->numberBetween($min = 1, $max = 3),
         'address' => $faker->address,
-        'life_status_id' => $faker->numberBetween($min = 1, $max = 5),
+        'life_status_id' => 1,
         'disability_id' => $faker->numberBetween($min = 1, $max = 7),
         'chronic_disease_id' => $faker->numberBetween($min = 1, $max = 14),
         'phone_number' => $faker->e164PhoneNumber,
