@@ -20,11 +20,9 @@ class DatabaseSeeder extends Seeder
             RoleTableSeeder::class,
             PermissionTableSeeder::class,
             RoleHasPermissionTableSeeder::class,
-            // DashboardSubMenuSeeder::class,
             DashboardSubMenuSeeder::class,
 
             // Villager
-            VillagerSeeder::class,
             VillagerBloodTypeSeeder::class,
             VillagerReligionSeeder::class,
             VillagerEducationSeeder::class,
@@ -37,6 +35,11 @@ class DatabaseSeeder extends Seeder
             VillagerAgeRangeSeeder::class,
             VillagerChronicDiseaseSeeder::class,
             VillagerDisabilitySeeder::class,
+            VillagerSeeder::class,
+
+            // Staff
+            StaffPositionSeeder::class,
+            StaffSeeder::class,
 
             // Letter
             LetterDocumentSeeder::class,

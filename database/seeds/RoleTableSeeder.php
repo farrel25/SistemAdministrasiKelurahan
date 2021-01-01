@@ -16,7 +16,16 @@ class RoleTableSeeder extends Seeder
         // reset cached roles and permissions
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
-        $roles = collect(['Administrator', 'Redaktur', 'Penduduk']);
+        $roles = collect([
+            'Administrator',
+            'Kepala Desa',
+            'Sekretaris',
+            'KAUR Umum',
+            'KAUR Keuangan',
+            'KAUR Pembangunan',
+            'KAUR Keamanan dan Ketertiban',
+            'Penduduk'
+        ]);
 
         $roles->each(function ($role) {
             Role::create([

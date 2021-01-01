@@ -20,6 +20,8 @@ class CreateLetterSubmissionsTable extends Migration
             $table->foreignId('status_id');
             $table->text('keperluan');
             $table->string('phone');
+            $table->foreignId('dittd_oleh')->nullable();
+            $table->foreignId('disetujui_oleh')->nullable();
             $table->timestamps();
         });
     }
