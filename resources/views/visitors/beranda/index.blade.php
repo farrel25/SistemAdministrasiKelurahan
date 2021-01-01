@@ -361,14 +361,17 @@
 
                                     @php
                                     $userId = $article->user_id;
+                                    // var_dump($userId);
 
                                     $roleId = \DB::table('model_has_roles')
                                     ->where('model_id', $userId)->value('role_id');
+                                    // var_dump($roleId);
 
                                     $role = \DB::table('roles')
                                     ->select('model_has_roles.model_id','model_has_roles.role_id', 'roles.name')
                                     ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
                                     ->where('model_has_roles.role_id', $roleId)->get()->toArray();
+                                    // var_dump($role);
                                     @endphp
 
                                     <ul class="post-info ">

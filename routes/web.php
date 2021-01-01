@@ -128,6 +128,8 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
 
     //ManajemenArtikel
     Route::prefix('dashboard/manajemen-artikel')->group(function () {
+
+        // artikel
         Route::prefix('/artikel')->group(function () {
             Route::get('', 'ArticleDashboardController@index')->name('manajemen-artikel.artikel');
             // store article
@@ -143,21 +145,22 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             // delete article
             Route::delete('/{article}/delete', 'ArticleDashboardController@destroy')->name('manajemen-artikel.artikel.destroy');
         });
+
+        // kategori
         Route::prefix('/kategori')->group(function () {
             Route::get('', 'ArticleCategoryController@index')->name('manajemen-artikel.kategori');
-            // store article
-            Route::get('/tambah', 'ArticleCategoryController@create')->name('manajemen-artikel.kategori.create');
-            // Route::post('/tambah', 'ArticleDashboardController@store')->name('manajemen-artikel.artikel.store');
-            // update artikel
-            Route::get('/edit', 'ArticleCategoryController@edit')->name('manajemen-artikel.kategori.edit');
-            // Route::patch('/{article}/edit', 'ArticleDashboardController@update')->name('manajemen-artikel.artikel.update');
-            // comment activation
-            // Route::patch('/{article}/aktivasi-komentar', 'ArticleDashboardController@commentActivation')->name('manajemen-artikel.artikel.comment-activation');
-            // show activation
-            // Route::patch('/{article}/aktivasi', 'ArticleDashboardController@showActivation')->name('manajemen-artikel.artikel.activation');
-            // delete article
-            // Route::delete('/{article}/delete', 'ArticleDashboardController@destroy')->name('manajemen-artikel.artikel.destroy');
+            // store category
+            Route::post('/tambah', 'ArticleCategoryController@store')->name('manajemen-artikel.kategori.store');
+            // update category
+            Route::get('/{article_category}/edit', 'ArticleCategoryController@edit')->name('manajemen-artikel.kategori.edit');
+            Route::patch('/{article_category}/edit', 'ArticleCategoryController@update')->name('manajemen-artikel.kategori.update');
+            // delete category
+            Route::delete('/{article_category}/delete', 'ArticleCategoryController@destroy')->name('manajemen-artikel.kategori.destroy');
+            // category activation
+            Route::patch('/{article_category}/aktivasi', 'ArticleCategoryController@activation')->name('manajemen-artikel.kategori.activation');
         });
+
+        // komentar
         Route::prefix('/komentar')->group(function () {
             Route::get('', 'ArticleCommentController@index')->name('manajemen-artikel.komentar');
             // store article
@@ -173,6 +176,8 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             // delete article
             // Route::delete('/{article}/delete', 'ArticleDashboardController@destroy')->name('manajemen-artikel.artikel.destroy');
         });
+
+        // tag
         Route::prefix('/tag')->group(function () {
             Route::get('', 'ArticleTagController@index')->name('manajemen-artikel.tag');
             // store article

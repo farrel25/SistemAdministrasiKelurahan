@@ -79,30 +79,24 @@
                             </td>
                             <td class=" text-center">{{ $number + $letterTypes->firstItem() }}</td>
                             <td class=" text-center">
-                                <div class="btn-group-sm btn-group">
+                                {{-- <div class="btn-group-sm btn-group"> --}}
+                                <div class="d-flex justify-content-center">
                                     <a href="{{ route('manajemen-surat.jenis-surat.edit', $type->letter_code) }}"
-                                        class="btn btn-primary" data-toggle="tooltip" title="Edit Jenis Surat"
-                                        data-placement="bottom">
+                                        class="btn btn-primary btn-sm mr-1" data-toggle="tooltip"
+                                        title="Edit Jenis Surat" data-placement="bottom">
                                         <i class="fas fa-edit"></i>
                                     </a>
 
-                                    <a href="#" class="btn btn-secondary text-white" data-toggle="tooltip"
+                                    <a href="#" class="btn btn-secondary btn-sm mr-1 text-white" data-toggle="tooltip"
                                         title="Blokir Jenis Surat" data-placement="bottom"><i
                                             class="fas fa-lock"></i></a>
-
-                                    {{-- <a href="{{ route('manajemen-surat.jenis-surat.delete', $type->letter_code) }}"
-                                    class="btn btn-danger"
-                                    onclick="event.preventDefault(); document.getElementById('delete-form').submit();"
-                                    data-toggle="tooltip" title="Hapus Jenis Surat" data-placement="bottom">
-                                    <i class="fas fa-trash-alt"></i>
-                                    </a> --}}
 
                                     <form id="delete-form"
                                         action="{{ route('manajemen-surat.jenis-surat.delete', $type->letter_code) }}"
                                         method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger" data-toggle="tooltip"
+                                        <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
                                             title="Hapus Jenis Surat" data-placement="bottom">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>

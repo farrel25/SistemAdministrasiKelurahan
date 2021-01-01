@@ -87,16 +87,18 @@
                             </td>
                             <td class="text-center">{{ $no + $documents->firstItem() }}</td>
                             <td class="text-center">
-                                <div class="btn-group-sm btn-group">
+                                {{-- <div class="btn-group-sm btn-group"> --}}
+                                <div class="d-flex justify-content-center">
                                     <a href="{{ route('dokumen-persyaratan-edit', $document->id) }}"
-                                        class="btn btn-primary" data-toggle="tooltip" title="Edit Dokumen Persyaratan"
-                                        data-placement="bottom"><i class="fas fa-edit"></i></a>
+                                        class="btn btn-primary btn-sm mr-1" data-toggle="tooltip"
+                                        title="Edit Dokumen Persyaratan" data-placement="bottom"><i
+                                            class="fas fa-edit"></i></a>
 
                                     <form id="delete-form"
                                         action="{{ route('dokumen-persyaratan-delete', $document->id) }}" method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger" data-toggle="tooltip"
+                                        <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
                                             title="Hapus Dokumen Persyaratan" data-placement="bottom">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>

@@ -18,10 +18,11 @@ class ArticleCategoryController extends Controller
      */
     public function index()
     {
+        $categories = ArticleCategory::get();
         //
         // $articles = Article::orderBy('updated_at', 'desc')->paginate(10);
 
-        return view('dashboard.manajemen_artikel.kategori.kategori'/*, compact('articles')*/);
+        return view('dashboard.manajemen_artikel.kategori.kategori', compact('categories'));
     }
 
     /**
@@ -33,7 +34,7 @@ class ArticleCategoryController extends Controller
     {
         // $categories = ArticleCategory::get();
         // $tags = ArticleTag::get();
-        return view('dashboard.manajemen_artikel.kategori.kategori-tambah'/*, compact('categories', 'tags')*/);
+        // return view('dashboard.manajemen_artikel.kategori.kategori-tambah'/*, compact('categories', 'tags')*/);
     }
 
     /**
@@ -44,7 +45,17 @@ class ArticleCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attr = $request->validate([
+            'category' => 'required|string'
+        ]);
+
+        $attr['slug'] = \Str::slug($attr['category']);
+        $attr['enabled'] = 1;
+
+        ArticleCategory::create($attr);
+
+        Alert::success('Berhasil', 'Kategori artikel berhasil ditambahkan');
+        return redirect()->route('manajemen-artikel.kategori');
     }
 
     /**
@@ -72,11 +83,7 @@ class ArticleCategoryController extends Controller
      */
     public function edit(ArticleCategory $articleCategory)
     {
-        // $categories = ArticleCategory::get();
-        // $tags = ArticleTag::get();
-        // $tagCheck = \DB::table('article_article_tag')->where('article_id', $article->id)->pluck('tag_id')->toArray();
-
-        return view('dashboard.manajemen_artikel.kategori.kategori-edit'/*, compact('article', 'categories', 'tags', 'tagCheck')*/);
+        return view('dashboard.manajemen_artikel.kategori.kategori-edit', compact('articleCategory'));
     }
 
     /**
@@ -88,7 +95,16 @@ class ArticleCategoryController extends Controller
      */
     public function update(Request $request, ArticleCategory $articleCategory)
     {
-        //
+        $attr = $request->validate([
+            'category' => 'required|string'
+        ]);
+        $attr['slug'] = \Str::slug($attr['category']);
+
+        $articleCategory->update($attr);
+
+        Alert::success('Berhasil', 'Kategori artikel berhasil diperbarui');
+
+        return redirect()->route('manajemen-artikel.kategori');
     }
 
     /**
@@ -99,6 +115,25 @@ class ArticleCategoryController extends Controller
      */
     public function destroy(ArticleCategory $articleCategory)
     {
-        //
+        $articleCategory->delete();
+        Alert::success('Berhasil', 'Kategori artikel berhasil dihapus');
+        return redirect()->route('manajemen-artikel.kategori');
+    }
+
+    public function activation(Request $request, ArticleCategory $articleCategory)
+    {
+        $attr = $request->validate([
+            'enabled' => 'required|boolean'
+        ]);
+
+        $articleCategory->update($attr);
+
+        if ($request->enabled == 1) {
+            Alert::success(' Berhasil ', 'Kategori artikel di aktifkan');
+        } else {
+            Alert::success(' Berhasil ', 'Kategori artikel di non-aktifkan');
+        }
+
+        return redirect()->route('manajemen-artikel.kategori');
     }
 }

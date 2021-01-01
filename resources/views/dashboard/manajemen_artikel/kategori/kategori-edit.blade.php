@@ -9,7 +9,7 @@
         'link' => route('manajemen-artikel.kategori') ,
         'page1' => "Kategori",
         'page2' => "/ Edit",
-        'page3' => "/  Nama Kategori"
+        'page3' => "/ ". $articleCategory->category
     ]
 ?>
 @include('dashboard.layouts.page-title',$data)
@@ -20,27 +20,39 @@
             <div class="card-body">
                 <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Edit Kategori</h5>
                 <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-12 ">
-                        <form class="">
+
+                <form action="{{ route('manajemen-artikel.kategori.update',$articleCategory->id) }}" method="POST"
+                    class="">
+                    @csrf
+                    @method('patch')
+
+                    <div class="row">
+                        <div class=" col-lg-12 ">
                             <div class="position-relative form-group">
-                                <label for="#" class="">Judul Kategori</label>
-                                <input name="#" id="#" type="text" class="form-control">
+                                <label for="category" class="">Judul Kategori</label>
+                                <input name="category" id="category" type="text"
+                                    class="form-control @error('category') is-invalid @enderror"
+                                    value="{{ old('category') ?? $articleCategory->category }}">
+                                @error('category')
+                                <span class="invalid-feedback mt-2" role="alert">
+                                    <i>{{ $message }}</i>
+                                </span>
+                                @enderror
                             </div>
-                        </form>
-                        <div id="editor" class="mb-3">
+                            <div id="editor" class="mb-3">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class=" col-lg-9">
-                        <form class="">
-                            <button class="mt-2 btn btn-primary">Edit Data</button>
-                            <button class="mt-2 btn btn-outline-danger">Cancel</button>
-                        </form>
+                    <div class="row">
+                        <div class=" col-lg-9">
+                            <button type="submit" class="mt-2 btn btn-primary">Simpan</button>
+                            <a href="{{ route('manajemen-artikel.kategori') }}"
+                                class="mt-2 btn btn-outline-danger">Batal</a>
+                        </div>
                     </div>
-                </div>
+                </form>
+
             </div>
         </div>
     </div>
