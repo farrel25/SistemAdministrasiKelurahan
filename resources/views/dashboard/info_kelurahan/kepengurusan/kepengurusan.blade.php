@@ -66,18 +66,21 @@
                                         data-placement="bottom">
                                         <i class="fas fa-caret-square-up"></i>
                                     </a>
+
                                     <a href="#" target="_blank" class="btn btn-success btn-sm mr-1"
                                         data-toggle="tooltip" title="Pindah Posisi Kebawah" title="Pindah Bawah"
                                         data-placement="bottom">
                                         <i class="fas fa-caret-square-down"></i>
                                     </a>
-                                    <a href="{{route('info-kelurahan.kepengurusan-edit')}}"
+
+                                    <a href="{{route('info-kelurahan.kepengurusan-edit', $st->nik)}}"
                                         class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
                                         title="Edit Kepengurusan Kelurahan" data-placement="bottom">
                                         <i class="fas fa-edit"></i>
                                     </a>
+
                                     <form id="delete-form"
-                                        action="{{ route('info-kelurahan.kepengurusan-destroy', $st->id) }}"
+                                        action="{{ route('info-kelurahan.kepengurusan-destroy', $st->nik) }}"
                                         method="post">
                                         @csrf
                                         @method('delete')
@@ -89,7 +92,7 @@
 
                                     @if ($st->is_active == 1)
                                     <form method="POST"
-                                        action="{{ route('info-kelurahan.kepengurusan-activation', $st->id) }}">
+                                        action="{{ route('info-kelurahan.kepengurusan-activation', $st->nik) }}">
                                         @csrf
                                         @method('patch')
                                         <input type="hidden" name="is_active" value="0">
@@ -100,7 +103,7 @@
                                     </form>
                                     @else
                                     <form method="POST"
-                                        action="{{ route('info-kelurahan.kepengurusan-activation', $st->id) }}">
+                                        action="{{ route('info-kelurahan.kepengurusan-activation', $st->nik) }}">
                                         @csrf
                                         @method('patch')
                                         <input type="hidden" name="is_active" value="1">
@@ -115,6 +118,7 @@
                                         title=" Aktifkan TTD" data-placement="bottom">
                                         <del>a.n</del>
                                     </a>
+
                                     <a href="#" target="_blank" class="btn btn-focus btn-sm mr-1" data-toggle="tooltip"
                                         title="Non Aktifkan TTD" data-placement="bottom">
                                         u.b

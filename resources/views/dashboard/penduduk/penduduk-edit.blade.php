@@ -557,7 +557,7 @@
                                 <textarea name="address" id="address"
                                     class="form-control @error('address') is-invalid @enderror">
                                     {{ old('address') ?? $villager->address }}
-                                    </textarea>
+                                </textarea>
                                 @error('address')
                                 <span class="invalid-feedback mt-2" role="alert">
                                     <i>{{ $message }}</i>
@@ -565,19 +565,21 @@
                                 @enderror
                             </div>
                             <div class="form-row">
-                                <!--<div class="col-md-6">
-                                                                                                                        <div class="position-relative form-group">
-                                                                                                                            <label for="#" class="">Email</label>
-                                                                                                                            <input name="#" id="#" type="email"
-                                                                                                                                class="form-control @error('full_name') is-invalid @enderror"
-                                                                                                                                value="{{ old('full_name') }}">
-                                                                                                                            @error('full_name')
-                                                                                                                                                                                                                <span class="invalid-feedback mt-2" role="alert">
-                                                                                                                                                                                                                    <i>{{ $message }}</i>
-                                                                                                                                                                                                                </span>
-                                                                                                                            @enderror
-                                                                                                                        </div>
-                                                                                                                    </div>-->
+                                <!--
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="#" class="">Email</label>
+                                            <input name="#" id="#" type="email"
+                                                class="form-control @error('full_name') is-invalid @enderror"
+                                                value="{{ old('full_name') }}">
+                                            @error('full_name')
+                                            <span class="invalid-feedback mt-2" role="alert">
+                                                <i>{{ $message }}</i>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                -->
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="phone_number" class="">No. Telepon</label>

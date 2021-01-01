@@ -78,15 +78,16 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             // store Kepengurusan
             Route::get('/tambah', 'InfoOrganizerController@create')->name('info-kelurahan.kepengurusan-create');
             Route::post('/tambah', 'InfoOrganizerController@store')->name('info-kelurahan.kepengurusan-store');
-            // update comment
-            Route::get('/edit', 'InfoOrganizerController@edit')->name('info-kelurahan.kepengurusan-edit');
-            Route::patch('/edit', 'InfoOrganizerController@update')->name('info-kelurahan.kepengurusan-update');
+            // update staff
+            Route::get('{staff:nik}/edit', 'StaffController@edit')->name('info-kelurahan.kepengurusan-edit');
+            Route::patch('{staff:nik}/edit', 'StaffController@update')->name('info-kelurahan.kepengurusan-update');
             // delete staff
-            Route::delete('{staff}/delete', 'StaffController@destroy')->name('info-kelurahan.kepengurusan-destroy');
+            Route::delete('{staff:nik}/delete', 'StaffController@destroy')->name('info-kelurahan.kepengurusan-destroy');
             // staff activation
-            Route::patch('{staff}/aktivasi', 'StaffController@activation')->name('info-kelurahan.kepengurusan-activation');
+            Route::patch('{staff:nik}/aktivasi', 'StaffController@activation')->name('info-kelurahan.kepengurusan-activation');
         });
     });
+
     //Kependudukan
     Route::prefix('/dashboard/kependudukan')->group(function () {
         Route::get('/penduduk', 'VillagerController@index')->name('penduduk');

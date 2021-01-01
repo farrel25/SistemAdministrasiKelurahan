@@ -77,10 +77,10 @@ class InfoOrganizerController extends Controller
      * @param  \App\ArticleCategory  $articleCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(/*ArticleCategory $articleCategory*/)
-    {
-        return view('dashboard.info_kelurahan.kepengurusan.kepengurusan-edit'/*, compact('articleCategory')*/);
-    }
+    // public function edit(/*ArticleCategory $articleCategory*/)
+    // {
+    //     return view('dashboard.info_kelurahan.kepengurusan.kepengurusan-edit'/*, compact('articleCategory')*/);
+    // }
 
     /**
      * Update the specified resource in storage.
