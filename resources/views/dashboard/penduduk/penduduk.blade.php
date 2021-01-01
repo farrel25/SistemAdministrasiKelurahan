@@ -103,35 +103,40 @@
                         <tr>
                             <td class="text-center">{{ $number + $villagers->firstItem()}}</td>
                             <td class=" text-center">
-                                <div class="btn-group-sm btn-group">
-                                    <a href="{{ route('penduduk-edit', $villager->nik) }}" class="btn btn-primary"
-                                        data-toggle="tooltip" title="Edit Data" data-placement="bottom">
+                                {{-- <div class="btn-group-sm btn-group"> --}}
+                                <div class="d-flex justify-content-center">
+                                    <a href="{{ route('penduduk-edit', $villager->nik) }}"
+                                        class="btn btn-primary btn-sm mr-1" data-toggle="tooltip" title="Edit Data"
+                                        data-placement="bottom">
                                         <i class="fas fa-edit">
                                         </i>
                                     </a>
 
-                                    <?php $userRoleCheck = DB::table('model_has_roles')
-                                            ->join('users', 'model_has_roles.model_id', '=', 'users.id')
-                                            ->where('model_has_roles.model_id', $villager->user_id)
-                                            ->select('role_id', 'id', 'full_name', 'email')
-                                            ->get()
-                                            ->toArray(); ?>
+                                    @php
+                                    $userRoleCheck = DB::table('model_has_roles')
+                                    ->join('users', 'model_has_roles.model_id', '=', 'users.id')
+                                    ->where('model_has_roles.model_id', $villager->user_id)
+                                    ->select('role_id', 'id', 'full_name', 'email')
+                                    ->get()
+                                    ->toArray();
+                                    @endphp
 
                                     @if (!$userRoleCheck || $userRoleCheck[0]->role_id != 1)
                                     <form id="delete-form" action="{{ route('penduduk-delete', $villager->nik) }}"
                                         method="post">
                                         @csrf
                                         @method('delete')
-                                        <button type=" submit" class="btn btn-danger delete" data-toggle="tooltip"
-                                            title="Hapus Data" data-placement="bottom">
+                                        <button type=" submit" class="btn btn-danger delete btn-sm mr-1"
+                                            data-toggle="tooltip" title="Hapus Data" data-placement="bottom">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>
                                     @endif
 
                                     <a href="{{ route('penduduk-detail', $villager->nik) }}"
-                                        class="btn btn-warning text-white" data-toggle="tooltip" title="Detail Data"
-                                        data-placement="bottom"><i class="fas fa-info-circle"></i></a>
+                                        class="btn btn-warning btn-sm mr-1 text-white" data-toggle="tooltip"
+                                        title="Detail Data" data-placement="bottom"><i
+                                            class="fas fa-info-circle"></i></a>
                                 </div>
                             </td>
                             <td class="text-center">{{ $villager->nik }}</td>

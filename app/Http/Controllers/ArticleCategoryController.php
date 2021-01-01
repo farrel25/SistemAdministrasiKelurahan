@@ -33,8 +33,7 @@ class ArticleCategoryController extends Controller
     public function create()
     {
         // $categories = ArticleCategory::get();
-        // $tags = ArticleTag::get();
-        // return view('dashboard.manajemen_artikel.kategori.kategori-tambah'/*, compact('categories', 'tags')*/);
+        // return view('dashboard.manajemen_artikel.kategori.kategori-tambah'/*, compact('categories')*/);
     }
 
     /**
@@ -67,7 +66,7 @@ class ArticleCategoryController extends Controller
     public function show(ArticleCategory $category)
     {
         $all_articles = Article::get();
-        $articles = $category->articles()->latest()->paginate(6);
+        $articles = $category->articles()->where('enabled', 1)->latest()->paginate(6);
         // dd($articles);
         $count = $articles->count();
         $article_comments = ArticleComment::take(5)->latest()->get();

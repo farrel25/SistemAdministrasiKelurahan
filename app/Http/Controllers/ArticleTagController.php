@@ -52,7 +52,7 @@ class ArticleTagController extends Controller
     public function show(ArticleTag $tag)
     {
         $all_articles = Article::get();
-        $articles = $tag->articles()->latest()->paginate(6);
+        $articles = $tag->articles()->where('enabled', 1)->latest()->paginate(6);
         // dd($articles);
         $count = $articles->count();
         $article_comments = ArticleComment::take(5)->latest()->get();

@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function beranda()
     {
         $all_articles = Article::get();
-        $articles = Article::orderby('updated_at', 'desc')->paginate(6);
+        $articles = Article::where('enabled', 1)->orderby('updated_at', 'desc')->paginate(6);
         $count = $all_articles->count();
         $article_comments = ArticleComment::get();
 
