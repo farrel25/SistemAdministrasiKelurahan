@@ -166,7 +166,15 @@
                             <td class=" text-center">{{ $letterSubmission->user->full_name }}</td>
                             <td class=" text-center">{{ $letterSubmission->keperluan }}</td>
                             {{-- yg menandatangani masih statis --}}
-                            <td class=" text-center">Bapaq</td>
+                            @if ($letterSubmission->dittd_oleh == null)
+                            <td class=" text-center">
+                                <div class="badge badge-warning">
+                                    belum ada
+                                </div>
+                            </td>
+                            @else
+                            <td class=" text-center">{{ $letterSubmission->staff->full_name }}</td>
+                            @endif
                             <td class=" text-center">
                                 {{ date('d-m-Y', strtotime($letterSubmission->updated_at)) }}
                             </td>

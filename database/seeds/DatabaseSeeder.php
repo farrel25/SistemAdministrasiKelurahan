@@ -38,7 +38,6 @@ class DatabaseSeeder extends Seeder
             VillagerSeeder::class,
 
             // Staff
-            StaffPositionSeeder::class,
             StaffSeeder::class,
 
             // Letter

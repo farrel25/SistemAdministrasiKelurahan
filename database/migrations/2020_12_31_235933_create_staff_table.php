@@ -22,7 +22,7 @@ class CreateStaffTable extends Migration
             $table->string('nip')->unique()->nullable();
             $table->string('nipd')->unique()->nullable();
             $table->string('photo')->nullable();
-            $table->foreignId('staff_position_id');
+            $table->string('staff_position')->nullable();
             $table->string('position_period')->nullable();
             $table->string('pangkat')->nullable();
             $table->date('registered')->nullable();

@@ -45,6 +45,11 @@ class Villager extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function staff()
+    {
+        return $this->hasOne(Staff::class);
+    }
+
     public function villagerSex()
     {
         return $this->belongsTo(VillagerSex::class, 'sex_id');

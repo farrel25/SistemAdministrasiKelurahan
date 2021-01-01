@@ -20,7 +20,7 @@ class StaffSeeder extends Seeder
             'nip' => '123456789123456789',
             'nipd' => '123456789123456789123',
             'photo' => null,
-            'staff_position_id' => 1,
+            'staff_position' => 'Kepala Desa',
             'position_period' => '6 Tahun Periode Pertama (2020 s/d 2026)',
             'pangkat' => 'mayor',
             'registered' => '2020-02-20',

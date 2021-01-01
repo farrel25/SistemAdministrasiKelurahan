@@ -49,6 +49,11 @@ class User extends Authenticatable
         return $this->hasOne(Villager::class);
     }
 
+    public function staff()
+    {
+        return $this->hasOne(Staff::class);
+    }
+
     public function articles()
     {
         return $this->hasMany(Article::class);
