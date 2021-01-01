@@ -15,7 +15,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
-            <div class="card-header">Wilayah Kelurahan
+            <div class="card-header">Wilayah
                 <div class="btn-actions-pane-right ">
                     <a type="button"
                         class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
@@ -62,8 +62,8 @@
                                         title="Rincian Sub Wilayah" data-placement="bottom"><i class="fas fa-list"></i>
                                     </a>
                                     <a href="{{route('info-kelurahan.wilayah-edit')}}"
-                                        class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
-                                        title="Edit wilayah Kelurahan" data-placement="bottom">
+                                        class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip" title="Edit wilayah "
+                                        data-placement="bottom">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <form id="delete-form" action="#" method="post">
