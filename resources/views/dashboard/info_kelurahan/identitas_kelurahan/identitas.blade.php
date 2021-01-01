@@ -18,7 +18,7 @@
             <div class="card-header">Identitas Kelurahan
                 <div class="btn-actions-pane-right "><a type="button"
                         class="btn btn-lg btn-primary btn-sm text-white font-weight-normal  mb-2 mt-2 btn-responsive"
-                        href="{{route('info-kelurahan.identitas.edit')}}">
+                        href="{{route('info-kelurahan.identitas-edit')}}">
                         <i class="fas fa-edit"></i> Edit Identitas Kelurahan</a>
                     <a type="button"
                         class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal btn-responsive" href="#">
