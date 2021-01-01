@@ -163,18 +163,13 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
         // komentar
         Route::prefix('/komentar')->group(function () {
             Route::get('', 'ArticleCommentController@index')->name('manajemen-artikel.komentar');
-            // store article
-            // Route::get('/tambah', 'ArticleDashboardController@create')->name('manajemen-artikel.artikel.create');
-            // Route::post('/tambah', 'ArticleDashboardController@store')->name('manajemen-artikel.artikel.store');
-            // update artikel
-            Route::get('/edit', 'ArticleCommentController@edit')->name('manajemen-artikel.komentar.edit');
-            // Route::patch('/{article}/edit', 'ArticleDashboardController@update')->name('manajemen-artikel.artikel.update');
+            // update comment
+            // Route::get('/{article_comment}/edit', 'ArticleCommentController@edit')->name('manajemen-artikel.komentar.edit');
+            // Route::patch('/{article_comment}/edit', 'ArticleCommentController@update')->name('manajemen-artikel.komentar.update');
+            // delete comment
+            Route::delete('/{article_comment}/delete', 'ArticleCommentController@destroy')->name('manajemen-artikel.komentar.destroy');
             // comment activation
-            // Route::patch('/{article}/aktivasi-komentar', 'ArticleDashboardController@commentActivation')->name('manajemen-artikel.artikel.comment-activation');
-            // show activation
-            // Route::patch('/{article}/aktivasi', 'ArticleDashboardController@showActivation')->name('manajemen-artikel.artikel.activation');
-            // delete article
-            // Route::delete('/{article}/delete', 'ArticleDashboardController@destroy')->name('manajemen-artikel.artikel.destroy');
+            Route::patch('/{article_comment}/aktivasi', 'ArticleCommentController@activation')->name('manajemen-artikel.komentar.activation');
         });
 
         // tag

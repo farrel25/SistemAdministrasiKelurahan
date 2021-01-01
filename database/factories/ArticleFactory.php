@@ -7,7 +7,6 @@ use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
 // factory(App\Article::class, 20)->create();
-// factory(App\Article::class, 20)->create('id_ID');
 $factory->define(Article::class, function (Faker $faker) {
     $title = $faker->sentence($nbWords = 3);
     $slug = Str::slug($title);

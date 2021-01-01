@@ -5,14 +5,15 @@
 use App\ArticleComment;
 use Faker\Generator as Faker;
 
+// factory(App\ArticleComment::class, 25)->create();
 $factory->define(ArticleComment::class, function (Faker $faker) {
     return [
         //
-        'article_id' => $faker->numberBetween($min = 24, $max = 26),
-        'owner' => $faker->randomDigit,
-        'email' => $faker->sentence(),
+        'article_id' => $faker->numberBetween($min = 1, $max = 10),
+        'owner' => $faker->name(),
+        'email' => $faker->freeEmail,
         'comments' => $faker->sentence(),
         'enabled' => 1,
     ];
 });
-// factory ('App\ArticleComment', 10)->create();
+// factory ('App\ArticleComment', 25)->create();

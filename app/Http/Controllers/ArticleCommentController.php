@@ -17,7 +17,9 @@ class ArticleCommentController extends Controller
      */
     public function index()
     {
-        return view('dashboard.manajemen_artikel.komentar.komentar'/*, compact('articles')*/);
+        $comments = ArticleComment::paginate(10);
+        // dd($comments[9]->article->title);
+        return view('dashboard.manajemen_artikel.komentar.komentar', compact('comments'));
     }
 
     /**
@@ -83,6 +85,25 @@ class ArticleCommentController extends Controller
      */
     public function destroy(ArticleComment $articleComment)
     {
-        //
+        $articleComment->delete();
+        Alert::success('Berhasil', 'Komentar artikel berhasil dihapus');
+        return redirect()->route('manajemen-artikel.komentar');
+    }
+
+    public function activation(Request $request, ArticleComment $articleComment)
+    {
+        $attr = $request->validate([
+            'enabled' => 'required|boolean'
+        ]);
+
+        $articleComment->update($attr);
+
+        if ($request->enabled == 1) {
+            Alert::success(' Berhasil ', 'Komentar artikel di aktifkan');
+        } else {
+            Alert::success(' Berhasil ', 'Komentar artikel di non-aktifkan');
+        }
+
+        return redirect()->route('manajemen-artikel.komentar');
     }
 }
