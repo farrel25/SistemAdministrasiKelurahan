@@ -358,15 +358,12 @@
                                     <a href="{{ route('visitors.artikel.show', $article->slug) }}">
                                         <h4>{{$article->title}}</h4>
                                     </a>
-
                                     @php
                                     $userId = $article->user_id;
                                     // var_dump($userId);
-
                                     $roleId = \DB::table('model_has_roles')
                                     ->where('model_id', $userId)->value('role_id');
                                     // var_dump($roleId);
-
                                     $role = \DB::table('roles')
                                     ->select('model_has_roles.model_id','model_has_roles.role_id', 'roles.name')
                                     ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
@@ -375,8 +372,8 @@
                                     @endphp
 
                                     <ul class="post-info ">
-                                        {{-- <li><a href="#">{{$role[0]->name}}</a></li> --}}
-                                        <li><a href="#">{{"Administrator"}}</a></li>
+                                        <li><a href="#">{{$role[0]->name}}</a></li>
+                                        {{-- <li><a href="#">{{"Administrator"}}</a></li> --}}
                                         <li>
                                             <a href="#">
                                                 {{-- {{$article->created_at->diffForHumans()}} --}}
@@ -393,18 +390,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12 mb-5">
-                            <ul>
-                                {{-- <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">
-                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-right-short" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-                                            </svg>
-                                        </a></li> --}}
-                            </ul>
-                        </div>
+
                         @empty
                         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                             <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800">
@@ -417,7 +403,11 @@
                             </div>
                         </div>
                         @endforelse
-                        {{$articles->links()}}
+                        <div class="col-lg-12 mb-5 ">
+                            <ul class="pagination justify-content-center">
+                                {{$articles->links()}}
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -3,7 +3,10 @@
         <div class="row d-flex ">
             <div class="col-lg-7 text-lg-left text-center h-100 d-block">
                 <h3>Kelurahan</h3>
-                <p>Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu non diam phasellus. Scelerisque
+                <p class="text-justify mr-lg-5">Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu
+                    non
+                    diam
+                    phasellus. Scelerisque
                     felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.
                 </p>
                 <span class="social-media">
