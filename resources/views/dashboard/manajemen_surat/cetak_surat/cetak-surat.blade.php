@@ -36,7 +36,9 @@
         <div class="main-card mb-3 card">
             <div class="card-header">Cetak Surat
                 <div class="btn-actions-pane-right ">
-                    <a type="button" class="btn btn-lg btn-focus btn-sm text-white font-weight-normal " href="#">+
+                    <a type="button"
+                        class="btn btn-lg btn-focus btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
+                        href="#">+
                         Tambah Data </a>
                 </div>
             </div>

@@ -19,7 +19,8 @@
                 <div class="btn-actions-pane-right "><a type="button"
                         class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
                         href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
-                    <a type="button" class="btn btn-lg btn-focus btn-sm text-white font-weight-normal "
+                    <a type="button"
+                        class="btn btn-lg btn-focus btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
                         href="{{ route('manajemen-artikel.artikel.create') }}">+
                         Tambah Data </a>
                 </div>

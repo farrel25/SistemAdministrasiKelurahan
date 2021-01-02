@@ -13,7 +13,7 @@
 @include('dashboard.layouts.page-title',$data)
 
 <div class="row">
-    <div class="col-6">
+    <div class="col-md-6">
         <div class="row">
             <div class="col-md-12">
                 <div class="main-card mb-3 card">
@@ -68,7 +68,6 @@
                             </tbody>
                         </table>
                     </div>
-
                     <div class=" d-block card-footer ">
                         <div class="card-body ">
                             <nav class=" " aria-label="Page navigation example">
@@ -82,7 +81,7 @@
             </div>
         </div>
     </div>
-    <div class="col-6">
+    <div class="col-md-6">
         <div class="row">
             <div class="col-md-12">
                 <div class="main-card mb-3 card">
@@ -100,7 +99,6 @@
                             <tbody>
                                 <tr>
                                     <td class=" text-center">#</td>
-
                                     <td class=" text-center">#</td>
                                     <td class=" text-center"><input type="checkbox" name="chkbox[]" value="#">
                                     </td>
@@ -108,7 +106,6 @@
                             </tbody>
                         </table>
                     </div>
-
                     <div class=" d-block card-footer ">
                         <div class="card-body ">
                             <nav class=" " aria-label="Page navigation example">

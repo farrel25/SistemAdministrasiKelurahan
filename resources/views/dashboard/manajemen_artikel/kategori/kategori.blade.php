@@ -13,7 +13,7 @@
 @include('dashboard.layouts.page-title',$data)
 
 <div class="row">
-    <div class="col-4">
+    <div class="col-md-4">
         <div class="main-card mb-3 card">
             <div class="card-header">Tambah Kategori
             </div>
