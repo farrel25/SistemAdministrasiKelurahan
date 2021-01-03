@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Alert;
+use App\Staff;
 use App\User;
+use App\Villager;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -27,8 +30,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        // $categories = ArticleCategory::get();
-        return view('dashboard.manajemen_pengguna.pengguna.pengguna-tambah'/*, compact('categories')*/);
+        $villagers = Villager::where('user_id', null)->get();
+        $roles = Role::get();
+
+        return view('dashboard.manajemen_pengguna.pengguna.pengguna-tambah', compact('villagers', 'roles'));
     }
 
     /**
@@ -37,20 +42,63 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(Request $request)
-    // {
-    //     $attr = $request->validate([
-    //         'category' => 'required|string'
-    //     ]);
+    public function store(Request $request)
+    {
+        $photoUrl = null;
+        // cek apakah foto sudah di inputkan
+        if ($request->hasFile('photo')) {
+            // ambil ukuran foto
+            $photoSize = $request->file('photo')->getSize();
+            // cek ukuran foto yg diupload, max masih 1MB
+            if ($photoSize <= 1000000) {
+                // ambil file foto
+                $photo = $request->file('photo');
+                // rename file foto
+                $prefix = explode('@', $request->email);
+                $photoName = $prefix[0] . "." . $photo->extension();
+                // menentukan lokasi penyimpanan foto
+                $photoUrl = $photo->storeAs("images/user_profile_pic", "{$photoName}");
+            }
+        }
 
-    //     $attr['slug'] = \Str::slug($attr['category']);
-    //     $attr['enabled'] = 1;
+        $attr = $request->validate([
+            'villager' => 'required',
+            'email' => 'required|email|unique:users,email,',
+            'password' => 'required|string|min:6',
+            'role' => 'required|string',
+            'photo' => 'image|max:1000'
+        ]);
 
-    //     ArticleCategory::create($attr);
+        $villagerStaffData = Staff::where('villager_id', $request->villager)->get()->first();
+        $villagerData = Villager::where('id', $request->villager)->get()->first();
+        $registeredAsStaff = Staff::where('nik', $villagerData->nik)->get()->count();
 
-    //     Alert::success('Berhasil', 'Kategori artikel berhasil ditambahkan');
-    //     return redirect()->route('manajemen-artikel.kategori');
-    // }
+        if ($registeredAsStaff != 0) {
+            $attr['nik'] = $villagerData->nik;
+            $attr['full_name'] = $villagerData->full_name;
+            $attr['phone'] = $villagerData->phone_number;
+            $attr['photo'] = $photoUrl;
+            $attr['is_active'] = 1;
+
+            // buat akun dan berikan role
+            User::create($attr)->assignRole($request->role);
+
+            // update attribut user_id di tabel villagers dan staff
+            $userId = User::where('nik', $villagerData->nik)->pluck('id')->first();
+            $villagerData->update([
+                'user_id' => $userId
+            ]);
+            $villagerStaffData->update([
+                'user_id' => $userId
+            ]);
+
+            Alert::success('Berhasil', 'Akun user berhasil dibuat');
+            return redirect()->route('manajemen-pengguna.pengguna');
+        } else {
+            Alert::error('Penduduk bukan staff kelurahan', 'Silahkan daftarkan penduduk sebagai staff kelurahan');
+            return back();
+        }
+    }
 
     /**
      * Display the specified resource.
@@ -104,30 +152,31 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ArticleCategory  $articleCategory
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    // public function destroy(ArticleCategory $articleCategory)
-    // {
-    //     $articleCategory->delete();
-    //     Alert::success('Berhasil', 'Kategori artikel berhasil dihapus');
-    //     return redirect()->route('manajemen-artikel.kategori');
-    // }
+    public function destroy(User $user)
+    {
+        $userId = $user->id;
+        $user->delete();
+        Alert::success('Berhasil', 'Akun Pengguna berhasil dihapus');
+        return redirect()->route('manajemen-pengguna.pengguna');
+    }
 
-    // public function activation(Request $request, ArticleCategory $articleCategory)
-    // {
-    //     $attr = $request->validate([
-    //         'enabled' => 'required|boolean'
-    //     ]);
+    public function activation(Request $request, User $user)
+    {
+        $attr = $request->validate([
+            'is_active' => 'required|boolean'
+        ]);
 
-    //     $articleCategory->update($attr);
+        $user->update($attr);
 
-    //     if ($request->enabled == 1) {
-    //         Alert::success(' Berhasil ', 'Kategori artikel di aktifkan');
-    //     } else {
-    //         Alert::success(' Berhasil ', 'Kategori artikel di non-aktifkan');
-    //     }
+        if ($request->is_active == 1) {
+            Alert::success(' Berhasil ', 'Akun pengguna di aktifkan');
+        } else {
+            Alert::success(' Berhasil ', 'Akun pengguna di non-aktifkan');
+        }
 
-    //     return redirect()->route('manajemen-artikel.kategori');
-    // }
+        return redirect()->route('manajemen-pengguna.pengguna');
+    }
 }

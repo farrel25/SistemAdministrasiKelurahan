@@ -256,7 +256,7 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             // delete category
             // Route::delete('/{article_category}/delete', 'ArticleCategoryController@destroy')->name('info-kelurahan.identitas-kelurahan.destroy');
             // category activation
-            // Route::patch('/{article_category}/aktivasi', 'ArticleCategoryController@activation')->name('info-kelurahan.identitas-kelurahan.activation');
+            Route::patch('/{user}/aktivasi', 'UserController@activation')->name('manajemen-pengguna.pengguna-activation');
         });
 
         // RoleDanHakAkses

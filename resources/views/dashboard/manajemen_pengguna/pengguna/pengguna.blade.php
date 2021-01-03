@@ -95,13 +95,14 @@
                             </td>
                             <td class=" text-center">{{ $user->email }}</td>
                             <td class=" text-center">{{ $user->full_name }}</td>
-                            @php
+                            {{-- @php
                             $role = \DB::table('roles')->select( 'model_has_roles.model_id','roles.name')
                             ->join('model_has_roles', 'model_has_roles.role_id', '=', 'roles.id')
                             ->where('model_has_roles.model_id', $user->id)->pluck('name')->first();
-                            // dd($role);
-                            @endphp
-                            <td class=" text-center">{{ $role }}</td>
+                            @endphp --}}
+                            {{-- <td class=" text-center">{{ $role }}</td> --}}
+                            <td class=" text-center">{{ $user->roles->first()->name }}</td>
+
                         </tr>
                         @endforeach
                     </tbody>

@@ -486,7 +486,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                {{-- <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="position-relative form-group">
                                         <div>
                                             <label for="is_active" class="">Status Staf</label>
@@ -502,57 +502,54 @@
                                                 @error('is_active')
                                                 <span class="invalid-feedback mt-2" role="alert">
                                                     <i>{{ $message }}</i>
-                                </span>
-                                @enderror
+                                                </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
                             </div>
                         </div>
-                        <!--<label for="is_active" class="">Status Staf</label>
-                                        <input class="form-control toggle-class" type="checkbox" data-onstyle="success"
-                                            data-offstyle="danger" data-toggle="toggle" data-on="Active"
-                                            data-off="InActive" checked>-->
                     </div>
-            </div> --}}
-        </div>
-    </div>
-</div>
 
-<div tabindex="-1" class="dropdown-divider"></div>
+                    <div tabindex="-1" class="dropdown-divider"></div>
 
-<div class="row">
-    <div class=" col-lg-3">
-        <h4 class="card-title">Foto</h4>
-        <hr>
-    </div>
-    <div class=" col-lg-9">
-        <div class="form-row ml-1 mb-2">
-            <div class="position-relative form-group">
-                <label for="photo" class="">Upload Foto</label>
-                <input name="photo" id="photo" type="file"
-                    class="form-control-file @error('photo') is-invalid @enderror">
-                <small class=" form-text text-muted">
-                    Wajib mengisi foto sesuai dengan aslinya
-                </small>
-                <small class="form-text text-muted">
-                    Ukuran Maksimal : 1MB
-                </small>
-                @error('photo')
-                <span class="invalid-feedback mt-2" role="alert">
-                    <i>{{ $message }}</i>
-                </span>
-                @enderror
+                    <div class="row">
+                        <div class=" col-lg-3">
+                            <h4 class="card-title">Foto</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9">
+                            <div class="form-row ml-1 mb-2">
+                                <div class="position-relative form-group">
+                                    <label for="photo" class="">Upload Foto</label>
+                                    <input name="photo" id="photo" type="file"
+                                        class="form-control-file @error('photo') is-invalid @enderror">
+                                    <small class=" form-text text-muted">
+                                        Wajib mengisi foto sesuai dengan aslinya
+                                    </small>
+                                    <small class="form-text text-muted">
+                                        Ukuran Maksimal : 1MB
+                                    </small>
+                                    @error('photo')
+                                    <span class="invalid-feedback mt-2" role="alert">
+                                        <i>{{ $message }}</i>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <button type="submit" class="mt-2 btn btn-primary">Simpan Data</button>
+                            <a href="{{ route('info-kelurahan.kepengurusan') }}"
+                                class="mt-2 btn btn-outline-danger">Batal</a>
+                        </div>
+                    </div>
+                </form>
+
             </div>
         </div>
 
-        <button type="submit" class="mt-2 btn btn-primary">Simpan Data</button>
-        <a href="{{ route('info-kelurahan.kepengurusan') }}" class="mt-2 btn btn-outline-danger">Batal</a>
     </div>
-</div>
-</form>
-
-</div>
-</div>
-
-</div>
 </div>
 
 
