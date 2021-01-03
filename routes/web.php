@@ -76,8 +76,8 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
         Route::prefix('/kepengurusan')->group(function () {
             Route::get('', 'StaffController@index')->name('info-kelurahan.kepengurusan');
             // store Kepengurusan
-            Route::get('/tambah', 'InfoOrganizerController@create')->name('info-kelurahan.kepengurusan-create');
-            Route::post('/tambah', 'InfoOrganizerController@store')->name('info-kelurahan.kepengurusan-store');
+            Route::get('/tambah', 'StaffController@create')->name('info-kelurahan.kepengurusan-create');
+            Route::post('/tambah', 'StaffController@store')->name('info-kelurahan.kepengurusan-store');
             // update staff
             Route::get('{staff:nik}/edit', 'StaffController@edit')->name('info-kelurahan.kepengurusan-edit');
             Route::patch('{staff:nik}/edit', 'StaffController@update')->name('info-kelurahan.kepengurusan-update');

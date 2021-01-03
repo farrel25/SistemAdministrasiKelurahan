@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Staff;
 use Illuminate\Http\Request;
 use Alert;
+use App\Villager;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Carbon;
 
 class StaffController extends Controller
 {
@@ -26,7 +29,9 @@ class StaffController extends Controller
      */
     public function create()
     {
-        //
+        $villagers = Villager::get();
+        $roles = Role::get();
+        return view('dashboard.info_kelurahan.kepengurusan.kepengurusan-tambah', compact('villagers', 'roles'));
     }
 
     /**
@@ -37,7 +42,53 @@ class StaffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $photoUrl = null;
+        // cek apakah foto sudah di inputkan
+        if ($request->hasFile('photo')) {
+            // ambil ukuran foto
+            $photoSize = $request->file('photo')->getSize();
+            // cek ukuran foto yg diupload, max masih 1MB
+            if ($photoSize <= 1000000) {
+                // ambil file foto
+                $photo = $request->file('photo');
+                // rename file foto
+                $photoName = $request->nip . "." . $photo->extension();
+                // menentukan lokasi penyimpanan foto
+                $photoUrl = $photo->storeAs("images/staff_profile_pic", "{$photoName}");
+            }
+        }
+
+        $attr = $request->validate([
+            'villager' => 'required',
+            'nip' => 'required|numeric|digits:18|unique:staff,nip',
+            'nipd' => 'required|numeric|digits:21|unique:staff,nipd',
+            'photo' => 'required|image|max:1024',
+            'staff_position' => 'required|string',
+            'position_period' => 'required|string',
+            'pangkat' => 'required|string',
+            // 'is_active' => 'required|boolean',
+            'nomor_sk_angkat' => 'required|numeric',
+            'tgl_sk_angkat' => 'required|date',
+            'nomor_sk_henti' => 'numeric',
+            'tgl_sk_henti' => 'date',
+        ]);
+
+        $villagerId = $request->villager;
+        $villagerData = Villager::where('id', $villagerId)->get()->first();
+
+        $attr['villager_id'] = null;
+        $attr['villager_id'] = $villagerId;
+        $attr['user_id'] = null;
+        $attr['full_name'] = $villagerData->full_name;
+        $attr['nik'] = $villagerData->nik;
+        $attr['photo'] = $photoUrl;
+        $attr['registered'] = date('Y-m-d', strtotime(Carbon::now()));
+        $attr['urutan'] = Staff::get()->count() + 1;
+
+        Staff::create($attr);
+
+        Alert::success(' Berhasil ', 'Data staff berhasil ditambahkan');
+        return redirect()->route('info-kelurahan.kepengurusan');
     }
 
     /**

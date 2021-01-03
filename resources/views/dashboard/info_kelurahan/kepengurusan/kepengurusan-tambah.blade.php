@@ -19,37 +19,45 @@
             <div class="card-body">
                 <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Tambah Staf Desa</h5>
                 <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3 mb-2 mt-1">
-                        <h4 class="card-title font-weight-bold">Pengambilan Data</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9 ">
-                        <form class="">
+
+                <!--<form action="" method="post">
+                    <div class="row">
+                        <div class=" col-lg-3 mb-2 mt-1">
+                            <h4 class="card-title font-weight-bold">Pengambilan Data</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9 ">
                             <div class="position-relative form-group ">
                                 <div><label for="#" class="">Data Staf</label>
                                 </div>
                                 <div class="btn-actions-pane-right">
                                     <div role="group" class="btn-group-sm nav btn-group">
-                                        <a data-toggle="tab" href="#tab-eg1-0"
-                                            class="btn-shadow active btn btn-primary">Database Pnduduk
+                                        {{-- <a data-toggle="tab" href="#tab-eg1-0"
+                                            class="btn-shadow active btn btn-primary">Database Penduduk
                                         </a>
                                         <a data-toggle="tab" href="#tab-eg1-1" class="btn-shadow  btn btn-primary">
                                             Tidak Terdata
+                                        </a> --}}
+                                        <a class="btn-shadow active btn btn-primary">
+                                            Database Penduduk
+                                        </a>
+                                        <a href="{{ route('penduduk-tambah') }}"
+                                            class="btn-shadow btn btn-primary text-white">
+                                            Tidak Terdata sebagai penduduk
                                         </a>
                                     </div>
                                 </div>
                                 <div class="tab-content mt-3">
                                     <div class="tab-pane active" id="tab-eg1-0" role="tabpanel">
                                         <div class="position-relative form-group">
-                                            <label for="religion_id" class="">Pilih NIK</label>
-                                            <select name="religion_id" id="religion_id" class="mb-2 form-control "
-                                                value="#">
-                                                <option value="#">
-                                                    pilihh
+                                            <label for="villager" class="">Pilih NIK</label>
+                                            <select name="villager" id="villager" class="mb-2 form-control select2">
+                                                <option></option>
+                                                @foreach ($villagers as $villager)
+                                                <option value="{{$villager->id}}">
+                                                    {{ $villager->nik }} - {{ $villager->full_name }}
                                                 </option>
-
-                                                <option value="?"></option>
+                                                @endforeach
                                             </select>
                                             {{-- <span class="invalid-feedback mt-2" role="alert">
                                                 <i>{{ $message }}</i>
@@ -60,17 +68,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">Data Staf</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9">
-                        <form class="">
+                    <div tabindex="-1" class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class=" col-lg-3">
+                            <h4 class="card-title">Data Staf</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9">
                             <div class="position-relative form-group">
                                 <label for="#" class="">Nama Staf</label>
                                 <input name="#" id="#" type="text" class="form-control">
@@ -144,18 +150,15 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">SK</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9">
-                        <form class="">
+                    <div tabindex="-1" class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class=" col-lg-3">
+                            <h4 class="card-title">SK</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
@@ -182,17 +185,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">Pekerjaan</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9">
-                        <form class="">
+                    <div tabindex="-1" class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class=" col-lg-3">
+                            <h4 class="card-title">Pekerjaan</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9">
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <div class="position-relative form-group">
@@ -233,18 +234,15 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div tabindex="-1" class="dropdown-divider"></div>
-                <div class="row">
-                    <div class=" col-lg-3">
-                        <h4 class="card-title">Bagan</h4>
-                        <hr>
-                    </div>
-                    <div class=" col-lg-9">
-                        <form class="">
+                    <div tabindex="-1" class="dropdown-divider"></div>
+                    <div class="row">
+                        <div class=" col-lg-3">
+                            <h4 class="card-title">Bagan</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
@@ -280,15 +278,305 @@
 
                             <button class="mt-2 btn btn-primary">Ubah Data</button>
                             <button class="mt-2 btn btn-outline-danger">Cancel</button>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                </form>-->
 
-            </div>
+
+                {{-- FORM baru, farrel version --}}
+                <form action="{{ route('info-kelurahan.kepengurusan-store') }}" method="post"
+                    enctype="multipart/form-data">
+                    @csrf
+
+                    <div class="row">
+                        <div class=" col-lg-3">
+                            <h4 class="card-title">Data Staf</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9 ">
+                            <div class="position-relative form-group ">
+                                <div>
+                                    <label for="#" class="">Data Staf</label>
+                                </div>
+                                <div class="btn-actions-pane-right">
+                                    <div role="group" class="btn-group-sm nav btn-group">
+                                        <a class="btn-shadow active btn btn-primary">
+                                            Database Penduduk
+                                        </a>
+                                        <a href="{{ route('penduduk-tambah') }}"
+                                            class="btn-shadow btn btn-primary text-white">
+                                            Tambahkan data penduduk baru
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="tab-content mt-3">
+                                    <div class="tab-pane active" role="tabpanel">
+                                        <div class="position-relative form-group">
+                                            <label for="villager" class="">NIK / Nama Penduduk</label>
+                                            <select name="villager" id="villager"
+                                                class="mb-2 form-control select2 @error('villager') is-invalid @enderror">
+                                                <option></option>
+                                                @foreach ($villagers as $villager)
+                                                <option value="{{$villager->id}}"
+                                                    {{ old('villager') == $villager->id ? 'selected' : '' }}>
+                                                    {{ $villager->nik }} - {{ $villager->full_name }}
+                                                </option>
+                                                @endforeach
+                                            </select>
+                                            @error('villager')
+                                            <span class="invalid-feedback mt-2" role="alert">
+                                                <i>{{ $message }}</i>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="nip" class="">NIP</label>
+                                            <input name="nip" id="nip" type="text"
+                                                class="form-control @error('nip') is-invalid @enderror"
+                                                value="{{ old('nip') }}">
+                                            @error('nip')
+                                            <span class="invalid-feedback mt-2" role="alert">
+                                                <i>{{ $message }}</i>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="position-relative form-group">
+                                            <label for="nipd" class="">NIPD</label>
+                                            <input name="nipd" id="nipd" type="text"
+                                                class="form-control @error('nipd') is-invalid @enderror"
+                                                value="{{ old('nipd') }}">
+                                            @error('nipd')
+                                            <span class="invalid-feedback mt-2" role="alert">
+                                                <i>{{ $message }}</i>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div tabindex="-1" class="dropdown-divider"></div>
+
+                    <div class="row">
+                        <div class=" col-lg-3">
+                            <h4 class="card-title">SK</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="nomor_sk_angkat" class="">Nomor SK Pengangkatan</label>
+                                        <input name="nomor_sk_angkat" id="nomor_sk_angkat" type="text"
+                                            class="form-control @error('nomor_sk_angkat') is-invalid @enderror"
+                                            value="{{ old('nomor_sk_angkat') }}">
+                                        @error('nomor_sk_angkat')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="tgl_sk_angkat" class="">Tanggal SK Pengangkatan</label>
+                                        <input name="tgl_sk_angkat" id="tgl_sk_angkat" type="date"
+                                            class="form-control @error('tgl_sk_angkat') is-invalid @enderror"
+                                            value="{{ old('tgl_sk_angkat') }}">
+                                        @error('tgl_sk_angkat')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="nomor_sk_henti" class="">Nomor SK Pemberhentian</label>
+                                        <input name="nomor_sk_henti" id="nomor_sk_henti" type="text"
+                                            class="form-control @error('nomor_sk_henti') is-invalid @enderror"
+                                            value="{{ old('nomor_sk_henti') }}">
+                                        @error('nomor_sk_henti')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="tgl_sk_henti" class="">Tanggal SK Pemberhentian</label>
+                                        <input name="tgl_sk_henti" id="tgl_sk_henti" type="date"
+                                            class="form-control @error('tgl_sk_henti') is-invalid @enderror"
+                                            value="{{ old('tgl_sk_henti') }}">
+                                        @error('tgl_sk_henti')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div tabindex="-1" class="dropdown-divider"></div>
+
+                    <div class="row">
+                        <div class=" col-lg-3">
+                            <h4 class="card-title">Pekerjaan</h4>
+                            <hr>
+                        </div>
+                        <div class=" col-lg-9">
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="position_period" class="">Masa Jabatan</label>
+                                        <input name="position_period" id="position_period" type="text"
+                                            class="form-control @error('position_period') is-invalid @enderror"
+                                            value="{{ old('position_period') }}">
+                                        @error('position_period')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="staff_position" class="">Jabatan</label>
+                                        <select name="staff_position" id="staff_position"
+                                            class="mb-2 form-control select2position @error('staff_position') is-invalid @enderror">
+                                            <option></option>
+                                            @foreach ($roles as $role)
+                                            @if (\Str::lower($role->name) != 'administrator' && \Str::lower($role->name)
+                                            != 'penduduk')
+                                            <option value="{{$role->name}}"
+                                                {{ old('staff_position') == $role->name? 'selected' : '' }}>
+                                                {{ $role->name }}
+                                            </option>
+                                            @endif
+                                            @endforeach
+                                        </select>
+                                        @error('staff_position')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <label for="pangkat" class="">Pangkat</label>
+                                        <input name="pangkat" id="pangkat" type="text"
+                                            class="form-control @error('pangkat') is-invalid @enderror"
+                                            value="{{ old('pangkat') }}">
+                                        @error('pangkat')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                {{-- <div class="col-md-4">
+                                    <div class="position-relative form-group">
+                                        <div>
+                                            <label for="is_active" class="">Status Staf</label>
+                                        </div>
+                                        <div class="btn-actions-pane-right">
+                                            <div role="group" class="btn-group-sm nav btn-group">
+                                                <button data-toggle="tab" href="#"
+                                                    class="btn-shadow active btn btn-primary">Aktif
+                                                </button>
+                                                <button data-toggle="tab" href="#" class="btn-shadow  btn btn-primary">
+                                                    Tidak Aktif
+                                                </button>
+                                                @error('is_active')
+                                                <span class="invalid-feedback mt-2" role="alert">
+                                                    <i>{{ $message }}</i>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <!--<label for="is_active" class="">Status Staf</label>
+                                        <input class="form-control toggle-class" type="checkbox" data-onstyle="success"
+                                            data-offstyle="danger" data-toggle="toggle" data-on="Active"
+                                            data-off="InActive" checked>-->
+                    </div>
+            </div> --}}
         </div>
-
     </div>
 </div>
 
+<div tabindex="-1" class="dropdown-divider"></div>
+
+<div class="row">
+    <div class=" col-lg-3">
+        <h4 class="card-title">Foto</h4>
+        <hr>
+    </div>
+    <div class=" col-lg-9">
+        <div class="form-row ml-1 mb-2">
+            <div class="position-relative form-group">
+                <label for="photo" class="">Upload Foto</label>
+                <input name="photo" id="photo" type="file"
+                    class="form-control-file @error('photo') is-invalid @enderror">
+                <small class=" form-text text-muted">
+                    Wajib mengisi foto sesuai dengan aslinya
+                </small>
+                <small class="form-text text-muted">
+                    Ukuran Maksimal : 1MB
+                </small>
+                @error('photo')
+                <span class="invalid-feedback mt-2" role="alert">
+                    <i>{{ $message }}</i>
+                </span>
+                @enderror
+            </div>
+        </div>
+
+        <button type="submit" class="mt-2 btn btn-primary">Simpan Data</button>
+        <a href="{{ route('info-kelurahan.kepengurusan') }}" class="mt-2 btn btn-outline-danger">Batal</a>
+    </div>
+</div>
+</form>
+
+</div>
+</div>
+
+</div>
+</div>
+
+
+<script>
+    $(document).ready(function() {
+        $('.select2').select2({
+            placeholder: "Pilih NIK",
+            allowClear: true
+        });
+    });
+    $(document).ready(function() {
+        $('.select2position').select2({
+            placeholder: "Pilih Jabatan",
+            allowClear: true
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        if($('#villager option:selected')) {
+            console.log($('#villager option:selected').val());
+        }
+    });
+</script>
 
 @endsection
