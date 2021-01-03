@@ -21,7 +21,8 @@
                 <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Edit Staf Desa</h5>
 
                 <div tabindex="-1" class="dropdown-divider"></div>
-                <form action="{{ route('info-kelurahan.kepengurusan-update', $staff->nik) }}" method="post">
+                <form action="{{ route('info-kelurahan.kepengurusan-update', $staff->nik) }}" method="post"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('patch')
 
@@ -397,9 +398,20 @@
                                 <div class="col-md-3">
                                     <div class="position-relative form-group">
                                         <label for="staff_position" class="">Jabatan</label>
-                                        <input name="staff_position" id="staff_position" type="text"
-                                            class="form-control @error('staff_position') is-invalid @enderror"
-                                            value="{{ old('staff_position') ?? $staff->staff_position }}">
+
+                                        <select name="staff_position" id="staff_position"
+                                            class="mb-2 form-control select2position @error('staff_position') is-invalid @enderror">
+                                            <option></option>
+                                            @foreach ($roles as $role)
+                                            @if (\Str::lower($role->name) != 'administrator' && \Str::lower($role->name)
+                                            != 'penduduk')
+                                            <option value="{{$role->name}}"
+                                                {{ $role->name == $staff->staff_position ? 'selected' : '' }}>
+                                                {{ $role->name }}
+                                            </option>
+                                            @endif
+                                            @endforeach
+                                        </select>
                                         @error('staff_position')
                                         <span class="invalid-feedback mt-2" role="alert">
                                             <i>{{ $message }}</i>
@@ -420,7 +432,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                {{-- <div class="col-md-4">
                                     <div class="position-relative form-group">
                                         <div><label for="is_active" class="">Status Staf</label>
                                         </div>
@@ -435,49 +447,55 @@
                                                 @error('is_active')
                                                 <span class="invalid-feedback mt-2" role="alert">
                                                     <i>{{ $message }}</i>
-                                                </span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </span>
+                                @enderror
                             </div>
                         </div>
                     </div>
-
-                    <div tabindex="-1" class="dropdown-divider"></div>
-                    <div class="row">
-                        <div class=" col-lg-3">
-                            <h4 class="card-title">Foto</h4>
-                            <hr>
-                        </div>
-                        <div class=" col-lg-9">
-                            <div class="form-row ml-1 mb-2">
-                                <div class="position-relative form-group">
-                                    <label for="photo" class="">Upload Foto</label>
-                                    <input name="photo" id="photo" type="file"
-                                        class="form-control-file @error('photo') is-invalid @enderror"
-                                        value="{{ $staff->photo }}">
-                                    <small class="form-text text-muted">Wajib mengisi foto sesuai dengan aslinya</small>
-                                    <small class="form-text text-muted">Ukuran Maksimal : 1MB</small>
-                                    @error('photo')
-                                    <span class="invalid-feedback mt-2" role="alert">
-                                        <i>{{ $message }}</i>
-                                    </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <button type="submit" class="mt-2 btn btn-primary">Simpan Data</button>
-                            <a href="{{ route('info-kelurahan.kepengurusan') }}"
-                                class="mt-2 btn btn-outline-danger">Batal</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
 
+<div tabindex="-1" class="dropdown-divider"></div>
+<div class="row">
+    <div class=" col-lg-3">
+        <h4 class="card-title">Foto</h4>
+        <hr>
+    </div>
+    <div class=" col-lg-9">
+        <div class="form-row ml-1 mb-2">
+            <div class="position-relative form-group">
+                <label for="photo" class="">Upload Foto</label>
+                <input name="photo" id="photo" type="file"
+                    class="form-control-file @error('photo') is-invalid @enderror" value="{{ $staff->photo }}">
+                <small class="form-text text-muted">Wajib mengisi foto sesuai dengan aslinya</small>
+                <small class="form-text text-muted">Ukuran Maksimal : 1MB</small>
+                @error('photo')
+                <span class="invalid-feedback mt-2" role="alert">
+                    <i>{{ $message }}</i>
+                </span>
+                @enderror
+            </div>
+        </div>
+
+        <button type="submit" class="mt-2 btn btn-primary">Simpan Data</button>
+        <a href="{{ route('info-kelurahan.kepengurusan') }}" class="mt-2 btn btn-outline-danger">Batal</a>
+    </div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('.select2position').select2({
+            placeholder: "Pilih Jabatan",
+            allowClear: true
+        });
+    });
+</script>
 
 @endsection

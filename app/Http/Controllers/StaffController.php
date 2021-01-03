@@ -110,7 +110,8 @@ class StaffController extends Controller
      */
     public function edit(Staff $staff)
     {
-        return view('dashboard.info_kelurahan.kepengurusan.kepengurusan-edit', compact('staff'));
+        $roles = Role::get();
+        return view('dashboard.info_kelurahan.kepengurusan.kepengurusan-edit', compact('staff', 'roles'));
     }
 
     /**
@@ -153,15 +154,15 @@ class StaffController extends Controller
             // 'nik' => 'required|numeric|digits:16|unique:staff,nik',
             // 'nip' => 'required|numeric|digits:18|unique:staff,nip',
             // 'nipd' => 'required|numeric|digits:21|unique:staff,nipd',
-            // 'photo' => 'image|max:1024',
+            'photo' => 'image|max:1024',
             'staff_position' => 'required|string',
             'position_period' => 'required|string',
             'pangkat' => 'required|string',
             // 'is_active' => 'required|boolean',
-            // 'nomor_sk_angkat' => 'required|numeric',
-            // 'tgl_sk_angkat' => 'required|date',
-            // 'nomor_sk_henti' => 'numeric',
-            // 'tgl_sk_henti' => 'date',
+            'nomor_sk_angkat' => 'required|numeric',
+            'tgl_sk_angkat' => 'required|date',
+            'nomor_sk_henti' => 'numeric',
+            'tgl_sk_henti' => 'date',
         ]);
 
         $attr['photo'] = $photoUrl;
