@@ -35,16 +35,17 @@
                             <th class=" text-center">No.</th>
                             <th class=" text-center">Aksi</th>
                             <th class=" text-center">Foto</th>
-                            <th class=" text-center">Username</th>
+                            <th class=" text-center">Email</th>
                             <th class=" text-center">Nama</th>
                             <th class=" text-center">Role</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($users as $number => $user)
                         <tr>
                             <td class=" text-center"><input type="checkbox" name="chkbox[]" value="#">
                             </td>
-                            <td class=" text-center">#</td>
+                            <td class=" text-center">{{ $number + $users->firstItem() }}</td>
                             <td class=" text-center">
                                 <div class="d-flex justify-content-center">
                                     <a href="{{route('manajemen-pengguna.pengguna-edit')}}"
@@ -52,6 +53,31 @@
                                         title="Edit Pengguna " data-placement="bottom">
                                         <i class="fas fa-edit"></i>
                                     </a>
+
+                                    @if ($user->is_active == 1)
+                                    <form method="POST"
+                                        action="{{ route('manajemen-pengguna.pengguna-activation', $user->id) }}">
+                                        @csrf
+                                        @method('patch')
+                                        <input type="hidden" name="is_active" value="0">
+                                        <button type="submit" class="btn btn-secondary btn-sm mr-1"
+                                            data-toggle="tooltip" title="Non Aktifkan Pengguna" data-placement="bottom">
+                                            <i class="fas fa-lock-open"></i>
+                                        </button>
+                                    </form>
+                                    @else
+                                    <form method="POST"
+                                        action="{{ route('manajemen-pengguna.pengguna-activation', $user->id) }}">
+                                        @csrf
+                                        @method('patch')
+                                        <input type="hidden" name="is_active" value="1">
+                                        <button type="submit" class="btn btn-secondary btn-sm mr-1"
+                                            data-toggle="tooltip" title="Aktifkan Pengguna" data-placement="bottom">
+                                            <i class="fas fa-lock"></i>
+                                        </button>
+                                    </form>
+                                    @endif
+
                                     <form id="delete-form" action="#" method="post">
                                         <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
                                             title="Hapus Anggota" data-placement="bottom">
@@ -60,11 +86,24 @@
                                     </form>
                                 </div>
                             </td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
+                            <td class=" text-center">
+                                @if ($user->photo)
+                                <img src="{{ asset('storage/' . $user->photo) }}" alt="" width="70">
+                                @else
+                                <i>Belum ada foto</i>
+                                @endif
+                            </td>
+                            <td class=" text-center">{{ $user->email }}</td>
+                            <td class=" text-center">{{ $user->full_name }}</td>
+                            @php
+                            $role = \DB::table('roles')->select( 'model_has_roles.model_id','roles.name')
+                            ->join('model_has_roles', 'model_has_roles.role_id', '=', 'roles.id')
+                            ->where('model_has_roles.model_id', $user->id)->pluck('name')->first();
+                            // dd($role);
+                            @endphp
+                            <td class=" text-center">{{ $role }}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -73,7 +112,7 @@
                 <div class="card-body ">
                     <nav class=" " aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                            {{-- {{ $articles->links() }} --}}
+                            {{ $users->links() }}
                         </ul>
                     </nav>
                 </div>

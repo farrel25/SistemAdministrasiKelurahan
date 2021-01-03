@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Alert;
+use App\User;
 
 class UserController extends Controller
 {
@@ -15,11 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        // $categories = ArticleCategory::get();
-        //
-        // $articles = Article::orderBy('updated_at', 'desc')->paginate(10);
-
-        return view('dashboard.manajemen_pengguna.pengguna.pengguna'/*, compact('categories')*/);
+        $users = User::latest()->paginate(10);
+        return view('dashboard.manajemen_pengguna.pengguna.pengguna', compact('users'));
     }
 
     /**
