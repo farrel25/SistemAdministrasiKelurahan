@@ -437,12 +437,13 @@
                         </div>
                         <div class=" col-lg-9">
                             <div class="form-row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="position_period" class="">Masa Jabatan</label>
                                         <input name="position_period" id="position_period" type="text"
                                             class="form-control @error('position_period') is-invalid @enderror"
-                                            value="{{ old('position_period') }}">
+                                            value="{{ old('position_period') }}"
+                                            placeholder="Contoh : 6 Tahun Periode 1 (2020 s/d 2026)">
                                         @error('position_period')
                                         <span class="invalid-feedback mt-2" role="alert">
                                             <i>{{ $message }}</i>
@@ -450,7 +451,20 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="pangkat" class="">Pangkat</label>
+                                        <input name="pangkat" id="pangkat" type="text"
+                                            class="form-control @error('pangkat') is-invalid @enderror"
+                                            value="{{ old('pangkat') }}">
+                                        @error('pangkat')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
                                     <div class="position-relative form-group">
                                         <label for="staff_position" class="">Jabatan</label>
                                         <select name="staff_position" id="staff_position"
@@ -467,19 +481,6 @@
                                             @endforeach
                                         </select>
                                         @error('staff_position')
-                                        <span class="invalid-feedback mt-2" role="alert">
-                                            <i>{{ $message }}</i>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="position-relative form-group">
-                                        <label for="pangkat" class="">Pangkat</label>
-                                        <input name="pangkat" id="pangkat" type="text"
-                                            class="form-control @error('pangkat') is-invalid @enderror"
-                                            value="{{ old('pangkat') }}">
-                                        @error('pangkat')
                                         <span class="invalid-feedback mt-2" role="alert">
                                             <i>{{ $message }}</i>
                                         </span>

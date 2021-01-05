@@ -1,4 +1,4 @@
-@extends('dashboard.layouts.master', ['title' => "Tambah Dusun"])
+@extends('dashboard.layouts.master', ['title' => "Tambah Pengguna"])
 
 @section('content')
 
@@ -59,7 +59,8 @@
                                     <div class="position-relative form-group">
                                         <label for="email" class="">Email</label>
                                         <input name="email" id="email" type="email"
-                                            class="form-control @error('email') is-invalid @enderror">
+                                            class="form-control @error('email') is-invalid @enderror"
+                                            value="{{ old('email') }}">
                                         @error('email')
                                         <span class="invalid-feedback mt-2" role="alert">
                                             <i>{{ $message }}</i>
@@ -70,7 +71,7 @@
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="password" class="">Kata Sandi</label>
-                                        <input name="password" id="password" type="text"
+                                        <input name="password" id="password" type="password"
                                             class="form-control @error('password') is-invalid @enderror">
                                         @error('password')
                                         <span class="invalid-feedback mt-2" role="alert">

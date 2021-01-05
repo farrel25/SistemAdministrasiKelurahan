@@ -84,6 +84,7 @@
                                         method="post">
                                         @csrf
                                         @method('delete')
+
                                         <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
                                             title="Hapus Anggota" data-placement="bottom">
                                             <i class="fas fa-trash-alt"></i>

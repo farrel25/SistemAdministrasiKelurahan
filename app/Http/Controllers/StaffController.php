@@ -18,7 +18,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        $staff = Staff::get();
+        $staff = Staff::orderBy('urutan', 'asc')->get();
         return view('dashboard.info_kelurahan.kepengurusan.kepengurusan', compact('staff'));
     }
 
@@ -43,6 +43,22 @@ class StaffController extends Controller
     public function store(Request $request)
     {
         $photoUrl = null;
+
+        $attr = $request->validate([
+            'villager' => 'required',
+            'nip' => 'required|numeric|digits:18|unique:staff,nip',
+            'nipd' => 'required|numeric|digits:21|unique:staff,nipd',
+            'photo' => 'required|image|max:1000',
+            'staff_position' => 'required|string',
+            'position_period' => 'required|string',
+            'pangkat' => 'required|string',
+            // 'is_active' => 'required|boolean',
+            'nomor_sk_angkat' => 'required|numeric',
+            'tgl_sk_angkat' => 'required|date',
+            'nomor_sk_henti' => 'numeric',
+            'tgl_sk_henti' => 'date',
+        ]);
+
         // cek apakah foto sudah di inputkan
         if ($request->hasFile('photo')) {
             // ambil ukuran foto
@@ -57,21 +73,6 @@ class StaffController extends Controller
                 $photoUrl = $photo->storeAs("images/staff_profile_pic", "{$photoName}");
             }
         }
-
-        $attr = $request->validate([
-            'villager' => 'required',
-            'nip' => 'required|numeric|digits:18|unique:staff,nip',
-            'nipd' => 'required|numeric|digits:21|unique:staff,nipd',
-            'photo' => 'required|image|max:1024',
-            'staff_position' => 'required|string',
-            'position_period' => 'required|string',
-            'pangkat' => 'required|string',
-            // 'is_active' => 'required|boolean',
-            'nomor_sk_angkat' => 'required|numeric',
-            'tgl_sk_angkat' => 'required|date',
-            'nomor_sk_henti' => 'numeric',
-            'tgl_sk_henti' => 'date',
-        ]);
 
         $villagerId = $request->villager;
         $villagerData = Villager::where('id', $villagerId)->get()->first();
@@ -181,6 +182,28 @@ class StaffController extends Controller
      */
     public function destroy(Staff $staff)
     {
+        $staffUserData = $staff->user;
+        $staffVillagerData = $staffUserData->villager;
+        $countStaffUser = $staffUserData->where('id', $staff->user_id)->count();
+        $countStaffVillager = $staffVillagerData->where('id', $staff->user_id)->count();
+        // dd($staffVillagerData->where('id', $staff->user_id)->count());
+
+        if ($countStaffVillager == 1) {
+            // update user_id di tabel villagers
+            $staffVillagerData->update([
+                'user_id' => null
+            ]);
+        }
+
+        if ($countStaffUser == 1) {
+            // hapus foto dari storage jika akun user si staff ada fotonya
+            if ($staffUserData->photo) {
+                \Storage::delete($staffUserData->photo);
+            }
+            // hapus akun user si staff
+            $staffUserData->delete();
+        }
+
         if ($staff->photo) {
             \Storage::delete($staff->photo);
         }

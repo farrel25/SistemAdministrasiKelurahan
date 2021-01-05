@@ -51,7 +51,7 @@
                                     <label for="full_name">Nama Lengkap</label>
                                 </small>
 
-                                <input type="text" id="full_name" placeholder="Nama Lengkap"
+                                <input type="text" id="full_name" placeholder="Nama Lengkap sesuai KTP/KK"
                                     class="form-control @error('full_name') is-invalid @enderror" name="full_name"
                                     value="{{ old('full_name') }}" required />
 

@@ -253,9 +253,9 @@ Route::middleware('role:Administrator|Redaktur')->group(function () {
             // update category
             Route::get('/edit', 'UserController@edit')->name('manajemen-pengguna.pengguna-edit');
             Route::patch('/edit', 'UserController@update')->name('info-kelurahan-wilayah.update');
-            // delete category
-            // Route::delete('/{article_category}/delete', 'ArticleCategoryController@destroy')->name('info-kelurahan.identitas-kelurahan.destroy');
-            // category activation
+            // delete user
+            Route::delete('/{user}/delete', 'UserController@destroy')->name('manajemen-pengguna.pengguna-destroy');
+            // user activation
             Route::patch('/{user}/aktivasi', 'UserController@activation')->name('manajemen-pengguna.pengguna-activation');
         });
 

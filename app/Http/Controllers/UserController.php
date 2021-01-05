@@ -8,6 +8,7 @@ use Alert;
 use App\Staff;
 use App\User;
 use App\Villager;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -45,6 +46,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $photoUrl = null;
+
+        $attr = $request->validate([
+            'villager' => 'required',
+            'email' => 'required|email|unique:users,email,',
+            'password' => 'required|string|min:6',
+            'role' => 'required|string',
+            'photo' => 'image|max:1000'
+        ]);
+
         // cek apakah foto sudah di inputkan
         if ($request->hasFile('photo')) {
             // ambil ukuran foto
@@ -61,14 +71,6 @@ class UserController extends Controller
             }
         }
 
-        $attr = $request->validate([
-            'villager' => 'required',
-            'email' => 'required|email|unique:users,email,',
-            'password' => 'required|string|min:6',
-            'role' => 'required|string',
-            'photo' => 'image|max:1000'
-        ]);
-
         $villagerStaffData = Staff::where('villager_id', $request->villager)->get()->first();
         $villagerData = Villager::where('id', $request->villager)->get()->first();
         $registeredAsStaff = Staff::where('nik', $villagerData->nik)->get()->count();
@@ -76,6 +78,7 @@ class UserController extends Controller
         if ($registeredAsStaff != 0) {
             $attr['nik'] = $villagerData->nik;
             $attr['full_name'] = $villagerData->full_name;
+            $attr['password'] = Hash::make($request->password);
             $attr['phone'] = $villagerData->phone_number;
             $attr['photo'] = $photoUrl;
             $attr['is_active'] = 1;
@@ -157,8 +160,26 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $userId = $user->id;
+        $userStaff = $user->staff;
+        $userVillager = $user->villager;
+
+        // update user_id di tabel staff
+        $userStaff->update([
+            'user_id' => null
+        ]);
+
+        // update user_id di tabel villager
+        $userVillager->update([
+            'user_id' => null
+        ]);
+
+        // hapus dari storage juga jika user punya foto
+        if ($user->photo) {
+            \Storage::delete($user->photo);
+        }
+
         $user->delete();
+
         Alert::success('Berhasil', 'Akun Pengguna berhasil dihapus');
         return redirect()->route('manajemen-pengguna.pengguna');
     }

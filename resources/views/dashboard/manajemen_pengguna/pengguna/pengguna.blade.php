@@ -48,11 +48,11 @@
                             <td class=" text-center">{{ $number + $users->firstItem() }}</td>
                             <td class=" text-center">
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{route('manajemen-pengguna.pengguna-edit')}}"
-                                        class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
-                                        title="Edit Pengguna " data-placement="bottom">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
+                                    {{-- <a href="{{route('manajemen-pengguna.pengguna-edit')}}"
+                                    class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
+                                    title="Edit Pengguna " data-placement="bottom">
+                                    <i class="fas fa-edit"></i>
+                                    </a> --}}
 
                                     @if ($user->is_active == 1)
                                     <form method="POST"
@@ -78,7 +78,12 @@
                                     </form>
                                     @endif
 
-                                    <form id="delete-form" action="#" method="post">
+                                    <form id="delete-form"
+                                        action="{{route('manajemen-pengguna.pengguna-destroy', $user->id)}}"
+                                        method="post">
+                                        @csrf
+                                        @method('delete')
+
                                         <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
                                             title="Hapus Anggota" data-placement="bottom">
                                             <i class="fas fa-trash-alt"></i>
