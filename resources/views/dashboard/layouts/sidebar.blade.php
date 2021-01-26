@@ -273,26 +273,36 @@
                     </a>
                 </li> --}} -->
 
-                <?php
-                    // ambil id user yg sedang login
-                    $userId = Auth::user()->id;
+                @php
+                // ambil id user yg sedang login
+                // $userId = Auth::user()->id;
 
-                    // ambil role user yang sedang login berdasarkan id user
-                    $userRoleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
+                // ambil role user yang sedang login berdasarkan id user
+                // $userRoleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
+                $userRoleId = Auth::user()->roles->pluck('id')->first();
+                // dd($userRoleId);
 
-                    // ambil menu yang boleh diakses user berdasarkan role user
-                    $menus = \DB::table('permissions')->select('permissions.id', 'permissions.name')
-                        ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
-                        ->where('role_has_permissions.role_id', $userRoleId)
-                        ->get();
-                ?>
+                // ambil menu yang boleh diakses user berdasarkan role user
+                // $menus = \DB::table('permissions')->select('permissions.id', 'permissions.name')
+                // ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
+                // ->where('role_has_permissions.role_id', $userRoleId)
+                // ->get();
+                $menus = \DB::table('dashboard_menus')->select('dashboard_menus.id', 'dashboard_menus.menu')
+                ->join('role_has_permissions', 'dashboard_menus.id', '=', 'role_has_permissions.permission_id')
+                ->where('role_has_permissions.role_id', $userRoleId)
+                ->get();
+                @endphp
 
                 @foreach ($menus as $menu)
-                <li class="app-sidebar__heading ">{{ $menu->name }}</li>
+                <li class="app-sidebar__heading ">{{ $menu->menu }}</li>
 
                 <?php
+                // $subMenus = DB::table('dashboard_sub_menus')
+                //     ->join('permissions', 'dashboard_sub_menus.menu_id', '=', 'permissions.id')
+                //     ->where('dashboard_sub_menus.menu_id', $menu->id)
+                //     ->get();
                 $subMenus = DB::table('dashboard_sub_menus')
-                    ->join('permissions', 'dashboard_sub_menus.menu_id', '=', 'permissions.id')
+                    ->join('dashboard_menus', 'dashboard_sub_menus.menu_id', '=', 'dashboard_menus.id')
                     ->where('dashboard_sub_menus.menu_id', $menu->id)
                     ->get();
                 ?>

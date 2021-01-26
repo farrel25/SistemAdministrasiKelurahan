@@ -11,4 +11,9 @@ class DashboardSubMenu extends Model
     {
         return $this->belongsTo(Permission::class, 'menu_id');
     }
+
+    public function dashboardMenu()
+    {
+        return $this->belongsTo(DashboardMenu::class, 'menu_id');
+    }
 }
