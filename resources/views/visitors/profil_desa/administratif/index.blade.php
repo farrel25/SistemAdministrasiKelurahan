@@ -2,7 +2,7 @@
 
 @section('content')
 {{-- Start Breadcumb Section --}}
-@include('visitors.layouts.breadcumb', ['judul' => "Administratif"], ['page1' => "/ Profil Desa", 'page2' => "/
+@include('visitors.layouts.breadcumb', ['judul' => "Administratif"], ['page2' => "/ Profil Desa", 'page3' => "/
 Administratif"])
 {{-- Start end Section --}}
 

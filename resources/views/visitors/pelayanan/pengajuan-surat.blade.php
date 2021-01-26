@@ -2,8 +2,7 @@
 
 @section('content')
 {{-- Start Breadcumb Section --}}
-@include('visitors.layouts.breadcumb', ['judul' => "Pengajuan Surat"], ['page1' => "/ Pelayanan", 'page2' => "/
-Pengajuan Surat"])
+@include('visitors.layouts.breadcumb', ['judul' => "Pengajuan Surat"], ['page2' => "/ Pengajuan Surat"])
 {{-- Start end Section --}}
 
 <section id="page-title-pelayanan">

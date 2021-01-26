@@ -16,13 +16,13 @@
                 <li class="{{ request()->is('/') ? 'active' : '' }}">
                     <a href="{{ route('visitors.beranda.index') }}">Beranda</a>
                 </li>
-                <li class="{{ request()->is('/artikel') ? 'active' : '' }}">
+                <li class="{{ request()->is('artikel') ? 'active' : '' }}">
                     <a href="{{ route('visitors.artikel.index') }}">Artikel</a>
                 </li>
                 <?php function activeProfilDesa($urlPath)
                 {
                 if ($urlPath == 'profil-desa/sejarah-visi-misi' || $urlPath == 'profil-desa/struktur-pemerintahan' || $urlPath ==
-                'profil-desa/administratif') {
+                'profil-desa/administratif/jenis-kelamin') {
                 return ' active';
                 }
                 } ?>
@@ -36,7 +36,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="drop-down{{ request()->is('kegiatan-masyarakat') ? 'active' : '' }}">
+                <li class="drop-down{{ request()->is('/kegiatan-masyarakat/umkm') ? 'active' : '' }}">
                     <a href="#">Kegiatan Masyarakat</a>
                     <ul>
                         <li><a href="{{ route('visitors.kegiatan_masyarakat.umkm.index') }}">UMKM Masyarakat</a></li>
@@ -51,30 +51,30 @@
                 // }
                 // }
                 ?>
-                <li class="{{ request()->is('/pengajuan.surat.create') ? 'active' : '' }}">
+                <li class="{{ request()->is('pelayanan/pengajuan-surat') ? 'active' : '' }}">
                     <a href="{{ route('pengajuan-surat.create') }}">Pengajuan Surat</a>
                 </li>
                 @guest
-                    <li class="btn-register"><a href="{{ route('register') }}">Register</a></li>
-                    <li class="btn-login"><a href="{{ route('login') }}">Login</a></li>
+                <li class="btn-register"><a href="{{ route('register') }}">Register</a></li>
+                <li class="btn-login"><a href="{{ route('login') }}">Login</a></li>
                 @else
-                    <?php
+                <?php
                     $name = explode(' ', Auth::user()->full_name);
                     $nickname = $name[0];
                     ?>
-                    <li class="drop-down ml-5">
-                        <a href="#">Hai, {{ $nickname }}</a>
-                        <ul>
-                            <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                            <li>
-                                <a href="{{ route('logout') }}"
-                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-                            </li>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </ul>
-                    </li>
+                <li class="drop-down ml-5">
+                    <a href="#">Hai, {{ $nickname }}</a>
+                    <ul>
+                        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <li>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                        </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </ul>
+                </li>
                 @endguest
             </ul>
         </nav>

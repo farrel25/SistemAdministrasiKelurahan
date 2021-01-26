@@ -342,11 +342,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-8" data-aos="fade-right" data-aos-delay="800">
+            <div class="col-lg-8">
                 <div class="all-blog-posts">
                     <div class="row mb-5">
                         @forelse ($articles as $article)
-                        <div class="col-lg-12">
+                        <div class="col-lg-12 " data-aos="fade-up" data-aos-delay="800">
                             <div class="blog-post">
                                 <div class="blog-thumb">
                                     {{-- <img src="{{ asset('/images') }}/img-article-01.png" alt=""> --}}
@@ -394,31 +394,31 @@
                         @empty
                         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                             <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800">
-                                <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                                     <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
-                                </div>
-                                <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat
-                                    menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service.
-                                    Terima kasih.</div>
-                            </div>
-                        </div>
-                        @endforelse
-                        <div class="col-lg-12 mb-5 ">
-                            <ul class="pagination justify-content-center">
-                                {{$articles->links()}}
-                            </ul>
+                            </div> --}}
+                            <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat
+                                menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service.
+                                Terima kasih.</div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-lg-4 mb-5" data-aos="fade-left" data-aos-delay="1000">
-                <div class="sidebar">
-                    <div class="row">
-                        @include('visitors.layouts.sidebar.sidebar-artikel')
+                    @endforelse
+                    <div class="col-lg-12 mb-5 ">
+                        <ul class="pagination justify-content-center">
+                            {{$articles->links()}}
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="1000">
+            <div class="sidebar">
+                <div class="row">
+                    @include('visitors.layouts.sidebar.sidebar-artikel')
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </section>
 {{-- End Article Section --}}
@@ -429,6 +429,7 @@
             slidesToShow: 5,
             slidesToScroll: 1,
             autoplay: true,
+            infinite: false,
             cssEase: 'linear',
             autoplaySpeed: 2000,
             responsive: [{
@@ -436,7 +437,6 @@
                     settings: {
                         slidesToShow: 3,
                         slidesToScroll: 1,
-                        infinite: true,
                         dots: true
                     }
                 },
@@ -469,6 +469,7 @@
             dotsClass: "slick-dots-vertical",
             slidesToScroll: 1,
             autoplay: true,
+            infinite: false,
             autoplaySpeed: 2000,
             prevArrow: false,
             nextArrow: false,
@@ -477,7 +478,6 @@
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1,
-                        infinite: true,
                         dots: true
                     }
                 },

@@ -30,12 +30,9 @@
                             <button type="submit" class="btn btn-primary btn-responsive btn-blue ">Submit</button>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
     </div>
 </footer>
 <!-- End Footer -->
-
-<a href="#" class="back-to-top"><i class="icofont-simple-up scrollto"></i></a>

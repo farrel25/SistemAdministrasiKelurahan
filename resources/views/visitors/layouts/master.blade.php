@@ -15,7 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     {{-- Vendor CSS files --}}
@@ -29,7 +30,6 @@
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/slick/slick.css">
 
     {{-- Vendor js files --}}
-    <script src="{{ asset('/visitors/vendor') }}/jquery/jquery.min.js"></script>
     <script src="{{ asset('/visitors/vendor') }}/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('/visitors/vendor') }}/jquery.easing/jquery.easing.min.js"></script>
     <script src="{{ asset('/visitors/vendor') }}/php-email-form/validate.js"></script>
@@ -40,12 +40,6 @@
     <script src="{{ asset('/visitors/vendor') }}/venobox/venobox.min.js"></script>
     <script src="{{ asset('/visitors/vendor') }}/aos/aos.js"></script>
     <script src="{{ asset('/visitors/vendor') }}/slick/slick.min.js"></script>
-
-
-
-    {{-- Chart.js --}}
-    <script src="{{ asset('/visitors/vendor') }}/chart/Chart.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/chart/Chart.min.css">
 
     {{-- main css file --}}
     <link rel="stylesheet" href="{{ asset('/visitors/css') }}/style.css">
@@ -65,15 +59,15 @@
     @yield('content')
 
     <!-- Start Footer -->
+    @include('visitors.layouts.footer')
+    <!-- End Footer -->
+    <a href="#" class="back-to-top"><i class="icofont-simple-up scrollto"></i></a>
+
+    {{-- Main JS File --}}
+    <script src="{{ asset('/visitors/js') }}/main.js"></script>
     {{-- Chart.js --}}
     <script src="{{ asset('/visitors/vendor') }}/chart/Chart.min.js"></script>
     <link rel="stylesheet" href="{{ asset('/visitors/vendor') }}/chart/Chart.min.css">
-    {{-- Main JS File --}}
-    <script src="{{ asset('/visitors/js') }}/main.js"></script>
-
-    @include('visitors.layouts.footer')
-    <!-- End Footer -->
-
 </body>
 
 </html>
