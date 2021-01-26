@@ -35,7 +35,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::middleware('role:Administrator|Redaktur')->group(function () {
+Route::middleware('role:Administrator|Redaktur|Kepala Desa|Sekretaris|KAUR Umum|KAUR Keuangan|KAUR Pembangunan|KAUR Keamanan dan Ketertiban')->group(function () {
 
     //InfoKelurahan
     Route::prefix('/dashboard/info-kelurahan')->group(function () {

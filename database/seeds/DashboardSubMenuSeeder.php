@@ -12,7 +12,7 @@ class DashboardSubMenuSeeder extends Seeder
      */
     public function run()
     {
-        $menuId = [1, 1, 2, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9];
+        $menuId = [1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 7, 7, 8, 8, 8, 9, 9];
         $subMenus = [
             // 1
             'Dashboard',
@@ -20,7 +20,7 @@ class DashboardSubMenuSeeder extends Seeder
             // 2
             'Identitas Kelurahan',
             'Kepengurusan Kelurahan',
-            'Sejarah dan Visi Misi',
+            // 'Sejarah dan Visi Misi',
             'Wilayah',
             'Data Administratif',
             // 3
@@ -35,16 +35,17 @@ class DashboardSubMenuSeeder extends Seeder
             'Panduan',
             // 5
             'Artikel',
+            'Kontribusi Artikel',
             'Kategori',
-            'Tag',
+            // 'Tag',
             'Komentar',
             // 6
             'Menu',
             'Sub Menu',
             // 7
             'Pengguna',
-            'Role',
-            'Hak Akses',
+            'Role dan Hak Akses',
+            // 'Hak Akses',
             // 8
             'Pengajuan Surat',
             'Pengaduan',
@@ -61,7 +62,7 @@ class DashboardSubMenuSeeder extends Seeder
             //  2
             '/dashboard/info-kelurahan/identitas',
             '/dashboard/info-kelurahan/kepengurusan',
-            '/dashboard/info-kelurahan/sejarah-dan-visi-misi',
+            // '/dashboard/info-kelurahan/sejarah-dan-visi-misi',
             '/dashboard/info-kelurahan/wilayah',
             '/dashboard/info-kelurahan/data-administratif',
             // 3
@@ -76,8 +77,9 @@ class DashboardSubMenuSeeder extends Seeder
             '/dashboard/manajemen-surat/panduan',
             // 5
             '/dashboard/manajemen-artikel/artikel',
+            '/dashboard/manajemen-artikel/kontribusi',
             '/dashboard/manajemen-artikel/kategori',
-            '/dashboard/manajemen-artikel/tag',
+            // '/dashboard/manajemen-artikel/tag',
             '/dashboard/manajemen-artikel/komentar',
             // 6
             '/dashboard/manajemen-menu/menu',
@@ -85,7 +87,7 @@ class DashboardSubMenuSeeder extends Seeder
             // 7
             '/dashboard/manajemen-pengguna/pengguna',
             '/dashboard/manajemen-pengguna/role',
-            '/dashboard/manajemen-pengguna/hak-akses',
+            // '/dashboard/manajemen-pengguna/hak-akses',
             // 8
             '/dashboard/layanan/pengajuan-surat',
             '/dashboard/layanan/pengaduan',
@@ -102,7 +104,7 @@ class DashboardSubMenuSeeder extends Seeder
             // 2
             'metismenu-icon pe-7s-culture',
             'metismenu-icon pe-7s-id',
-            'metismenu-icon pe-7s-display2',
+            // 'metismenu-icon pe-7s-display2',
             'metismenu-icon pe-7s-map',
             'metismenu-icon pe-7s-copy-file',
             // 3
@@ -117,8 +119,9 @@ class DashboardSubMenuSeeder extends Seeder
             'metismenu-icon pe-7s-notebook',
             // 5
             'metismenu-icon pe-7s-news-paper',
+            'metismenu-icon pe-7s-upload',
             'metismenu-icon pe-7s-network',
-            'metismenu-icon pe-7s-ribbon',
+            // 'metismenu-icon pe-7s-ribbon',
             'metismenu-icon pe-7s-chat',
             // 6
             'metismenu-icon pe-7s-albums',
@@ -126,7 +129,7 @@ class DashboardSubMenuSeeder extends Seeder
             // 7
             'metismenu-icon pe-7s-user',
             'metismenu-icon pe-7s-plugin',
-            'metismenu-icon pe-7s-paper-plane',
+            // 'metismenu-icon pe-7s-paper-plane',
             // 8
             'metismenu-icon pe-7s-mail',
             'metismenu-icon pe-7s-hammer',

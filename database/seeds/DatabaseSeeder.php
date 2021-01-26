@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             RoleTableSeeder::class,
             PermissionTableSeeder::class,
             RoleHasPermissionTableSeeder::class,
+
+            // dashboard meu and submenu
+            DashboardMenuSeeder::class,
             DashboardSubMenuSeeder::class,
 
             // Villager
