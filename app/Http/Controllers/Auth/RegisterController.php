@@ -102,19 +102,23 @@ class RegisterController extends Controller
 
         if (!$userVillager) {
             session()->flash('fail', 'Anda tidak terdaftar sebagai penduduk kelurahan, silahkan hubungi kantor kelurahan');
-
             return redirect()->route('register');
         } else {
-            event(new Registered($user = $this->create($request->all())));
+            if (\Str::lower($request->full_name) != \Str::lower($userVillager->full_name)) {
+                session()->flash('fail', 'Nama anda tidak sesuai dengan NIK yang terdaftar');
+                return redirect()->route('register');
+            } else {
+                event(new Registered($user = $this->create($request->all())));
 
-            $userId = User::where('nik', $request->nik)->value('id');
-            $userVillager->update(['user_id' => $userId]);
+                $userId = User::where('nik', $request->nik)->value('id');
+                $userVillager->update(['user_id' => $userId]);
 
-            if ($response = $this->registered($request, $user)) {
-                return $response;
+                if ($response = $this->registered($request, $user)) {
+                    return $response;
+                }
+
+                return $request->wantsJson() ? new JsonResponse([], 201) : redirect($this->redirectPath());
             }
-
-            return $request->wantsJson() ? new JsonResponse([], 201) : redirect($this->redirectPath());
         }
     }
 }
