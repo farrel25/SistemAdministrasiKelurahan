@@ -10378,9 +10378,16 @@ button,
 .app-header__logo .logo-src {
     height: 23px;
     width: 97px;
-    /* background: url(admin/images/logo-inverse.png); */
-    /* background: url(/public/admin/images/logo-inverse.png); */
-    /* background: url("{{ asset('/admin') }}/images/logo-inverse.png"); */
+    display: flex;
+
+}
+.app-header__logo .logo-src img {
+    height: 27px;
+}
+.app-header__logo .logo-src h5 {
+    font-weight: 600;
+    font-size: 21px;
+
 }
 
 .app-header__menu,

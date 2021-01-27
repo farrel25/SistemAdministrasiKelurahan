@@ -11,6 +11,24 @@
     ]
 ?>
 @include('dashboard.layouts.page-title',$data)
+<div class="row">
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-header">Identitas Kelurahan
+                <div class="btn-actions-pane-right ">
+                    <a type="button"
+                        class="btn btn-lg btn-primary btn-sm text-white font-weight-normal  mb-2 mt-2 btn-responsive"
+                        href="{{route('info-kelurahan.identitas-edit')}}">
+                        <i class="fas fa-edit">
+                        </i> Edit Foto Gedung
+                    </a>
+                </div>
+            </div>
+            <img class="img-fluid" style="width: 100%; height: 350px; overflow: hidden; object-fit: cover;"
+                alt="Responsive image" src="{{ asset('/admin') }}/images/foto-kelurahan.jpg" alt="">
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-md-12">
@@ -26,133 +44,133 @@
                 </div>
             </div>
             <div class="table-responsive ">
-                <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
+                <table class="mb-0 table table-borderless table-striped">
                     <thead>
                         <tr class="d-flex">
                             <div class="text-center ">
-                                <p class=" card-header  bg-heavy-rain">Desa</p>
+                                <p class=" card-header  bg-secondary text-white">Desa</p>
                             </div>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="">
-                            <td class=" text-left ">Nama Desa</td>
+                            <td class=" text-left pl-4">Nama Desa</td>
                             <td class=" text-right ">:</td>
                             <td class=" text-left ">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">Kode Desa</td>
+                            <td class=" text-left pl-4">Kode Desa</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">Kode Pos Desa</td>
+                            <td class=" text-left pl-4">Kode Pos Desa</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">Kepala Desa</td>
+                            <td class=" text-left pl-4">Kepala Desa</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">NIP Kepala Desa</td>
+                            <td class=" text-left pl-4">NIP Kepala Desa</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">Alamat Kantor Desa</td>
+                            <td class=" text-left pl-4">Alamat Kantor Desa</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">E-Mail Desa</td>
+                            <td class=" text-left pl-4">E-Mail Desa</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">Telepon Desa</td>
+                            <td class=" text-left pl-4">Telepon Desa</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">Website Desa</td>
+                            <td class=" text-left pl-4">Website Desa</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                     </tbody>
 
                 </table>
-                <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
+                <table class="mb-0 table table-borderless table-striped ">
                     <thead>
                         <tr class="d-flex">
                             <div class="text-center ">
-                                <p class=" card-header  bg-heavy-rain">Kecamatan</p>
+                                <p class=" card-header  bg-secondary text-white">Kecamatan</p>
                             </div>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="">
-                            <td class=" text-left">Nama Kecamatan</td>
+                            <td class=" text-left pl-4">Nama Kecamatan</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">Kode Kecamatan</td>
+                            <td class=" text-left pl-4">Kode Kecamatan</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">Nama Camat</td>
+                            <td class=" text-left pl-4">Nama Camat</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">NIP Camat</td>
+                            <td class=" text-left pl-4">NIP Camat</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                     </tbody>
 
                 </table>
-                <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
+                <table class=" mb-0 table table-borderless table-striped ">
                     <thead>
                         <tr class="d-flex">
                             <div class="text-center ">
-                                <p class=" card-header  bg-heavy-rain">Kabupaten</p>
+                                <p class=" card-header  bg-secondary text-white">Kabupaten</p>
                             </div>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="">
-                            <td class=" text-left">Nama Kabupaten</td>
+                            <td class=" text-left pl-4">Nama Kabupaten</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">Kode Kabupaten</td>
+                            <td class=" text-left pl-4">Kode Kabupaten</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                     </tbody>
 
                 </table>
-                <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
+                <table class=" mb-0 table table-borderless table-striped ">
                     <thead>
                         <tr class="d-flex">
                             <div class="text-center ">
-                                <p class=" card-header  bg-heavy-rain">Provinsi</p>
+                                <p class=" card-header  bg-secondary text-white">Provinsi</p>
                             </div>
                         </tr>
                     </thead>
                     <tbody>
                         <tr class="">
-                            <td class=" text-left">Nama Provinsi</td>
+                            <td class=" text-left pl-4">Nama Provinsi</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
                         <tr>
-                            <td class=" text-left">Kode Provinsi</td>
+                            <td class=" text-left pl-4">Kode Provinsi</td>
                             <td class=" text-right">:</td>
                             <td class=" text-left">#</td>
                         </tr>
@@ -165,33 +183,5 @@
     </div>
 </div>
 
-<script>
-    $(document).on('click', '#delete-form', function(e) {
-        var form = this;
-        e.preventDefault();
-        swal.fire({
-            title: 'Hapus Data Ini?',
-            text: "Data Tidak Akan Kembali ",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Iya, hapus!',
-            cancelButtonText: 'Tidak, batalkan!',
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                return form.submit();
-            } else if (
-                /* Read more about handling dismissals below */
-                result.dismiss === Swal.DismissReason.cancel
-            ) {
-                swal.fire(
-                    'Dibatalkan',
-                    'Data anda masih tersimpan :)',
-                    'error'
-                )
-            }
-        })
-    });
-</script>
 
 @endsection

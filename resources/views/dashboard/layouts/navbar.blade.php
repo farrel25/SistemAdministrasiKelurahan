@@ -1,7 +1,8 @@
 <div class="app-header header-shadow">
     <div class="app-header__logo">
         <div class="logo-src">
-            <img src="{{ asset('/admin') }}/images/logo-inverse.png" alt="">
+            <img src="{{ asset('/admin') }}/images/logo-purworejo.png" alt="">
+            <h5 class="ml-2">Admin</h5>
         </div>
         <div class="header__pane ml-auto">
             <div>

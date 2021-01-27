@@ -1,27 +1,15 @@
 @extends('dashboard.layouts.master', ['title' => "Beranda"])
 
 @section('content')
-
-<div class="app-page-title">
-    <div class="page-title-wrapper">
-        <div class="page-title-heading">
-            <div class="page-title-icon">
-                <i class="pe-7s-rocket icon-gradient bg-mean-fruit">
-                </i>
-            </div>
-            <div>Dashboard
-                <div class="page-title-subheading">Dashboard
-                </div>
-            </div>
-        </div>
-        <div class="page-title-actions">
-            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip"
-                title="Kembali Ke Beranda" data-placement="left" class="btn-shadow mr-3 btn btn-dark">
-                <i class="fas fa-home"></i>
-            </a>
-        </div>
-    </div>
-</div>
+<?php
+    $data=[
+        'icon' => "pe-7s-rocket",
+        'judul' => "Dashboard",
+        'link' => route('dashboard') ,
+        'page1' => "Dashboard",
+    ]
+?>
+@include('dashboard.layouts.page-title',$data)
 
 <div class="row">
     <div class="col-md-6 col-xl-4">
@@ -30,19 +18,6 @@
                 <div class="widget-content-left">
                     <div class="widget-heading">Surat Masuk</div>
                     <div class="widget-subheading">Total Surat Masuk</div>
-                </div>
-                <div class="widget-content-right">
-                    <div class="widget-numbers text-white"><span>100</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content bg-strong-bliss   ">
-            <div class="widget-content-wrapper text-white">
-                <div class="widget-content-left">
-                    <div class="widget-heading">Permohonan Surat</div>
-                    <div class="widget-subheading">Total Permohonan Surat</div>
                 </div>
                 <div class="widget-content-right">
                     <div class="widget-numbers text-white"><span>100</span></div>
@@ -63,8 +38,173 @@
             </div>
         </div>
     </div>
+    <div class="col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content bg-strong-bliss   ">
+            <div class="widget-content-wrapper text-white">
+                <div class="widget-content-left">
+                    <div class="widget-heading">Pengajuan Surat</div>
+                    <div class="widget-subheading">Total Pengajuan Surat</div>
+                </div>
+                <div class="widget-content-right">
+                    <div class="widget-numbers text-white"><span>100</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="no-gutters row">
+                <div class="col-md-4">
+                    <div class="widget-content">
+                        <div class="widget-content-wrapper">
+                            <div class="widget-content-right ml-0 mr-3">
+                                <div class="widget-numbers text-success">10</div>
+                            </div>
+                            <div class="widget-content-left">
+                                <div class="widget-heading">Total Artikel</div>
+                                <div class="widget-subheading">Total Keseluruhan Artikel</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="widget-content">
+                        <div class="widget-content-wrapper">
+                            <div class="widget-content-right ml-0 mr-3">
+                                <div class="widget-numbers text-warning">8</div>
+                            </div>
+                            <div class="widget-content-left">
+                                <div class="widget-heading">Artikel Aktif</div>
+                                <div class="widget-subheading">Total Artikel Aktif</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="widget-content">
+                        <div class="widget-content-wrapper">
+                            <div class="widget-content-right ml-0 mr-3">
+                                <div class="widget-numbers text-danger">2</div>
+                            </div>
+                            <div class="widget-content-left">
+                                <div class="widget-heading">Artikel Tidak Aktif</div>
+                                <div class="widget-subheading">Total Artikel Tidak Aktif</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+</div>
+<div class="row">
+    <div class="col-md-12 col-lg-12">
+        <div class="mb-3 card">
+            <div class="card-header-tab card-header">
+                <div class="card-header-title">
+                    <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure"> </i> Penduduk
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade active show" id="tab-eg-55">
+                    <div class="row">
+                        <div class="col-md-12 col-lg-4">
+                            <div class="widget-chart p-4">
+                                <div>
+                                    <canvas style="position: relative; height:130vh; width:80vw" id="penduduk"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-8">
+                            <div class="pt-2 card-body">
+                                <div class="row">
+                                    <div class="col-lg-12 ">
+                                        <div class=" mb-3 widget-content">
+                                            <div class="widget-content-outer">
+                                                <div class="widget-content-wrapper">
+                                                    <div class="widget-content-left">
+                                                        <div class="widget-heading">Penduduk</div>
+                                                        <div class="widget-subheading">Total Seluruh Penduduk </div>
+                                                    </div>
+                                                    <div class="widget-content-right">
+                                                        <div class="widget-numbers text-danger">100</div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-progress-wrapper">
+                                                    <div class="progress-bar-lg progress-bar-animated progress">
+                                                        <div class="progress-bar bg-danger" role="progressbar"
+                                                            aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                                                            style="width: 100%;"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 ">
+                                        <div class=" mb-3 widget-content">
+                                            <div class="widget-content-outer">
+                                                <div class="widget-content-wrapper">
+                                                    <div class="widget-content-left">
+                                                        <div class="widget-heading">Aktif</div>
+                                                        <div class="widget-subheading">Total Penduduk Aktif</div>
+                                                    </div>
+                                                    <div class="widget-content-right">
+                                                        <div class="widget-numbers text-success">75</div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-progress-wrapper">
+                                                    <div class="progress-bar-lg progress-bar-animated progress">
+                                                        <div class="progress-bar progress-bar-animated bg-success progress-bar-striped"
+                                                            role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                                                            aria-valuemax="100" style="width: 75%;">75%</div>
+                                                    </div>
+                                                    <div class="progress-sub-label">
+                                                        <div class="sub-label-left">presentase</div>
+                                                        <div class="sub-label-right">100%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 ">
+                                        <div class=" mb-3 widget-content">
+                                            <div class="widget-content-outer">
+                                                <div class="widget-content-wrapper">
+                                                    <div class="widget-content-left">
+                                                        <div class="widget-heading">Tidak Aktif</div>
+                                                        <div class="widget-subheading">Total Penduduk Tidak Aktif</div>
+                                                    </div>
+                                                    <div class="widget-content-right">
+                                                        <div class="widget-numbers text-warning">25</div>
+                                                    </div>
+                                                </div>
+                                                <div class="widget-progress-wrapper">
+                                                    <div class="progress-bar-lg progress-bar-animated progress">
+                                                        <div class="progress-bar progress-bar-animated bg-warning progress-bar-striped"
+                                                            role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                                                            aria-valuemax="100" style="width: 25%;">25%
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress-sub-label">
+                                                        <div class="sub-label-left">presentase</div>
+                                                        <div class="sub-label-right">100%</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
@@ -81,7 +221,6 @@
                             <th class=" text-center">Agama</th>
                             <th class=" text-center">Pekerjaan</th>
                             <th class=" text-center">Alamat</th>
-                            {{-- <th class=" text-center">Status Akun</th> --}}
                             <th class=" text-center">Actions</th>
                         </tr>
                     </thead>
@@ -103,26 +242,7 @@
                             </td>
                         </tr>
                         @endforeach
-                        {{-- <tr>
-                            <td class=" text-center">3373020203000003</td>
-                            <td class=" text-center"></td>
-                            <td class=" text-center"> John Doe</td>
-                            <td class=" text-center">Laki-laki</td>
-                            <td class=" text-center">Islam</td>
-                            <td class=" text-center">Mahasiswa</td>
-                            <td class=" text-center">bla bla bla</td>
-                            <td class=" text-center">
-                                <div class="badge badge-success">Aktif</div>
-                            </td>
-                            <td class=" text-center">
-                                <div class="btn-group-sm btn-group">
-                                    <button class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                                    <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
-                                    <button class="btn btn-warning text-white"><i
-                                            class="fas fa-info-circle"></i></button>
-                                </div>
-                            </td>
-                        </tr> --}}
+
                     </tbody>
                 </table>
             </div>
@@ -130,17 +250,7 @@
                 <div class="card-body ">
                     <nav class=" " aria-label="Page navigation example">
                         <ul class="pagination justify-content-center ">
-                            {{-- <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Previous"><span aria-hidden="true">«</span><span
-                                        class="sr-only">Previous</span></a></li>
-                            <li class="page-item active"><a href="javascript:void(0);" class="page-link">1</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">2</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">3</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">4</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link">5</a></li>
-                            <li class="page-item"><a href="javascript:void(0);" class="page-link"
-                                    aria-label="Next"><span aria-hidden="true">»</span><span
-                                        class="sr-only">Next</span></a></li> --}}
+
                             {{ $villagers->links() }}
                         </ul>
                     </nav>
@@ -150,68 +260,37 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-6 col-xl-3">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Artikel Total</div>
-                        <div class="widget-subheading">Total Artikel</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-primary">100</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-3">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Artikel Aktif</div>
-                        <div class="widget-subheading">Total Artikel Tampil</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-success">100</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-3">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Artikel Tertunda</div>
-                        <div class="widget-subheading">Total Artikel Tertunda</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-warning">100</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-3">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Artikel Terhapus</div>
-                        <div class="widget-subheading">Total Artikel Terhapus</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-danger">100</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-</div>
+<script>
+    $(function () {
+        //Penduduk
+            var ctx = document.getElementById("penduduk").getContext('2d');
+            var data = {
+                datasets: [{
+                    data: [ 75, 25],
+                    backgroundColor: [
+                        '#3ac47d',
+                        '#f7b924',
+                    ],
+                }],
+                labels: [
+                    'Aktif',
+                    'Tidak Aktif',
+                ]
+            };
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    legend: {
+                    display: false
+                    },
+                }
+            });
 
+        });
+
+</script>
 @endsection
