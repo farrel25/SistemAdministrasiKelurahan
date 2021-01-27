@@ -26,19 +26,18 @@ Route::middleware('auth')->group(function () {
     // $home = 'home';
     // Route::get('/' . $home, 'HomeController@' . $menu)->name('home');
 
-    // dashboard
-    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     // peengajuan surat
     Route::get('/pelayanan/pengajuan-surat', 'LetterSubmissionController@create')->name('pengajuan-surat.create');
     Route::post('/pelayanan/pengajuan-surat', 'LetterSubmissionController@store')->name('pengajuan-surat.store');
-});
 
 
-Route::middleware('role:Administrator|Redaktur|Kepala Desa|Sekretaris|KAUR Umum|KAUR Keuangan|KAUR Pembangunan|KAUR Keamanan dan Ketertiban')->group(function () {
+    // dashboard
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
 
     //InfoKelurahan
-    Route::prefix('/dashboard/info-kelurahan')->group(function () {
+    Route::prefix('/dashboard/info-kelurahan')->middleware('permission:Info Kelurahan')->group(function () {
 
         // Identitas
         Route::prefix('/identitas')->group(function () {
@@ -88,8 +87,9 @@ Route::middleware('role:Administrator|Redaktur|Kepala Desa|Sekretaris|KAUR Umum|
         });
     });
 
+
     //Kependudukan
-    Route::prefix('/dashboard/kependudukan')->group(function () {
+    Route::prefix('/dashboard/kependudukan')->middleware('permission:Kependudukan')->group(function () {
         Route::get('/penduduk', 'VillagerController@index')->name('penduduk');
         // Route::get('/penduduk-aktif', 'DashboardController@pendudukaktif')->name('penduduk-aktif');
         Route::get('/penduduk/detail/{villager:nik}', 'VillagerController@show')->name('penduduk-detail');
@@ -107,8 +107,9 @@ Route::middleware('role:Administrator|Redaktur|Kepala Desa|Sekretaris|KAUR Umum|
         Route::post('/penduduk/import', 'VillagerController@import')->name('penduduk-import-excel');
     });
 
+
     //ManajemenSurat
-    Route::prefix('dashboard/manajemen-surat')->group(function () {
+    Route::prefix('dashboard/manajemen-surat')->middleware('permission:Manajemen Surat')->group(function () {
 
         //cetak
         Route::get('/cetak-surat', 'LetterPrintController@index')->name('manajemen-surat.cetak-surat');
@@ -177,8 +178,9 @@ Route::middleware('role:Administrator|Redaktur|Kepala Desa|Sekretaris|KAUR Umum|
         Route::get('/edit-surat-masuk', 'dashboardController@editsuratmasuk')->name('manajemen-surat.editsurat-masuk');
     });
 
+
     //ManajemenArtikel
-    Route::prefix('dashboard/manajemen-artikel')->group(function () {
+    Route::prefix('dashboard/manajemen-artikel')->middleware('permission:Manajemen Artikel')->group(function () {
 
         // artikel
         Route::prefix('/artikel')->group(function () {
@@ -241,8 +243,9 @@ Route::middleware('role:Administrator|Redaktur|Kepala Desa|Sekretaris|KAUR Umum|
         });
     });
 
+
     //ManajemenPengguna
-    Route::prefix('/dashboard/manajemen-pengguna')->group(function () {
+    Route::prefix('/dashboard/manajemen-pengguna')->middleware('permission:Manajemen Pengguna')->group(function () {
 
         // Pengguna
         Route::prefix('/pengguna')->group(function () {

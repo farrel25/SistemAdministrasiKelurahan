@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Alert;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class UserRoleAccessController extends Controller
 {
@@ -15,11 +16,10 @@ class UserRoleAccessController extends Controller
      */
     public function index()
     {
-        // $categories = ArticleCategory::get();
-        //
-        // $articles = Article::orderBy('updated_at', 'desc')->paginate(10);
+        $roles = Role::get();
+        $permissions = Permission::get();
 
-        return view('dashboard.manajemen_pengguna.role_dan_hak_akses.role_dan_hak_akses'/*, compact('categories')*/);
+        return view('dashboard.manajemen_pengguna.role_dan_hak_akses.role_dan_hak_akses', compact('roles', 'permissions'));
     }
 
     /**

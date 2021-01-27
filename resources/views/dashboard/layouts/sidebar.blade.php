@@ -274,19 +274,11 @@
                 </li> --}} -->
 
                 @php
-                // ambil id user yg sedang login
-                // $userId = Auth::user()->id;
-
-                // ambil role user yang sedang login berdasarkan id user
-                // $userRoleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
+                // ambil role id dari user yang sedang login
                 $userRoleId = Auth::user()->roles->pluck('id')->first();
                 // dd($userRoleId);
 
                 // ambil menu yang boleh diakses user berdasarkan role user
-                // $menus = \DB::table('permissions')->select('permissions.id', 'permissions.name')
-                // ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
-                // ->where('role_has_permissions.role_id', $userRoleId)
-                // ->get();
                 $menus = \DB::table('dashboard_menus')->select('dashboard_menus.id', 'dashboard_menus.menu')
                 ->join('role_has_permissions', 'dashboard_menus.id', '=', 'role_has_permissions.permission_id')
                 ->where('role_has_permissions.role_id', $userRoleId)
@@ -296,24 +288,21 @@
                 @foreach ($menus as $menu)
                 <li class="app-sidebar__heading ">{{ $menu->menu }}</li>
 
-                <?php
-                // $subMenus = DB::table('dashboard_sub_menus')
-                //     ->join('permissions', 'dashboard_sub_menus.menu_id', '=', 'permissions.id')
-                //     ->where('dashboard_sub_menus.menu_id', $menu->id)
-                //     ->get();
+                @php
                 $subMenus = DB::table('dashboard_sub_menus')
-                    ->join('dashboard_menus', 'dashboard_sub_menus.menu_id', '=', 'dashboard_menus.id')
-                    ->where('dashboard_sub_menus.menu_id', $menu->id)
-                    ->get();
-                ?>
+                ->join('dashboard_menus', 'dashboard_sub_menus.menu_id', '=', 'dashboard_menus.id')
+                ->where('dashboard_sub_menus.menu_id', $menu->id)
+                ->get();
+                @endphp
+
                 @foreach ($subMenus as $subMenu)
-                <?php
-                        $paths = Request::segments();
-                        $path = '';
-                        foreach ($paths as $p) {
-                            $path .= '/' . $p;
-                        }
-                    ?>
+                @php
+                $paths = Request::segments();
+                $path = '';
+                foreach ($paths as $p) {
+                $path .= '/' . $p;
+                }
+                @endphp
                 <li>
                     <a href="{{ $subMenu->url_path }}" class="{{ $path == $subMenu->url_path ? 'mm-active':'' }}">
                         <i class="{{ $subMenu->icon }}"></i>
