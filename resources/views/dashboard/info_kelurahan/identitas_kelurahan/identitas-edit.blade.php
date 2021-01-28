@@ -20,6 +20,50 @@
                 <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Edit Identitas Desa</h5>
                 <div tabindex="-1" class="dropdown-divider"></div>
                 <div class="row">
+                    <div class=" col-lg-3">
+                        <h4 class="card-title">Visi Misi</h4>
+                        <hr>
+                    </div>
+                    <div class=" col-lg-9">
+                        <form class="">
+                            <div class="form-row">
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="#" class="">Visi</label>
+                                        <textarea name="#" id="#" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="editor" class="">Misi</label>
+                                        <textarea name="body" id="editor" rows="5" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div tabindex="-1" class="dropdown-divider"></div>
+                <div class="row">
+                    <div class=" col-lg-3">
+                        <h4 class="card-title">Sejarah</h4>
+                        <hr>
+                    </div>
+                    <div class=" col-lg-9">
+                        <form class="">
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="position-relative form-group">
+                                        <label for="#" class="">Sejarah</label>
+                                        <textarea name="#" id="#" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div tabindex="-1" class="dropdown-divider"></div>
+                <div class="row">
                     <div class=" col-lg-3 mb-2 mt-1">
                         <h4 class="card-title font-weight-bold">Desa</h4>
                         <hr>
@@ -154,7 +198,7 @@
                 <div tabindex="-1" class="dropdown-divider"></div>
                 <div class="row">
                     <div class=" col-lg-3">
-                        <h4 class="card-title">Foto</h4>
+                        <h4 class="card-title">Provinsi</h4>
                         <hr>
                     </div>
                     <div class=" col-lg-9">
@@ -173,17 +217,45 @@
                                     </div>
                                 </div>
                             </div>
+                        </form>
+                    </div>
+                </div>
+                <div tabindex="-1" class="dropdown-divider"></div>
+                <div class="row">
+                    <div class=" col-lg-3">
+                        <h4 class="card-title">Foto Gedung</h4>
+                        <hr>
+                    </div>
+                    <div class=" col-lg-9">
+                        <form class="">
+                            <div class="form-row ml-1 mb-2">
+                                <div class="position-relative form-group">
+                                    <label for="photo" class="">Upload Foto</label>
+                                    <input name="photo" id="photo" type="file" class="form-control-file ">
+                                    <small class="form-text text-muted">Wajib mengisi foto sesuai dengan aslinya</small>
+                                    <small class="form-text text-muted">Ukuran Maksimal : 1MB</small>
+                                    {{-- @error('photo')
+                                    <span class="invalid-feedback mt-2" role="alert">
+                                        <i>{{ $message }}</i>
+                                    </span>
+                                    @enderror --}}
+                                </div>
+                            </div>
                             <button class="mt-2 btn btn-primary">Ubah Data</button>
                             <button class="mt-2 btn btn-outline-danger">Cancel</button>
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 </div>
 
+<script>
+    ClassicEditor.create (document.querySelector('#editor'))
+        .catch ( error => {
+            console.error( error );
+        });
+</script>
 
 @endsection
