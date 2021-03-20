@@ -14,7 +14,7 @@ class VillagerSeeder extends Seeder
     {
         Villager::create([
             'nik' => 3374101234567891,
-            'user_id' => null,
+            'user_id' => 1,
             'full_name' => 'WTF Team',
             'sex_id' => 1,
             'birth_place' => 'Semarang',

@@ -207,6 +207,7 @@ class StaffController extends Controller
         if ($staff->photo) {
             \Storage::delete($staff->photo);
         }
+
         $staff->delete();
         Alert::success(' Berhasil ', 'Staff berhasil dihapus');
         return redirect()->route('info-kelurahan.kepengurusan');

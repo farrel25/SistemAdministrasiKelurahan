@@ -13,8 +13,8 @@ class StaffSeeder extends Seeder
     public function run()
     {
         Staff::create([
-            'user_id' => null,
-            'villager_id' => null,
+            'user_id' => 1,
+            'villager_id' => 1,
             'full_name' => 'WTF Team',
             'nik' => '3374101234567891',
             'nip' => '123456789123456789',
