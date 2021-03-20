@@ -359,21 +359,22 @@
                                         <h4>{{$article->title}}</h4>
                                     </a>
                                     @php
-                                    $userId = $article->user_id;
-                                    // var_dump($userId);
-                                    $roleId = \DB::table('model_has_roles')
-                                    ->where('model_id', $userId)->value('role_id');
+                                    // $userId = $article->user_id;
+                                    // dd($article->user->roles->first()->name);
+
+                                    // $roleId = \DB::table('model_has_roles')
+                                    // ->where('model_id', $userId)->value('role_id');
                                     // var_dump($roleId);
-                                    $role = \DB::table('roles')
-                                    ->select('model_has_roles.model_id','model_has_roles.role_id', 'roles.name')
-                                    ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
-                                    ->where('model_has_roles.role_id', $roleId)->get()->toArray();
+                                    // $role = \DB::table('roles')
+                                    // ->select('model_has_roles.model_id','model_has_roles.role_id', 'roles.name')
+                                    // ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
+                                    // ->where('model_has_roles.role_id', $roleId)->get()->toArray();
                                     // var_dump($role);
                                     @endphp
 
                                     <ul class="post-info ">
-                                        <li><a href="#">{{$role[0]->name}}</a></li>
-                                        {{-- <li><a href="#">{{"Administrator"}}</a></li> --}}
+                                        {{-- <li><a href="#">{{$role[0]->name}}</a></li> --}}
+                                        <li><a href="#">{{$article->user->roles->first()->name}}</a></li>
                                         <li>
                                             <a href="#">
                                                 {{-- {{$article->created_at->diffForHumans()}} --}}
