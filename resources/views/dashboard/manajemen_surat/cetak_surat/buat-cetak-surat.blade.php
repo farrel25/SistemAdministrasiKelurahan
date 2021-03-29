@@ -15,13 +15,16 @@
             </div>
         </div>
         <div class="page-title-actions d-flex">
-            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip" title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark pt-2">
+            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip"
+                title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark pt-2">
                 <i class="fas fa-home"></i>
             </a>
             <div class="input-group ml-3">
-                <input type="text" class="form-control" id="#" placeholder="Search" aria-describedby="inputGroupPrepend" required>
+                <input type="text" class="form-control" id="#" placeholder="Search" aria-describedby="inputGroupPrepend"
+                    required>
                 <a href="#" class="input-group-prepend text-decoration-none ">
-                    <span class="input-group-text rounded-right" id="inputGroupPrepend"><i class="fas fa-search"></i></span>
+                    <span class="input-group-text rounded-right" id="inputGroupPrepend"><i
+                            class="fas fa-search"></i></span>
                 </a>
             </div>
         </div>
@@ -45,7 +48,8 @@
                     <div class="position-relative form-group">
                         <label for="#" class="">Nomor Surat</label>
                         <input name="#" id="#" type="text" class="form-control">
-                        <p class=" mt-2 font-italic font-weight-light" style="color: red;">Format nomor surat: S-02/001/[kode_desa]/XII/2020</p>
+                        <p class=" mt-2 font-italic font-weight-light" style="color: red;">Format nomor surat:
+                            S-02/001/[kode_desa]/XII/2020</p>
                     </div>
                     <div class="position-relative form-group">
                         <label for="#" class="">Keterangan</label>
