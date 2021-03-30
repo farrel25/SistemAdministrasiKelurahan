@@ -61,7 +61,7 @@
                             <td class=" text-center">{{ ++$number }}</td>
                             <td class=" text-center">
                                 <a type="button" class="btn btn-sm btn-alternate text-white font-weight-normal "
-                                    href="buat-cetak-surat"><i class="fas fa-edit border-right pr-1"></i> Buat Surat
+                                    href="{{ route('manajemen-surat.buat-cetak-surat') }}"><i class="fas fa-edit border-right pr-1"></i> Buat Surat
                                 </a>
                             </td>
                             <td class=" text-center">{{ $type->letter_code }}</td>
