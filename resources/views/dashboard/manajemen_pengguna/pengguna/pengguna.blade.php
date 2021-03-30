@@ -38,6 +38,7 @@
                             <th class=" text-center">Email</th>
                             <th class=" text-center">Nama</th>
                             <th class=" text-center">Role</th>
+                            <th class=" text-center">Terakhir login</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -107,6 +108,7 @@
                             @endphp --}}
                             {{-- <td class=" text-center">{{ $role }}</td> --}}
                             <td class=" text-center">{{ $user->roles->first()->name }}</td>
+                            <td class=" text-center">{{ $user->last_login }}</td>
 
                         </tr>
                         @endforeach
