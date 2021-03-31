@@ -250,12 +250,11 @@ Route::middleware('auth')->group(function () {
         // Pengguna
         Route::prefix('/pengguna')->group(function () {
             Route::get('', 'UserController@index')->name('manajemen-pengguna.pengguna');
-            // store Wilayah
+            // store user
             Route::get('/tambah', 'UserController@create')->name('manajemen-pengguna.pengguna-create');
             Route::post('/tambah', 'UserController@store')->name('manajemen-pengguna.pengguna-store');
-            // update category
-            Route::get('/edit', 'UserController@edit')->name('manajemen-pengguna.pengguna-edit');
-            Route::patch('/edit', 'UserController@update')->name('info-kelurahan-wilayah.update');
+            // Update User Role
+            Route::patch('/ubah-role-pengguna', 'UserController@update')->name('manajemen-pengguna.pengguna.update-user-role');
             // delete user
             Route::delete('/{user}/delete', 'UserController@destroy')->name('manajemen-pengguna.pengguna-destroy');
             // user activation

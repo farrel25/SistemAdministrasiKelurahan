@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Alert;
+use Illuminate\Support\Facades\Storage;
 use App\Staff;
 use App\User;
 use App\Villager;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert as FacadesAlert;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -21,7 +22,8 @@ class UserController extends Controller
     public function index()
     {
         $users = User::latest()->paginate(10);
-        return view('dashboard.manajemen_pengguna.pengguna.pengguna', compact('users'));
+        $roles = Role::get();
+        return view('dashboard.manajemen_pengguna.pengguna.pengguna', compact('users', 'roles'));
     }
 
     /**
@@ -95,10 +97,10 @@ class UserController extends Controller
                 'user_id' => $userId
             ]);
 
-            Alert::success('Berhasil', 'Akun user berhasil dibuat');
+            FacadesAlert::success('Berhasil', 'Akun user berhasil dibuat');
             return redirect()->route('manajemen-pengguna.pengguna');
         } else {
-            Alert::error('Penduduk bukan staff kelurahan', 'Silahkan daftarkan penduduk sebagai staff kelurahan');
+            FacadesAlert::error('Penduduk bukan staff kelurahan', 'Silahkan daftarkan penduduk sebagai staff kelurahan');
             return back();
         }
     }
@@ -138,19 +140,16 @@ class UserController extends Controller
      * @param  \App\ArticleCategory  $articleCategory
      * @return \Illuminate\Http\Response
      */
-    // public function update(Request $request, ArticleCategory $articleCategory)
-    // {
-    //     $attr = $request->validate([
-    //         'category' => 'required|string'
-    //     ]);
-    //     $attr['slug'] = \Str::slug($attr['category']);
+    public function update(Request $request)
+    {
+        // dd($request);
+        $user = User::findOrFail($request->id);
+        // dd($user);
+        $user->syncRoles([$request->role_name]);
 
-    //     $articleCategory->update($attr);
-
-    //     Alert::success('Berhasil', 'Kategori artikel berhasil diperbarui');
-
-    //     return redirect()->route('manajemen-artikel.kategori');
-    // }
+        FacadesAlert::success('Berhasil', 'Role pengguna berhasil diperbarui');
+        return back();
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -175,12 +174,12 @@ class UserController extends Controller
 
         // hapus dari storage juga jika user punya foto
         if ($user->photo) {
-            \Storage::delete($user->photo);
+            Storage::delete($user->photo);
         }
 
         $user->delete();
 
-        Alert::success('Berhasil', 'Akun Pengguna berhasil dihapus');
+        FacadesAlert::success('Berhasil', 'Akun Pengguna berhasil dihapus');
         return redirect()->route('manajemen-pengguna.pengguna');
     }
 
@@ -193,9 +192,9 @@ class UserController extends Controller
         $user->update($attr);
 
         if ($request->is_active == 1) {
-            Alert::success(' Berhasil ', 'Akun pengguna di aktifkan');
+            FacadesAlert::success(' Berhasil ', 'Akun pengguna di aktifkan');
         } else {
-            Alert::success(' Berhasil ', 'Akun pengguna di non-aktifkan');
+            FacadesAlert::success(' Berhasil ', 'Akun pengguna di non-aktifkan');
         }
 
         return redirect()->route('manajemen-pengguna.pengguna');

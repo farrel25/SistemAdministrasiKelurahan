@@ -49,47 +49,59 @@
                             <td class=" text-center">{{ $number + $users->firstItem() }}</td>
                             <td class=" text-center">
                                 <div class="d-flex justify-content-center">
-                                    {{-- <a href="{{route('manajemen-pengguna.pengguna-edit')}}"
-                                    class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
-                                    title="Edit Pengguna " data-placement="bottom">
-                                    <i class="fas fa-edit"></i>
-                                    </a> --}}
-
-                                    @if ($user->is_active == 1)
-                                    <form method="POST"
-                                        action="{{ route('manajemen-pengguna.pengguna-activation', $user->id) }}">
-                                        @csrf
-                                        @method('patch')
-                                        <input type="hidden" name="is_active" value="0">
-                                        <button type="submit" class="btn btn-secondary btn-sm mr-1"
-                                            data-toggle="tooltip" title="Non Aktifkan Pengguna" data-placement="bottom">
-                                            <i class="fas fa-lock-open"></i>
-                                        </button>
-                                    </form>
+                                    @if (Str::lower($user->roles->first()->name) == 'administrator')
+                                        <i>
+                                            Aksi tidak tersedia
+                                        </i>
                                     @else
-                                    <form method="POST"
-                                        action="{{ route('manajemen-pengguna.pengguna-activation', $user->id) }}">
-                                        @csrf
-                                        @method('patch')
-                                        <input type="hidden" name="is_active" value="1">
-                                        <button type="submit" class="btn btn-secondary btn-sm mr-1"
-                                            data-toggle="tooltip" title="Aktifkan Pengguna" data-placement="bottom">
-                                            <i class="fas fa-lock"></i>
-                                        </button>
-                                    </form>
+                                        <span
+                                            class="editUserRoleModal"
+                                            data-toggle="modal"
+                                            data-target="#editUserRoleModal"
+                                            data-id="{{ $user->id }}"
+                                            data-name="{{ $user->roles->first()->name }}"
+                                        >
+                                            <button class="btn btn-primary btn-sm mr-1" data-toggle="tooltip" title="Edit Role Pengguna" data-placement="bottom">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                        </span>
+
+                                        @if ($user->is_active == 1)
+                                        <form method="POST"
+                                            action="{{ route('manajemen-pengguna.pengguna-activation', $user->id) }}">
+                                            @csrf
+                                            @method('patch')
+                                            <input type="hidden" name="is_active" value="0">
+                                            <button type="submit" class="btn btn-secondary btn-sm mr-1"
+                                                data-toggle="tooltip" title="Non Aktifkan Pengguna" data-placement="bottom">
+                                                <i class="fas fa-lock-open"></i>
+                                            </button>
+                                        </form>
+                                        @else
+                                        <form method="POST"
+                                            action="{{ route('manajemen-pengguna.pengguna-activation', $user->id) }}">
+                                            @csrf
+                                            @method('patch')
+                                            <input type="hidden" name="is_active" value="1">
+                                            <button type="submit" class="btn btn-secondary btn-sm mr-1"
+                                                data-toggle="tooltip" title="Aktifkan Pengguna" data-placement="bottom">
+                                                <i class="fas fa-lock"></i>
+                                            </button>
+                                        </form>
+                                        @endif
+
+                                        <form id="delete-form"
+                                            action="{{route('manajemen-pengguna.pengguna-destroy', $user->id)}}"
+                                            method="post">
+                                            @csrf
+                                            @method('delete')
+
+                                            <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
+                                                title="Hapus Anggota" data-placement="bottom">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </form>
                                     @endif
-
-                                    <form id="delete-form"
-                                        action="{{route('manajemen-pengguna.pengguna-destroy', $user->id)}}"
-                                        method="post">
-                                        @csrf
-                                        @method('delete')
-
-                                        <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
-                                            title="Hapus Anggota" data-placement="bottom">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </form>
                                 </div>
                             </td>
                             <td class=" text-center">
@@ -130,6 +142,13 @@
 </div>
 
 <script>
+    $(document).on("click", ".editUserRoleModal", function () {
+        const id = $(this).data('id');
+        const name = $(this).data('name');
+        $("#editUserRoleModal .modal-body #id").val(id);
+        $("#editUserRoleModal .modal-body #role_name").val(name);
+    });
+
     $(document).on('click', '#delete-form', function(e) {
         var form = this;
         e.preventDefault();

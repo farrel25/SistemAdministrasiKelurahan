@@ -140,6 +140,74 @@
     </div>
 </div>
 
+{{-- USER ACCOUNT MANAGEMENT MODAL --}}
+<section id="user">
+
+    {{-- UPDATE USER ROLE --}}
+    @if (Request::url() == route('manajemen-pengguna.pengguna'))
+    <div class="modal fade" id="editUserRoleModal" tabindex="-1" role="dialog" aria-labelledby="editUserRoleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserRoleModalLabel">Ubah Role</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('manajemen-pengguna.pengguna.update-user-role') }}" method="post">
+                    @csrf
+                    @method('patch')
+                    <div class="modal-body">
+                        <p>halo</p>
+                        <input type="hidden" id="id" name="id" value="">
+
+                        <div class="form-group">
+                            <label class="form-label" for="role_name">Role</label>
+
+                            <select name="role_name" id="role_name"
+                                class="mb-2 form-control @error('role_name') is-invalid @enderror">
+                                {{-- <option value="{{ old('role_name') ?? Auth::user()->roles->first()->name}}">
+                                    {{ old('role_name') ??  Auth::user()->roles->first()->name}}
+                                </option> --}}
+                                @foreach ($roles as $role)
+                                <option value="{{ $role->name }}">
+                                    {{-- {{ old('role') == $role->name ? 'selected' : '' }}> --}}
+                                    {{ $role->name }}
+                                </option>
+                                @endforeach
+                            </select>
+
+                            @error('role_name')
+                            <span class="invalid-feedback mt-2" role="alert">
+                                <i>{{ $message }}</i>
+                            </span>
+                            @enderror
+
+                            {{-- <select name="religion_id" id="religion_id"
+                                class="mb-2 form-control @error('religion_id') is-invalid @enderror"
+                                value="{{ old('religion_id') ?? $villager->villagerReligion->id }}">
+                                <option value="{{ old('religion_id') ?? $villager->villagerReligion->id }}">
+                                    {{ $religions[old('religion_id') - 1]->religion ?? $villager->villagerReligion->religion }}
+                                </option>
+                                @foreach ($religions as $religion)
+                                <option value="{{ $religion->id }}">{{ $religion->religion }}</option>
+                                @endforeach
+                            </select> --}}
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @endif
+
+</section>
 
 {{-- Role and Permission Modal --}}
 <section id="Role">
