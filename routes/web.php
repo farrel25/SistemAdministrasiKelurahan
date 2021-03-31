@@ -271,6 +271,12 @@ Route::middleware('auth')->group(function () {
             Route::patch('/ubah-role', 'UserRoleAccessController@updateRole')->name('manajemen-pengguna.role-dan-hak-akses.update-role');
             // Destroy Role
             Route::delete('/{role}/hapus-role', 'UserRoleAccessController@destroyRole')->name('manajemen-pengguna.role-dan-hak-akses.destroy-role');
+            // Store Role Permission
+            Route::post('/tambah-role-permission', 'UserRoleAccessController@storeRolePermission')->name('manajemen-pengguna.role-dan-hak-akses.store-role-permission');
+            // Update Role Permission
+            Route::patch('/{role}/role-permission', 'UserRoleAccessController@updateRolePermission')->name('manajemen-pengguna.role-dan-hak-akses.update-role-permission');
+            // Destroy Role Permission
+            // Route::delete('/{permission}/hapus-role-permission', 'UserRoleAccessController@destroyRolePermission')->name('manajemen-pengguna.role-dan-hak-akses.destroy-role-permission');
         });
     });
 });

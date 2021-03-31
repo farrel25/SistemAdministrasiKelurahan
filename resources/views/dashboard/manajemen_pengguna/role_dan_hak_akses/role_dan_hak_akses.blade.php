@@ -21,13 +21,16 @@
                         <div class="btn-actions-pane-right ">
                             <a type="button"
                                 class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
-                                href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
-                            <a type="button"
+                                href="#">
+                                <i class="fas fa-trash-alt"></i>
+                                Hapus Data Terpilih
+                            </a>
+                            <button type="button"
                                 class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
                                 data-toggle="modal" data-target="#addRoleModal">
                                 <i class="fas fa-plus"></i>
                                 Tambah Role
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -164,8 +167,16 @@
             <div id="collapse-{{$role->id}}" class="collapse show" aria-labelledby="heading-{{$role->id}}" data-parent="#accordion">
                 <div class="card-header">
                     Hak Akses {{$role->name}}
+                    <div class="btn-actions-pane-right ">
+                        <button type="button"
+                            class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
+                            data-toggle="modal" data-target="#addRolePermissionModal">
+                            <i class="fas fa-plus"></i>
+                            Tambah Jenis Hak Akses
+                        </button>
+                    </div>
                 </div>
-                <form action="#" method="post">
+                <form action="{{ route('manajemen-pengguna.role-dan-hak-akses.update-role-permission', $role->id) }}" method="post">
                     @csrf
                     @method('patch')
                     <div class="table-responsive ">
@@ -173,6 +184,7 @@
                             <thead>
                                 <tr>
                                     <th class=" text-center">No.</th>
+                                    {{-- <th class=" text-center">Aksi</th> --}}
                                     <th class=" text-center">Menu</th>
                                     <th class=" text-center">Hak Akses</th>
                                 </tr>
@@ -185,6 +197,25 @@
                                 @foreach ($permissions as $number => $permission)
                                 <tr>
                                     <td class=" text-center">{{ $number + 1 }}</td>
+                                    {{-- <td class="text-center">
+                                        @if ($permission->id <= 9)
+                                            <i>
+                                                Aksi tidak tersedia
+                                            </i>
+                                        @else
+                                            <div class="d-flex justify-content-center">
+                                                <form id="delete-role-permission-form" action="{{ route('manajemen-pengguna.role-dan-hak-akses.destroy-role-permission', $permission->id) }}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="btn btn-danger btn-sm mr-1"
+                                                        data-toggle="tooltip" title="Hapus Role"
+                                                        data-placement="bottom">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        @endif
+                                    </td> --}}
                                     <td class=" text-center">{{ $permission->name }}</td>
                                     <td class=" text-center"><input type="checkbox" value="{{ $permission->id }}" name="permission_id[]" {{ in_array($permission->id, $checkPermission) ? 'checked':'' }}>
                                     </td>
@@ -290,6 +321,34 @@
             }
         })
     });
+
+    $(document).on('click', '#delete-role-permission-form', function(e) {
+        var form = this;
+        e.preventDefault();
+        swal.fire({
+            title: 'Hapus Data Ini?',
+            text: "Data tidak akan kembali",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Iya, hapus!',
+            cancelButtonText: 'Tidak, batalkan!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                return form.submit();
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swal.fire(
+                    'Dibatalkan',
+                    'Data anda masih tersimpan',
+                    'error'
+                )
+            }
+        })
+    });
+
 </script>
 
 @endsection

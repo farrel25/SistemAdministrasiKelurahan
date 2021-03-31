@@ -141,7 +141,7 @@
 </div>
 
 
-{{-- Role Modal --}}
+{{-- Role and Permission Modal --}}
 <section id="Role">
 
     {{-- STORE NEW ROLE --}}
@@ -206,6 +206,42 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {{-- STORE NEW ROLE PERMISSION --}}
+    <div class="modal fade" id="addRolePermissionModal" tabindex="-1" role="dialog" aria-labelledby="addRolePermissionModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addRolePermissionModalLabel">Tambah Jenis Hak Akses</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('manajemen-pengguna.role-dan-hak-akses.store-role-permission') }}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <p>
+                            <i>Catatan:<br>Tambahkan permission name pada routes yang ada di source code file web.php untuk memasang permission</i>
+                        </p>
+                        <div class="form-group">
+                            <label class="form-label" for="name">Nama Hak Akses</label>
+                            <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder=".." />
+                            @error('name')
+                                <span class="invalid-feedback mt-2" role="alert">
+                                    <i>{{ $message }}</i>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
                 </form>
             </div>

@@ -74,6 +74,27 @@ class UserRoleAccessController extends Controller
         return back();
     }
 
+    public function storeRolePermission(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255'
+        ]);
+
+        if ($validator->fails()) {
+            FacadesAlert::error('Gagal', 'Terdapat kesalahan input, silahkan coba lagi');
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        Permission::create([
+            'name' => $request->name
+        ]);
+
+        FacadesAlert::success('Berhasil', 'Jenis hak akses baru berhasil ditambahkan');
+        return back();
+    }
+
     /**
      * Display the specified resource.
      *
@@ -99,7 +120,7 @@ class UserRoleAccessController extends Controller
      */
     public function edit(/*ArticleCategory $articleCategory*/)
     {
-        return view('dashboard.manajemen_pengguna.role_dan_hak_akses.role_dan_hak_akses-edit'/*, compact('articleCategory')*/);
+        // return view('dashboard.manajemen_pengguna.role_dan_hak_akses.role_dan_hak_akses-edit'/*, compact('articleCategory')*/);
     }
 
     /**
@@ -143,6 +164,15 @@ class UserRoleAccessController extends Controller
         return back();
     }
 
+    public function updateRolePermission(Request $request, Role $role)
+    {
+        // $role->permissions()->sync($request->permission_id);
+        $role->syncPermissions($request->permission_id);
+
+        FacadesAlert::success('Berhasil', 'Hak akses berhasil diperbarui');
+        return back();
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -154,6 +184,11 @@ class UserRoleAccessController extends Controller
         $role->delete();
 
         FacadesAlert::success('Berhasil', 'Role berhasil dihapus');
+        return back();
+    }
+
+    public function destroyRolePermission(Permission $permission)
+    {
         return back();
     }
 
