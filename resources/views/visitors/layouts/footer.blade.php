@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row d-flex ">
             <div class="col-lg-7 text-lg-left text-center h-100 d-block">
-                <h3>Kelurahan</h3>
+                <h3>Desa</h3>
                 <p class="text-justify mr-lg-5">Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu
                     non
                     diam

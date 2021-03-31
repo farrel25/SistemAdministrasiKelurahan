@@ -76,13 +76,14 @@ $data=[
                                             </a>
                                         </li>
                                     </ul>
+                                    <hr>
                                     <p class=" text-justify">
                                         {!! Str::limit($article->body,200) !!}
-                                        <br>
                                         <a href="{{ route('visitors.artikel.show', $article->slug) }}">
                                             lebih lanjut...
                                         </a>
                                     </p>
+                                    <hr>
                                 </div>
                             </div>
                         </div>

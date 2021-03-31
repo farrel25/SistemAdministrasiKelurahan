@@ -14,15 +14,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     {{-- CK editor 5 --}}
     <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
-    {{-- <script src="{{ asset('/vendor') }}/ckeditor/src/ckeditor.js"></script> --}}
-
     {{-- select2.org --}}
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-
-    {{-- is_active button --}}
-    {{-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script> --}}
 
     <title>{{ $title ?? 'Dashboard' }}</title>
 
@@ -37,9 +31,6 @@
     <link href="{{ asset('/admin') }}/css/pe-icon-7-stroke.css" rel="stylesheet">
     <link href="{{ asset('/admin') }}/css/helper.css" rel="stylesheet">
 
-
-    <script src="sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 
 <body>

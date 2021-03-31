@@ -2,36 +2,42 @@
 
 @section('content')
 {{-- Start hero section --}}
-<section id="hero">
+{{-- <section id="hero">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1 data-aos="fade-up">Selamat Datang Di Kelurahan</h1>
-                <p class="mt-3" data-aos="fade-up" data-aos-delay="400">“ Terwujudnya Kelurahan yang Aman, Damai dan
+                <h1 data-aos="fade-up">Selamat Datang Di Desa</h1>
+                <p class="mt-3" data-aos="fade-up" data-aos-delay="400">“ Terwujudnya Desa yang Aman, Damai dan
                     Sejahtera “</p>
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 {{-- End hero section --}}
 
 {{-- Start carousel section --}}
-<section>
+<section id="hero">
     <div class="container mb-4 mt-4  ">
         <div data-aos="fade-up" data-aos-delay="800" data-ride="carousel">
-
+            <div class="carousel-caption  d-sm-block bg-glass mb-5 mt-3">
+                <h1 data-aos="fade-up">Selamat Datang Di Desa</h1>
+                <p class="mt-3" data-aos="fade-up" data-aos-delay="400">“Terwujudnya Desa yang Aman, Damai dan
+                    Sejahtera“</p>
+                <a class="btn btn-get-started scrollto " href="#make-card" role="button">Buat Sekarang</a>
+            </div>
             <div class=" sliderimage">
                 <div class=" br-full carousel-size active ">
-                    <img src="{{ asset('/images') }}/carousel-1.jpg" class="d-block w-100 br-full" alt="...">
+                    <img src="{{ asset('/images') }}/carousel-1.png" class="d-block w-100 br-full" alt="...">
+
                 </div>
                 <div class="carousel-item br-full carousel-size">
-                    <img src="{{ asset('/images') }}/carousel-2.jpg" class="d-block w-100 br-full" alt="...">
+                    <img src="{{ asset('/images') }}/carousel-2.png" class="d-block w-100 br-full" alt="...">
                 </div>
                 <div class="carousel-item br-full carousel-size">
                     <img src="{{ asset('/images') }}/carousel-3.png" class="d-block w-100 br-full" alt="...">
                 </div>
                 <div class="carousel-item br-full carousel-size">
-                    <img src="{{ asset('/images') }}/carousel-4.jpg" class="d-block w-100 br-full" alt="...">
+                    <img src="{{ asset('/images') }}/carousel-4.png" class="d-block w-100 br-full" alt="...">
                 </div>
             </div>
 
@@ -51,9 +57,7 @@
                         style="width: 100px; height: 100px; background-color:#FE5670; border-radius:50%;"></i>
                 </span>
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Pengajuan Surat</h4>
-                <p class=" small"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sed perspiciatis vel
-                    placeat, dicta
-                    molestias quidem sequi. Adipisci, cupiditate laborum.</p>
+                <p class=" small"> Memudahkan dalam pembuatan surat menyurat untuk warga desa secara online</p>
             </a>
             <div class=" col-lg-3 text-center p-3" data-aos="fade-up" data-aos-delay="500">
                 <span style="color: #EEF5FF;">
@@ -61,9 +65,8 @@
                         style="width: 100px; height: 100px; background-color:#F8B000; border-radius:50%;"></i>
                 </span>
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Pengaduan</h4>
-                <p class=" small"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sed perspiciatis vel
-                    placeat, dicta
-                    molestias quidem sequi. Adipisci, cupiditate laborum.</p>
+                <p class=" small"> Membuka peluang warga desa dalam pengembangan UMKM untuk disebarluaskan melalui
+                    website</p>
             </div>
             <div class="col-lg-3 text-center p-3" data-aos="fade-up" data-aos-delay="800">
                 <span style="color: #EEF5FF;">
@@ -71,9 +74,8 @@
                         style="width: 100px; height: 100px; background-color:#3C50E0; border-radius:50%;"></i>
                 </span>
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Kontributor Berita</h4>
-                <p class=" small"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit sed perspiciatis vel
-                    placeat, dicta
-                    molestias quidem sequi. Adipisci, cupiditate laborum.</p>
+                <p class=" small"> Warga dapat membuat beritanya sendiri mengenai desa maupun kegiatan yang dilaksanakan
+                    oleh desa</p>
             </div>
         </div>
     </div>
@@ -82,7 +84,7 @@
 
 {{-- Start Card 1 Section --}}
 <section id="card1">
-    <div class="container mt-5 mb-4 w-100 br-full " data-aos="fade-up" data-aos-delay="400">
+    <div class="container mt-4 mb-4 w-100 br-full " data-aos="fade-up" data-aos-delay="400">
         <div style=" background-image:url('images/bgrd-1.png'); border-radius:10px;">
             <div class="row pl-5 pr-5 ">
                 <div class="col-lg-3 m-auto">
@@ -382,18 +384,20 @@
                                             </a>
                                         </li>
                                     </ul>
+                                    <hr>
                                     <p>{!!Str::limit($article->body,200)!!}
                                         <br>
                                         <a href="{{ route('visitors.artikel.show', $article->slug) }}">
                                             lebih lanjut...
                                         </a>
                                     </p>
+                                    <hr>
                                 </div>
                             </div>
                         </div>
 
                         @empty
-                        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                        <div class="row justify-content-center m-sm-2" data-aos="fade-up" data-aos-delay="800">
                             <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800">
                                 {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                                     <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">

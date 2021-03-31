@@ -549,28 +549,23 @@ ul {
 #hero {
     width: 100%;
     /* height: 70vh; */
-    margin-top: 120px;
+    margin-top: 90px;
 }
 
 #hero h1 {
     margin: 0 0 10px 0;
-    font-size: 48px;
+    font-size: 36px;
     font-weight: 700;
     /* line-height: 56px; */
     /* color: black; */
-    color: #181747;
+    color: #fff;
 }
 
-#hero h2 {
-    color: #484848;
-    margin-bottom: 50px;
-    font-size: 24px;
-}
 
 #hero p {
     font-size: 18px;
     font-weight: 400;
-    color: #181747;
+    color: #fff;
 }
 
 #hero .btn-get-started {
@@ -582,13 +577,13 @@ ul {
     padding: 10px 30px;
     border-radius: 50px;
     transition: 0.5s;
-    color: #3c50e0;
-    border: 2px solid #3c50e0;
+    color: #fff;
+    border: 2px solid #fff;
 }
 
 #hero .btn-get-started:hover {
-    background: #3c50e0;
-    color: #fff;
+    background: #fff;
+    color: #484848;
 }
 
 #hero .animated {
@@ -612,6 +607,10 @@ ul {
     #hero .hero-img img {
         width: 50%;
     }
+
+    #hero .btn-get-started{
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -619,16 +618,18 @@ ul {
         margin-top: 100px;
     }
     #hero h1 {
-        font-size: 28px;
-        line-height: 36px;
+        font-size: 24px;
+        line-height: 28px;
     }
-    #hero h2 {
-        font-size: 18px;
+    #hero p {
+        font-size: 14px;
         line-height: 24px;
-        margin-bottom: 30px;
     }
     #hero .hero-img img {
         width: 70%;
+    }
+    #hero .btn-get-started {
+        display: none;
     }
 }
 
@@ -1895,6 +1896,14 @@ section {
 .br-full {
     border-radius: 10px;
 }
+.bg-glass {
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    padding: 30px;
+}
+
 
 .social-media {
     text-align: center;
@@ -2208,12 +2217,10 @@ section {
     color: #3C50E0;
 }
 
-.blog-posts .down-content p {
+/* .blog-posts .down-content p {
     padding: 25px 0px;
     margin: 25px 0px;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-}
+} */
 
 .blog-posts .down-content ul.post-share {
     text-align: right;
@@ -2834,3 +2841,4 @@ ul.page-numbers li a:hover {
         border-top: 3px solid #f7f7f7;
     }
 }
+

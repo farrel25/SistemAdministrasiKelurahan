@@ -4,7 +4,8 @@
         <div class="logo mr-auto">
             <h1 class="text-light text-uppercase">
                 <a href="{{ route('visitors.beranda.index') }}">
-                    <span>Kelurahan</span>
+                    <img src="{{ asset('/admin') }}/images/logo-purworejo.png" alt="">
+                    <span class=" ml-2">DESA</span>
                 </a>
             </h1>
             <!-- Uncomment below if you prefer to use an image logo -->
@@ -36,13 +37,16 @@
                         </li>
                     </ul>
                 </li>
-                <li class="drop-down{{ request()->is('/kegiatan-masyarakat/umkm') ? 'active' : '' }}">
-                    <a href="#">Kegiatan Masyarakat</a>
-                    <ul>
-                        <li><a href="{{ route('visitors.kegiatan_masyarakat.umkm.index') }}">UMKM Masyarakat</a></li>
-                        <li><a href="">Kegiatan Pemuda</a></li>
-                    </ul>
+                <li class="{{ request()->is('/kegiatan-masyarakat/umkm') ? 'active' : '' }}">
+                    <a href="{{ route('visitors.kegiatan_masyarakat.umkm.index') }}">UMKM</a>
                 </li>
+                {{-- <li class="drop-down{{ request()->is('/kegiatan-masyarakat/umkm') ? 'active' : '' }}">
+                <a href="#">Kegiatan Masyarakat</a>
+                <ul>
+                    <li><a href="{{ route('visitors.kegiatan_masyarakat.umkm.index') }}">UMKM Masyarakat</a></li>
+                    <li><a href="">Kegiatan Pemuda</a></li>
+                </ul>
+                </li> --}}
                 <?php
                 // function activePelayanan($urlPath)
                 // {

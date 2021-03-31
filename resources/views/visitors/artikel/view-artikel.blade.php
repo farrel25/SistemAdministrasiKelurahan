@@ -55,9 +55,11 @@
                                             <a href="#">{{ $countComments }} Comments</a>
                                         </li>
                                     </ul>
+                                    <hr>
                                     <p class=" text-justify">
                                         {!! $article->body !!}
                                     </p>
+                                    <hr>
                                     <div class="post-options">
                                         <div class="row">
                                             <div class="col-md-6">
