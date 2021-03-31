@@ -35,10 +35,10 @@ class LoginController extends Controller
     {
         $roleId = Auth::user()->roles->first()->id;
         // $roleId == 8 ? RouteServiceProvider::HOME : RouteServiceProvider::DASHBOARD;
-        if ($roleId == 8) {
-            return RouteServiceProvider::HOME;
-        } else {
+        if ($roleId >= 1 && $roleId <= 7) {
             return RouteServiceProvider::DASHBOARD;
+        } else {
+            return RouteServiceProvider::HOME;
         }
     }
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Alert;
+use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert as FacadesAlert;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -39,20 +41,38 @@ class UserRoleAccessController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function store(Request $request)
-    // {
-    //     $attr = $request->validate([
-    //         'category' => 'required|string'
-    //     ]);
+    public function storeRole(Request $request)
+    {
+        // $attr = $request->validate([
+        //     'category' => 'required|string'
+        // ]);
 
-    //     $attr['slug'] = \Str::slug($attr['category']);
-    //     $attr['enabled'] = 1;
+        // $attr['slug'] = \Str::slug($attr['category']);
+        // $attr['enabled'] = 1;
 
-    //     ArticleCategory::create($attr);
+        // ArticleCategory::create($attr);
 
-    //     Alert::success('Berhasil', 'Kategori artikel berhasil ditambahkan');
-    //     return redirect()->route('manajemen-artikel.kategori');
-    // }
+        // Alert::success('Berhasil', 'Kategori artikel berhasil ditambahkan');
+        // return redirect()->route('manajemen-artikel.kategori');
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255'
+        ]);
+
+        if ($validator->fails()) {
+            FacadesAlert::error('Gagal', 'Terdapat kesalahan input, silahkan coba lagi');
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        Role::create([
+            'name' => $request->name
+        ]);
+
+        FacadesAlert::success('Berhasil', 'Role baru berhasil ditambahkan');
+        return back();
+    }
 
     /**
      * Display the specified resource.
@@ -89,19 +109,39 @@ class UserRoleAccessController extends Controller
      * @param  \App\ArticleCategory  $articleCategory
      * @return \Illuminate\Http\Response
      */
-    // public function update(Request $request, ArticleCategory $articleCategory)
-    // {
-    //     $attr = $request->validate([
-    //         'category' => 'required|string'
-    //     ]);
-    //     $attr['slug'] = \Str::slug($attr['category']);
+    public function updateRole(Request $request)
+    {
+        //     $attr = $request->validate([
+        //         'category' => 'required|string'
+        //     ]);
+        //     $attr['slug'] = \Str::slug($attr['category']);
 
-    //     $articleCategory->update($attr);
+        //     $articleCategory->update($attr);
 
-    //     Alert::success('Berhasil', 'Kategori artikel berhasil diperbarui');
+        //     Alert::success('Berhasil', 'Kategori artikel berhasil diperbarui');
 
-    //     return redirect()->route('manajemen-artikel.kategori');
-    // }
+        //     return redirect()->route('manajemen-artikel.kategori');
+
+        $role = Role::findOrFail($request->id);
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            FacadesAlert::error('Gagal', 'Terdapat kesalahan input, silahkan coba lagi');
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $attr['name'] = $request->name;
+
+        $role->update($attr);
+
+        FacadesAlert::success('Berhasil', 'Role berhasil diperbarui');
+        return back();
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -109,12 +149,13 @@ class UserRoleAccessController extends Controller
      * @param  \App\ArticleCategory  $articleCategory
      * @return \Illuminate\Http\Response
      */
-    // public function destroy(ArticleCategory $articleCategory)
-    // {
-    //     $articleCategory->delete();
-    //     Alert::success('Berhasil', 'Kategori artikel berhasil dihapus');
-    //     return redirect()->route('manajemen-artikel.kategori');
-    // }
+    public function destroyRole(Role $role)
+    {
+        $role->delete();
+
+        FacadesAlert::success('Berhasil', 'Role berhasil dihapus');
+        return back();
+    }
 
     // public function activation(Request $request, ArticleCategory $articleCategory)
     // {

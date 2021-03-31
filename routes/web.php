@@ -265,16 +265,12 @@ Route::middleware('auth')->group(function () {
         // RoleDanHakAkses
         Route::prefix('/role')->group(function () {
             Route::get('', 'UserRoleAccessController@index')->name('manajemen-pengguna.role');
-            // store Kepengurusan
-            Route::get('/tambah', 'UserRoleAccessController@create')->name('manajemen-pengguna.role-create');
-            Route::post('/tambah', 'UserRoleAccessController@store')->name('manajemen-pengguna.role-store');
-            // update comment
-            Route::get('/edit', 'UserRoleAccessController@edit')->name('manajemen-pengguna.role-edit');
-            Route::patch('/edit', 'UserRoleAccessController@update')->name('manajemen-pengguna.role-update');
-            // delete staff
-            // Route::delete('{staff}/delete', 'StaffController@destroy')->name('manajemen-pengguna.role-dan-hak-akses-destroy');
-            // staff activation
-            // Route::patch('{staff}/aktivasi', 'StaffController@activation')->name('manajemen-pengguna.role-dan-hak-akses-activation');
+            // Store Role
+            Route::post('/tambah-role', 'UserRoleAccessController@storeRole')->name('manajemen-pengguna.role-dan-hak-akses.store-role');
+            // Update Role
+            Route::patch('/ubah-role', 'UserRoleAccessController@updateRole')->name('manajemen-pengguna.role-dan-hak-akses.update-role');
+            // Destroy Role
+            Route::delete('/{role}/hapus-role', 'UserRoleAccessController@destroyRole')->name('manajemen-pengguna.role-dan-hak-akses.destroy-role');
         });
     });
 });
