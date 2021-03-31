@@ -1,19 +1,6 @@
 @extends('visitors.layouts.master', ['title' => "Beranda"])
 
 @section('content')
-{{-- Start hero section --}}
-{{-- <section id="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h1 data-aos="fade-up">Selamat Datang Di Desa</h1>
-                <p class="mt-3" data-aos="fade-up" data-aos-delay="400">“ Terwujudnya Desa yang Aman, Damai dan
-                    Sejahtera “</p>
-            </div>
-        </div>
-    </div>
-</section> --}}
-{{-- End hero section --}}
 
 {{-- Start carousel section --}}
 <section id="hero">
@@ -23,12 +10,11 @@
                 <h1 data-aos="fade-up">Selamat Datang Di Desa</h1>
                 <p class="mt-3" data-aos="fade-up" data-aos-delay="400">“Terwujudnya Desa yang Aman, Damai dan
                     Sejahtera“</p>
-                <a class="btn btn-get-started scrollto " href="#make-card" role="button">Buat Sekarang</a>
+                <a class="btn btn-get-started scrollto " href="#services" role="button">Get Started</a>
             </div>
             <div class=" sliderimage">
                 <div class=" br-full carousel-size active ">
                     <img src="{{ asset('/images') }}/carousel-1.png" class="d-block w-100 br-full" alt="...">
-
                 </div>
                 <div class="carousel-item br-full carousel-size">
                     <img src="{{ asset('/images') }}/carousel-2.png" class="d-block w-100 br-full" alt="...">
@@ -48,7 +34,7 @@
 
 {{-- Start Services Section --}}
 <section id="services">
-    <div class="container mt-4">
+    <div class="container mt-3">
         <div class="row justify-content-center">
             <a href="{{ route('pengajuan-surat.create') }}" class="col-lg-3 text-center text-dark p-3"
                 data-aos="fade-up" data-aos-delay="400">
@@ -59,7 +45,8 @@
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Pengajuan Surat</h4>
                 <p class=" small"> Memudahkan dalam pembuatan surat menyurat untuk warga desa secara online</p>
             </a>
-            <div class=" col-lg-3 text-center p-3" data-aos="fade-up" data-aos-delay="500">
+            <a class=" col-lg-3 text-center p-3 scrollto text-dark" href="#footer" data-aos="fade-up"
+                data-aos-delay="500">
                 <span style="color: #EEF5FF;">
                     <i class="fas fa-exclamation-triangle fa-3x p-4"
                         style="width: 100px; height: 100px; background-color:#F8B000; border-radius:50%;"></i>
@@ -67,8 +54,9 @@
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Pengaduan</h4>
                 <p class=" small"> Membuka peluang warga desa dalam pengembangan UMKM untuk disebarluaskan melalui
                     website</p>
-            </div>
-            <div class="col-lg-3 text-center p-3" data-aos="fade-up" data-aos-delay="800">
+            </a>
+            <a href="{{ route('pengajuan-surat.create') }}" class="col-lg-3 text-center p-3 text-dark"
+                data-aos="fade-up" data-aos-delay="800">
                 <span style="color: #EEF5FF;">
                     <i class="fas fa-pencil-alt fa-3x p-4"
                         style="width: 100px; height: 100px; background-color:#3C50E0; border-radius:50%;"></i>
@@ -76,7 +64,7 @@
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Kontributor Berita</h4>
                 <p class=" small"> Warga dapat membuat beritanya sendiri mengenai desa maupun kegiatan yang dilaksanakan
                     oleh desa</p>
-            </div>
+            </a>
         </div>
     </div>
 </section>

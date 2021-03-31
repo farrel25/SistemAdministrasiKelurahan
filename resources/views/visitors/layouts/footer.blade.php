@@ -1,22 +1,20 @@
 <footer id="footer">
     <div class="container">
         <div class="row d-flex ">
-            <div class="col-lg-7 text-lg-left text-center h-100 d-block">
-                <h3>Desa</h3>
-                <p class="text-justify mr-lg-5">Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu
-                    non
-                    diam
-                    phasellus. Scelerisque
-                    felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.
-                </p>
-                <span class="social-media">
-                    <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-                    <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
-                    <a href="#"><i class="fab fa-facebook-square fa-2x"></i></a>
-                    <a href="#"><i class="fab fa-youtube fa-2x"></i></a>
-                </span>
+            <div class="col-lg-1 mt-1 mb-2">
+                <div class="text-center">
+                    <img style=" height: 100px;" src="{{ asset('/admin') }}/images/logo-purworejo.png">
+                </div>
             </div>
-            <div class="col-lg-5">
+            <div class="col-lg-7 text-lg-left text-center h-100 d-block footer-info">
+                <h3>Desa</h3>
+                <p class="text-justify mr-lg-5">Website administrasi desa merupakan aplikasi berbasis website yang
+                    digunakan untuk membantu pengurus desa dalam
+                    mengelola data administratif serta meningkatkan pelayanan kepada penduduk desa
+                </p>
+
+            </div>
+            <div class="col-lg-4">
                 <form>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Aduan</label>
@@ -32,7 +30,19 @@
                     </div>
                 </form>
             </div>
+
         </div>
     </div>
+
 </footer>
+<div class=" social-media">
+    <div class="container ">
+        <span class=" ">
+            <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+            <a href="#"><i class="fab fa-twitter ffa-lg"></i></a>
+            <a href="#"><i class="fab fa-facebook-square fa-lg"></i></a>
+            <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+        </span>
+    </div>
+</div>
 <!-- End Footer -->

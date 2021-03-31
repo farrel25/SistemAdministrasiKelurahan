@@ -66,7 +66,7 @@
                     $name = explode(' ', Auth::user()->full_name);
                     $nickname = $name[0];
                     ?>
-                <li class="drop-down ml-5">
+                <li class="drop-down ml-auto">
                     <a href="#">Hai, {{ $nickname }}</a>
                     <ul>
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
