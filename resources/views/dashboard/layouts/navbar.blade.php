@@ -79,7 +79,7 @@
                                     <button type="button" tabindex="0" class="dropdown-item">Notifikiasi</button>
                                     <a href="{{ route('visitors.beranda.index') }}" type="button" tabindex="0"
                                         class="dropdown-item">Kembali
-                                        Keberanda</a>
+                                        Ke Beranda</a>
                                     <div tabindex="-1" class="dropdown-divider"></div>
                                     <a type="button" tabindex="0" class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

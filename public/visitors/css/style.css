@@ -1382,7 +1382,7 @@ section {
     transition: color 0.3s;
     color: #222222;
     margin: 0 10px;
-    padding-top: 65px;
+    margin-top: 65px;
     display: inline-block;
 }
 

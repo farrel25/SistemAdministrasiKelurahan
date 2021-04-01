@@ -9,7 +9,8 @@
             <div class="col-12 slidercard ">
                 <div class="card  p-4 " style="background-color:#EEF5FF; border:0px;">
                     <div class="card-body  ">
-                        <img src="{{ asset('/images') }}/vector-1.png" class=" float-left mr-5 w-auto mb-3 rounded-lg animated img-fluid" alt="Responsive image">
+                        <img src="{{ asset('/images') }}/vector-1.png"
+                            class=" float-left mr-5 w-auto mb-3 rounded-lg animated img-fluid" alt="Responsive image">
                         <h3 class="card-title mt-4" style="font-weight: 700;">Mempermudah Belanja</h3>
                         <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
                             Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
@@ -19,7 +20,8 @@
                 </div>
                 <div class="card  p-4 " style="background-color:#EEF5FF; border:0px;">
                     <div class="card-body">
-                        <img src="{{ asset('/images') }}/vector-1.png" class=" float-left mr-5 w-auto mb-3 rounded-lg animated img-fluid" alt="Responsive image">
+                        <img src="{{ asset('/images') }}/vector-1.png"
+                            class=" float-left mr-5 w-auto mb-3 rounded-lg animated img-fluid" alt="Responsive image">
                         <h3 class="card-title mt-4" style="font-weight: 700;">Mempermudah Belanja</h3>
                         <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
                             Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
@@ -78,7 +80,9 @@
                 <div class="mb-4">
                     <div class="dropdown mb-4 d-flex">
                         <h4 class=" d-inline-block">Category 1</h4>
-                        <button class="btn btn-secondary dropdown-toggle ml-auto" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #FE5670; border:none;">
+                        <button class="btn btn-secondary dropdown-toggle ml-auto" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            style="background-color: #FE5670; border:none;">
                             Recently Added
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -92,9 +96,10 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-1.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-1.png" class="" alt="...">
                                             <div class="icon">
-                                                <a href="{{ route('visitors.kegiatan_masyarakat.umkm.view-product') }}"><i class="fas fa-shopping-basket"></i></a>
+                                                <a href="{{ route('visitors.kegiatan_masyarakat.umkm.view-product') }}"><i
+                                                        class="fas fa-shopping-basket"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -104,11 +109,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -116,7 +126,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-2.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-2.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -128,11 +139,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -140,7 +156,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-3.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-3.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -152,11 +169,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -164,7 +186,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-4.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-4.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -176,11 +199,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -188,7 +216,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-1.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-1.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -200,11 +229,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -212,7 +246,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-2.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-2.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -224,11 +259,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -236,7 +276,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-3.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-3.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -248,11 +289,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -260,7 +306,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-4.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-4.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -272,11 +319,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -291,7 +343,9 @@
                 <div class="mb-4">
                     <div class="dropdown mb-4 d-flex">
                         <h4 class=" d-inline-block">Category 2</h4>
-                        <button class="btn btn-secondary dropdown-toggle ml-auto" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #FE5670; border:none;">
+                        <button class="btn btn-secondary dropdown-toggle ml-auto" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            style="background-color: #FE5670; border:none;">
                             Recently Added
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -305,9 +359,11 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-1.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-1.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
-                                                <a href="{{ route('visitors.kegiatan_masyarakat.umkm.view-product') }}"><i class="fas fa-shopping-basket"></i></a>
+                                                <a href="{{ route('visitors.kegiatan_masyarakat.umkm.view-product') }}"><i
+                                                        class="fas fa-shopping-basket"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -317,11 +373,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -329,7 +390,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-2.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-2.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -341,11 +403,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -353,7 +420,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-3.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-3.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -365,11 +433,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -377,7 +450,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-4.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-4.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -389,11 +463,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -401,7 +480,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-1.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-1.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -413,11 +493,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -425,7 +510,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-2.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-2.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -437,11 +523,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -449,7 +540,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-3.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-3.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -461,11 +553,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -473,7 +570,8 @@
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-4.png" class="card-img-top" alt="...">
+                                            <img src="{{ asset('/images') }}/img-umkm-4.png" class="card-img-top"
+                                                alt="...">
                                             <div class="icon">
                                                 <a href=""><i class="fas fa-shopping-basket"></i></a>
                                             </div>
@@ -485,11 +583,16 @@
                                         </a>
                                         <p>Category</p>
                                         <ul class="list-unstyled list-inline my-2">
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
-                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i></li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
+                                            <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
+                                            </li>
                                         </ul>
                                         <p>Rp 10.000</p>
                                     </div>
@@ -504,7 +607,9 @@
                 <div class="mb-4">
                     <div class="dropdown mb-4 d-flex">
                         <h4 class=" d-inline-block">Toko</h4>
-                        <button class="btn btn-secondary dropdown-toggle ml-auto" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #FE5670; border:none;">
+                        <button class="btn btn-secondary dropdown-toggle ml-auto" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                            style="background-color: #FE5670; border:none;">
                             Recently Added
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -519,58 +624,73 @@
                                     <div class=" col-12 sliderstore " id="store">
                                         <div class="card-wrapper mr-2 card">
                                             <div class="card-img-wrapper">
-                                                <img class="card-img-top" src="{{ asset('/images') }}/img-kp-1.png" alt="Card image cap">
+                                                <img class="card-img-top" src="{{ asset('/images') }}/default.png"
+                                                    alt="Card image cap">
                                             </div>
                                             <div class="card-body">
                                                 <h4 class="card-title font-weight-bold text-center">Store Name</h4>
                                                 <hr>
-                                                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product : 10</p>
+                                                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product
+                                                    : 10</p>
                                                 <hr>
                                                 <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
                                                 <hr>
-                                                <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10</p>
+                                                <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10
+                                                </p>
                                                 <hr>
                                                 <div class=" text-center">
-                                                    <a href="#"><button type="button" class=" btn btn-red ">Kunjungi toko</button></a>
-                                                    <a href="#"><button type="button" class="btn btn-red ">Hubungi penjual</button></a>
+                                                    <a href="#"><button type="button" class=" btn btn-red ">Kunjungi
+                                                            toko</button></a>
+                                                    <a href="#"><button type="button" class="btn btn-red ">Hubungi
+                                                            penjual</button></a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class=" card-wrapper mr-2 card">
                                             <div class="card-img-wrapper">
-                                                <img class="card-img-top" src="{{ asset('/images') }}/img-kp-1.png" alt="Card image cap">
+                                                <img class="card-img-top" src="{{ asset('/images') }}/default.png"
+                                                    alt="Card image cap">
                                             </div>
                                             <div class="card-body">
                                                 <h4 class="card-title font-weight-bold text-center">Store Name</h4>
                                                 <hr>
-                                                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product : 10</p>
+                                                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product
+                                                    : 10</p>
                                                 <hr>
                                                 <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
                                                 <hr>
-                                                <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10</p>
+                                                <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10
+                                                </p>
                                                 <hr>
                                                 <div class=" text-center">
-                                                    <a href="#"><button type="button" class=" btn btn-red ">Kunjungi toko</button></a>
-                                                    <a href="#"><button type="button" class="btn btn-red ">Hubungi penjual</button></a>
+                                                    <a href="#"><button type="button" class=" btn btn-red ">Kunjungi
+                                                            toko</button></a>
+                                                    <a href="#"><button type="button" class="btn btn-red ">Hubungi
+                                                            penjual</button></a>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="card-wrapper mr-2 card">
                                             <div class="card-img-wrapper">
-                                                <img class="card-img-top" src="{{ asset('/images') }}/img-kp-1.png" alt="Card image cap">
+                                                <img class="card-img-top" src="{{ asset('/images') }}/default.png"
+                                                    alt="Card image cap">
                                             </div>
                                             <div class="card-body">
                                                 <h4 class="card-title font-weight-bold text-center">Store Name</h4>
                                                 <hr>
-                                                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product : 10</p>
+                                                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product
+                                                    : 10</p>
                                                 <hr>
                                                 <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
                                                 <hr>
-                                                <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10</p>
+                                                <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10
+                                                </p>
                                                 <hr>
                                                 <div class=" text-center">
-                                                    <a href="#"><button type="button" class=" btn btn-red ">Kunjungi toko</button></a>
-                                                    <a href="#"><button type="button" class="btn btn-red ">Hubungi penjual</button></a>
+                                                    <a href="#"><button type="button" class=" btn btn-red ">Kunjungi
+                                                            toko</button></a>
+                                                    <a href="#"><button type="button" class="btn btn-red ">Hubungi
+                                                            penjual</button></a>
                                                 </div>
                                             </div>
                                         </div>
