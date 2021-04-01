@@ -27,7 +27,7 @@ class DashboardController extends Controller
     //Surat
     public function panduan()
     {
-        return view('dashboard.manajemen_surat.panduan');
+        return view('dashboard.manajemen_surat.panduan.panduan');
     }
     public function suratkeluar()
     {
