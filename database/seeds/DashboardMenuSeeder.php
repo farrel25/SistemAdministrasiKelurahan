@@ -27,7 +27,7 @@ class DashboardMenuSeeder extends Seeder
 
         $menus->each(function ($menu) {
             DashboardMenu::create([
-                'menu' => $menu
+                'name' => $menu
             ]);
         });
     }

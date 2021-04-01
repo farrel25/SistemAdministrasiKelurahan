@@ -279,14 +279,14 @@
                 // dd($userRoleId);
 
                 // ambil menu yang boleh diakses user berdasarkan role user
-                $menus = \DB::table('dashboard_menus')->select('dashboard_menus.id', 'dashboard_menus.menu')
+                $menus = \DB::table('dashboard_menus')->select('dashboard_menus.id', 'dashboard_menus.name')
                 ->join('role_has_permissions', 'dashboard_menus.id', '=', 'role_has_permissions.permission_id')
                 ->where('role_has_permissions.role_id', $userRoleId)
                 ->get();
                 @endphp
 
                 @foreach ($menus as $menu)
-                <li class="app-sidebar__heading ">{{ $menu->menu }}</li>
+                <li class="app-sidebar__heading ">{{ $menu->name }}</li>
 
                 @php
                 $subMenus = DB::table('dashboard_sub_menus')

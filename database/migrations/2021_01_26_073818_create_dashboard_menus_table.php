@@ -15,7 +15,7 @@ class CreateDashboardMenusTable extends Migration
     {
         Schema::create('dashboard_menus', function (Blueprint $table) {
             $table->id();
-            $table->string('menu');
+            $table->string('name');
             $table->timestamps();
         });
     }

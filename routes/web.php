@@ -247,17 +247,18 @@ Route::middleware('auth')->group(function () {
     //Manajemen Menu
     Route::prefix('/dashboard/manajemen-menu')->middleware('permission:Manajemen Pengguna')->group(function () {
 
-        // Pengguna
+        // Menu
         Route::prefix('/menu')->group(function () {
             Route::get('', 'DashboardMenuController@index')->name('manajemen-menu.menu');
-            // store user
-            Route::get('/tambah', 'DashboardMenuController@create')->name('manajemen-menu.menu-create');
-            // Route::post('/tambah', 'DashboardMenuController@store')->name('manajemen-pengguna.pengguna-store');
-            // Update User Role
-            Route::patch('/ubah-role-pengguna', 'DashboardMenuController@update')->name('manajemen-menu.menu.update-menu');
+            // Store
+            Route::post('/tambah', 'DashboardMenuController@store')->name('manajemen-menu.menu.store-menu');
+            // Update
+            Route::patch('/ubah', 'DashboardMenuController@update')->name('manajemen-menu.menu.update-menu');
+            // Delete
+            Route::delete('{dashboard_menu}/hapus', 'DashboardMenuController@destroy')->name('manajemen-menu.menu.destroy-menu');
         });
 
-        // RoleDanHakAkses
+        // Submenu
         Route::prefix('/sub-menu')->group(function () {
             Route::get('', 'DashboardSubMenuController@index')->name('manajemen-menu.sub-menu');
             // Store Role

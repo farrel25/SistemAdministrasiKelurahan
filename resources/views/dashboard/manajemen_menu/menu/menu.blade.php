@@ -24,7 +24,8 @@
                                 href="#"><i class="fas fa-trash-alt"></i> Hapus Menu Terpilih</a>
                             <button type="button"
                                 class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
-                                data-toggle="modal" data-target="#addMenuModal"><i class="fas fa-plus"></i>
+                                data-toggle="modal" data-target="#addMenuModal">
+                                <i class="fas fa-plus"></i>
                                 Tambah Menu
                             </button>
                         </div>
@@ -42,11 +43,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($menus as $number => $menu) --}}
+                                @foreach ($menus as $number => $menu)
                                 <tr>
-                                    <td class=" text-center"><input type="checkbox" name="chkbox[]" value="#">
+                                    <td class=" text-center">
+                                        <input type="checkbox" name="chkbox[]" value="#">
                                     </td>
-                                    <td class=" text-center">{{--{{ ++$number }}--}}</td>
+                                    <td class=" text-center">{{ ++$number }}</td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center">
                                             <a href="{{ route('manajemen-menu.sub-menu') }}"
@@ -68,17 +70,17 @@
                                                 <i class="fas fa-plus"></i>
                                             </a>
                                             <span class="editMenuModal" data-toggle="modal" data-target="#editMenuModal"
-                                                data-id="{{--{{$menu->id}}--}}" data-name="{{--{{$menu->name}}--}}">
-                                                <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
+                                                data-id="{{$menu->id}}" data-name="{{$menu->name}}">
+                                                <button type="button" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
                                                     title="Edit Menu" data-placement="bottom">
                                                     <i class="fas fa-edit"></i>
-                                                </a>
+                                                </button>
                                             </span>
                                             <form id="delete-form"
-                                                action="{{--{{ route('manajemen-menu.destroy', $menu->id) }}--}}"
+                                                action="{{ route('manajemen-menu.menu.destroy-menu', $menu->id) }}"
                                                 method="post">
-                                                {{-- @csrf
-                                                @method('delete') --}}
+                                                @csrf
+                                                @method('delete')
                                                 <button type="submit" class="btn btn-danger btn-sm mr-1 "
                                                     data-toggle="tooltip" title="Hapus Menu" data-placement="bottom">
                                                     <i class="fas fa-trash-alt"></i>
@@ -86,9 +88,9 @@
                                             </form>
                                         </div>
                                     </td>
-                                    <td class="text-center">{{--{{ $menu->name }}--}}</td>
+                                    <td class="text-center">{{ $menu->name }}</td>
                                 </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
