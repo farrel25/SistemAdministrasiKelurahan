@@ -74,9 +74,12 @@
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true"
                                     class="dropdown-menu dropdown-menu-right">
-                                    <button type="button" tabindex="0" class="dropdown-item">User Account</button>
-                                    <button type="button" tabindex="0" class="dropdown-item">Settings</button>
-                                    <button type="button" tabindex="0" class="dropdown-item">Actions</button>
+                                    <button type="button" tabindex="0" class="dropdown-item">Akun Pengguna</button>
+                                    <button type="button" tabindex="0" class="dropdown-item">Pengaturan</button>
+                                    <button type="button" tabindex="0" class="dropdown-item">Notifikiasi</button>
+                                    <a href="{{ route('visitors.beranda.index') }}" type="button" tabindex="0"
+                                        class="dropdown-item">Kembali
+                                        Keberanda</a>
                                     <div tabindex="-1" class="dropdown-divider"></div>
                                     <a type="button" tabindex="0" class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
