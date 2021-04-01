@@ -1,5 +1,6 @@
 <?php
 
+use App\VillageIdentity;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -21,7 +22,7 @@ class DatabaseSeeder extends Seeder
             PermissionTableSeeder::class,
             RoleHasPermissionTableSeeder::class,
 
-            // dashboard meu and submenu
+            // dashboard menu and submenu
             DashboardMenuSeeder::class,
             DashboardSubMenuSeeder::class,
 
@@ -54,6 +55,9 @@ class DatabaseSeeder extends Seeder
 
             // User
             UserSeeder::class,
+
+            // Village Information
+            VillageIdentity::class
         ]);
     }
 }

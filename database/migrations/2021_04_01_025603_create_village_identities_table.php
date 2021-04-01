@@ -15,19 +15,19 @@ class CreateVillageIdentitiesTable extends Migration
     {
         Schema::create('village_identities', function (Blueprint $table) {
             $table->id();
-            $table->string('village_name', 100);
-            $table->string('village_code', 100);
-            $table->string('kepala_desa_name', 100);
-            $table->char('kepala_desa_nip', 18);
-            $table->char('zip_code', 5);
-            $table->string('kecamatan_name', 100);
-            $table->string('kecamatan_code', 100);
-            $table->string('kepala_camat_name', 100);
-            $table->char('kepala_camat_nip', 18);
-            $table->string('kabupaten_name', 100);
-            $table->string('kabupaten_code', 100);
-            $table->string('province_name', 100);
-            $table->string('province_code', 100);
+            $table->string('village_name', 100)->nullable();
+            $table->string('village_code', 100)->nullable();
+            $table->string('kepala_desa_name', 100)->nullable();
+            $table->char('kepala_desa_nip', 18)->nullable();
+            $table->char('zip_code', 5)->nullable();
+            $table->string('kecamatan_name', 100)->nullable();
+            $table->string('kecamatan_code', 100)->nullable();
+            $table->string('kepala_camat_name', 100)->nullable();
+            $table->char('kepala_camat_nip', 18)->nullable();
+            $table->string('kabupaten_name', 100)->nullable();
+            $table->string('kabupaten_code', 100)->nullable();
+            $table->string('province_name', 100)->nullable();
+            $table->string('province_code', 100)->nullable();
             $table->text('history')->nullable();
             $table->text('vision')->nullable();
             $table->text('mission')->nullable();

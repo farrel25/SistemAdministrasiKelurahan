@@ -136,7 +136,7 @@
                         <tr>
                             <td class=" text-left pl-4">Website Desa</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->website }}</td>
                         </tr>
                     </tbody>
 

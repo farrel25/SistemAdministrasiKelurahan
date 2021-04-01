@@ -71,7 +71,7 @@
                             <div class="btn-group">
                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
                                     <img width="42" class="rounded-circle"
-                                        src="{{ asset('/admin') }}/images/avatars/4.jpg" alt="">
+                                        src="{{ asset('/admin') }}/images/avatars/logo-cp-black.png" alt="">
                                     <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                 </a>
                                 <div tabindex="-1" role="menu" aria-hidden="true"

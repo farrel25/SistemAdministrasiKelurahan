@@ -14,7 +14,9 @@ class VillageIdentityController extends Controller
      */
     public function index()
     {
-        return view('dashboard.info_kelurahan.identitas_kelurahan.identitas');
+        $villageIdentity = VillageIdentity::first();
+        // return $villageIdentity;
+        return view('dashboard.info_kelurahan.identitas_kelurahan.identitas', compact('villageIdentity'));
     }
 
     /**
