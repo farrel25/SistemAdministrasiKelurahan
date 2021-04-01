@@ -4,8 +4,8 @@
         <div class="logo mr-auto">
             <h1 class="text-light text-uppercase">
                 <a href="{{ route('visitors.beranda.index') }}">
-                    <img src="{{ asset('/admin') }}/images/logo-purworejo.png" alt="">
-                    <span class=" ml-2">DESA</span>
+                    <img src="{{ asset('/images') }}/logo.png" alt="">
+                    <span>DESA</span>
                 </a>
             </h1>
             <!-- Uncomment below if you prefer to use an image logo -->

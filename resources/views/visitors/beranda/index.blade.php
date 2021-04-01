@@ -88,11 +88,10 @@
                             <img src="{{ asset('/images') }}/img-kp-1.png"
                                 class=" float-left mr-4 w-auto mb-3 rounded-lg" alt="Responsive image">
                             <h5 class="card-title" style="font-weight: 700;">Kegiatan 1</h5>
-                            <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-                                sint.
-                                Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
-                                nostrud
-                                amet. </p>
+                            <p class="card-text">Memperingati Sumpah Pemuda pada 28 Oktober setiap tahunnya. Hari Sumpah
+                                Pemuda lahir pada 28 Oktober 1928 silam.
+                                Pemuda Desa Indonesia akan menggelar acara dengan mengumandangkan ikrar Sumpah Pemuda.
+                            </p>
                             <a href="#" class="btn btn-yellow">Button</a>
                         </div>
                     </div>
@@ -101,11 +100,10 @@
                             <img src="{{ asset('/images') }}/img-kp-2.png"
                                 class=" float-left mr-4 w-auto  mb-3 rounded-lg" alt="Responsive image">
                             <h5 class="card-title" style="font-weight: 700;">Kegiatan 2</h5>
-                            <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-                                sint.
-                                Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
-                                nostrud
-                                amet. </p>
+                            <p class="card-text">Memperingati Sumpah Pemuda pada 28 Oktober setiap tahunnya. Hari Sumpah
+                                Pemuda lahir pada 28 Oktober 1928 silam.
+                                Pemuda Desa Indonesia akan menggelar acara dengan mengumandangkan ikrar Sumpah Pemuda.
+                            </p>
                             <a href="#" class="btn btn-yellow">Button</a>
                         </div>
                     </div>
@@ -114,11 +112,10 @@
                             <img src="{{ asset('/images') }}/img-kp-3.png"
                                 class=" float-left mr-4 w-auto mb-3 rounded-lg" alt="Responsive image">
                             <h5 class="card-title" style="font-weight: 700;">Kegiatan 3</h5>
-                            <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-                                sint.
-                                Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
-                                nostrud
-                                amet. </p>
+                            <p class="card-text">Memperingati Sumpah Pemuda pada 28 Oktober setiap tahunnya. Hari Sumpah
+                                Pemuda lahir pada 28 Oktober 1928 silam.
+                                Pemuda Desa Indonesia akan menggelar acara dengan mengumandangkan ikrar Sumpah Pemuda.
+                            </p>
                             <a href="#" class="btn btn-yellow">Button</a>
                         </div>
                     </div>
@@ -427,7 +424,7 @@
             autoplay: true,
             infinite: false,
             cssEase: 'linear',
-            autoplaySpeed: 2000,
+            autoplaySpeed: 4000,
             responsive: [{
                     breakpoint: 1024,
                     settings: {
@@ -466,7 +463,7 @@
             slidesToScroll: 1,
             autoplay: true,
             infinite: false,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 4000,
             prevArrow: false,
             nextArrow: false,
             responsive: [{

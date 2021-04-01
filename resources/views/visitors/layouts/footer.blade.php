@@ -3,7 +3,7 @@
         <div class="row d-flex ">
             <div class="col-lg-1 mt-1 mb-2">
                 <div class="text-center">
-                    <img style=" height: 100px;" src="{{ asset('/admin') }}/images/logo-purworejo.png">
+                    <img style=" height: 90px;" src="{{ asset('/images') }}/logo.png">
                 </div>
             </div>
             <div class="col-lg-7 text-lg-left text-center h-100 d-block footer-info">
