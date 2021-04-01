@@ -30,10 +30,10 @@
                 <li class="drop-down{{ activeProfilDesa(request()->path()) }}">
                     <a href="#">Profil Desa</a>
                     <ul>
-                        <li><a href="#">Sejarah dan Visi Misi</a></li>
-                        <li><a href="#">Struktur Pemerintahan</a></li>
+                        <li><a href="{{ route('profil-desa.sejarah-visi-misi') }}">Sejarah dan Visi Misi</a></li>
+                        <li><a href="{{ route('profil-desa.struktur-pemerintahan') }}">Struktur Pemerintahan</a></li>
                         <li>
-                            <a href="{{ route('profil-desa.administratif.jenis-kelamin') }}">Administratif</a>
+                            <a href="{{ route('profil-desa.administratif.index') }}">Administratif</a>
                         </li>
                     </ul>
                 </li>

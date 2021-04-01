@@ -362,13 +362,10 @@ Route::prefix('/artikel')->group(function () {
 
 
 // Profil_desa
-Route::prefix('profil-desa/administratif')->group(function () {
-    Route::get('/jenis-kelamin', 'AdministratifController@index')->name('profil-desa.administratif.jenis-kelamin');
-    Route::get('/pendidikan', 'AdministratifController@pendidikan')->name('profil-desa.administratif.pendidikan');
-    Route::get('/pekerjaan', 'AdministratifController@pekerjaan')->name('profil-desa.administratif.pekerjaan');
-    Route::get('/agama', 'AdministratifController@agama')->name('profil-desa.administratif.agama');
-    Route::get('/wilayah', 'AdministratifController@wilayah')->name('profil-desa.administratif.wilayah');
-    Route::get('/warga-negara', 'AdministratifController@warganegara')->name('profil-desa.administratif.warga-negara');
+Route::prefix('profil-desa')->group(function () {
+    Route::get('/administratif', 'AdministratifController@index')->name('profil-desa.administratif.index');
+    Route::get('/struktur-pemerintahan', 'VillageProfileController@strukturPemerintahan')->name('profil-desa.struktur-pemerintahan');
+    Route::get('/sejarah-visi-misi', 'VillageProfileController@sejarahVisiMisi')->name('profil-desa.sejarah-visi-misi');
 });
 
 
