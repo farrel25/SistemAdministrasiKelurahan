@@ -3,34 +3,18 @@
 @section('content')
 
 
-<div class="app-page-title">
-    <div class="page-title-wrapper">
-        <div class="page-title-heading">
-            <div class="page-title-icon">
-                <i class=" fas fa-edit icon-gradient bg-mean-fruit">
-                </i>
-            </div>
-            <div>Edit Surat Masuk
-                <div class="page-title-subheading">Surat Masuk / Edit Surat Masuk
-                </div>
-            </div>
-        </div>
-        <div class="page-title-actions d-flex">
-            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip"
-                title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark pt-2">
-                <i class="fas fa-home"></i>
-            </a>
-            <div class="input-group ml-3">
-                <input type="text" class="form-control" id="#" placeholder="Search" aria-describedby="inputGroupPrepend"
-                    required>
-                <a href="#" class="input-group-prepend text-decoration-none ">
-                    <span class="input-group-text rounded-right" id="inputGroupPrepend"><i
-                            class="fas fa-search"></i></span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+<?php
+    $data=[
+        'icon' => "pe-7s-note",
+        'judul' => "Surat Masuk",
+        'link' => route('manajemen-surat.surat-masuk') ,
+        'page1' => "Surat Masuk",
+        'page2' => "/ Edit",
+        'page3' => "/ Id surat masuk "
+    ]
+?>
+@include('dashboard.layouts.page-title',$data)
+
 
 <div class="tab-content">
     <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">

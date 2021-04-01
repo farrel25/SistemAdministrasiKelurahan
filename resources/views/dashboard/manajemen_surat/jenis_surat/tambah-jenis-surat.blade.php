@@ -2,38 +2,18 @@
 
 @section('content')
 
-<div class="app-page-title">
-    <div class="page-title-wrapper">
-        <div class="page-title-heading">
-            <div class="page-title-icon">
-                <i class=" pe-7s-plus icon-gradient bg-mean-fruit">
-                </i>
-            </div>
-            <div>Tambah Jenis Surat
-                <div class="page-title-subheading">
-                    <a href="{{ route('manajemen-surat.jenis-surat') }}" style="text-decoration: none">
-                        Jenis Surat
-                    </a>
-                    / Tambah
-                </div>
-            </div>
-        </div>
-        <div class="page-title-actions d-flex">
-            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip"
-                title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark pt-2">
-                <i class="fas fa-home"></i>
-            </a>
-            <div class="input-group ml-3">
-                <input type="text" class="form-control" id="#" placeholder="Search" aria-describedby="inputGroupPrepend"
-                    required>
-                <a href="#" class="input-group-prepend text-decoration-none ">
-                    <span class="input-group-text rounded-right" id="inputGroupPrepend"><i
-                            class="fas fa-search"></i></span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+
+<?php
+    $data=[
+        'icon' => "pe-7s-plus",
+        'judul' => "Jenis Surat",
+        'link' => route('manajemen-surat.jenis-surat') ,
+        'page1' => "Jenis Surat",
+        'page2' => "/ Tambah"
+    ]
+?>
+@include('dashboard.layouts.page-title',$data)
+
 
 <div class="tab-content">
     <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
