@@ -163,7 +163,12 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label class="form-label" for="name">Menu</label>
-                            <input id="name" name="name" type="text" class="form-control" placeholder="Nama Menu ..." />
+                            <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nama Menu ..." value="{{ old('name') }}"/>
+                            @error('name')
+                                <span class="invalid-feedback mt-2" role="alert">
+                                    <i>{{ $message }}</i>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -194,7 +199,12 @@
                         <input type="hidden" id="menu-id" name="menuId" value=""/>
                         <div class="form-group">
                             <label class="form-label" for="name">Menu</label>
-                            <input id="name" name="name" value="" type="text" class="form-control" placeholder="Nama Menu ..." />
+                            <input id="name" name="name" value="" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Nama Menu ..." />
+                            @error('name')
+                                <span class="invalid-feedback mt-2" role="alert">
+                                    <i>{{ $message }}</i>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -206,6 +216,156 @@
         </div>
     </div>
 
+</section>
+
+
+
+{{-- SUBMENU MANAGEMENT MODAL --}}
+<section id="SubMenu">
+
+    @if (Request::url() == route('manajemen-menu.sub-menu'))
+        {{-- STORE SUBMENU--}}
+        <div class="modal fade" id="addSubMenuModal" tabindex="-1" role="dialog" aria-labelledby="addSubMenuModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addSubMenuModalLabel">Tambah Sub Menu</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ route('manajemen-menu.sub-menu.store-sub-menu') }}" method="post">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="form-label" for="sub_menu">Sub Menu</label>
+                                <input id="sub_menu" name="sub_menu" type="text" class="form-control @error('sub_menu') is-invalid @enderror"
+                                value="{{ old('sub_menu') }}" placeholder="Isi Sub Menu ..." />
+                                @error('sub_menu')
+                                    <span class="invalid-feedback mt-2" role="alert">
+                                        <i>{{ $message }}</i>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="menu_id" class="">Parent Menu</label>
+                                <br>
+                                <select name="menu_id" id="menu_id" class="mb-2 form-control @error('menu_id') is-invalid @enderror">
+                                    <option></option>
+                                    @forelse ($menus as $menu)
+                                        <option value="{{$menu->id}}" {{ old('menu_id') == $menu->id ? 'selected' : '' }}>
+                                            {{ $menu->name }}
+                                        </option>
+                                    @empty
+                                        <option value="">Menu belum tersedia</option>
+                                    @endforelse
+                                </select>
+                                @error('menu_id')
+                                    <span class="invalid-feedback mt-2" role="alert">
+                                        <i>{{ $message }}</i>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="url_path">URL Path</label>
+                                <input id="url_path" name="url_path" type="text" class="form-control @error('url_path') is-invalid @enderror" value="{{ old('url_path') }}" placeholder="/dashboard/parent-menu/sub-menu" />
+                                @error('url_path')
+                                    <span class="invalid-feedback mt-2" role="alert">
+                                        <i>{{ $message }}</i>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="icon">Icon</label>
+                                <input id="icon" name="icon" type="text" class="form-control @error('icon') is-invalid @enderror" value="{{ old('icon') }}" placeholder="Isi Pemanggilan Icon ..." />
+                                @error('icon')
+                                    <span class="invalid-feedback mt-2" role="alert">
+                                        <i>{{ $message }}</i>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                            <button type="submit" class="btn btn-primary">Simpan </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {{-- UPDATE SUBMENU --}}
+        <div class="modal fade" id="editSubMenuModal" tabindex="-1" role="dialog" aria-labelledby="editSubMenuModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editSubMenuModalLabel">Edit Sub Menu</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{{ route('manajemen-menu.sub-menu.update-sub-menu') }}" method="post">
+                        @csrf
+                        @method('patch')
+                        <div class="modal-body">
+                            <input type="hidden" name="id" id="id" value="">
+                            <div class="form-group">
+                                <label class="form-label" for="name">Sub Menu</label>
+                                <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Isi Sub Menu ..." />
+                                @error('name')
+                                    <span class="invalid-feedback mt-2" role="alert">
+                                        <i>{{ $message }}</i>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="menu-id" class="">Menu Parent</label>
+                                <select name="menuId" id="menu-id" class="mb-2 form-control @error('menuId') is-invalid @enderror">
+                                    <option></option>
+                                    @forelse ($menus as $menu)
+                                        <option value="{{$menu->id}}" {{ old('dashboard_menu_id') == $menu->id ? 'selected' : '' }}>
+                                            {{ $menu->name }}
+                                        </option>
+                                    @empty
+                                    <option value="">Menu belum tersedia</option>
+                                    @endforelse
+                                </select>
+                                @error('menuId')
+                                    <span class="invalid-feedback mt-2" role="alert">
+                                        <i>{{ $message }}</i>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="urlpath">URL Path</label>
+                                <input id="urlpath" name="url_path" type="text" class="form-control @error('url_path') is-invalid @enderror" placeholder="Isi URL Path ..." />
+                                @error('url_path')
+                                    <span class="invalid-feedback mt-2" role="alert">
+                                        <i>{{ $message }}</i>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="icon">Icon</label>
+                                <input id="icon" name="icon" type="text" class="form-control @error('icon') is-invalid @enderror" placeholder="Isi Pemanggilan Icon ..." />
+                                @error('icon')
+                                    <span class="invalid-feedback mt-2" role="alert">
+                                        <i>{{ $message }}</i>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                            <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endif
 </section>
 
 
@@ -253,17 +413,6 @@
                                 <i>{{ $message }}</i>
                             </span>
                             @enderror
-
-                            {{-- <select name="religion_id" id="religion_id"
-                                class="mb-2 form-control @error('religion_id') is-invalid @enderror"
-                                value="{{ old('religion_id') ?? $villager->villagerReligion->id }}">
-                            <option value="{{ old('religion_id') ?? $villager->villagerReligion->id }}">
-                                {{ $religions[old('religion_id') - 1]->religion ?? $villager->villagerReligion->religion }}
-                            </option>
-                            @foreach ($religions as $religion)
-                            <option value="{{ $religion->id }}">{{ $religion->religion }}</option>
-                            @endforeach
-                            </select> --}}
 
                         </div>
                     </div>

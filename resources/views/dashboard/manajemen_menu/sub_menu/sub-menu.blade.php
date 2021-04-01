@@ -45,41 +45,43 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($subMenus as $number => $subMenu) --}}
+                                @foreach ($subMenus as $number => $subMenu)
                                 <tr>
-                                    <td class="text-center"><input type="checkbox" name="chkbox[]" value="#">
+                                    <td class="text-center">
+                                        <input type="checkbox" name="chkbox[]" value="#">
                                     </td>
-                                    <td class="text-center">{{--{{ $number + $subMenus->firstItem() }}--}}</td>
+                                    <td class="text-center">{{ $number + $subMenus->firstItem() }}</td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center">
                                             <form method="POST"
-                                                action="{{--{ route('manajemen-menu.sub-menu.activation', $subMenu->id) }}--}}">
-                                                {{-- @csrf
-                                                @method('patch') --}}
+                                                action="{{ route('manajemen-menu.sub-menu.activation', $subMenu->id) }}">
+                                                @csrf
+                                                @method('patch')
                                                 <input type="hidden" name="is_active"
-                                                    value="{{--{{ $subMenu->is_active == 1 ? 0:1 }}--}}">
+                                                    value="{{ $subMenu->is_active == 1 ? 0:1 }}">
                                                 <button type="submit" class="btn btn-focus btn-sm mr-1"
                                                     data-toggle="tooltip"
-                                                    title="{{--{{ $subMenu->is_active == 1 ? 'Non Aktifkan Sub Menu':'Aktifkan Sub Menu' }}--}}"
-                                                    data-placement="bottom">
-                                                    <i
-                                                        class="fas fa-lock-open {{--{{ $subMenu->is_active == 1 ? 'fa-lock-open':'fa-lock' }}--}}"></i>
+                                                    title="{{ $subMenu->is_active == 1 ? 'Non Aktifkan Sub Menu':'Aktifkan Sub Menu' }}"
+                                                    data-placement="bottom"
+                                                >
+                                                    <i class="fas {{ $subMenu->is_active == 1 ? 'fa-lock-open':'fa-lock' }}"></i>
                                                 </button>
                                             </form>
-                                            <span class="editSubMenuModal" data-toggle="modal"
-                                                data-target="#editSubMenuModal" data-id="{{--{{ $subMenu->id }}--}}"
-                                                data-name="{{--{{ $subMenu->name }}--}}"
-                                                data-menuid="{{--{{ $subMenu->dashboard_menu_id }}--}}"
-                                                data-urlpath="{{--{{ $subMenu->url_path }}--}}"
-                                                data-icon="{{--{{ $subMenu->icon }}" --}}">
+                                            <span class="editSubMenuModal" data-toggle="modal" data-target="#editSubMenuModal"
+                                                data-id="{{ $subMenu->id }}"
+                                                data-name="{{ $subMenu->sub_menu }}"
+                                                data-menuid="{{ $subMenu->menu_id }}"
+                                                data-urlpath="{{ $subMenu->url_path }}"
+                                                data-icon="{{ $subMenu->icon }}"
+                                            >
                                                 <button type="button" class="btn btn-primary btn-sm mr-1 "
                                                     data-toggle="tooltip" title="Edit Sub Menu" data-placement="bottom">
                                                     <i class="fas fa-edit"></i>
                                                 </button>
                                             </span>
-                                            <form id="delete-submenu-form" action="#" method="post">
-                                                {{-- @csrf
-                                                @method('delete') --}}
+                                            <form id="delete-submenu-form" action="{{ route('manajemen-menu.sub-menu.destroy-sub-menu', $subMenu->id) }}" method="post">
+                                                @csrf
+                                                @method('delete')
                                                 <button type="submit" class="btn btn-danger btn-sm mr-1"
                                                     data-toggle="tooltip" title="Hapus Sub Menu"
                                                     data-placement="bottom">
@@ -88,12 +90,12 @@
                                             </form>
                                         </div>
                                     </td>
-                                    <td class="text-center">{{--{{ $subMenu->name }}--}}</td>
-                                    <td class="text-center">{{--{{ $subMenu->dashboardMenu->name }}--}}</td>
-                                    <td class="text-center">{{--{{ $subMenu->url_path }}--}}</td>
-                                    <td class="text-center">{{--{{ $subMenu->icon }}--}}</td>
+                                    <td class="text-center">{{ $subMenu->sub_menu }}</td>
+                                    <td class="text-center">{{ $subMenu->dashboardMenu->name }}</td>
+                                    <td class="text-center">{{ $subMenu->url_path }}</td>
+                                    <td class="text-center">{{ $subMenu->icon }}</td>
                                 </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -101,7 +103,7 @@
                         <div class="card-body ">
                             <nav class=" " aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center">
-                                    {{--{{ $subMenus->links() }}--}}
+                                    {{ $subMenus->links() }}
                                 </ul>
                             </nav>
                         </div>

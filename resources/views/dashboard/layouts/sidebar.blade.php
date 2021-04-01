@@ -291,7 +291,10 @@
                 @php
                 $subMenus = DB::table('dashboard_sub_menus')
                 ->join('dashboard_menus', 'dashboard_sub_menus.menu_id', '=', 'dashboard_menus.id')
-                ->where('dashboard_sub_menus.menu_id', $menu->id)
+                ->where([
+                    ['dashboard_sub_menus.menu_id', '=' , $menu->id],
+                    ['dashboard_sub_menus.is_active', '=', 1]
+                ])
                 ->get();
                 @endphp
 

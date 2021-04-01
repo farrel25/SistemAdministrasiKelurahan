@@ -7,6 +7,8 @@ use Spatie\Permission\Models\Permission;
 
 class DashboardSubMenu extends Model
 {
+    protected $fillable = ['menu_id', 'sub_menu', 'url_path', 'icon', 'is_active'];
+
     public function permission()
     {
         return $this->belongsTo(Permission::class, 'menu_id');

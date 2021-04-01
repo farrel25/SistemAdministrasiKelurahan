@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DashboardMenu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Spatie\Permission\Models\Permission;
 
@@ -40,12 +41,23 @@ class DashboardMenuController extends Controller
      */
     public function store(Request $request)
     {
-        $attr = $request->validate([
-            'name' => 'required|string'
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255'
         ]);
 
-        DashboardMenu::create($attr);
-        Permission::create($attr);
+        if ($validator->fails()) {
+            Alert::error('Gagal', 'Terdapat kesalahan input, silahkan coba lagi');
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        DashboardMenu::create([
+            'name' => $request->name
+        ]);
+        Permission::create([
+            'name' => $request->name
+        ]);
 
         Alert::success('Berhasil', 'Menu baru berhasil ditambahkan');
 
@@ -83,17 +95,28 @@ class DashboardMenuController extends Controller
      */
     public function update(Request $request)
     {
-        $attr = $request->validate([
-            'name' => 'required|string'
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255'
         ]);
+
+        if ($validator->fails()) {
+            Alert::error('Gagal', 'Terdapat kesalahan input, silahkan coba lagi');
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
         $menu = DashboardMenu::find($request->menuId);
 
         if ($menu != null) {
             $permission = Permission::where('name', $menu->name)->first();
             if ($permission != null) {
-                $menu->update($attr);
-                $permission->update($attr);
+                $menu->update([
+                    'name' => $request->name
+                ]);
+                $permission->update([
+                    'name' => $request->name
+                ]);
                 Alert::success('Berhasil', 'Menu berhasil diperbarui');
             } else {
                 Alert::error('Update Gagal', 'hak akses menu tidak dapat ditemukan');

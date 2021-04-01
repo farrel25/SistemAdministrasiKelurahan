@@ -249,6 +249,7 @@ Route::middleware('auth')->group(function () {
 
         // Menu
         Route::prefix('/menu')->group(function () {
+            // Index
             Route::get('', 'DashboardMenuController@index')->name('manajemen-menu.menu');
             // Store
             Route::post('/tambah', 'DashboardMenuController@store')->name('manajemen-menu.menu.store-menu');
@@ -260,11 +261,16 @@ Route::middleware('auth')->group(function () {
 
         // Submenu
         Route::prefix('/sub-menu')->group(function () {
+            // Index
             Route::get('', 'DashboardSubMenuController@index')->name('manajemen-menu.sub-menu');
-            // Store Role
-            Route::post('/tambah-role', 'DashboardSubMenuController@store')->name('manajemen-menu.sub-menu.store-sub-menu');
-            // Update Role
-            Route::patch('/ubah-role', 'DashboardSubMenuController@update')->name('manajemen-menu.sub-menu.update-sub-menu');
+            // Store
+            Route::post('/tambah', 'DashboardSubMenuController@store')->name('manajemen-menu.sub-menu.store-sub-menu');
+            // Update
+            Route::patch('/ubah', 'DashboardSubMenuController@update')->name('manajemen-menu.sub-menu.update-sub-menu');
+            // Activation
+            Route::patch('/{dashboard_sub_menu}/aktivasi', 'DashboardSubMenuController@activation')->name('manajemen-menu.sub-menu.activation');
+            // Destroy
+            Route::delete('/{dashboard_sub_menu}/hapus', 'DashboardSubMenuController@destroy')->name('manajemen-menu.sub-menu.destroy-sub-menu');
         });
     });
 
