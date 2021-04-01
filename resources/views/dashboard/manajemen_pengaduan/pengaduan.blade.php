@@ -47,7 +47,7 @@
 
                                     <form id="delete-form" action="#" method="post">
                                         <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
-                                            title="Hapus Permohonan Surat" data-placement="bottom">
+                                            title="Hapus Pengaduan" data-placement="bottom">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>

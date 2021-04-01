@@ -30,14 +30,14 @@
                 <li class="drop-down{{ activeProfilDesa(request()->path()) }}">
                     <a href="#">Profil Desa</a>
                     <ul>
-                        <li><a href="#">Sejarah dan Visi Misi</a></li>
-                        <li><a href="#">Struktur Pemerintahan</a></li>
+                        <li><a href="{{ route('profil-desa.sejarah-visi-misi') }}">Sejarah dan Visi Misi</a></li>
+                        <li><a href="{{ route('profil-desa.struktur-pemerintahan') }}">Struktur Pemerintahan</a></li>
                         <li>
-                            <a href="{{ route('profil-desa.administratif.jenis-kelamin') }}">Administratif</a>
+                            <a href="{{ route('profil-desa.administratif.index') }}">Administratif</a>
                         </li>
                     </ul>
                 </li>
-                <li class="{{ request()->is('/kegiatan-masyarakat/umkm') ? 'active' : '' }}">
+                <li class="{{ request()->is('kegiatan-masyarakat/umkm') ? 'active' : '' }}">
                     <a href="{{ route('visitors.kegiatan_masyarakat.umkm.index') }}">UMKM</a>
                 </li>
                 {{-- <li class="drop-down{{ request()->is('/kegiatan-masyarakat/umkm') ? 'active' : '' }}">
@@ -70,6 +70,7 @@
                     <a href="#">Hai, {{ $nickname }}</a>
                     <ul>
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <hr>
                         <li>
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>

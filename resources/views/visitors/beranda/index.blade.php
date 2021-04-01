@@ -10,7 +10,7 @@
                 <h1 data-aos="fade-up">Selamat Datang Di Desa</h1>
                 <p class="mt-3" data-aos="fade-up" data-aos-delay="400">“Terwujudnya Desa yang Aman, Damai dan
                     Sejahtera“</p>
-                <a class="btn btn-get-started scrollto " href="#services" role="button">Get Started</a>
+                <a class="btn btn-get-started scroll-to-id " href="#services" role="button">Get Started</a>
             </div>
             <div class=" sliderimage">
                 <div class=" br-full carousel-size active ">
@@ -45,7 +45,7 @@
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Pengajuan Surat</h4>
                 <p class=" small"> Memudahkan dalam pembuatan surat menyurat untuk warga desa secara online</p>
             </a>
-            <a class=" col-lg-3 text-center p-3 scrollto text-dark" href="#footer" data-aos="fade-up"
+            <a class=" col-lg-3 text-center p-3  text-dark scroll-to-bottom" href="#" data-aos="fade-up"
                 data-aos-delay="500">
                 <span style="color: #EEF5FF;">
                     <i class="fas fa-exclamation-triangle fa-3x p-4"
@@ -65,6 +65,7 @@
                 <p class=" small"> Warga dapat membuat beritanya sendiri mengenai desa maupun kegiatan yang dilaksanakan
                     oleh desa</p>
             </a>
+
         </div>
     </div>
 </section>
@@ -78,7 +79,7 @@
                 <div class="col-lg-3 m-auto">
                     <div class=" text-center mt-4 ">
                         <h1 style="font-weight: 600;">
-                            Kegiatan Pemuda
+                            Kegiatan Desa
                         </h1>
                     </div>
                 </div>

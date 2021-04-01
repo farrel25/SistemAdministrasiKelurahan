@@ -1,9 +1,11 @@
 <div class="app-header header-shadow">
     <div class="app-header__logo">
-        <div class="logo-src">
-            <img src="{{ asset('/images') }}/logo.png" alt="">
-            <h5 class="ml-2">Admin</h5>
-        </div>
+        <a href="{{route('dashboard')}}" class=" text-decoration-none  text-dark">
+            <div class="logo-src">
+                <img src="{{ asset('/images') }}/logo.png" alt="">
+                <h5 class="ml-2">Admin</h5>
+            </div>
+        </a>
         <div class="header__pane ml-auto">
             <div>
                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -79,7 +81,7 @@
                                     <button type="button" tabindex="0" class="dropdown-item">Notifikiasi</button>
                                     <a href="{{ route('visitors.beranda.index') }}" type="button" tabindex="0"
                                         class="dropdown-item">Kembali
-                                        Keberanda</a>
+                                        Ke Beranda</a>
                                     <div tabindex="-1" class="dropdown-divider"></div>
                                     <a type="button" tabindex="0" class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

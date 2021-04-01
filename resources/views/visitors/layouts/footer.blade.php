@@ -3,10 +3,10 @@
         <div class="row d-flex ">
             <div class="col-lg-1 mt-1 mb-2">
                 <div class="text-center">
-                    <img style=" height: 90px;" src="{{ asset('/images') }}/logo.png">
+                    <img style=" height: 94px;" src="{{ asset('/images') }}/logo.png">
                 </div>
             </div>
-            <div class="col-lg-7 text-lg-left text-center h-100 d-block footer-info">
+            <div class="col-lg-7 text-lg-left pl-lg-4  text-center h-100 d-block footer-info">
                 <h3>Desa</h3>
                 <p class="text-justify mr-lg-5">Website administrasi desa merupakan aplikasi berbasis website yang
                     digunakan untuk membantu pengurus desa dalam
@@ -18,7 +18,7 @@
                 <form>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Aduan</label>
-                        <textarea class="form-control" id="#" placeholder="#"></textarea>
+                        <textarea class="form-control" id="#" placeholder="Isi Aduan ..."></textarea>
                     </div>
                     <div class="form-group row ">
                         <div class=" col-lg-9">

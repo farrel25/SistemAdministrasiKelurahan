@@ -1,4 +1,5 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" defer>
+</script>
 <script>
     // Initialize and add the map
     function initMap() {
@@ -30,7 +31,7 @@
 <div class="col-lg-12 mb-4">
     <div class="fitur">
         <div class="sidebar-heading text-center">
-            <h2>Fitur</h2>
+            <h2>Profil Desa</h2>
         </div>
         <ul>
             <li><a href="#">

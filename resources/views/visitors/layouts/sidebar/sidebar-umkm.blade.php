@@ -12,17 +12,17 @@
         </div>
         <ul>
             <li><a href="#">
-                    <img src="{{ asset('/images') }}/img-article-01.png" alt="Avatar" class="image">
-                    <h5>Product asdadasdasdasdsada</h5>
+                    <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
+                    <h5>Product 1</h5>
 
                 </a>
             </li>
             <li><a href="#">
-                    <img src="{{ asset('/images') }}/img-article-01.png" alt="Avatar" class="image">
+                    <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
                     <h5>Product 2</h5>
                 </a></li>
             <li><a href="#">
-                    <img src="{{ asset('/images') }}/img-article-01.png" alt="Avatar" class="image">
+                    <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
                     <h5>Product 3</h5>
                 </a></li>
         </ul>
@@ -36,7 +36,7 @@
         <ul>
             <li>
                 <a href="#">
-                    <img src="{{ asset('/images') }}/img-article-01.png" alt="Avatar" class="image">
+                    <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
                     <div class="icon-search">
                         <div class="icon"><i class="icofont-ui-search"></i></div>
                     </div>
@@ -45,7 +45,7 @@
             </li>
             <li>
                 <a href="#">
-                    <img src="{{ asset('/images') }}/img-article-01.png" alt="">
+                    <img src="{{ asset('/images') }}/default.png" alt="">
                     <div class="icon-search">
                         <div class="icon"><i class="icofont-ui-search"></i></div>
                     </div>
