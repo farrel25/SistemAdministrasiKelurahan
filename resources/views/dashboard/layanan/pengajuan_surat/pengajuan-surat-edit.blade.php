@@ -4,7 +4,7 @@
 
 <?php
     $data=[
-        'icon' => "pe-7s-mail",
+        'icon' => "pe-7s-note",
         'judul' => "Pengajuan Surat",
         'link' => route('manajemen-artikel.komentar') ,
         'page1' => "Pengajuan Surat"

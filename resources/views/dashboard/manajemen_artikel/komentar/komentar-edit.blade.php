@@ -4,7 +4,7 @@
 
 <?php
     $data=[
-        'icon' => "fas fa-edit",
+        'icon' => "pe-7s-note",
         'judul' => "Edit Komentar",
         'link' => route('manajemen-artikel.komentar') ,
         'page1' => "Komentar",

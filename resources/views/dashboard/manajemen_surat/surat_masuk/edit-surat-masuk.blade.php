@@ -2,6 +2,7 @@
 
 @section('content')
 
+
 <div class="app-page-title">
     <div class="page-title-wrapper">
         <div class="page-title-heading">
@@ -15,13 +16,16 @@
             </div>
         </div>
         <div class="page-title-actions d-flex">
-            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip" title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark pt-2">
+            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip"
+                title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark pt-2">
                 <i class="fas fa-home"></i>
             </a>
             <div class="input-group ml-3">
-                <input type="text" class="form-control" id="#" placeholder="Search" aria-describedby="inputGroupPrepend" required>
+                <input type="text" class="form-control" id="#" placeholder="Search" aria-describedby="inputGroupPrepend"
+                    required>
                 <a href="#" class="input-group-prepend text-decoration-none ">
-                    <span class="input-group-text rounded-right" id="inputGroupPrepend"><i class="fas fa-search"></i></span>
+                    <span class="input-group-text rounded-right" id="inputGroupPrepend"><i
+                            class="fas fa-search"></i></span>
                 </a>
             </div>
         </div>
@@ -52,7 +56,8 @@
                     <div class="position-relative form-group">
                         <label for="#" class="">Berkas Scan Masuk</label>
                         <input name="file" id="exampleFile" type="file" class="form-control-file">
-                        <p class=" mt-2 font-italic font-weight-light" style="color: red;">(Kosongkan jika tidak ingin mengubah berkas)</p>
+                        <p class=" mt-2 font-italic font-weight-light" style="color: red;">(Kosongkan jika tidak ingin
+                            mengubah berkas)</p>
                     </div>
                     <div class="position-relative form-group">
                         <label for="#" class="">Kode/Klasifikasi Surat</label>

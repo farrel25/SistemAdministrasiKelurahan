@@ -4,7 +4,7 @@
 
 <?php
     $data=[
-        'icon' => "fas fa-edit",
+        'icon' => "pe-7s-note",
         'judul' => "Edit Kategori",
         'link' => route('manajemen-artikel.kategori') ,
         'page1' => "Kategori",

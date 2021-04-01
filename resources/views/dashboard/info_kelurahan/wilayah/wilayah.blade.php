@@ -61,9 +61,8 @@
                                     <a href="#" class="btn btn-alternate btn-sm mr-1 text-white" data-toggle="tooltip"
                                         title="Rincian Sub Wilayah" data-placement="bottom"><i class="fas fa-list"></i>
                                     </a>
-                                    <a href="{{route('info-desa.wilayah-edit')}}"
-                                        class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip" title="Edit wilayah "
-                                        data-placement="bottom">
+                                    <a href="{{route('info-desa.wilayah-edit')}}" class="btn btn-primary btn-sm mr-1 "
+                                        data-toggle="tooltip" title="Edit wilayah " data-placement="bottom">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <form id="delete-form" action="#" method="post">

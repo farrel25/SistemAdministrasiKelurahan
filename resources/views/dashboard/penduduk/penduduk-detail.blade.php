@@ -2,29 +2,17 @@
 
 @section('content')
 
-<div class="app-page-title">
-    <div class="page-title-wrapper">
-        <div class="page-title-heading">
-            <div class="page-title-icon">
-                <i class="fas fa-info-circle icon-gradient bg-mean-fruit">
-                </i>
-            </div>
-            <div>Detail Penduduk
-                <div class="page-title-subheading">
-                    <a href="{{ route('penduduk') }}" style="text-decoration: none">Penduduk</a>
-                    / Detail / {{ $villager->full_name }}
-                </div>
-            </div>
-        </div>
-        <div class="page-title-actions">
-            <a href="{{ route('visitors.beranda.index') }}" type="button" data-toggle="tooltip"
-                title="Kembali Ke Beranda" data-placement="left" class="btn-shadow btn btn-dark">
-                <i class="fas fa-home"></i>
-            </a>
-        </div>
-    </div>
-</div>
-
+<?php
+    $data=[
+        'icon' => "fas fa-info-circle",
+        'judul' => "Edit Penduduk",
+        'link' => route('penduduk') ,
+        'page1' => "Penduduk",
+        'page2' => "/ Detail",
+        'page3' => "/  $villager->full_name "
+    ]
+?>
+@include('dashboard.layouts.page-title',$data)
 <div class="tab-content">
     <div class="tab-pane tabs-animation fade show active" role="tabpanel">
         <div class="main-card mb-3 card">

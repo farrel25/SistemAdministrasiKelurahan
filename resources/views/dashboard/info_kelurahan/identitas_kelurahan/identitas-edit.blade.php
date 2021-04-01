@@ -4,7 +4,7 @@
 
 <?php
     $data=[
-        'icon' => "fas fa-edit",
+        'icon' => "pe-7s-note",
         'judul' => "Edit Identitas Desa",
         'link' => route('info-desa.identitas') ,
         'page1' => "Identitas Desa",

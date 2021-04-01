@@ -4,7 +4,7 @@
 
 <?php
     $data=[
-        'icon' => "fas fa-edit",
+        'icon' => "pe-7s-note",
         'judul' => "Edit Dusun ",
         'link' => route('info-desa.wilayah') ,
         'page1' => "Wilayah ",

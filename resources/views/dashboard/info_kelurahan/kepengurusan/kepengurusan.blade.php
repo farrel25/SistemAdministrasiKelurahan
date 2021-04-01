@@ -80,8 +80,7 @@
                                     </a>
 
                                     <form id="delete-form"
-                                        action="{{ route('info-desa.kepengurusan-destroy', $st->nik) }}"
-                                        method="post">
+                                        action="{{ route('info-desa.kepengurusan-destroy', $st->nik) }}" method="post">
                                         @csrf
                                         @method('delete')
 

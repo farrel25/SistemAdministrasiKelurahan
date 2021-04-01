@@ -4,7 +4,7 @@
 
 <?php
     $data=[
-        'icon' => "fas fa-edit",
+        'icon' => "pe-7s-note",
         'judul' => "Edit Kepengurusan Kelurahan",
         'link' => route('info-desa.kepengurusan') ,
         'page1' => "Kepengurusan Kelurahan",
