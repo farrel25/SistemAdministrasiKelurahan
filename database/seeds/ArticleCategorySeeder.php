@@ -1,6 +1,7 @@
 <?php
 
 use App\ArticleCategory;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 
 class ArticleCategorySeeder extends Seeder
@@ -13,17 +14,17 @@ class ArticleCategorySeeder extends Seeder
     public function run()
     {
         $categories = collect([
-            'Category1',
-            'Category2',
-            'Category3',
-            'Category4',
-            'Category5',
+            'Sejarah dan Visi Misi',
+            'Pemerintahan',
+            'Kegiatan Desa',
+            'Teknologi',
+            'Bisnis',
         ]);
 
         $categories->each(function ($category) {
             ArticleCategory::create([
                 'category' => $category,
-                'slug' => \Str::slug($category),
+                'slug' => Str::slug($category),
                 'enabled' => 1
             ]);
         });

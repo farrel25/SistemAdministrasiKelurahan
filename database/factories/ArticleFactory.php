@@ -22,7 +22,8 @@ $factory->define(Article::class, function (Faker $faker) {
         'enabled' => 1,
         'commentable' => 1,
         'document' => null,
-        'link_document' => null
+        'link_document' => null,
+        'read_count' => 0,
     ];
 });
 // factory ('App\Article', 10)->create();

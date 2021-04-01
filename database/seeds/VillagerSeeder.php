@@ -15,7 +15,7 @@ class VillagerSeeder extends Seeder
         Villager::create([
             'nik' => 3374101234567891,
             'user_id' => 1,
-            'full_name' => 'WTF Team',
+            'full_name' => 'Codice Pugnator',
             'sex_id' => 1,
             'birth_place' => 'Semarang',
             'birth_date' => '2000-04-01',

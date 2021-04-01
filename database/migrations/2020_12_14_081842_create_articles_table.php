@@ -25,6 +25,7 @@ class CreateArticlesTable extends Migration
             $table->smallInteger('commentable');
             $table->String('document', 191)->nullable();
             $table->String('link_document', 191)->nullable();
+            $table->integer('read_count')->nullable();
             $table->timestamps();
         });
     }

@@ -21,6 +21,7 @@ class PermissionTableSeeder extends Seeder
             'Kependudukan',
             'Manajemen Surat',
             'Manajemen Artikel',
+            'Manajemen Pengaduan',
             'Manajemen Menu',
             'Manajemen Pengguna',
             'Layanan',

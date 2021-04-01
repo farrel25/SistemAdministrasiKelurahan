@@ -15,7 +15,7 @@ class StaffSeeder extends Seeder
         Staff::create([
             'user_id' => 1,
             'villager_id' => 1,
-            'full_name' => 'WTF Team',
+            'full_name' => 'Codice Pugnator',
             'nik' => '3374101234567891',
             'nip' => '123456789123456789',
             'nipd' => '123456789123456789123',
