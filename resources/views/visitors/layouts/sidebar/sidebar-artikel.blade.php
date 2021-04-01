@@ -211,7 +211,7 @@
         @endif
     </div>
 </div>
-<div class="col-lg-12 mb-4">
+<div class="col-lg-12 ">
     <div class="covid-posts">
         <div class="sidebar-heading text-center">
             <h2>Covid-19</h2>

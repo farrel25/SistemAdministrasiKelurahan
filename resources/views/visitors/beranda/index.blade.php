@@ -72,7 +72,7 @@
 
 {{-- Start Card 1 Section --}}
 <section id="card1">
-    <div class="container mt-4 mb-4 w-100 br-full " data-aos="fade-up" data-aos-delay="400">
+    <div class="container mt-4 mb-lg-4 w-100 br-full " data-aos="fade-up" data-aos-delay="400">
         <div style=" background-image:url('images/bgrd-1.png'); border-radius:10px;">
             <div class="row pl-5 pr-5 ">
                 <div class="col-lg-3 m-auto">
@@ -129,9 +129,105 @@
 </section>
 {{-- End Card 1 Section --}}
 
+
+
+{{-- Start Article Section --}}
+<section id="article" class="blog-posts grid-system">
+    <div class="container mt-5 mb-lg-4">
+        <div class="row mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class=" col text-center ">
+                <h1 style="font-weight: 600;">- Artikel -</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="all-blog-posts">
+                    <div class="row mb-5">
+                        @forelse ($articles as $article)
+                        <div class="col-lg-12 " data-aos="fade-up" data-aos-delay="800">
+                            <div class="blog-post">
+                                <div class="blog-thumb">
+                                    {{-- <img src="{{ asset('/images') }}/img-article-01.png" alt=""> --}}
+                                    {{-- <img src="{{ $article->thumbnail }}" alt=""> --}}
+                                    <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="">
+                                </div>
+                                <div class="down-content">
+                                    {{-- <a href="post-details.html"> --}}
+                                    <a href="{{ route('visitors.artikel.show', $article->slug) }}">
+                                        <h4>{{$article->title}}</h4>
+                                    </a>
+                                    @php
+                                    // $userId = $article->user_id;
+                                    // dd($article->user->roles->first()->name);
+
+                                    // $roleId = \DB::table('model_has_roles')
+                                    // ->where('model_id', $userId)->value('role_id');
+                                    // var_dump($roleId);
+                                    // $role = \DB::table('roles')
+                                    // ->select('model_has_roles.model_id','model_has_roles.role_id', 'roles.name')
+                                    // ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
+                                    // ->where('model_has_roles.role_id', $roleId)->get()->toArray();
+                                    // var_dump($role);
+                                    @endphp
+
+                                    <ul class="post-info ">
+                                        {{-- <li><a href="#">{{$role[0]->name}}</a></li> --}}
+                                        <li><a href="#">{{$article->user->roles->first()->name}}</a></li>
+                                        <li>
+                                            <a href="#">
+                                                {{-- {{$article->created_at->diffForHumans()}} --}}
+                                                {{$article->created_at->format('d F, Y')}}
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <hr>
+                                    <p>{!!Str::limit($article->body,200)!!}
+                                        <br>
+                                        <a href="{{ route('visitors.artikel.show', $article->slug) }}">
+                                            lebih lanjut...
+                                        </a>
+                                    </p>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+
+                        @empty
+                        <div class="row justify-content-center m-sm-2 pl-3 pr-3" data-aos="fade-up"
+                            data-aos-delay="800">
+                            <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                    <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
+                            </div> --}}
+                            <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat
+                                menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service.
+                                Terima kasih.</div>
+                        </div>
+                    </div>
+                    @endforelse
+                    <div class="col-lg-12 mb-5 ">
+                        <ul class="pagination justify-content-center">
+                            {{$articles->links()}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="1000">
+            <div class="sidebar">
+                <div class="row">
+                    @include('visitors.layouts.sidebar.sidebar-artikel')
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+{{-- End Article Section --}}
+
 {{-- Start Card 2 Section --}}
 <section id="card2">
-    <div class=" container mt-5 w-100 br-full" data-aos="fade-up" data-aos-delay="400">
+    <div class=" container mb-5 w-100 br-full" data-aos="fade-up" data-aos-delay="400">
         <div style="background-image:url('images/bgrd-2.png'); border-radius:10px;">
             <div class="row align-self-center ">
                 <div class="col text-center align-self-center mt-4">
@@ -323,99 +419,6 @@
 </section>
 {{-- End Card 2 Section --}}
 
-{{-- Start Article Section --}}
-<section id="article" class="blog-posts grid-system">
-    <div class="container ">
-        <div class="row mb-5 mt-5" data-aos="fade-up" data-aos-delay="400">
-            <div class=" col text-center ">
-                <h1 style="font-weight: 600;">- Artikel -</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="all-blog-posts">
-                    <div class="row mb-5">
-                        @forelse ($articles as $article)
-                        <div class="col-lg-12 " data-aos="fade-up" data-aos-delay="800">
-                            <div class="blog-post">
-                                <div class="blog-thumb">
-                                    {{-- <img src="{{ asset('/images') }}/img-article-01.png" alt=""> --}}
-                                    {{-- <img src="{{ $article->thumbnail }}" alt=""> --}}
-                                    <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="">
-                                </div>
-                                <div class="down-content">
-                                    {{-- <a href="post-details.html"> --}}
-                                    <a href="{{ route('visitors.artikel.show', $article->slug) }}">
-                                        <h4>{{$article->title}}</h4>
-                                    </a>
-                                    @php
-                                    // $userId = $article->user_id;
-                                    // dd($article->user->roles->first()->name);
-
-                                    // $roleId = \DB::table('model_has_roles')
-                                    // ->where('model_id', $userId)->value('role_id');
-                                    // var_dump($roleId);
-                                    // $role = \DB::table('roles')
-                                    // ->select('model_has_roles.model_id','model_has_roles.role_id', 'roles.name')
-                                    // ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
-                                    // ->where('model_has_roles.role_id', $roleId)->get()->toArray();
-                                    // var_dump($role);
-                                    @endphp
-
-                                    <ul class="post-info ">
-                                        {{-- <li><a href="#">{{$role[0]->name}}</a></li> --}}
-                                        <li><a href="#">{{$article->user->roles->first()->name}}</a></li>
-                                        <li>
-                                            <a href="#">
-                                                {{-- {{$article->created_at->diffForHumans()}} --}}
-                                                {{$article->created_at->format('d F, Y')}}
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <hr>
-                                    <p>{!!Str::limit($article->body,200)!!}
-                                        <br>
-                                        <a href="{{ route('visitors.artikel.show', $article->slug) }}">
-                                            lebih lanjut...
-                                        </a>
-                                    </p>
-                                    <hr>
-                                </div>
-                            </div>
-                        </div>
-
-                        @empty
-                        <div class="row justify-content-center m-sm-2" data-aos="fade-up" data-aos-delay="800">
-                            <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800">
-                                {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
-                                    <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
-                            </div> --}}
-                            <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat
-                                menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service.
-                                Terima kasih.</div>
-                        </div>
-                    </div>
-                    @endforelse
-                    <div class="col-lg-12 mb-5 ">
-                        <ul class="pagination justify-content-center">
-                            {{$articles->links()}}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="1000">
-            <div class="sidebar">
-                <div class="row">
-                    @include('visitors.layouts.sidebar.sidebar-artikel')
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
-{{-- End Article Section --}}
-
 <script type="text/javascript">
     $('.sliderh').slick({
             dots: true,
@@ -500,7 +503,7 @@
             nextArrow: '<div class="slick-next-image"></div>',
             dots: true,
             autoplay: true,
-            autoplaySpeed: 2000,
+            autoplaySpeed: 5000,
             fade: true,
             dotsClass: "slick-dots-image",
             speed: 900,

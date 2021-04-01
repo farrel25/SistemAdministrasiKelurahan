@@ -9,7 +9,7 @@ class AdministratifController extends Controller
 
     public function index()
     {
-        return view('visitors.profil_desa.administratif.index');
+        return view('visitors.profil_desa.administratif');
     }
     public function pendidikan()
     {
