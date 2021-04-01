@@ -6,7 +6,7 @@
     $data=[
         'icon' => "pe-7s-map",
         'judul' => "Wilayah ",
-        'link' => route('info-kelurahan.wilayah') ,
+        'link' => route('info-desa.wilayah') ,
         'page1' => "Wilayah "
     ]
 ?>
@@ -32,7 +32,7 @@
                         href="#"><i class="fas fa-print "></i> Cetak </a>
                     <a type="button"
                         class="btn btn-lg btn-focus btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
-                        href="{{route('info-kelurahan.wilayah-create')}}">+
+                        href="{{route('info-desa.wilayah-create')}}">+
                         Tambah Data
                     </a>
                 </div>
@@ -61,7 +61,7 @@
                                     <a href="#" class="btn btn-alternate btn-sm mr-1 text-white" data-toggle="tooltip"
                                         title="Rincian Sub Wilayah" data-placement="bottom"><i class="fas fa-list"></i>
                                     </a>
-                                    <a href="{{route('info-kelurahan.wilayah-edit')}}"
+                                    <a href="{{route('info-desa.wilayah-edit')}}"
                                         class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip" title="Edit wilayah "
                                         data-placement="bottom">
                                         <i class="fas fa-edit"></i>

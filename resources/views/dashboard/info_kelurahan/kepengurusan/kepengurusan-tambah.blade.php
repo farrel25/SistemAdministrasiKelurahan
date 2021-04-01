@@ -6,7 +6,7 @@
     $data=[
         'icon' => "pe-7s-plus",
         'judul' => "Tambah Kepengurusan Kelurahan",
-        'link' => route('info-kelurahan.kepengurusan') ,
+        'link' => route('info-desa.kepengurusan') ,
         'page1' => "Kepengurursan Kelurahan",
         'page2' => "/ Tambah"
     ]
@@ -284,7 +284,7 @@
 
 
                 {{-- FORM baru, farrel version --}}
-                <form action="{{ route('info-kelurahan.kepengurusan-store') }}" method="post"
+                <form action="{{ route('info-desa.kepengurusan-store') }}" method="post"
                     enctype="multipart/form-data">
                     @csrf
 
@@ -541,7 +541,7 @@
                             </div>
 
                             <button type="submit" class="mt-2 btn btn-primary">Simpan Data</button>
-                            <a href="{{ route('info-kelurahan.kepengurusan') }}"
+                            <a href="{{ route('info-desa.kepengurusan') }}"
                                 class="mt-2 btn btn-outline-danger">Batal</a>
                         </div>
                     </div>

@@ -1,13 +1,13 @@
-@extends('dashboard.layouts.master', ['title' => "Identitas Kelurahan"])
+@extends('dashboard.layouts.master', ['title' => "Identitas Desa"])
 
 @section('content')
 
 <?php
     $data=[
         'icon' => "pe-7s-culture",
-        'judul' => "Identitas Kelurahan",
-        'link' => route('info-kelurahan.identitas') ,
-        'page1' => "Identitas Kelurahan"
+        'judul' => "Identitas Desa",
+        'link' => route('info-desa.identitas') ,
+        'page1' => "Identitas Desa"
     ]
 ?>
 @include('dashboard.layouts.page-title',$data)
@@ -76,7 +76,7 @@
             <div class="card-header">Identitas Kelurahan
                 <div class="btn-actions-pane-right "><a type="button"
                         class="btn btn-lg btn-primary btn-sm text-white font-weight-normal  mb-2 mt-2 btn-responsive"
-                        href="{{route('info-kelurahan.identitas-edit')}}">
+                        href="{{route('info-desa.identitas-edit')}}">
                         <i class="fas fa-edit"></i> Edit Identitas Kelurahan</a>
                     <a type="button"
                         class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal btn-responsive" href="#">

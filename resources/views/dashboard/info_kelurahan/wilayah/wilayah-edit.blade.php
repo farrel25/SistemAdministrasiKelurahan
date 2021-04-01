@@ -6,7 +6,7 @@
     $data=[
         'icon' => "fas fa-edit",
         'judul' => "Edit Dusun ",
-        'link' => route('info-kelurahan.wilayah') ,
+        'link' => route('info-desa.wilayah') ,
         'page1' => "Wilayah ",
         'page2' => "/ Edit",
         'page3' =>"/ Nama Dusun"

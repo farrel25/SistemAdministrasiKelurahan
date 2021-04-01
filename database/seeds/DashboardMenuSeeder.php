@@ -14,7 +14,7 @@ class DashboardMenuSeeder extends Seeder
     {
         $menus = collect([
             'Dashboard',
-            'Info Kelurahan',
+            'Info Desa',
             'Kependudukan',
             'Manajemen Surat',
             'Manajemen Artikel',

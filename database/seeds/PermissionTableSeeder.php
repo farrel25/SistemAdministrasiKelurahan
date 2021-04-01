@@ -17,7 +17,7 @@ class PermissionTableSeeder extends Seeder
 
         $permissions = collect([
             'Dashboard',
-            'Info Kelurahan',
+            'Info Desa',
             'Kependudukan',
             'Manajemen Surat',
             'Manajemen Artikel',

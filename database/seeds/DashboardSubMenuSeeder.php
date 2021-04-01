@@ -18,8 +18,8 @@ class DashboardSubMenuSeeder extends Seeder
             'Dashboard',
             'Kembali Ke Beranda',
             // 2
-            'Identitas Kelurahan',
-            'Kepengurusan Kelurahan',
+            'Identitas Desa',
+            'Kepengurusan Desa',
             'Wilayah',
             'Data Administratif',
             // 3
@@ -61,10 +61,10 @@ class DashboardSubMenuSeeder extends Seeder
             '/dashboard',
             '/',
             //  2
-            '/dashboard/info-kelurahan/identitas',
-            '/dashboard/info-kelurahan/kepengurusan',
-            '/dashboard/info-kelurahan/wilayah',
-            '/dashboard/info-kelurahan/data-administratif',
+            '/dashboard/info-desa/identitas',
+            '/dashboard/info-desa/kepengurusan',
+            '/dashboard/info-desa/wilayah',
+            '/dashboard/info-desa/data-administratif',
             // 3
             '/dashboard/kependudukan/penduduk',
             // 4

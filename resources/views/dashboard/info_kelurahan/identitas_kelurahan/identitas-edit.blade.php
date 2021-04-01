@@ -1,13 +1,13 @@
-@extends('dashboard.layouts.master', ['title' => "Edit Identitas Kelurahan"])
+@extends('dashboard.layouts.master', ['title' => "Edit Identitas Desa"])
 
 @section('content')
 
 <?php
     $data=[
         'icon' => "fas fa-edit",
-        'judul' => "Edit Identitas Kelurahan",
-        'link' => route('info-kelurahan.identitas') ,
-        'page1' => "Identitas Kelurahan",
+        'judul' => "Edit Identitas Desa",
+        'link' => route('info-desa.identitas') ,
+        'page1' => "Identitas Desa",
         'page2' => "/ Edit"
     ]
 ?>

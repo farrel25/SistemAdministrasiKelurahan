@@ -6,7 +6,7 @@
     $data=[
         'icon' => "pe-7s-plus",
         'judul' => "Tambah Dusun ",
-        'link' => route('info-kelurahan.wilayah') ,
+        'link' => route('info-desa.wilayah') ,
         'page1' => "Wilayah ",
         'page2' => "/ Tambah"
     ]
