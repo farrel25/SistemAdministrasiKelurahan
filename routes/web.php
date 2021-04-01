@@ -278,6 +278,61 @@ Route::middleware('auth')->group(function () {
             // Route::delete('/{permission}/hapus-role-permission', 'UserRoleAccessController@destroyRolePermission')->name('manajemen-pengguna.role-dan-hak-akses.destroy-role-permission');
         });
     });
+
+    //Layanan
+    Route::prefix('/dashboard/layanan')->middleware('permission:Layanan')->group(function () {
+
+        // Pengajuan Surat
+        Route::prefix('/pengajuan-surat')->group(function () {
+            Route::get('', 'ServiceLetterSubmissionController@index')->name('layanan.pengajuan-surat');
+            // store letter submission service
+            // Route::get('/tambah', 'ServiceLetterSubmissionController@create')->name('layanan.pengajuan-surat.create');
+            // Route::post('/tambah', 'ServiceLetterSubmissionController@store')->name('manajemen-artikel.artikel.store');
+            // update letter submission service
+            // Route::get('/edit', 'ServiceLetterSubmissionController@edit')->name('layanan.pengajuan-surat.edit');
+            // Route::patch('/{article}/edit', 'ServiceLetterSubmissionController@update')->name('manajemen-artikel.artikel.update');
+            // comment activation
+            // Route::patch('/{article}/aktivasi-komentar', 'ServiceLetterSubmissionController@commentActivation')->name('manajemen-artikel.artikel.comment-activation');
+            // show activation
+            // Route::patch('/{article}/aktivasi', 'ServiceLetterSubmissionController@showActivation')->name('manajemen-artikel.artikel.activation');
+            // delete letter submission service
+            // Route::delete('/{article}/delete', 'ServiceLetterSubmissionController@destroy')->name('manajemen-artikel.artikel.destroy');
+        });
+
+        // Pengaduan
+        Route::prefix('/pengaduan')->group(function () {
+            Route::get('', 'ServiceComplaintController@index')->name('layanan.pengaduan');
+            // store article
+            // Route::get('/tambah', 'ServiceComplaintController@create')->name('layanan.pengaduan.create');
+            // Route::post('/tambah', 'ServiceComplaintController@store')->name('manajemen-artikel.artikel.store');
+            // update artikel
+            // Route::get('/edit', 'ServiceComplaintController@edit')->name('layanan.pengaduan.edit');
+            // Route::patch('/{article}/edit', 'ServiceComplaintController@update')->name('manajemen-artikel.artikel.update');
+            // comment activation
+            // Route::patch('/{article}/aktivasi-komentar', 'ServiceComplaintController@commentActivation')->name('manajemen-artikel.artikel.comment-activation');
+            // show activation
+            // Route::patch('/{article}/aktivasi', 'ServiceComplaintController@showActivation')->name('manajemen-artikel.artikel.activation');
+            // delete article
+            // Route::delete('/{article}/delete', 'ServiceComplaintController@destroy')->name('manajemen-artikel.artikel.destroy');
+        });
+
+        // Kontibutor Artikel
+        Route::prefix('/kontributor')->group(function () {
+            Route::get('', 'ServiceArticleContributorController@index')->name('layanan.kontributor');
+            // store article
+            // Route::get('/tambah', 'ServiceArticleContributorController@create')->name('layanan.kontributor-artikel.create');
+            // Route::post('/tambah', 'ServiceArticleContributor@store')->name('manajemen-artikel.artikel.store');
+            // update artikel
+            // Route::get('/edit', 'ServiceArticleContributorController@edit')->name('layanan.kontributor-artikel.edit');
+            // Route::patch('/{article}/edit', 'ServiceArticleContributor@update')->name('manajemen-artikel.artikel.update');
+            // comment activation
+            // Route::patch('/{article}/aktivasi-komentar', 'ServiceArticleContributor@commentActivation')->name('manajemen-artikel.artikel.comment-activation');
+            // show activation
+            // Route::patch('/{article}/aktivasi', 'ServiceArticleContributor@showActivation')->name('manajemen-artikel.artikel.activation');
+            // delete article
+            // Route::delete('/{article}/delete', 'ServiceArticleContributor@destroy')->name('manajemen-artikel.artikel.destroy');
+        });
+    });
 });
 
 
