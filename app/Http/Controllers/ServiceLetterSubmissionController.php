@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\LetterSubmission;
+// use App\ServiceLetterSubmissionController;
 use App\LetterType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,8 +19,8 @@ class ServiceLetterSubmissionController extends Controller
 
     public function index()
     {
-        // $letterSubmissions = LetterSubmission::paginate(10);
-        // $letterSubmissionTotal = count(LetterSubmission::where('status_id', '!=', 4)->get());
+        // $letterSubmissions = ServiceLetterSubmissionController::paginate(10);
+        // $letterSubmissionTotal = count(ServiceLetterSubmissionController::where('status_id', '!=', 4)->get());
         // $letterStatuses = LetterStatus::get();
         return view('dashboard.layanan.pengajuan_surat.pengajuan-surat'/*, compact('letterSubmissions', 'letterSubmissionTotal', 'letterStatuses')*/);
     }
@@ -46,18 +46,18 @@ class ServiceLetterSubmissionController extends Controller
      */
     public function store(Request $request)
     {
-        // $letterSubmission = request()->validate([
+        // $ServiceLetterSubmissionController = request()->validate([
         //     'nik' => 'required|digits:16',
         //     'full_name' => 'required|string|max:255',
         //     'email' => 'required|email',
         //     'letter_type_id' => 'required',
         //     'keperluan' => 'required|string'
         // ]);
-        // $letterSubmission['user_id'] = Auth::user()->id;
-        // $letterSubmission['status_id'] = 1;
-        // $letterSubmission['phone'] = Auth::user()->phone;
+        // $ServiceLetterSubmissionController['user_id'] = Auth::user()->id;
+        // $ServiceLetterSubmissionController['status_id'] = 1;
+        // $ServiceLetterSubmissionController['phone'] = Auth::user()->phone;
 
-        // LetterSubmission::create($letterSubmission);
+        // ServiceLetterSubmissionController::create($ServiceLetterSubmissionController);
         // // Alert::success('Permohonan pengajuan surat berhasil dikirim', "Silahkan ke <a href=" . route('dashboard') . ">halaman dashboard</a>anda untuk info lebih lanjut");
         // session()->flash('success', 'Pengajuan surat terkirim');
 
@@ -67,10 +67,10 @@ class ServiceLetterSubmissionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\LetterSubmission  $letterSubmission
+     * @param  \App\ServiceLetterSubmissionController  $ServiceLetterSubmissionController
      * @return \Illuminate\Http\Response
      */
-    public function show(LetterSubmission $letterSubmission)
+    public function show(ServiceLetterSubmissionController $ServiceLetterSubmissionController)
     {
         //
     }
@@ -78,28 +78,28 @@ class ServiceLetterSubmissionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\LetterSubmission  $letterSubmission
+     * @param  \App\ServiceLetterSubmissionController  $ServiceLetterSubmissionController
      * @return \Illuminate\Http\Response
      */
-    public function edit(LetterSubmission $letterSubmission)
+    public function edit(ServiceLetterSubmissionController $ServiceLetterSubmissionController)
     {
-        // return view('dashboard.layanan.pengajuan_surat.pengajuan-surat-edit'/*, compact('letterTypes', 'user')*/);
+        return view('dashboard.layanan.pengajuan_surat.pengajuan-surat-edit'/*, compact('letterTypes', 'user')*/);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\LetterSubmission  $letterSubmission
+     * @param  \App\ServiceLetterSubmissionController  $ServiceLetterSubmissionController
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LetterSubmission $letterSubmission)
+    public function update(Request $request, ServiceLetterSubmissionController $ServiceLetterSubmissionController)
     {
         // if ($request->ajax() && $request->isMethod('patch')) {
         //     //partially update record here
         //     dd($request->method());
         // }
-        // $letterSubmissionId = LetterSubmission::findOrFail($request->letter_id);
+        // $letterSubmissionId = ServiceLetterSubmissionController::findOrFail($request->letter_id);
         // $attr = $request->validate([
         //     'status_id' => 'required|numeric'
         // ]);
@@ -113,12 +113,12 @@ class ServiceLetterSubmissionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\LetterSubmission  $letterSubmission
+     * @param  \App\ServiceLetterSubmissionController  $ServiceLetterSubmissionController
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LetterSubmission $letterSubmission)
+    public function destroy(ServiceLetterSubmissionController $ServiceLetterSubmissionController)
     {
-        // $letterSubmission->delete();
+        // $ServiceLetterSubmissionController->delete();
         // Alert::success('Berhasil', 'Data pengajuan surat berhasil Ddhapus');
         // return redirect()->route('manajemen-surat.pengajuan-surat');
     }

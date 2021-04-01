@@ -35,7 +35,7 @@ class ServiceArticleContributorController extends Controller
         //
         // $letterTypes = LetterType::get();
         // $user = Auth::user();
-        // return view('dashboard.layanan.kontributor_artikel.kontributor-artikel-tambah'/*, compact('letterTypes', 'user')*/);
+        return view('dashboard.layanan.kontributor.kontributor-tambah'/*, compact('letterTypes', 'user')*/);
     }
 
     /**
@@ -83,7 +83,7 @@ class ServiceArticleContributorController extends Controller
      */
     public function edit(LetterSubmission $letterSubmission)
     {
-        // return view('dashboard.layanan.kontributor_artikel.kontributor-artikel-edit'/*, compact('letterTypes', 'user')*/);
+        return view('dashboard.layanan.kontributor.kontributor-edit'/*, compact('letterTypes', 'user')*/);
     }
 
     /**

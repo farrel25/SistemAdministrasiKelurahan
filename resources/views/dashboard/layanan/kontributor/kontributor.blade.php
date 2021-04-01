@@ -1,13 +1,13 @@
-@extends('dashboard.layouts.master', ['title' => "Artikel"])
+@extends('dashboard.layouts.master', ['title' => "Kontributor"])
 
 @section('content')
 
 <?php
     $data=[
-        'icon' => "pe-7s-news-paper",
-        'judul' => "Artikel",
-        'link' => route('manajemen-artikel.artikel') ,
-        'page1' => "Artikel"
+        'icon' => "pe-7s-pen",
+        'judul' => "Kontributor",
+        'link' => route('layanan.kontributor') ,
+        'page1' => "Kontributor"
     ]
 ?>
 @include('dashboard.layouts.page-title',$data)
@@ -19,7 +19,7 @@
                 <div class="btn-actions-pane-right ">
                     <a type="button"
                         class="btn btn-lg btn-focus btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
-                        href="{{ route('manajemen-artikel.artikel.create') }}">+
+                        href="{{ route('layanan.kontributor-artikel.create') }}">+
                         Tambah Artikel</a>
                 </div>
             </div>
@@ -43,7 +43,7 @@
                             <td class=" text-center">{{--{{ $number + $articles->firstItem() }}--}}</td>
                             <td class=" text-center">
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{--{{ route('manajemen-artikel.artikel.edit', $article->id) }}--}}"
+                                    <a href="{{ route('layanan.kontributor-artikel.edit'{{--, $article->id--}}) }}"
                                         class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip" title="Edit Artikel"
                                         data-placement="bottom">
                                         <i class="fas fa-edit"></i>

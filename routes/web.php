@@ -317,7 +317,7 @@ Route::middleware('auth')->group(function () {
         Route::prefix('/pengaduan')->group(function () {
             Route::get('', 'ServiceComplaintController@index')->name('layanan.pengaduan');
             // store article
-            Route::get('/tambah', 'ServiceComplaintController@create')->name('layanan.pengaduan.create');
+            // Route::get('/tambah', 'ServiceComplaintController@create')->name('layanan.pengaduan.create');
             // Route::post('/tambah', 'ServiceComplaintController@store')->name('manajemen-artikel.artikel.store');
         });
 

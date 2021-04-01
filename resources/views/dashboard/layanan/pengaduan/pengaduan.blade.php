@@ -78,9 +78,10 @@
             </div>
         </div>
     </div>
+</div>
 
-    <script>
-        $('#updateStatusModal').on('show.bs.modal', function(e) {
+<script>
+    $('#updateStatusModal').on('show.bs.modal', function(e) {
         var button = e.relatedTarget();
         var modal = $(this);
         const letter_id = button.attr('data-id');
@@ -119,6 +120,6 @@
             }
         })
     });
-    </script>
+</script>
 
-    @endsection
+@endsection

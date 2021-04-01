@@ -4,7 +4,7 @@
 
 <?php
     $data=[
-        'icon' => "pe-7s-hammer",
+        'icon' => "pe-7s-mail",
         'judul' => "Pengajuan Surat",
         'link' => route('layanan.pengajuan-surat') ,
         'page1' => "Pengajuan Surat"
@@ -43,16 +43,11 @@
                                 {{-- <div class="btn-group-sm btn-group"> --}}
                                 <div class="d-flex justify-content-center">
 
-                                    <button data-toggle="modal" data-target="#updateStatusModal"
-                                        data-community="{{--{{ json_encode($letterSubmission) }}--}}"
-                                        name=" btn-update-status" id="btn-update-status"
-                                        class="btn btn-primary openUpdateStatusModal btn-sm mr-1" data-letterId=""
-                                        {{--{{$letterSubmission->id}}--}}" data-statusid=""
-                                        {{--{{$letterSubmission->status_id}}--}}" data-statusname=""
-                                        {{--{{$letterSubmission->letterStatus->status}}--}}" data-toggle="tooltip"
-                                        title="Ubah Surat" data-placement="bottom">
+                                    <a href="{{ route('layanan.pengajuan-surat.edit')}}"
+                                        class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
+                                        title="Edit Pengajuan Surat" data-placement="bottom">
                                         <i class="fas fa-edit"></i>
-                                    </button>
+                                    </a>
 
                                 </div>
                             </td>
