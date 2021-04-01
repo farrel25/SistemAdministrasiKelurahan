@@ -168,7 +168,7 @@
                             <select name="role_name" id="role_name"
                                 class="mb-2 form-control @error('role_name') is-invalid @enderror">
                                 {{-- <option value="{{ old('role_name') ?? Auth::user()->roles->first()->name}}">
-                                    {{ old('role_name') ??  Auth::user()->roles->first()->name}}
+                                {{ old('role_name') ??  Auth::user()->roles->first()->name}}
                                 </option> --}}
                                 @foreach ($roles as $role)
                                 <option value="{{ $role->name }}">
@@ -187,12 +187,12 @@
                             {{-- <select name="religion_id" id="religion_id"
                                 class="mb-2 form-control @error('religion_id') is-invalid @enderror"
                                 value="{{ old('religion_id') ?? $villager->villagerReligion->id }}">
-                                <option value="{{ old('religion_id') ?? $villager->villagerReligion->id }}">
-                                    {{ $religions[old('religion_id') - 1]->religion ?? $villager->villagerReligion->religion }}
-                                </option>
-                                @foreach ($religions as $religion)
-                                <option value="{{ $religion->id }}">{{ $religion->religion }}</option>
-                                @endforeach
+                            <option value="{{ old('religion_id') ?? $villager->villagerReligion->id }}">
+                                {{ $religions[old('religion_id') - 1]->religion ?? $villager->villagerReligion->religion }}
+                            </option>
+                            @foreach ($religions as $religion)
+                            <option value="{{ $religion->id }}">{{ $religion->religion }}</option>
+                            @endforeach
                             </select> --}}
 
                         </div>
@@ -228,11 +228,12 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label class="form-label" for="name">Role</label>
-                            <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Isi Role ..." />
+                            <input id="name" name="name" type="text"
+                                class="form-control @error('name') is-invalid @enderror" placeholder="Isi Role ..." />
                             @error('name')
-                                <span class="invalid-feedback mt-2" role="alert">
-                                    <i>{{ $message }}</i>
-                                </span>
+                            <span class="invalid-feedback mt-2" role="alert">
+                                <i>{{ $message }}</i>
+                            </span>
                             @enderror
                         </div>
                     </div>
@@ -263,11 +264,13 @@
                         <input type="hidden" id="id" name="id" value="">
                         <div class="form-group">
                             <label class="form-label" for="name">Role</label>
-                            <input id="name" name="name" value="" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Isi Role ..." autofocus/>
+                            <input id="name" name="name" value="" type="text"
+                                class="form-control @error('name') is-invalid @enderror" placeholder="Isi Role ..."
+                                autofocus />
                             @error('name')
-                                <span class="invalid-feedback mt-2" role="alert">
-                                    <i>{{ $message }}</i>
-                                </span>
+                            <span class="invalid-feedback mt-2" role="alert">
+                                <i>{{ $message }}</i>
+                            </span>
                             @enderror
                         </div>
                     </div>
@@ -281,8 +284,8 @@
     </div>
 
     {{-- STORE NEW ROLE PERMISSION --}}
-    <div class="modal fade" id="addRolePermissionModal" tabindex="-1" role="dialog" aria-labelledby="addRolePermissionModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="addRolePermissionModal" tabindex="-1" role="dialog"
+        aria-labelledby="addRolePermissionModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -295,15 +298,17 @@
                     @csrf
                     <div class="modal-body">
                         <p>
-                            <i>Catatan:<br>Tambahkan permission name pada routes yang ada di source code file web.php untuk memasang permission</i>
+                            <i>Catatan:<br>Tambahkan permission name pada routes yang ada di source code file web.php
+                                untuk memasang permission</i>
                         </p>
                         <div class="form-group">
                             <label class="form-label" for="name">Nama Hak Akses</label>
-                            <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder=".." />
+                            <input id="name" name="name" type="text"
+                                class="form-control @error('name') is-invalid @enderror" placeholder=".." />
                             @error('name')
-                                <span class="invalid-feedback mt-2" role="alert">
-                                    <i>{{ $message }}</i>
-                                </span>
+                            <span class="invalid-feedback mt-2" role="alert">
+                                <i>{{ $message }}</i>
+                            </span>
                             @enderror
                         </div>
                     </div>
@@ -317,3 +322,40 @@
     </div>
 
 </section>
+
+{{-- Isi Komentar --}}
+<div class="modal fade" id="komenPengaduan" tabindex="-1" role="dialog" aria-labelledby="komenPengaduanLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="komenPengaduanLabel">Tambah Komentar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="#" method="post">
+                {{-- @csrf
+                @method('patch') --}}
+                <div class="modal-body">
+                    <input type="hidden" id="id" name="id" value="">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Komentar</label>
+                        <input id="name" name="name" value="" type="text"
+                            class="form-control @error('name') is-invalid @enderror" placeholder="Isi Komentar ..."
+                            autofocus />
+                        @error('name')
+                        <span class="invalid-feedback mt-2" role="alert">
+                            <i>{{ $message }}</i>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                    <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -332,6 +332,14 @@ Route::middleware('auth')->group(function () {
             // Route::patch('/{article}/edit', 'ServiceArticleContributor@update')->name('manajemen-artikel.artikel.update');
         });
     });
+    //Layanan
+    Route::prefix('/dashboard/manajemen-pengaduan')->group(function () {
+
+        // Pengaduan
+        Route::prefix('/data-pengaduan')->group(function () {
+            Route::get('', 'ComplaintController@index')->name('manajemen-pengaduan.data-pengaduan');
+        });
+    });
 });
 
 
