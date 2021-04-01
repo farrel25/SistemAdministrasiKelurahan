@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
 
             // Village Information
-            VillageIdentity::class
+            VillageIdentitySeeder::class
         ]);
     }
 }
