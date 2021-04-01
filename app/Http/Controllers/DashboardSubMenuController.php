@@ -14,7 +14,7 @@ class DashboardSubMenuController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.manajemen_menu.sub_menu.sub-menu');
     }
 
     /**
