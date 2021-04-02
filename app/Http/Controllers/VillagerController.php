@@ -18,8 +18,9 @@ use App\VillagerSex;
 use App\VillagerStayStatus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Spatie\Permission\Models\Permission;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class VillagerController extends Controller
 {
@@ -39,10 +40,11 @@ class VillagerController extends Controller
         $activePercentage = ($activeVillager / $totalVillager) * 100;
 
         // mengambil data penduduk dan ditampilkan 10 saja per pagination
-        $villagers = Villager::latest()->paginate(10);
+        $villagers = Villager::latest()->paginate(15);
         // $villagers = Villager::latest()->simplePaginate(10);
         // $villagers = Villager::latest()->paginate(10)->fragment('villagers');
 
+        // return $villagers;
         return view('dashboard.penduduk.penduduk', compact('villagers', 'totalVillager', 'activePercentage'));
     }
 
@@ -191,7 +193,7 @@ class VillagerController extends Controller
                 // cek apakah ada foto lama
                 if ($villager->photo) {
                     // hapus foto lama
-                    \Storage::delete($villager->photo);
+                    Storage::delete($villager->photo);
                 }
                 // ambil file foto
                 $photo = $request->file('photo');
@@ -252,7 +254,7 @@ class VillagerController extends Controller
     public function destroy(Villager $villager)
     {
         if ($villager->photo) {
-            \Storage::delete($villager->photo);
+            Storage::delete($villager->photo);
         }
         $villager->delete();
         Alert::success(' Berhasil ', ' Data Penduduk Berhasil Dihapus');

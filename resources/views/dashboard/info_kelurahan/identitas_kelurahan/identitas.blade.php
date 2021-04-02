@@ -26,13 +26,14 @@
             </div>
             <div class="m-4">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    {{ $villageIdentity->history }}
+                    {{-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                     commodo consequat. Duis
                     aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                     Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. --}}
                 </p>
             </div>
         </div>
@@ -43,12 +44,14 @@
             </div>
             <div class="m-4">
                 <p>
-                    Terwujudnya Pembangunan Di Seluruh Aspek Kehidupan Menuju Masyarakat Desa Yang Sehat, Cerdas dan
+                    {{ $villageIdentity->vision }}
+                    {{-- Terwujudnya Pembangunan Di Seluruh Aspek Kehidupan Menuju Masyarakat Desa Yang Sehat, Cerdas dan
                     Sejahtera
-                    Berdasarkan Tri Hita Karana
+                    Berdasarkan Tri Hita Karana --}}
                 </p>
                 <p>
-                    1. Meningkatkan kualitas sumber daya manusia melalui program pendidikan dan program kesehatan, serta
+                    {!! $villageIdentity->mission !!}
+                    {{-- 1. Meningkatkan kualitas sumber daya manusia melalui program pendidikan dan program kesehatan, serta
                     pengamalan ajaran
                     agama kepada masyarakat sesuai dengan falsafah ”Tri Hita Karana”
                     2. Menggali, melestarikan dan mengembangkan nilai-nilai budaya desa.
@@ -63,7 +66,7 @@
                     Meningkatkan pelayanan kepada masyarakat dan meningkatkan kerjasama antar lembaga pemerintahan di
                     desa serta lembaga
                     adat.
-                    5. Memberdayakan masyrakat menuju masyarakat mandiri.
+                    5. Memberdayakan masyrakat menuju masyarakat mandiri. --}}
                 </p>
             </div>
         </div>
@@ -76,7 +79,7 @@
             <div class="card-header">Identitas Kelurahan
                 <div class="btn-actions-pane-right "><a type="button"
                         class="btn btn-lg btn-primary btn-sm text-white font-weight-normal  mb-2 mt-2 btn-responsive"
-                        href="{{route('info-desa.identitas-edit')}}">
+                        href="{{route('info-desa.identitas.edit', $villageIdentity->id)}}">
                         <i class="fas fa-edit"></i> Edit Identitas Kelurahan</a>
                     <a type="button"
                         class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal btn-responsive" href="#">
@@ -96,42 +99,42 @@
                         <tr class="">
                             <td class=" text-left pl-4">Nama Desa</td>
                             <td class=" text-right ">:</td>
-                            <td class=" text-left ">#</td>
+                            <td class=" text-left ">{{ $villageIdentity->village_name }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">Kode Desa</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->village_code }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">Kode Pos Desa</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->zip_code }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">Kepala Desa</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->kepala_desa_name }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">NIP Kepala Desa</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->kepala_desa_nip }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">Alamat Kantor Desa</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->office_address }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">E-Mail Desa</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->village_email }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">Telepon Desa</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->phone }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">Website Desa</td>
@@ -153,22 +156,22 @@
                         <tr class="">
                             <td class=" text-left pl-4">Nama Kecamatan</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->kecamatan_name }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">Kode Kecamatan</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->kecamatan_code }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">Nama Camat</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->kepala_camat_name }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">NIP Camat</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->kepala_camat_nip }}</td>
                         </tr>
                     </tbody>
 
@@ -185,12 +188,12 @@
                         <tr class="">
                             <td class=" text-left pl-4">Nama Kabupaten</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->kabupaten_name }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">Kode Kabupaten</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->kabupaten_code }}</td>
                         </tr>
                     </tbody>
 
@@ -207,12 +210,44 @@
                         <tr class="">
                             <td class=" text-left pl-4">Nama Provinsi</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->province_name }}</td>
                         </tr>
                         <tr>
                             <td class=" text-left pl-4">Kode Provinsi</td>
                             <td class=" text-right">:</td>
-                            <td class=" text-left">#</td>
+                            <td class=" text-left">{{ $villageIdentity->province_code }}</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <table class=" mb-0 table table-borderless table-striped ">
+                    <thead>
+                        <tr class="d-flex">
+                            <div class="text-center ">
+                                <p class=" card-header  bg-secondary text-white">Media Sosial</p>
+                            </div>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="">
+                            <td class=" text-left pl-4">Instagram</td>
+                            <td class=" text-right">:</td>
+                            <td class=" text-left">{{ $villageIdentity->instagram }}</td>
+                        </tr>
+                        <tr>
+                            <td class=" text-left pl-4">Facebook</td>
+                            <td class=" text-right">:</td>
+                            <td class=" text-left">{{ $villageIdentity->facebook }}</td>
+                        </tr>
+                        <tr>
+                            <td class=" text-left pl-4">Twitter</td>
+                            <td class=" text-right">:</td>
+                            <td class=" text-left">{{ $villageIdentity->twitter }}</td>
+                        </tr>
+                        <tr>
+                            <td class=" text-left pl-4">Youtube</td>
+                            <td class=" text-right">:</td>
+                            <td class=" text-left">{{ $villageIdentity->youtube }}</td>
                         </tr>
                     </tbody>
 

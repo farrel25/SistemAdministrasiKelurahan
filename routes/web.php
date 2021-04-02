@@ -41,13 +41,14 @@ Route::middleware('auth')->group(function () {
 
         // Identitas Desa
         Route::prefix('/identitas')->group(function () {
-            // index village identity
+            // Index
             Route::get('', 'VillageIdentityController@index')->name('info-desa.identitas');
-            // Store Identitas
+            // Store
             // Route::get('/tambah', 'InfoIdentityController@create')->name('info-kelurahan.identitas-kelurahan.create');
             // Route::post('/tambah', 'InfoIdentityController@store')->name('info-kelurahan.identitas-kelurahan.store');
-            // update village identity
-            Route::get('/edit', 'VillageIdentityController@edit')->name('info-desa.identitas-edit');
+            // Update
+            Route::get('{village_identity}/edit', 'VillageIdentityController@edit')->name('info-desa.identitas.edit');
+            Route::patch('{village_identity}/edit', 'VillageIdentityController@update')->name('info-desa.identitas.update');
             // Route::patch('/edit', 'InfoIdentityController@update')->name('info-kelurahan.identitas-update');
             // comment activation
             // Route::patch('/{article}/aktivasi-komentar', 'InfoIdentityController@commentActivation')->name('info-kelurahan.identitas-kelurahan.comment-activation');
