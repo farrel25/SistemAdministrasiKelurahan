@@ -3,7 +3,7 @@
         <a href="{{route('dashboard')}}" class=" text-decoration-none  text-dark">
             <div class="logo-src">
                 <img src="{{ asset('/images') }}/logo.png" alt="">
-                <h5 class="ml-2">Admin</h5>
+                <h5 class="ml-2">Desa</h5>
             </div>
         </a>
         <div class="header__pane ml-auto">

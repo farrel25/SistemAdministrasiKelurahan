@@ -11,6 +11,7 @@
 ?>
 @include('dashboard.layouts.page-title',$data)
 
+@if (Auth::user()->roles->first()->name != 'Penduduk')
 <div class="row">
     <div class="col-md-6 col-xl-4">
         <div class="card mb-3 widget-content bg-grow-early">
@@ -101,6 +102,7 @@
     </div>
 
 </div>
+@endif
 
 <div class="row">
     <div class="col-md-12 col-lg-12">
@@ -208,6 +210,7 @@
     </div>
 </div>
 
+@if (Auth::user()->roles->first()->name != 'Penduduk')
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
@@ -262,7 +265,7 @@
         </div>
     </div>
 </div>
-
+@endif
 
 
 <script>
