@@ -83,9 +83,7 @@
 
                         <div class="form-group col-md-12">
                             <label for="keperluan">Keperluan<span class="text-danger">*</span></label>
-                            <textarea class="form-control" name="keperluan" id="keperluan" rows="4">
-                                {{ old('keperluan') }}
-                            </textarea>
+                            <textarea class="form-control" name="keperluan" id="keperluan" rows="4">{{ old('keperluan') }}</textarea>
                             @error('keperluan')
                             <small>
                                 <font style="color: red; font-style: italic">{{$message}}</font>
@@ -122,7 +120,7 @@
         Swal.fire({
             icon: 'success',
             title: flash,
-            html: 'Silahkan ke <a href="{{route('dashboard')}}">halaman dashboard</a> anda untuk info lebih lanjut',
+            html: 'Silahkan ke <a href="{{route('layanan.pengajuan-surat')}}">halaman dashboard</a> anda untuk info lebih lanjut',
         });
     }
 </script>
