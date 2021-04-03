@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\LetterSubmission;
-use App\LetterType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Alert;
-use App\LetterStatus;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use App\Article;
+use App\ArticleCategory;
+use App\ArticleTag;
+use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ServiceArticleContributorController extends Controller
 {
@@ -19,10 +22,8 @@ class ServiceArticleContributorController extends Controller
 
     public function index()
     {
-        // $letterSubmissions = LetterSubmission::paginate(10);
-        // $letterSubmissionTotal = count(LetterSubmission::where('status_id', '!=', 4)->get());
-        // $letterStatuses = LetterStatus::get();
-        return view('dashboard.layanan.kontributor.kontributor'/*, compact('letterSubmissions', 'letterSubmissionTotal', 'letterStatuses')*/);
+        $articles = Article::with('category')->where('user_id', Auth::user()->id)->paginate(15);
+        return view('dashboard.layanan.kontributor.kontributor', compact('articles'));
     }
 
     /**
@@ -32,10 +33,9 @@ class ServiceArticleContributorController extends Controller
      */
     public function create()
     {
-        //
-        // $letterTypes = LetterType::get();
-        // $user = Auth::user();
-        return view('dashboard.layanan.kontributor.kontributor-tambah'/*, compact('letterTypes', 'user')*/);
+        $categories = ArticleCategory::get();
+        $tags = ArticleTag::get();
+        return view('dashboard.layanan.kontributor.kontributor-tambah', compact('categories', 'tags'));
     }
 
     /**
@@ -46,31 +46,75 @@ class ServiceArticleContributorController extends Controller
      */
     public function store(Request $request)
     {
-        // $letterSubmission = request()->validate([
-        //     'nik' => 'required|digits:16',
-        //     'full_name' => 'required|string|max:255',
-        //     'email' => 'required|email',
-        //     'letter_type_id' => 'required',
-        //     'keperluan' => 'required|string'
-        // ]);
-        // $letterSubmission['user_id'] = Auth::user()->id;
-        // $letterSubmission['status_id'] = 1;
-        // $letterSubmission['phone'] = Auth::user()->phone;
+        $attr = $request->validate([
+            'category_id' => 'required|numeric',
+            'title' => 'required|string',
+            'thumbnail' => 'required|image|max:3000',
+            'body' => 'required|string',
+            'document' => 'file|max:5000',
+            'tags' => 'required|array',
+        ]);
 
-        // LetterSubmission::create($letterSubmission);
-        // // Alert::success('Permohonan pengajuan surat berhasil dikirim', "Silahkan ke <a href=" . route('dashboard') . ">halaman dashboard</a>anda untuk info lebih lanjut");
-        // session()->flash('success', 'Pengajuan surat terkirim');
+        $userId = Auth::user()->id;
 
-        // return redirect(route('pengajuan-surat.create'));
+        $thumbnailUrl = null;
+        $documentUrl = null;
+        $documentName = null;
+
+        // cek apakah thumbnail sudah di inputkan
+        if ($request->hasFile('thumbnail')) {
+            $thumbnailSize = $request->file('thumbnail')->getSize();
+            // cek ukuran thumbnail yg diupload
+            if ($thumbnailSize <= 3000000) {
+                // ambil file thumbnail
+                $thumbnail = $request->file('thumbnail');
+                // rename file thumbnail
+                $originalName = explode('.', $thumbnail->getClientOriginalName());
+                $thumbnailName = $originalName[0] . time() . '.' . $thumbnail->extension();
+                // menentukan lokasi penyimpanan thumbnail
+                $thumbnailUrl = $thumbnail->storeAs("images/thumbnail", "{$thumbnailName}");
+            }
+        }
+
+        // cek apakah document sudah di inputkan
+        if ($request->hasFile('document')) {
+            // ambil ukuran document
+            $documentSize = $request->file('document')->getSize();
+            // cek ukuran document yg diupload
+            if ($documentSize <= 5000000) {
+                // ambil file document
+                $document = $request->file('document');
+                // rename file document
+                $originalName = explode('.', $document->getClientOriginalName());
+                $documentName = $originalName[0] . time() . '.' .  $document->extension();
+                // menentukan lokasi penyimpanan document
+                $documentUrl = $document->storeAs("document/article_document", "{$documentName}");
+            }
+        }
+
+        $attr['user_id'] = $userId;
+        $attr['slug'] = Str::slug($attr['title']);
+        $attr['thumbnail'] = $thumbnailUrl;
+        $attr['enabled'] = 0;
+        $attr['commentable'] = 1;
+        $attr['document'] = $documentName;
+        $attr['link_document'] = $documentUrl;
+
+        $article = Article::create($attr);
+        $article->tags()->attach($request->tags);
+
+        Alert::success(' Berhasil ', 'kontribusi artikel anda berhasil dikirim');
+
+        return redirect()->route('layanan.kontributor');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\LetterSubmission  $letterSubmission
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function show(LetterSubmission $letterSubmission)
+    public function show(Article $article)
     {
         //
     }
@@ -78,45 +122,120 @@ class ServiceArticleContributorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\LetterSubmission  $letterSubmission
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function edit(LetterSubmission $letterSubmission)
+    public function edit(Article $article)
     {
-        return view('dashboard.layanan.kontributor.kontributor-edit'/*, compact('letterTypes', 'user')*/);
+        $categories = ArticleCategory::get();
+        $tags = ArticleTag::get();
+        $tagCheck = DB::table('article_article_tag')->where('article_id', $article->id)->pluck('tag_id')->toArray();
+
+        return view('dashboard.layanan.kontributor.kontributor-edit', compact('article', 'categories', 'tags', 'tagCheck'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\LetterSubmission  $letterSubmission
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, LetterSubmission $letterSubmission)
+    public function update(Request $request, Article $article)
     {
-        // if ($request->ajax() && $request->isMethod('patch')) {
-        //     //partially update record here
-        //     dd($request->method());
-        // }
-        // $letterSubmissionId = LetterSubmission::findOrFail($request->letter_id);
-        // $attr = $request->validate([
-        //     'status_id' => 'required|numeric'
-        // ]);
+        $attr = $request->validate([
+            'category_id' => 'required|numeric',
+            'title' => 'required|string',
+            'thumbnail' => 'image|max:3000',
+            'body' => 'required|string',
+            'tags' => 'required|array',
+            'document' => 'file|max:5000',
+        ]);
 
-        // $letterSubmissionId->update($attr);
 
-        // Alert::success('Berhasil', 'Status pengajuan surat berhasil diperbarui');
-        // return redirect()->route('manajemen-surat.pengajuan-surat');
+        $userId = Auth::user()->id;
+
+        $thumbnailUrl = null;
+        $documentUrl = null;
+        $documentName = null;
+
+        // cek apakah thumbnail sudah di inputkan
+        if ($request->hasFile('thumbnail')) {
+            $thumbnailSize = $request->file('thumbnail')->getSize();
+            // cek ukuran thumbnail yg diupload
+            if ($thumbnailSize <= 3000000) {
+                // cek apakah ada thumbnail lama
+                if ($article->thumbnail) {
+                    // hapus thumbnail lama
+                    Storage::delete($article->thumbnail);
+                }
+                // ambil file thumbnail
+                $thumbnail = $request->file('thumbnail');
+                // rename file thumbnail
+                $originalName = explode('.', $thumbnail->getClientOriginalName());
+                $thumbnailName = $originalName[0] . time() . '.' . $thumbnail->extension();
+                // menentukan lokasi penyimpanan thumbnail
+                $thumbnailUrl = $thumbnail->storeAs("images/thumbnail", "{$thumbnailName}");
+            } else {
+                // jika thumbnail yg diupload lebih dari 3MB, simpan yg lama
+                $thumbnailUrl = $article->thumbnail;
+            }
+        } else {
+            // jika thumbnail tidak diupdate, simpan yg lama
+            $thumbnailUrl = $article->thumbnail;
+        }
+
+        // cek apakah document sudah di inputkan
+        if ($request->hasFile('document')) {
+            // ambil ukuran document
+            $documentSize = $request->file('document')->getSize();
+            // cek ukuran document yg diupload
+            if ($documentSize <= 5000000) {
+                // cek apakah ada document lama
+                if ($article->link_document) {
+                    // hapus document lama
+                    Storage::delete($article->link_document);
+                }
+                // ambil file document
+                $document = $request->file('document');
+                // rename file document
+                $originalName = explode('.', $document->getClientOriginalName());
+                $documentName = $originalName[0] . time() . '.' .  $document->extension();
+                // menentukan lokasi penyimpanan document
+                $documentUrl = $document->storeAs("document/article_document", "{$documentName}");
+            } else {
+                // jika document yg diupload lebih dari 5MB, simpan yg lama
+                $documentName = $article->document;
+                $documentUrl = $article->link_document;
+            }
+        } else {
+            // jika document tidak diupdate, simpan yg lama
+            $documentName = $article->document;
+            $documentUrl = $article->link_document;
+        }
+
+
+        $attr['user_id'] = $userId;
+        $attr['slug'] = Str::slug($attr['title']);
+        $attr['thumbnail'] = $thumbnailUrl;
+        $attr['document'] = $documentName;
+        $attr['link_document'] = $documentUrl;
+
+        $article->update($attr);
+        $article->tags()->sync($request->tags);
+
+        Alert::success(' Berhasil ', 'Artikel berhasil Diperbarui');
+
+        return redirect()->route('layanan.kontributor');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\LetterSubmission  $letterSubmission
+     * @param  \App\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function destroy(LetterSubmission $letterSubmission)
+    public function destroy(Article $article)
     {
         // $letterSubmission->delete();
         // Alert::success('Berhasil', 'Data pengajuan surat berhasil Ddhapus');

@@ -20,9 +20,9 @@
                 <h5 class="card-title font-weight-bold mb-4 mt-2" style="font-size: large;">Buat Artikel Baru</h5>
                 <div tabindex="-1" class="dropdown-divider"></div>
 
-                <form action="{{ route('manajemen-artikel.artikel.store') }}" method="POST"
+                <form action="{{ route('layanan.kontributor-artikel.store') }}" method="POST"
                     enctype="multipart/form-data">
-                    {{-- @csrf --}}
+                    @csrf
 
                     <div class="row">
                         <div class=" col-lg-3 mb-2 mt-1">
@@ -37,11 +37,11 @@
                                         <input name="title" id="title" type="text"
                                             class="form-control @error('title') is-invalid @enderror"
                                             value="{{ old('title') }}">
-                                        {{-- @error('title')
+                                        @error('title')
                                         <span class="invalid-feedback mt-2" role="alert">
                                             <i>{{ $message }}</i>
                                         </span>
-                                        @enderror --}}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -53,18 +53,18 @@
                                                 Pilih salah satu
                                             </option>
 
-                                            {{-- @forelse ($categories as $category)
+                                            @forelse ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->category }}</option>
                                             @empty
                                             <option>Data kategori belum ada</option>
-                                            @endforelse --}}
+                                            @endforelse
 
                                         </select>
-                                        {{-- @error('category_id')
+                                        @error('category_id')
                                         <span class="invalid-feedback mt-2" role="alert">
                                             <i>{{ $message }}</i>
                                         </span>
-                                        @enderror --}}
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="col-md">
@@ -72,13 +72,13 @@
                                         <label for="editor">Isi</label>
                                         <textarea class="form-control @error('body') is-invalid @enderror" name="body"
                                             id="editor" rows="5">
-                                            {{-- {{ old('body') }} --}}
+                                            {{ old('body') }}
                                         </textarea>
-                                        {{-- @error('body')
+                                        @error('body')
                                         <span class="invalid-feedback mt-2" role="alert">
                                             <i>{{ $message }}</i>
                                         </span>
-                                        @enderror --}}
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -96,22 +96,22 @@
                                 <select name="tags[]" id="tags"
                                     class="mb-2 form-control select2 @error('tags') is-invalid @enderror" multiple>
                                     {{-- <option disabled selected>Pilih tag yang sesuai</option> --}}
-                                    {{-- @forelse ($tags as $tag)
+                                    @forelse ($tags as $tag)
                                     <option value="{{ $tag->id }}">{{ $tag->name_tag }}</option>
                                     @empty
                                     <option>Data tag belum ada</option>
-                                    @endforelse --}}
+                                    @endforelse
                                 </select>
                                 {{-- <div class="mt-2 ">
                                     <label for="#" class=" bg-light pl-2 pr-2 p-1  border rounded">Tag
                                         <a href="#" class="hover-red"><i class="fas fa-times-circle"></i></a>
                                     </label>
                                 </div> --}}
-                                {{-- @error('tags')
+                                @error('tags')
                                 <span class="invalid-feedback mt-2" role="alert">
                                     <i>{{ $message }}</i>
                                 </span>
-                                @enderror --}}
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -132,11 +132,11 @@
                                         Wajib mengisi Gambar sesuai dengan aslinya
                                     </small>
                                     <small class="form-text text-muted">Ukuran Maksimal : 3MB</small>
-                                    {{-- @error('thumbnail')
+                                    @error('thumbnail')
                                     <span class="invalid-feedback mt-2" role="alert">
                                         <i>{{ $message }}</i>
                                     </span>
-                                    @enderror --}}
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -158,15 +158,15 @@
                                         Untuk artikel yang membutuhkan lampiran
                                     </small>
                                     <small class="form-text text-muted">Ukuran Maksimal : 5MB</small>
-                                    {{-- @error('document')
+                                    @error('document')
                                     <span class="invalid-feedback mt-2" role="alert">
                                         <i>{{ $message }}</i>
                                     </span>
-                                    @enderror --}}
+                                    @enderror
                                 </div>
                             </div>
                             <button type="submit" class="mt-2 btn btn-primary">Buat Artikel</button>
-                            <a href="{{ route('manajemen-artikel.artikel') }}" class="mt-2 btn btn-outline-danger">
+                            <a href="{{ route('layanan.kontributor') }}" class="mt-2 btn btn-outline-danger">
                                 Batal
                             </a>
                         </div>

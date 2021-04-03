@@ -331,13 +331,14 @@ Route::middleware('auth')->group(function () {
 
         // Kontibutor Artikel
         Route::prefix('/kontributor')->group(function () {
+            // Index
             Route::get('', 'ServiceArticleContributorController@index')->name('layanan.kontributor');
-            // store article
+            // Store
             Route::get('/tambah', 'ServiceArticleContributorController@create')->name('layanan.kontributor-artikel.create');
-            // Route::post('/tambah', 'ServiceArticleContributor@store')->name('manajemen-artikel.artikel.store');
-            // update artikel
-            Route::get('/edit', 'ServiceArticleContributorController@edit')->name('layanan.kontributor-artikel.edit');
-            // Route::patch('/{article}/edit', 'ServiceArticleContributor@update')->name('manajemen-artikel.artikel.update');
+            Route::post('/tambah', 'ServiceArticleContributorController@store')->name('layanan.kontributor-artikel.store');
+            // Update
+            Route::get('/{article}/ubah', 'ServiceArticleContributorController@edit')->name('layanan.kontributor-artikel.edit');
+            Route::patch('/{article}/ubah', 'ServiceArticleContributorController@update')->name('layanan.kontributor-artikel.update');
         });
     });
     //Layanan

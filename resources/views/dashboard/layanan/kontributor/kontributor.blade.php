@@ -20,7 +20,7 @@
                     <a type="button"
                         class="btn btn-lg btn-focus btn-sm text-white font-weight-normal m-1 mb-2 mt-2 btn-responsive"
                         href="{{ route('layanan.kontributor-artikel.create') }}">+
-                        Tambah Artikel</a>
+                        Buat Artikel</a>
                 </div>
             </div>
             <div class="table-responsive">
@@ -33,18 +33,18 @@
                             <th class=" text-left">Judul</th>
                             <th class=" text-center">Kategori</th>
                             <th class=" text-center">Status</th>
-                            <th class=" text-center">Tanggal Posting</th>
+                            <th class=" text-center">Tanggal dibuat</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {{-- @foreach ($articles as $number => $article) --}}
+                        @forelse ($articles as $number => $article)
                         <tr>
                             <td class=" text-center"><input type="checkbox" name="chkbox[]" value="1"></td>
-                            <td class=" text-center">{{--{{ $number + $articles->firstItem() }}--}}</td>
+                            <td class=" text-center">{{ $number + $articles->firstItem() }}</td>
                             <td class=" text-center">
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{ route('layanan.kontributor-artikel.edit'{{--, $article->id--}}) }}"
-                                        class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip" title="Edit Artikel"
+                                    <a href="{{ route('layanan.kontributor-artikel.edit', $article->id) }}"
+                                        class="btn btn-warning btn-sm mr-1 " data-toggle="tooltip" title="Edit Artikel"
                                         data-placement="bottom">
                                         <i class="fas fa-edit"></i>
                                     </a>
@@ -62,19 +62,43 @@
                                     </form>
                                     @endif --}}
 
-                                    <a href="{{--{{ route('visitors.artikel.show', $article->slug) }}--}}"
+                                    <a href="{{ route('visitors.artikel.show', $article->slug) }}"
                                         target="_blank" class="btn btn-success btn-sm mr-1" data-toggle="tooltip"
                                         title="Lihat Artikel" data-placement="bottom">
                                         <i class="fas fa-eye"></i>
                                     </a>
+
+                                    <a href="#" class="btn btn-info btn-sm mr-1" data-toggle="tooltip"
+                                        title="Detail Artikel" data-placement="bottom">
+                                        <i class="fas fa-info-circle"></i>
+                                    </a>
                                 </div>
                             </td>
-                            <td class=" text-left">{{--{{ $article->title }}--}}</td>
-                            <td class=" text-center">{{--{{ $article->category->category }}--}}</td>
-                            <td class=" text-center">{{--{{ $article->category->category }}--}}</td>
-                            <td class=" text-center">{{--{{ date('d-m-Y', strtotime($article->created_at)) }}--}}</td>
+                            <td class=" text-left">{{ $article->title }}</td>
+                            <td class=" text-center">{{ $article->category->category }}</td>
+                            <td class=" text-center">
+                                @if ($article->enabled == 1)
+                                <div class="badge badge-success">
+                                    Sudah dipublikasikan
+                                </div>
+                                @else
+                                <div class="badge badge-secondary">
+                                    Belum dipublikasikan
+                                </div>
+                                @endif
+                            </td>
+                            <td class=" text-center">
+                                {{-- @if ($article->enabled == 1) --}}
+                                {{ date('d-m-Y', strtotime($article->created_at)) }}
+                                {{-- @else
+                                <div class="badge badge-secondary">
+                                    Belum dipublikasikan
+                                </div>
+                                @endif --}}
+                            </td>
                         </tr>
-                        {{-- @endforeach --}}
+                        @empty
+                        @endforelse
                     </tbody>
                 </table>
             </div>
