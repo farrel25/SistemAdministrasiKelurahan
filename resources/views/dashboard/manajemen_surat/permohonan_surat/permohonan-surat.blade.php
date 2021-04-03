@@ -104,8 +104,9 @@
                     <tbody>
                         @foreach ($letterSubmissions as $number => $letterSubmission)
                         <tr>
-                            <td class=" text-center"><input type="checkbox" name="chkbox[]"
-                                    value="{{ $letterSubmission->id }}"></td>
+                            <td class=" text-center">
+                                <input type="checkbox" name="chkbox[]" value="{{ $letterSubmission->id }}">
+                            </td>
                             <td class=" text-center">{{ $number + $letterSubmissions->firstItem() }}</td>
                             <td class=" text-center">
                                 {{-- <div class="btn-group-sm btn-group"> --}}

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-// use App\ServiceLetterSubmissionController;
-use App\LetterType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Alert;
 use App\LetterStatus;
+use App\LetterSubmission;
+use App\LetterType;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ServiceLetterSubmissionController extends Controller
 {
@@ -19,10 +19,11 @@ class ServiceLetterSubmissionController extends Controller
 
     public function index()
     {
-        // $letterSubmissions = ServiceLetterSubmissionController::paginate(10);
-        // $letterSubmissionTotal = count(ServiceLetterSubmissionController::where('status_id', '!=', 4)->get());
-        // $letterStatuses = LetterStatus::get();
-        return view('dashboard.layanan.pengajuan_surat.pengajuan-surat'/*, compact('letterSubmissions', 'letterSubmissionTotal', 'letterStatuses')*/);
+        $letterSubmissions = LetterSubmission::with('letterType', 'letterStatus')->where('user_id', Auth::user()->id)->paginate(10);
+        $letterSubmissionTotal = count(LetterSubmission::where('status_id', '!=', 4)->get());
+        $letterStatuses = LetterStatus::get();
+        // return $letterSubmissions;
+        return view('dashboard.layanan.pengajuan_surat.pengajuan-surat', compact('letterSubmissions', 'letterSubmissionTotal', 'letterStatuses'));
     }
 
     /**
@@ -67,10 +68,10 @@ class ServiceLetterSubmissionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\ServiceLetterSubmissionController  $ServiceLetterSubmissionController
+     * @param  \App\LetterSubmission  $letterSubmission
      * @return \Illuminate\Http\Response
      */
-    public function show(ServiceLetterSubmissionController $ServiceLetterSubmissionController)
+    public function show(LetterSubmission $letterSubmission)
     {
         //
     }
@@ -78,22 +79,29 @@ class ServiceLetterSubmissionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ServiceLetterSubmissionController  $ServiceLetterSubmissionController
+     * @param  \App\LetterSubmission  $letterSubmission
      * @return \Illuminate\Http\Response
      */
-    public function edit(ServiceLetterSubmissionController $ServiceLetterSubmissionController)
+    public function edit(LetterSubmission $letterSubmission)
     {
-        return view('dashboard.layanan.pengajuan_surat.pengajuan-surat-edit'/*, compact('letterTypes', 'user')*/);
+        if ($letterSubmission->status_id != 1) {
+            Alert::warning('Surat Sedang Diproses', 'Anda tidak dapat melakukan perubahan data');
+            return back();
+        }
+
+        $letterTypes = LetterType::get();
+
+        return view('dashboard.layanan.pengajuan_surat.pengajuan-surat-edit', compact('letterSubmission', 'letterTypes'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ServiceLetterSubmissionController  $ServiceLetterSubmissionController
+     * @param  \App\LetterSubmission  $letterSubmission
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ServiceLetterSubmissionController $ServiceLetterSubmissionController)
+    public function update(Request $request, LetterSubmission $letterSubmission)
     {
         // if ($request->ajax() && $request->isMethod('patch')) {
         //     //partially update record here
@@ -108,18 +116,26 @@ class ServiceLetterSubmissionController extends Controller
 
         // Alert::success('Berhasil', 'Status pengajuan surat berhasil diperbarui');
         // return redirect()->route('manajemen-surat.pengajuan-surat');
+
+        $attr = $request->validate([
+            'letter_type_id' => 'required|numeric',
+            'keperluan' => 'required|string'
+        ]);
+
+        $letterSubmission->update($attr);
+
+        Alert::success('Berhasil', 'Perubahan data pengajuan surat terkirim');
+
+        return redirect()->route('layanan.pengajuan-surat');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ServiceLetterSubmissionController  $ServiceLetterSubmissionController
+     * @param  \App\LetterSubmission  $letterSubmission
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServiceLetterSubmissionController $ServiceLetterSubmissionController)
+    public function destroy(LetterSubmission $letterSubmission)
     {
-        // $ServiceLetterSubmissionController->delete();
-        // Alert::success('Berhasil', 'Data pengajuan surat berhasil Ddhapus');
-        // return redirect()->route('manajemen-surat.pengajuan-surat');
     }
 }

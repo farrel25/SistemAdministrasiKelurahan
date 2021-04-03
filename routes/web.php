@@ -316,9 +316,11 @@ Route::middleware('auth')->group(function () {
 
         // Pengajuan Surat
         Route::prefix('/pengajuan-surat')->group(function () {
+            // Index
             Route::get('', 'ServiceLetterSubmissionController@index')->name('layanan.pengajuan-surat');
-            // update letter submission service
-            Route::get('/edit', 'ServiceLetterSubmissionController@edit')->name('layanan.pengajuan-surat.edit');
+            // Update
+            Route::get('/{letter_submission}/ubah', 'ServiceLetterSubmissionController@edit')->name('layanan.pengajuan-surat.edit');
+            Route::patch('/{letter_submission}/ubah', 'ServiceLetterSubmissionController@update')->name('layanan.pengajuan-surat.update');
         });
 
         // Pengaduan
