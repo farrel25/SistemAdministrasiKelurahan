@@ -299,17 +299,15 @@ Administratif"])
             var ctx = document.getElementById("jeniskelamin").getContext('2d');
             var data = {
                 datasets: [{
-                    data: [10, 20, 30],
+                    data: [{{$countSexMale}}, {{$countSexFemale}}],
                     backgroundColor: [
                         '#3c8dbc',
                         '#f56954',
-                        '#f39c12',
                     ],
                 }],
                 labels: [
-                    'Request',
-                    'Layanan',
-                    'Problem'
+                    'Laki - laki',
+                    'Perempuan',
                 ]
             };
             var myDoughnutChart = new Chart(ctx, {
