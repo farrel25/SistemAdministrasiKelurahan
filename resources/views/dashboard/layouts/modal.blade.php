@@ -1,37 +1,57 @@
-<!-- Modal -->
-@if (Request::url() == route('manajemen-surat.pengajuan-surat'))
-<div class="modal fade" id="updateStatusModal" tabindex="-1" role="dialog" aria-labelledby="updateStatusModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="updateStatusModalLabel">Perbarui Status Pengajuan Surat</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+{{-- LETTER SUBMISSION MODAL --}}
+<section id="letter">
+
+    {{-- UPDATE LETTER STATUS --}}
+    @if (Request::url() == route('manajemen-surat.pengajuan-surat'))
+    <div class="modal fade" id="updateStatusModal" tabindex="-1" role="dialog" aria-labelledby="updateStatusModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateStatusModalLabel">Perbarui Status Pengajuan Surat</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('manajemen-surat.pengajuan-surat.update') }}" method="post">
+                    @csrf
+                    @method('patch')
+                    <div class="modal-body">
+                        <input type="hidden" id="id" name="id" value="">
+
+                        <div class="form-group">
+                            <label for="status_id" class="">Status</label>
+
+                            <select name="status_id" id="status_id" class="mb-2 form-control @error('status_id') is-invalid @enderror" value="">
+                                <option></option>
+                                @foreach ($letterStatuses as $status)
+                                <option value="{{ $status->id }}" {{ old('status_id') == $status->id ? 'selected' : '' }}>
+                                    {{ $status->status }}
+                                </option>
+                                @endforeach
+                            </select>
+
+                            @error('status_id')
+                            <span class="invalid-feedback mt-2" role="alert">
+                                <i>{{ $message }}</i>
+                            </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </form>
             </div>
-            <form id="editStatusForm" action="{{route('manajemen-surat.pengajuan-surat.update')}}" method="post">
-                @csrf
-                @method('patch')
-                <input type="text" name="letter_id" id="letter_id" value="" class="d-none">
-                <div class="position-relative form-group m-5">
-                    <label for="status_id" class="">Status</label>
-                    <select name="status_id" id="status_id" class="mb-2 form-control" value="">
-                        <option id="">Pilih...</option>
-                        @foreach ($letterStatuses as $status)
-                        <option value="{{ $status->id }}">{{ $status->status }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-            </form>
         </div>
     </div>
-</div>
-@endif
+    @endif
+
+</section>
+
+
 
 <!-- Modal Import Excel Data Penduduk -->
 <div class="modal fade" id="importExcelVillagerModal" tabindex="-1" aria-labelledby="importExcelVillagerModalLabel"
@@ -389,7 +409,6 @@
                     @csrf
                     @method('patch')
                     <div class="modal-body">
-                        <p>halo</p>
                         <input type="hidden" id="id" name="id" value="">
 
                         <div class="form-group">
@@ -427,6 +446,8 @@
     @endif
 
 </section>
+
+
 
 {{-- Role and Permission Modal --}}
 <section id="Role">
@@ -541,6 +562,8 @@
     </div>
 
 </section>
+
+
 
 {{-- Isi Komentar --}}
 <div class="modal fade" id="komenPengaduan" tabindex="-1" role="dialog" aria-labelledby="komenPengaduanLabel"

@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Alert;
 use App\LetterStatus;
+use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert as FacadesAlert;
 
 class LetterSubmissionController extends Controller
 {
@@ -95,19 +97,30 @@ class LetterSubmissionController extends Controller
      */
     public function update(Request $request, LetterSubmission $letterSubmission)
     {
-        // if ($request->ajax() && $request->isMethod('patch')) {
-        //     //partially update record here
-        //     dd($request->method());
-        // }
-        $letterSubmissionId = LetterSubmission::findOrFail($request->letter_id);
-        $attr = $request->validate([
-            'status_id' => 'required|numeric'
+        $validator = Validator::make($request->all(), [
+            'status_id' => 'required|numeric',
         ]);
 
-        $letterSubmissionId->update($attr);
+        if ($validator->fails()) {
+            FacadesAlert::error('Gagal', 'Terdapat kesalahan input, silahkan coba lagi');
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
 
-        Alert::success('Berhasil', 'Status pengajuan surat berhasil diperbarui');
-        return redirect()->route('manajemen-surat.pengajuan-surat');
+        $letter = LetterSubmission::find($request->id);
+
+        if ($letter != null) {
+            $attr['status_id'] = $request->status_id;
+
+            $letter->update($attr);
+
+            FacadesAlert::success('Berhasil', 'Status surat berhasil diperbarui');
+        } else {
+            FacadesAlert::error('Gagal', 'Surat tidak dapat ditemukan');
+        }
+
+        return back();
     }
 
     /**
@@ -119,7 +132,7 @@ class LetterSubmissionController extends Controller
     public function destroy(LetterSubmission $letterSubmission)
     {
         $letterSubmission->delete();
-        Alert::success('Berhasil', 'Data pengajuan surat berhasil Ddhapus');
+        FacadesAlert::success('Berhasil', 'Data pengajuan surat berhasil Ddhapus');
         return redirect()->route('manajemen-surat.pengajuan-surat');
     }
 }

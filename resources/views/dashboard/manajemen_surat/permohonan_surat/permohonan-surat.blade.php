@@ -111,20 +111,16 @@
                             <td class=" text-center">
                                 {{-- <div class="btn-group-sm btn-group"> --}}
                                 <div class="d-flex justify-content-center">
-                                    <!-- Modal ada di master -->
-                                    {{-- <button data-toggle="modal" data-target="#exampleModal" class="btn btn-info"
-                                        data-toggle="tooltip" title="Ubah Permohonan Surat" data-placement="bottom">
-                                        <i class="fas fa-edit"></i>
-                                    </button> --}}
-                                    <button data-toggle="modal" data-target="#updateStatusModal"
-                                        data-community="{{ json_encode($letterSubmission) }}" name=" btn-update-status"
-                                        id="btn-update-status" class="btn btn-primary openUpdateStatusModal btn-sm mr-1"
-                                        data-letterId="{{$letterSubmission->id}}"
-                                        data-statusid="{{$letterSubmission->status_id}}"
-                                        data-statusname="{{$letterSubmission->letterStatus->status}}"
-                                        data-toggle="tooltip" title="Ubah Status Surat" data-placement="bottom">
-                                        <i class="fas fa-edit"></i>
-                                    </button>
+                                    <span
+                                        class="updateStatusModal"
+                                        data-toggle="modal"
+                                        data-target="#updateStatusModal"
+                                        data-id="{{ $letterSubmission->id }}"
+                                    >
+                                        <button class="btn btn-primary btn-sm mr-1" data-toggle="tooltip" title="Ubah Status Surat" data-placement="bottom">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                    </span>
 
                                     @if ($letterSubmission->status_id >= 3)
                                     <a href="#" class="btn btn-alternate text-white btn-sm mr-1" data-toggle="tooltip"
@@ -200,15 +196,9 @@
 </div>
 
 <script>
-    $('#updateStatusModal').on('show.bs.modal', function(e) {
-        var button = e.relatedTarget();
-        var modal = $(this);
-        const letter_id = button.attr('data-id');
-        const status_id = button.data("statusid");
-        const status_name = button.data("statusname");
-        console.log(letter_id);
-
-        modal.find("#updateStatusModal #letter_id").attr('value', letter_id);
+    $(document).on("click", ".updateStatusModal", function () {
+        const id = $(this).data('id');
+        $("#updateStatusModal .modal-body #id").val(id);
     });
 
     // $(document).on('click', '#btn-update-status', function(e){
