@@ -27,9 +27,10 @@ class AppServiceProvider extends ServiceProvider
         // make the asset() can run on both http or https
         // asset() generate http
         // secure_asset() generate https
-        if (env('APP_ENV') != 'local') {
-            // take scheme as a parameter
-            URL::forceScheme('https');
-        }
+
+        // if (env('APP_ENV') != 'local') {
+        //     // take scheme as a parameter
+        //     URL::forceScheme('https');
+        // }
     }
 }
