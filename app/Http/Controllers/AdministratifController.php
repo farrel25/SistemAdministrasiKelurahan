@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Villager;
 use Illuminate\Http\Request;
 
 class AdministratifController extends Controller
@@ -9,7 +10,18 @@ class AdministratifController extends Controller
 
     public function index()
     {
-        return view('visitors.profil_desa.administratif');
+        $countVillager = Villager::count();
+        $countSexMale = Villager::where('sex_id', 1)->count();
+        $sexMalePercentation = ($countSexMale / $countVillager) * 100;
+        $countSexFemale = Villager::where('sex_id', 2)->count();
+        $sexFemalePercentation = ($countSexFemale / $countVillager) * 100;
+        return view('visitors.profil_desa.administratif', compact(
+            'countVillager',
+            'countSexMale',
+            'sexMalePercentation',
+            'countSexFemale',
+            'sexFemalePercentation',
+        ));
     }
     public function pendidikan()
     {

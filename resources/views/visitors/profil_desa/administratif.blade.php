@@ -54,28 +54,28 @@ Administratif"])
                                 <tr class=" text-center">
                                     <th scope="col">No</th>
                                     <th scope="col">Kelompok</th>
-                                    <th scope="col">Laki-laki</th>
-                                    <th scope="col">Perempuan</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th scope="col">Persentase</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class=" text-center">
                                     <th scope="row">1</th>
                                     <td>Laki-laki</td>
-                                    <td>n</td>
-                                    <td>n</td>
+                                    <td>{{$countSexMale}}</td>
+                                    <td>{{ number_format($sexMalePercentation, 2) }} %</td>
                                 </tr>
                                 <tr class=" text-center">
                                     <th scope="row">2</th>
                                     <td>Perempuan</td>
-                                    <td>n</td>
-                                    <td>n</td>
+                                    <td>{{$countSexFemale}}</td>
+                                    <td>{{ number_format($sexFemalePercentation, 2) }} %</td>
                                 </tr>
                                 <tr class=" text-center">
                                     <th scope="row"></th>
-                                    <td>Jumlah</td>
-                                    <td>n</td>
-                                    <td>n</td>
+                                    <td>Total</td>
+                                    <td>{{$countVillager}}</td>
+                                    <td>100 %</td>
                                 </tr>
                             </tbody>
                         </table>
