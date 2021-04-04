@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div class="brand-wrapper">
                         <!-- <img src="assets/images/logo.svg" alt="logo" class="logo" /> -->
-                        <h1 class="font-weight-bold">Kelurahan</h1>
+                        <h1 class="font-weight-bold">Desa</h1>
                     </div>
 
                     @if (session()->has('fail'))

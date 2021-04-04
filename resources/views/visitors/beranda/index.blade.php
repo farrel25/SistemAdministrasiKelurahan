@@ -55,7 +55,7 @@
                 <p class=" small"> Membuka peluang warga desa dalam pengembangan UMKM untuk disebarluaskan melalui
                     website</p>
             </a>
-            <a href="{{ route('pengajuan-surat.create') }}" class="col-lg-3 text-center p-3 text-dark"
+            <a href="{{ route('layanan.kontributor') }}" class="col-lg-3 text-center p-3 text-dark"
                 data-aos="fade-up" data-aos-delay="800">
                 <span style="color: #EEF5FF;">
                     <i class="fas fa-pencil-alt fa-3x p-4"

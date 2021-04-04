@@ -159,9 +159,12 @@ Route::middleware('auth')->group(function () {
 
         //pengajuan surat
         Route::prefix('/pengajuan-surat')->group(function () {
+            // Index
             Route::get('', 'LetterSubmissionController@index')->name('manajemen-surat.pengajuan-surat');
-            Route::patch('edit', 'LetterSubmissionController@update')->name('manajemen-surat.pengajuan-surat.update');
-            Route::delete('{letter_submission}/delete', 'LetterSubmissionController@destroy')->name('manajemen-surat.pengajuan-surat.destroy');
+            // Update
+            Route::patch('/ubah', 'LetterSubmissionController@update')->name('manajemen-surat.pengajuan-surat.update');
+            // Delete
+            Route::delete('/{letter_submission}/delete', 'LetterSubmissionController@destroy')->name('manajemen-surat.pengajuan-surat.destroy');
 
             // Route::patch('/{letter_status}/edit', function () {
             //     return 'Berhasil';
