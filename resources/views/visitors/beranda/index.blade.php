@@ -55,8 +55,8 @@
                 <p class=" small"> Membuka peluang warga desa dalam pengembangan UMKM untuk disebarluaskan melalui
                     website</p>
             </a>
-            <a href="{{ route('layanan.kontributor') }}" class="col-lg-3 text-center p-3 text-dark"
-                data-aos="fade-up" data-aos-delay="800">
+            <a href="{{ route('layanan.kontributor') }}" class="col-lg-3 text-center p-3 text-dark" data-aos="fade-up"
+                data-aos-delay="800">
                 <span style="color: #EEF5FF;">
                     <i class="fas fa-pencil-alt fa-3x p-4"
                         style="width: 100px; height: 100px; background-color:#3C50E0; border-radius:50%;"></i>
@@ -77,10 +77,8 @@
         <div style=" background-image:url('images/bgrd-1.png'); border-radius:10px;">
             <div class="row pl-5 pr-5 ">
                 <div class="col-lg-3 m-auto">
-                    <div class=" text-center mt-4 ">
-                        <h1 style="font-weight: 600;">
-                            Kegiatan Desa
-                        </h1>
+                    <div class=" text-center mt-4 title-section">
+                        <h1 style="font-weight: 600;">Kegiatan Desa</h1>
                     </div>
                 </div>
                 <div class="col-lg-9 align-self-center sliderv mt-4">
@@ -127,12 +125,10 @@
 </section>
 {{-- End Card 1 Section --}}
 
-
-
 {{-- Start Article Section --}}
 <section id="article" class="blog-posts grid-system">
     <div class="container mt-5 mb-lg-4">
-        <div class="row mb-4" data-aos="fade-up" data-aos-delay="400">
+        <div class="row mb-4 title-section" data-aos="fade-up" data-aos-delay="400">
             <div class=" col text-center ">
                 <h1 style="font-weight: 600;">- Artikel -</h1>
             </div>
@@ -142,7 +138,7 @@
                 <div class="all-blog-posts">
                     <div class="row mb-5">
                         @forelse ($articles as $article)
-                        <div class="col-lg-12 " data-aos="fade-up" data-aos-delay="800">
+                        <div class="col-lg-12 " data-aos="fade-up" data-aos-delay="500">
                             <div class="blog-post">
                                 <div class="blog-thumb">
                                     {{-- <img src="{{ asset('/images') }}/img-article-01.png" alt=""> --}}
@@ -193,7 +189,7 @@
                         @empty
                         <div class="row justify-content-center m-sm-2 pl-3 pr-3" data-aos="fade-up"
                             data-aos-delay="800">
-                            <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                            <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="500">
                                 {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                                     <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
                             </div> --}}
@@ -219,7 +215,6 @@
             </div>
         </div>
     </div>
-    </div>
 </section>
 {{-- End Article Section --}}
 
@@ -228,7 +223,7 @@
     <div class=" container mb-5 w-100 br-full" data-aos="fade-up" data-aos-delay="400">
         <div style="background-image:url('images/bgrd-2.png'); border-radius:10px;">
             <div class="row align-self-center ">
-                <div class="col text-center align-self-center mt-4">
+                <div class="col text-center align-self-center mt-4 title-section">
                     <h1 style="font-weight: 600;">- UMKM -</h1>
                 </div>
             </div>
@@ -416,6 +411,20 @@
     </div>
 </section>
 {{-- End Card 2 Section --}}
+
+{{-- Start Services Section --}}
+<section id="services">
+    <div class="container mt-3 ">
+        <div class="row mb-4 " data-aos="fade-up" data-aos-delay="400">
+            <div class=" col text-center title-section">
+                <h1 style="font-weight: 600;">- Pengaduan -</h1>
+            </div>
+            <div class="row">
+            </div>
+        </div>
+    </div>
+</section>
+{{-- End Services Section --}}
 
 <script type="text/javascript">
     $('.sliderh').slick({

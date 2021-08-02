@@ -5,13 +5,12 @@
 {{-- Start Breadcumb Section --}}
 <?php
     $data=[
-        'judul' => "Artikel",
         'link1' => route('visitors.artikel.index'),
-        'page1' => '/ Artikel',
-        'page2' => '/ '.$article->title
+        'page1' => '> Artikel',
+        'page2' => '> '.$article->title
     ]
 ?>
-@include('visitors.layouts.breadcumb', $data)
+@include('visitors.layouts.breadcumb-artikel', $data)
 {{-- End Breadcumb Section --}}
 
 {{-- Start Article Section --}}
