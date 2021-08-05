@@ -17,7 +17,7 @@
 <section id="article" class="blog-posts grid-system">
     <div class="container ">
         <div class="row">
-            <div class="col-lg-8" data-aos="fade-right" data-aos-delay="1000">
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="500">
                 <div class="all-blog-posts">
                     <div class="row">
                         <div class="col-lg-12">
@@ -33,7 +33,6 @@
                                     <a href="post-details.html">
                                         <h4>{{$article->title}}</h4>
                                     </a>
-
                                     <?php
                                     $userId = $article->user_id;
                                     $roleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
@@ -51,7 +50,7 @@
                                             <a href="#">{{$article->created_at->format('d F, Y')}}</a>
                                         </li>
                                         <li>
-                                            <a href="#">{{ $countComments }} Comments</a>
+                                            <a href="#comments">{{ $countComments }} Comments</a>
                                         </li>
                                     </ul>
                                     <hr>
@@ -85,67 +84,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-12">
-                            <div class="sidebar-item comments">
-                                <h4 class=" ml-3">4 Comments</h4>
-                                <div class="content">
-                                    <ul class="ml-3 mr-3">
-                                        <hr>
-                                        <li>
-                                            <div class="right-content">
-                                                <h4>Charles Kate<span>May 16, 2020</span></h4>
-                                                <small>Fusce ornare mollis eros. Duis et diam vitae justo fringilla
-                                                    condimentum eu quis leo.
-                                                    Vestibulum idturpis porttitor sapien facilisis scelerisque.
-                                                    Curabitur a nisl eu lacus convallis
-                                                    eleifend posuere id tellus.
-                                                </small>
-                                                <a href="#" class="mt-3 d-flex">
-                                                    <small>reply</small>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li class="replied">
-                                            <div class="right-content">
-                                                <h4>Thirteen Man<span>May 20, 2020</span></h4>
-                                                <small>In porta urna sed venenatis sollicitudin. Praesent urna sem,
-                                                    pulvinar vel mattis eget.</small>
-                                                <a href="#" class="mt-3 d-flex">
-                                                    <small>reply</small>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="right-content">
-                                                <h4>Belisimo Mama<span>May 16, 2020</span></h4>
-                                                <small>Nullam nec pharetra nibh. Cras tortor nulla, faucibus id
-                                                    tincidunt in, ultrices eget ligula.
-                                                    Sed vitae suscipit ligula. Vestibulum id turpis volutpat, lobortis
-                                                    turpis ac, molestie
-                                                    nibh.</small>
-                                                <a href="#" class="mt-3 d-flex">
-                                                    <small>reply</small>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li class="replied">
-                                            <div class="right-content">
-                                                <h4>Thirteen Man<span>May 22, 2020</span></h4>
-                                                <small>Mauris sit amet justo vulputate, cursus massa congue, vestibulum
-                                                    odio. Aenean elit nunc,
-                                                    gravida in erat sit amet, feugiat viverra leo.</small>
-                                                <a href="#" class="mt-3 d-flex">
-                                                    <small>reply</small>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-lg-12 mb-3">
                             <div class="sidebar-item submit-comment">
-                                <hr class="mb-3">
                                 <div class="sidebar-heading mb-4">
                                     <h2>Komentar</h2>
                                 </div>
@@ -173,7 +113,7 @@
                                             <div class="col-lg-12">
                                                 <fieldset>
                                                     <button type="submit" id="form-submit"
-                                                        class="main-button">Submit</button>
+                                                        class="btn btn-primary btn-responsive btn-blue">Submit</button>
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -181,10 +121,44 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-12" id="comments">
+                            <div class="sidebar-item comments">
+                                <h4>4 Comments</h4>
+                                <div class="content">
+                                    <ul class="">
+                                        <hr>
+                                        <li>
+                                            <div class="right-content">
+                                                <h4>Charles Kate<span>May 16, 2020</span></h4>
+                                                <small>Fusce ornare mollis eros. Duis et diam vitae justo fringilla
+                                                    condimentum eu quis leo.
+                                                    Vestibulum idturpis porttitor sapien facilisis scelerisque.
+                                                    Curabitur a nisl eu lacus convallis
+                                                    eleifend posuere id tellus.
+                                                </small>
+                                                <a href="#" class="mt-3 d-flex">
+                                                    <small>reply</small>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li class="replied">
+                                            <div class="right-content">
+                                                <h4>Thirteen Man<span>May 20, 2020</span></h4>
+                                                <small>In porta urna sed venenatis sollicitudin. Praesent urna sem,
+                                                    pulvinar vel mattis eget.</small>
+                                                <a href="#" class="mt-3 d-flex">
+                                                    <small>reply</small>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4" data-aos="fade-left" data-aos-delay="1000">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="800">
                 <div class="sidebar">
                     <div class="row justify-content-center">
                         @include('visitors.layouts.sidebar.sidebar-artikel')

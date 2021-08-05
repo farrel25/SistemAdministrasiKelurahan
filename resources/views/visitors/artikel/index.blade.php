@@ -46,7 +46,7 @@ $data=[
                 <div class="all-blog-posts">
                     <div class="row mb-5">
                         @forelse ($articles as $article)
-                        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="800">
+                        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="500">
                             <div class="blog-post">
                                 <div class="blog-thumb ">
                                     {{-- <img src="{{ asset('/images') }}/img-article-01.png" alt=""> --}}
@@ -108,7 +108,7 @@ $data=[
             </div>
         </div>
 
-        <div class="col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="1000">
+        <div class="col-lg-4 mb-5" data-aos="fade-up" data-aos-delay="800">
             <div class="sidebar">
                 <div class="row">
                     @include('visitors.layouts.sidebar.sidebar-artikel')

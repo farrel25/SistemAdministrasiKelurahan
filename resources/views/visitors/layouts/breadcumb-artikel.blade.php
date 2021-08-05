@@ -1,6 +1,6 @@
 <section id="breadcumb" class="breadcumb-m ">
     <div class="container">
-        <div class="row mt-3 " data-aos="fade-up" data-aos-delay="400">
+        <div class="row mt-3 " data-aos="fade-up" data-aos-delay="300">
             <div class="col-lg-12 text-center">
                 <nav aria-label="breadcrumb">
                     <small>

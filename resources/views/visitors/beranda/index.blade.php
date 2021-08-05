@@ -5,7 +5,7 @@
 {{-- Start carousel section --}}
 <section id="hero">
     <div class="container mb-4 mt-4  ">
-        <div data-aos="fade-up" data-aos-delay="800" data-ride="carousel">
+        <div data-aos="fade-up" data-aos-delay="500" data-ride="carousel">
             <div class="carousel-caption  d-sm-block bg-glass mb-5 mt-3">
                 <h1 data-aos="fade-up">Selamat Datang Di Desa</h1>
                 <p class="mt-3" data-aos="fade-up" data-aos-delay="400">“Terwujudnya Desa yang Aman, Damai dan
@@ -56,7 +56,7 @@
                     website</p>
             </a>
             <a href="{{ route('layanan.kontributor') }}" class="col-lg-3 text-center p-3 text-dark" data-aos="fade-up"
-                data-aos-delay="800">
+                data-aos-delay="500">
                 <span style="color: #EEF5FF;">
                     <i class="fas fa-pencil-alt fa-3x p-4"
                         style="width: 100px; height: 100px; background-color:#3C50E0; border-radius:50%;"></i>
@@ -127,7 +127,7 @@
 
 {{-- Start Article Section --}}
 <section id="article" class="blog-posts grid-system">
-    <div class="container mt-5 mb-lg-4">
+    <div class="container mt-5 ">
         <div class="row mb-4 title-section" data-aos="fade-up" data-aos-delay="400">
             <div class=" col text-center ">
                 <h1 style="font-weight: 600;">- Artikel -</h1>
@@ -136,7 +136,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <div class="all-blog-posts">
-                    <div class="row mb-5">
+                    <div class="row ">
                         @forelse ($articles as $article)
                         <div class="col-lg-12 " data-aos="fade-up" data-aos-delay="500">
                             <div class="blog-post">
@@ -188,9 +188,9 @@
 
                         @empty
                         <div class="row justify-content-center m-sm-2 pl-3 pr-3" data-aos="fade-up"
-                            data-aos-delay="800">
+                            data-aos-delay="500">
                             <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="500">
-                                {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="500">
                                     <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
                             </div> --}}
                             <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat

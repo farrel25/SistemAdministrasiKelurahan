@@ -1,4 +1,4 @@
-<footer id="footer">
+<footer id="footer" class="mt-4">
     <div class="container">
         <div class="row d-flex ">
             <div class="col-lg-1 mt-1 mb-2">
@@ -12,9 +12,8 @@
                     digunakan untuk membantu pengurus desa dalam
                     mengelola data administratif serta meningkatkan pelayanan kepada penduduk desa
                 </p>
-
             </div>
-            <div class="col-lg-4">
+            {{-- <div class="col-lg-4">
                 <form>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Aduan</label>
@@ -29,11 +28,9 @@
                         </div>
                     </div>
                 </form>
-            </div>
-
+            </div> --}}
         </div>
     </div>
-
 </footer>
 <div class=" social-media">
     <div class="container ">
