@@ -62,7 +62,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <ul class="post-tags">
-                                                    <li><i class="fa fa-tags"></i></li>
+                                                    <li><i class="fa fa-tags"></i><a href="#">Lampiran</a></li>
                                                     @foreach ($article->tags as $tag)
                                                     <li>
                                                         <a href="{{ route('visitors.artikel.tag.show', $tag->slug) }}">
@@ -75,8 +75,7 @@
                                             <div class="col-md-6 ">
                                                 <ul class="post-share right-align">
                                                     <li><i class="fa fa-share-alt"></i></li>
-                                                    <li><a href="#">Facebook</a>,</li>
-                                                    <li><a href="#"> Twitter</a></li>
+                                                    <li><a href="#">Copy Link</a></li>
                                                 </ul>
                                             </div>
                                         </div>
