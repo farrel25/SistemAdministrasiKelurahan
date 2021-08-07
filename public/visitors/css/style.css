@@ -61,7 +61,7 @@ ul {
     font-size: 24px;
     width: 40px;
     height: 40px;
-    border-radius: 4px;
+    border-radius: 10px;
     background: #3c50e0;
     color: #fff;
     transition: all 0.4s;
@@ -205,7 +205,7 @@ ul {
     background: #fff;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
     transition: ease all 0.3s;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .nav-menu .drop-down:hover>ul {
@@ -431,8 +431,8 @@ ul {
 
 .form-box {
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-    margin: 0 10px;
     padding: 40px 0;
+    margin: 5px;
 }
 
 
@@ -654,6 +654,7 @@ section {
 .product .cart .cart-img {
     position: relative;
     overflow: hidden;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .product .cart .cart-img img {
@@ -778,7 +779,7 @@ section {
     background: #fe5670;
     color: #ffffff;
     border: 1px solid #fe5670;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .btn-red:hover {
@@ -791,7 +792,7 @@ section {
     background: transparent;
     color: #444444;
     border: 2px solid #444444;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .btn-red-line:hover {
@@ -804,7 +805,7 @@ section {
     background: #f8b000;
     color: #ffffff;
     border: 1px solid #f8b000;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .btn-yellow:hover {
@@ -817,7 +818,7 @@ section {
     background: #3C50E0;
     color: #ffffff;
     border: 1px solid #3C50E0;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .btn-blue:hover {
@@ -867,13 +868,6 @@ section {
     object-fit: cover;
 }
 
-.rainbow {
-    background-color: #343A40;
-    border-radius: 4px;
-    color: #fff;
-    cursor: pointer;
-    padding: 8px 16px;
-}
 
 .breadcumb-m {
     margin-top: 100px;
@@ -881,6 +875,10 @@ section {
 
 .breadcumb-m .breadcumb-m {
     margin-bottom: 30px;
+}
+#complaint h3{
+    text-align: center;
+    font-weight: 600;
 }
 
 
@@ -1016,25 +1014,25 @@ section {
 
 /* Blog Posts */
 
-.blog-posts .blog-post {
+#article .blog-post {
     margin-bottom: 30px;
 }
 
-.blog-posts .blog-thumb img {
+#article .blog-thumb img {
     width: 100%;
-    height: 250px;
+    height: 25vh;
     overflow: hidden;
     object-fit: cover;
 }
 
-.blog-posts .down-content {
-    padding: 40px;
+#article .down-content {
+    padding: 30px;
     border-right: 1px solid #eee;
     border-left: 1px solid #eee;
     border-bottom: 1px solid #eee;
 }
 
-.blog-posts .down-content span {
+#article .down-content span {
     font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1042,7 +1040,7 @@ section {
     color: #3C50E0;
 }
 
-.blog-posts .down-content h4 {
+#article .down-content h4 {
     font-size: 24px;
     text-transform: capitalize;
     letter-spacing: 0.5px;
@@ -1051,18 +1049,18 @@ section {
     margin: 10px 0px 12px 0px;
 }
 
-.blog-posts .down-content ul.post-info li {
+#article .down-content ul.post-info li {
     display: inline-block;
     margin-right: 8px;
 }
 
-.blog-posts .down-content ul.post-info li:after {
+#article .down-content ul.post-info li:after {
     content: '|';
     color: #aaa;
     margin-left: 8px;
 }
 
-.blog-posts .down-content h4 {
+#article .down-content h4 {
     font-size: 20px;
     letter-spacing: 0.25px;
 }
@@ -1075,60 +1073,60 @@ section {
     margin-left: 5px;
 }
 
-.blog-posts .down-content ul.post-info li:last-child::after {
+#article .down-content ul.post-info li:last-child::after {
     display: none;
 }
 
-.blog-posts .down-content ul.post-info li a {
+#article .down-content ul.post-info li a {
     font-size: 14px;
     color: #aaa;
     font-weight: 400;
     transition: all .3s;
 }
 
-.blog-posts .down-content ul.post-info li a:hover {
+#article .down-content ul.post-info li a:hover {
     color: #3C50E0;
 }
 
-/* .blog-posts .down-content p {
+/* #article .down-content p {
     padding: 25px 0px;
     margin: 25px 0px;
 } */
 
-.blog-posts .down-content ul.post-share {
+#article .down-content ul.post-share {
     text-align: right;
 }
 
-.blog-posts .down-content ul.post-tags li,
-.blog-posts .down-content ul.post-share li {
+#article .down-content ul.post-tags li,
+#article .down-content ul.post-share li {
     display: inline-block;
 }
 
-.blog-posts .down-content ul.post-tags li:first-child i,
-.blog-posts .down-content ul.post-share li:first-child i {
+#article .down-content ul.post-tags li:first-child i,
+#article .down-content ul.post-share li:first-child i {
     color: #3C50E0;
     margin-right: 5px;
 }
 
-.blog-posts .down-content ul.post-tags li,
-.blog-posts .down-content ul.post-share li {
+#article .down-content ul.post-tags li,
+#article .down-content ul.post-share li {
     color: #aaa;
 }
 
-.blog-posts .down-content ul.post-tags li a,
-.blog-posts .down-content ul.post-share li a {
+#article .down-content ul.post-tags li a,
+#article .down-content ul.post-share li a {
     font-size: 14px;
     color: #aaa;
     font-weight: 400;
     transition: all .3s;
 }
 
-.blog-posts .down-content ul.post-tags li a:hover,
-.blog-posts .down-content ul.post-share li a:hover {
+#article .down-content ul.post-tags li a:hover,
+#article .down-content ul.post-share li a:hover {
     color: #3C50E0;
 }
 
-.blog-posts .main-button a {
+#article .main-button a {
     height: 60px;
     line-height: 60px;
     padding: 0px;
@@ -1168,7 +1166,7 @@ ul.page-numbers li a:hover {
     color: #3C50E0;
 }
 
-.blog-posts .sidebar-heading h2 {
+#article .sidebar-heading h2 {
     font-size: 18px;
     text-transform: uppercase;
     font-weight: 600;
@@ -1176,46 +1174,46 @@ ul.page-numbers li a:hover {
     color: #20232e;
 }
 
-.blog-posts .comments {
+#article .comments {
     margin-top: 30px;
 }
 
-.blog-posts .comments ul li {
+#article .comments ul li {
     display: inline-block;
     margin-bottom: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #eee;
 }
 
-.blog-posts .comments ul li.replied {
+#article .comments ul li.replied {
     padding-left: 130px;
 }
 
-.blog-posts .comments ul li:last-child {
+#article .comments ul li:last-child {
     margin-bottom: 0px;
     padding-bottom: 0px;
     border-bottom: none;
 }
 
-.blog-posts .comments ul li .author-thumb {
+#article .comments ul li .author-thumb {
     display: inline;
     float: left;
 }
 
-.blog-posts .comments ul li .author-thumb img {
+#article .comments ul li .author-thumb img {
     max-width: 100px;
     display: inline;
 }
 
 
-.blog-posts .comments ul li .right-content h4 {
+#article .comments ul li .right-content h4 {
     color: #20232e;
     font-size: 19px;
     font-weight: 900;
     letter-spacing: 0.5px;
 }
 
-.blog-posts .comments ul li .right-content h4 span {
+#article .comments ul li .right-content h4 span {
     font-size: 14px;
     color: #aaa;
     font-weight: 400;
@@ -1223,7 +1221,7 @@ ul.page-numbers li a:hover {
     margin-left: 20px;
 }
 
-.blog-posts .submit-comment input {
+#article .submit-comment input {
     width: 100%;
     height: 46px;
     border: 1px solid #eee;
@@ -1236,7 +1234,7 @@ ul.page-numbers li a:hover {
     margin-bottom: 15px;
 }
 
-.blog-posts .submit-comment textarea {
+#article .submit-comment textarea {
     width: 100%;
     height: 46px;
     border: 1px solid #eee;
@@ -1253,12 +1251,12 @@ ul.page-numbers li a:hover {
     min-width: 160px;
 }
 
-.blog-posts .submit-comment input::placeholder,
-.blog-posts .submit-comment textarea::placeholder {
+#article .submit-comment input::placeholder,
+#article .submit-comment textarea::placeholder {
     color: #aaa;
 }
 
-.blog-posts .submit-comment button {
+#article .submit-comment button {
     display: inline-block;
     background-color: #3C50E0;
     color: #fff;
@@ -1271,7 +1269,7 @@ ul.page-numbers li a:hover {
     outline: none;
 }
 
-.blog-posts .submit-comment button:hover {
+#article .submit-comment button:hover {
     background-color: #fb9857;
 }
 
@@ -1298,7 +1296,7 @@ ul.page-numbers li a:hover {
 .sidebar .search input {
     width: 100%;
     height: 50px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #a1a3b4;
     font-size: 13px;
     text-transform: uppercase;
@@ -1316,14 +1314,14 @@ ul.page-numbers li a:hover {
     background-color: #EEF5FF;
     padding-bottom: 10px;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .sidebar .popular-posts ul li {
     padding: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #fff;
 }
 
@@ -1349,14 +1347,14 @@ ul.page-numbers li a:hover {
     background-color: #EEF5FF;
     padding-bottom: 10px;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .sidebar .fitur ul li {
     padding: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #fff;
 }
 
@@ -1374,14 +1372,14 @@ ul.page-numbers li a:hover {
     background-color: #EEF5FF;
     padding-bottom: 10px;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .sidebar .pop-product ul li {
     padding: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #fff;
 }
 
@@ -1412,7 +1410,7 @@ ul.page-numbers li a:hover {
     background-color: #EEF5FF;
     padding-bottom: 10px;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .sidebar .pop-store ul {
@@ -1423,7 +1421,7 @@ ul.page-numbers li a:hover {
     width: 42%;
     padding: 20px;
     margin: 7px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #fff;
     display: inline-block;
     /* You can also add some margins here to make it look prettier */
@@ -1486,13 +1484,13 @@ ul.page-numbers li a:hover {
     background-color: #EEF5FF;
     padding-bottom: 10px;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .sidebar .covid-posts ul li {
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #fff;
 }
 
@@ -1500,7 +1498,7 @@ ul.page-numbers li a:hover {
     margin-top: 10px;
     filter: none;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #fff;
 }
 
@@ -1527,7 +1525,7 @@ ul.page-numbers li a:hover {
 #map {
     margin-top: 10px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     height: 400px;
     /* The height is 400 pixels */
     width: 100%;
@@ -1695,6 +1693,14 @@ ul.page-numbers li a:hover {
 #store .card:hover .card-content {
     bottom: 0;
 }
+.card  {
+    border-radius: 10px;
+}
+#card1 .card-body img{
+    width: 170px;
+    border-radius: 10px;
+}
+
 
 
 /* Footer */
@@ -1716,6 +1722,9 @@ ul.page-numbers li a:hover {
 @media (min-width: 992px) {
     .card-columns {
         column-count: 4;
+    }
+    #card1 .title-section p {
+        display: none;
     }
 }
 
@@ -1740,6 +1749,9 @@ ul.page-numbers li a:hover {
         width: 100%;
         display: block;
     }
+    p{
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 575px) {
@@ -1751,6 +1763,12 @@ ul.page-numbers li a:hover {
     }
     .title-section h1{
         font-size: x-large;
+    }
+    .title-section p {
+        font-size: 12px;
+    }
+    #article .blog-thumb img {
+        height: 17vh;
     }
 }
 @media (max-width: 768px) {
@@ -1801,6 +1819,17 @@ ul.page-numbers li a:hover {
     .breadcrumbs ol li {
         display: inline-block;
     }
+    .title-section p {
+        width: 75% !important;
+    }
+    #card1 .card-body {
+        display: flex;
+        flex-direction: column;
+    }
+    #card1 .card-body img {
+        width: 100%;
+        border-radius: 10px;
+    }
 }
 @media (max-width: 992px) {
     .sidebar {
@@ -1837,6 +1866,9 @@ ul.page-numbers li a:hover {
     }
     .breadcrumbs {
         margin-top: 72px;
+    }
+    #card1 .title-section p {
+        width: 100%!important;
     }
 }
 
