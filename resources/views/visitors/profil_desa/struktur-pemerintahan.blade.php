@@ -2,23 +2,22 @@
 
 @section('content')
 
+@section('content')
 {{-- Start Breadcumb Section --}}
 <?php
     $data=[
-        'judul' => "Artikel",
-        'link1' => route('visitors.artikel.index'),
-        'page1' => '/ Artikel',
-        'page2' => '/ Struktur Pemerintahan'
+        'page1' => '> Profil Desa',
+        'page2' => '> Struktur Pemerintahan'
     ]
 ?>
-@include('visitors.layouts.breadcumb', $data)
+@include('visitors.layouts.breadcumb-artikel', $data)
 {{-- End Breadcumb Section --}}
 
 {{-- Start Article Section --}}
 <section id="article" class="blog-posts grid-system">
     <div class="container ">
         <div class="row">
-            <div class="col-lg-8" data-aos="fade-right" data-aos-delay="1000">
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="500">
                 <div class="all-blog-posts">
                     <div class="row">
                         <div class="col-lg-12">
@@ -82,7 +81,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4" data-aos="fade-left" data-aos-delay="1000">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="700">
                 <div class="sidebar">
                     <div class="row justify-content-center">
                         @include('visitors.layouts.sidebar.sidebar-fitur')

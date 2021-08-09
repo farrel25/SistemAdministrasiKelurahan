@@ -2,9 +2,15 @@
 
 @section('content')
 {{-- Start Breadcumb Section --}}
-@include('visitors.layouts.breadcumb', ['judul' => "Administratif"], ['page2' => "/ Profil Desa", 'page3' => "/
-Administratif"])
-{{-- Start end Section --}}
+<?php
+    $data=[
+        'judul' => 'Administratif',
+        'page1' => '> Profil Desa',
+        'page2' => '> Administratif'
+    ]
+?>
+@include('visitors.layouts.breadcumb', $data)
+{{-- End Breadcumb Section --}}
 
 {{-- Start Administratif Section --}}
 <section id="administratif">
