@@ -20,7 +20,7 @@ class DashboardMenuController extends Controller
         // return DashboardMenu::with('dashboardSubMenus')->get();
         $menus = DashboardMenu::get();
         // dd($menus);
-        return view('dashboard.manajemen_menu.menu.menu', compact('menus'));
+        return view('dashboard.manajemen_menu.menu', compact('menus'));
     }
 
     /**

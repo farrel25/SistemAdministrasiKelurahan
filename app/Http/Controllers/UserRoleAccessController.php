@@ -21,26 +21,8 @@ class UserRoleAccessController extends Controller
         $roles = Role::get();
         $permissions = Permission::get();
 
-        return view('dashboard.manajemen_pengguna.role_dan_hak_akses.role_dan_hak_akses', compact('roles', 'permissions'));
+        return view('dashboard.manajemen_pengguna.role_dan_hak_akses', compact('roles', 'permissions'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        // $categories = ArticleCategory::get();
-        return view('dashboard.manajemen_pengguna.role_dan_hak_akses.role_dan_hak_akses-tambah'/*, compact('categories')*/);
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function storeRole(Request $request)
     {
         // $attr = $request->validate([

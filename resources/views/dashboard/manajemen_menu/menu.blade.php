@@ -71,8 +71,8 @@
                                             </a>
                                             <span class="editMenuModal" data-toggle="modal" data-target="#editMenuModal"
                                                 data-id="{{$menu->id}}" data-name="{{$menu->name}}">
-                                                <button type="button" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
-                                                    title="Edit Menu" data-placement="bottom">
+                                                <button type="button" class="btn btn-primary btn-sm mr-1 "
+                                                    data-toggle="tooltip" title="Edit Menu" data-placement="bottom">
                                                     <i class="fas fa-edit"></i>
                                                 </button>
                                             </span>

@@ -5,7 +5,7 @@
 <?php
     $data=[
         'icon' => "pe-7s-users",
-        'judul' => "Edit Penduduk",
+        'judul' => "Penduduk",
         'link' => route('penduduk') ,
         'page1' => "Penduduk"
     ]

@@ -19,7 +19,7 @@ class DashboardSubMenuController extends Controller
     {
         $menus = DashboardMenu::get();
         $subMenus = DashboardSubMenu::with('DashboardMenu')->orderBy('menu_id', 'asc')->paginate(15);
-        return view('dashboard.manajemen_menu.sub_menu.sub-menu', compact('menus', 'subMenus'));
+        return view('dashboard.manajemen_menu.sub-menu', compact('menus', 'subMenus'));
     }
 
     /**

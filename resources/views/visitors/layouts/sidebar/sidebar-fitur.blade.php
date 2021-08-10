@@ -1,26 +1,3 @@
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly" defer>
-</script>
-<script>
-    // Initialize and add the map
-    function initMap() {
-        // The location of Uluru
-        const uluru = {
-            lat: -25.344,
-            lng: 131.036
-        };
-        // The map, centered at Uluru
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 4,
-            center: uluru,
-        });
-        // The marker, positioned at Uluru
-        const marker = new google.maps.Marker({
-            position: uluru,
-            map: map,
-        });
-    }
-</script>
-
 <div class="col-lg-12 mb-4">
     <div class="sidebar-item search">
         <form id="search_form" name="gs" method="GET" action="#">
@@ -48,10 +25,17 @@
 </div>
 <div class="col-lg-12 mb-4">
     <div class="map-posts">
-        <div class="sidebar-heading text-center">
-            <h2>Map</h2>
-        </div>
         <div id="map">
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe width="100%" height="100%" id="gmap_canvas"
+                        src="https://maps.google.com/maps?q=sumbang&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                        scrolling="no" marginheight="1" marginwidth="0">
+                    </iframe>
+                    <a href="https://123movies-to.org"></a>
+                    <br>
+                </div>
+            </div>
         </div>
     </div>
 </div>

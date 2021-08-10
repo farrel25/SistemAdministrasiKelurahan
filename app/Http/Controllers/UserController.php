@@ -23,7 +23,7 @@ class UserController extends Controller
     {
         $users = User::latest()->paginate(10);
         $roles = Role::get();
-        return view('dashboard.manajemen_pengguna.pengguna.pengguna', compact('users', 'roles'));
+        return view('dashboard.manajemen_pengguna.pengguna', compact('users', 'roles'));
     }
 
     /**

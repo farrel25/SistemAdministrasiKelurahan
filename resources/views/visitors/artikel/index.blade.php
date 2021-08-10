@@ -83,7 +83,6 @@ $data=[
                                             lebih lanjut...
                                         </a>
                                     </p>
-                                    <hr>
                                 </div>
                             </div>
                         </div>
