@@ -12,6 +12,63 @@
 @include('dashboard.layouts.page-title',$data)
 
 @if (Auth::user()->roles->first()->name != 'Penduduk')
+{{-- Penduduk --}}
+<div class="row">
+    <div class="col-md-6">
+        <div class="main-card mb-3 card">
+            <div class="card-header">
+                Tabel Info Pengajuan Surat
+            </div>
+            <div class="table-responsive">
+                <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
+                    <thead>
+                        <tr>
+                            <th class=" text-center">No</th>
+                            <th class=" text-center">Jenis Surat</th>
+                            <th class=" text-center">Keperluan</th>
+                            <th class=" text-center">Tanggal</th>
+                            <th class=" text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class=" text-center">#</td>
+                            <td class=" text-center">#</td>
+                            <td class=" text-center">#</td>
+                            <td class=" text-center">#</td>
+                            <td class=" text-center">
+                                <div class="badge badge-primary">
+                                    Antrian
+                                </div>
+                                {{-- <div class="badge badge-warning">
+                                </div>
+                                <div class="badge badge-success">
+                                </div>
+                                <div class="badge badge-secondary">
+                                </div> --}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class=" d-block card-footer ">
+                <div class="card-body ">
+                    <nav class=" " aria-label="Page navigation example">
+                        <ul class="pagination ">
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+
+    </div>
+</div>
+{{-- Admin --}}
 <div class="row">
     <div class="col-md-6 col-xl-4">
         <div class="card mb-3 widget-content bg-grow-early">
@@ -179,7 +236,8 @@
                                                 <div class="widget-content-wrapper">
                                                     <div class="widget-content-left">
                                                         <div class="widget-heading">Tidak Aktif</div>
-                                                        <div class="widget-subheading">Total Penduduk Tidak Aktif</div>
+                                                        <div class="widget-subheading">Total Penduduk Tidak Aktif
+                                                        </div>
                                                     </div>
                                                     <div class="widget-content-right">
                                                         <div class="widget-numbers text-warning">25</div>

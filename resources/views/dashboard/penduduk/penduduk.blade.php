@@ -213,7 +213,8 @@
                             </td>
                             <td class="text-center">{{ $villager->nik }}</td>
                             <td class="text-center">
-                                <img src="{{ asset('storage/' . $villager->photo) }}" alt="" width="70">
+                                <img width="40" class="rounded-circle " height="40" style="object-fit: cover"
+                                    src="{{ asset('storage/' . $villager->photo) }}" alt="">
                             </td>
                             <td class="text-center">{{ $villager->full_name }}</td>
                             <td class="text-center">{{ $villager->phone_number }}</td>

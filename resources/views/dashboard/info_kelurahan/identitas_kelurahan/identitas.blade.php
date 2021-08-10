@@ -12,80 +12,63 @@
 ?>
 @include('dashboard.layouts.page-title',$data)
 <div class="row">
-    <div class="col-md-12">
-        <div class="main-card mb-3 card">
-            <div class="card-header">Foto Gedung
+    <div class="col-md-12 ">
+        <div class="main-card mb-3 card ">
+            <div class=" btn-actions-pane-left m-3 ">
+                <a type="button" class="btn btn-lg btn-success btn-sm text-white font-weight-normal btn-responsive"
+                    href="#">
+                    <i class="fas fa-plus"></i> Tambah Identitas Kelurahan </a>
+                <a type="button" class="btn btn-lg btn-primary btn-sm text-white font-weight-normal btn-responsive"
+                    href="{{route('info-desa.identitas.edit', $villageIdentity->id)}}">
+                    <i class="fas fa-edit"></i> Edit Identitas Kelurahan</a>
+                <a type="button" class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal btn-responsive"
+                    href="#">
+                    <i class="fas fa-map"></i> Lokasi Kantor Kelurahan </a>
             </div>
-            <img class="img-fluid" style="width: 100%; height: 350px; overflow: hidden; object-fit: cover;"
-                alt="Responsive image" src="{{ asset('/admin') }}/images/foto-kelurahan.jpg" alt="">
         </div>
     </div>
-    <div class="col-lg-6">
+</div>
+<div class="row">
+
+    <div class="col-lg-4">
         <div class="main-card mb-3 card">
             <div class="card-header">Sejarah
             </div>
             <div class="m-4">
                 <p>
                     {{ $villageIdentity->history }}
-                    {{-- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                    commodo consequat. Duis
-                    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. --}}
                 </p>
             </div>
         </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-4">
         <div class="main-card mb-3 card">
-            <div class="card-header">Visi Misi
+            <div class="card-header">Visi
             </div>
             <div class="m-4">
                 <p>
                     {{ $villageIdentity->vision }}
-                    {{-- Terwujudnya Pembangunan Di Seluruh Aspek Kehidupan Menuju Masyarakat Desa Yang Sehat, Cerdas dan
-                    Sejahtera
-                    Berdasarkan Tri Hita Karana --}}
-                </p>
-                <p>
-                    {!! $villageIdentity->mission !!}
-                    {{-- 1. Meningkatkan kualitas sumber daya manusia melalui program pendidikan dan program kesehatan, serta
-                    pengamalan ajaran
-                    agama kepada masyarakat sesuai dengan falsafah ”Tri Hita Karana”
-                    2. Menggali, melestarikan dan mengembangkan nilai-nilai budaya desa.
-                    Meningkatkan ketahanan ekonomi dengan menggalakkan usaha ekonomi kerakyatan, melalui program
-                    strategis di bidang
-                    produksi pertanian, pemasaran, koperasi, usaha kecil dan menengah, serta pariwisata.
-                    3. Meningkatkan partisipasi masyarakat dalam pembangunan, sehingga dapat menumbuhkembangkan
-                    kesadaran
-                    dan kemandirian dalam
-                    pembangunan desa yang berkelanjutan.
-                    4. Menciptakan suasana yang aman dan tertib dalam kehidupan bermasyarakat.
-                    Meningkatkan pelayanan kepada masyarakat dan meningkatkan kerjasama antar lembaga pemerintahan di
-                    desa serta lembaga
-                    adat.
-                    5. Memberdayakan masyrakat menuju masyarakat mandiri. --}}
                 </p>
             </div>
         </div>
     </div>
+    <div class="col-lg-4">
+        <div class="main-card mb-3 card">
+            <div class="card-header">Misi
+            </div>
+            <div class="m-4">
+                <p>
+                    {!! $villageIdentity->mission !!}
+                </p>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
-            <div class="card-header">Identitas Kelurahan
-                <div class="btn-actions-pane-right "><a type="button"
-                        class="btn btn-lg btn-primary btn-sm text-white font-weight-normal  mb-2 mt-2 btn-responsive"
-                        href="{{route('info-desa.identitas.edit', $villageIdentity->id)}}">
-                        <i class="fas fa-edit"></i> Edit Identitas Kelurahan</a>
-                    <a type="button"
-                        class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal btn-responsive" href="#">
-                        <i class="fas fa-map"></i> Lokasi Kantor Desa </a>
-                </div>
-            </div>
             <div class="table-responsive ">
                 <table class="mb-0 table table-borderless table-striped">
                     <thead>
@@ -254,6 +237,22 @@
                 </table>
             </div>
 
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="main-card mb-3 card">
+            <div class="card-header">Foto Gedung</div>
+            <img class="img-fluid" style="width: 100%; height: 350px; overflow: hidden; object-fit: cover;"
+                alt="Responsive image" src="{{ asset('/admin') }}/images/foto-kelurahan.jpg" alt="">
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="main-card mb-3 card">
+            <div class="card-header">Logo Desa</div>
+            <img class="img-fluid" style="width: 100%; height: 350px; overflow: hidden; object-fit: scale-down;"
+                alt="Responsive image" src="{{ asset('/images') }}/logo.png" alt="">
         </div>
     </div>
 </div>

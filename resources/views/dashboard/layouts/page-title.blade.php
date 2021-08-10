@@ -16,7 +16,7 @@
         <div class=" page-title-actions d-flex">
             <a href="{{ route('dashboard') }}" type="button" data-toggle="tooltip" title="Kembali Ke Dashboard"
                 data-placement="left" class="btn-shadow btn btn-dark pt-2">
-                <i class="fas fa-home"></i>
+                <i class="fas fa-rocket"></i>
             </a>
             <div class="input-group ml-3">
                 <input type="text" class="form-control" id="#" placeholder="Search" aria-describedby="inputGroupPrepend"

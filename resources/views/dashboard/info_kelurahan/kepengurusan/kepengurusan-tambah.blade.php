@@ -284,8 +284,7 @@
 
 
                 {{-- FORM baru, farrel version --}}
-                <form action="{{ route('info-desa.kepengurusan-store') }}" method="post"
-                    enctype="multipart/form-data">
+                <form action="{{ route('info-desa.kepengurusan-store') }}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="row">
@@ -295,21 +294,7 @@
                         </div>
                         <div class=" col-lg-9 ">
                             <div class="position-relative form-group ">
-                                <div>
-                                    <label for="#" class="">Data Staf</label>
-                                </div>
-                                <div class="btn-actions-pane-right">
-                                    <div role="group" class="btn-group-sm nav btn-group">
-                                        <a class="btn-shadow active btn btn-primary">
-                                            Database Penduduk
-                                        </a>
-                                        <a href="{{ route('penduduk-tambah') }}"
-                                            class="btn-shadow btn btn-primary text-white">
-                                            Tambahkan data penduduk baru
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="tab-content mt-3">
+                                <div class="tab-content">
                                     <div class="tab-pane active" role="tabpanel">
                                         <div class="position-relative form-group">
                                             <label for="villager" class="">NIK / Nama Penduduk</label>
@@ -328,6 +313,11 @@
                                                 <i>{{ $message }}</i>
                                             </span>
                                             @enderror
+                                            <a href="{{ route('penduduk-tambah') }}"
+                                                class="btn-shadow btn btn-primary text-white mt-2">
+                                                <i class="fa fa-plus mr-1"></i>
+                                                Tambahkan data penduduk baru
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -558,13 +548,15 @@
     $(document).ready(function() {
         $('.select2').select2({
             placeholder: "Pilih NIK",
-            allowClear: true
+            allowClear: true,
+            width:'100%'
         });
     });
     $(document).ready(function() {
         $('.select2position').select2({
             placeholder: "Pilih Jabatan",
-            allowClear: true
+            allowClear: true,
+            width:'100%'
         });
     });
 </script>

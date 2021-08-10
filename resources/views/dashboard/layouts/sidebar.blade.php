@@ -1,4 +1,4 @@
-<div class="app-sidebar sidebar-shadow">
+<aside class="app-sidebar sidebar-shadow">
     <div class="app-header__logo">
         <div class="logo-src"></div>
         <div class="header__pane ml-auto">
@@ -292,8 +292,8 @@
                 $subMenus = DB::table('dashboard_sub_menus')
                 ->join('dashboard_menus', 'dashboard_sub_menus.menu_id', '=', 'dashboard_menus.id')
                 ->where([
-                    ['dashboard_sub_menus.menu_id', '=' , $menu->id],
-                    ['dashboard_sub_menus.is_active', '=', 1]
+                ['dashboard_sub_menus.menu_id', '=' , $menu->id],
+                ['dashboard_sub_menus.is_active', '=', 1]
                 ])
                 ->get();
                 @endphp
@@ -338,4 +338,4 @@
             </ul>
         </div>
     </div>
-</div>
+</aside>

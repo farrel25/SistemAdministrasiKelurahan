@@ -493,7 +493,9 @@
     $(document).ready(function() {
         $('.select2position').select2({
             placeholder: "Pilih Jabatan",
-            allowClear: true
+            allowClear: true,
+            width: '100%',
+            padding: '4px'
         });
     });
 </script>

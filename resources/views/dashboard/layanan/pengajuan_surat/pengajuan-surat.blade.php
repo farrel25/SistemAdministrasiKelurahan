@@ -23,9 +23,9 @@
                 <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
                     <thead>
                         <tr>
-                            <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
+                            {{-- <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th> --}}
                             <th class=" text-center">No</th>
-                            <th class=" text-center">Aksi</th>
+                            {{-- <th class=" text-center">Aksi</th> --}}
                             <th class=" text-center">Kode Surat</th>
                             <th class=" text-center">Jenis Surat</th>
                             <th class=" text-center">Keperluan</th>
@@ -38,80 +38,79 @@
                     <tbody>
                         @forelse ($letterSubmissions as $number => $letterSubmission)
                         <tr>
-                            <td class=" text-center">
+                            {{-- <td class=" text-center">
                                 <input type="checkbox" name="chkbox[]" value="{{ $letterSubmission->id }}">
-                            </td>
+                            </td> --}}
                             <td class=" text-center">{{ $number + $letterSubmissions->firstItem() }}</td>
-                            <td class=" text-center">
-                                {{-- <div class="btn-group-sm btn-group"> --}}
+                            {{-- <td class=" text-center">
+                                <div class="btn-group-sm btn-group">
                                 <div class="d-flex justify-content-center">
                                     @if ($letterSubmission->status_id == 1)
                                     <a href="{{ route('layanan.pengajuan-surat.edit', $letterSubmission->id)}}"
-                                        class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
-                                        title="Edit Pengajuan Surat" data-placement="bottom">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    @else
-                                    <i>Tidak ada aksi</i>
-                                    @endif
-
-                                </div>
-                            </td>
-                            <td class=" text-center">{{ $letterSubmission->letterType->letter_code }}</td>
-                            <td class=" text-center">{{ $letterSubmission->letterType->type }}</td>
-                            {{-- <td class=" text-center">{{ $letterSubmission->user->full_name }}</td> --}}
-                            <td class=" text-center">{{ $letterSubmission->keperluan }}</td>
-                            {{-- yg menandatangani masih statis --}}
-                            @if ($letterSubmission->dittd_oleh == null)
-                            <td class=" text-center">
-                                <div class="badge badge-warning">
-                                    belum ada
-                                </div>
-                            </td>
+                            class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
+                            title="Edit Pengajuan Surat" data-placement="bottom">
+                            <i class="fas fa-edit"></i>
+                            </a>
                             @else
-                            <td class=" text-center"> </td>
+                            <i>Tidak ada aksi</i>
                             @endif
-                            <td class=" text-center">
-                                {{ date('d-m-Y', strtotime($letterSubmission->updated_at)) }}
-                            </td>
-                            <td class=" text-center">
-                                @if ($letterSubmission->status_id == 1)
-                                <div class="badge badge-primary">
-                                    {{ $letterSubmission->letterStatus->status }}
-                                </div>
-                                @elseif($letterSubmission->status_id == 2)
-                                <div class="badge badge-warning">
-                                    {{ $letterSubmission->letterStatus->status }}
-                                </div>
-                                @elseif($letterSubmission->status_id == 3)
-                                <div class="badge badge-success">
-                                    {{ $letterSubmission->letterStatus->status }}
-                                </div>
-                                @else
-                                <div class="badge badge-secondary">
-                                    {{ $letterSubmission->letterStatus->status }}
-                                </div>
-                                @endif
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+
             </div>
-            <div class=" d-block card-footer ">
-                <div class="card-body ">
-                    <nav class=" " aria-label="Page navigation example">
-                        <ul class="pagination ">
-                            {{ $letterSubmissions->links() }}
-                        </ul>
-                    </nav>
+            </td> --}}
+            <td class=" text-center">{{ $letterSubmission->letterType->letter_code }}</td>
+            <td class=" text-center">{{ $letterSubmission->letterType->type }}</td>
+            {{-- <td class=" text-center">{{ $letterSubmission->user->full_name }}</td> --}}
+            <td class=" text-center">{{ $letterSubmission->keperluan }}</td>
+            {{-- yg menandatangani masih statis --}}
+            @if ($letterSubmission->dittd_oleh == null)
+            <td class=" text-center">
+                <div class="badge badge-warning">
+                    belum ada
                 </div>
+            </td>
+            @else
+            <td class=" text-center"> </td>
+            @endif
+            <td class=" text-center">
+                {{ date('d-m-Y', strtotime($letterSubmission->updated_at)) }}
+            </td>
+            <td class=" text-center">
+                @if ($letterSubmission->status_id == 1)
+                <div class="badge badge-primary">
+                    {{ $letterSubmission->letterStatus->status }}
+                </div>
+                @elseif($letterSubmission->status_id == 2)
+                <div class="badge badge-warning">
+                    {{ $letterSubmission->letterStatus->status }}
+                </div>
+                @elseif($letterSubmission->status_id == 3)
+                <div class="badge badge-success">
+                    {{ $letterSubmission->letterStatus->status }}
+                </div>
+                @else
+                <div class="badge badge-secondary">
+                    {{ $letterSubmission->letterStatus->status }}
+                </div>
+                @endif
+            </td>
+            </tr>
+            @endforeach
+            </tbody>
+            </table>
+        </div>
+        <div class=" d-block card-footer ">
+            <div class="card-body ">
+                <nav class=" " aria-label="Page navigation example">
+                    <ul class="pagination ">
+                        {{ $letterSubmissions->links() }}
+                    </ul>
+                </nav>
             </div>
         </div>
     </div>
 </div>
 
-<script>
+{{-- <script>
     $('#updateStatusModal').on('show.bs.modal', function(e) {
         var button = e.relatedTarget();
         var modal = $(this);
@@ -151,6 +150,6 @@
             }
         })
     });
-</script>
+</script> --}}
 
 @endsection
