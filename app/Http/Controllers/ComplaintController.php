@@ -78,6 +78,7 @@ class ComplaintController extends Controller
                 ->withInput();
         }
 
+        // Complaint::create($validator->valid());
         Complaint::create($validator->getData());
         Alert::success('Berhasil', 'Pengaduan anda terkirim');
 
