@@ -111,13 +111,10 @@
                             <td class=" text-center">
                                 {{-- <div class="btn-group-sm btn-group"> --}}
                                 <div class="d-flex justify-content-center">
-                                    <span
-                                        class="updateStatusModal"
-                                        data-toggle="modal"
-                                        data-target="#updateStatusModal"
-                                        data-id="{{ $letterSubmission->id }}"
-                                    >
-                                        <button class="btn btn-primary btn-sm mr-1" data-toggle="tooltip" title="Ubah Status Surat" data-placement="bottom">
+                                    <span class="updateStatusModal" data-toggle="modal" data-target="#updateStatusModal"
+                                        data-id="{{ $letterSubmission->id }}">
+                                        <button class="btn btn-primary btn-sm mr-1" data-toggle="tooltip"
+                                            title="Ubah Status Surat" data-placement="bottom">
                                             <i class="fas fa-edit"></i>
                                         </button>
                                     </span>
@@ -148,7 +145,7 @@
                             {{-- yg menandatangani masih statis --}}
                             @if ($letterSubmission->dittd_oleh == null)
                             <td class=" text-center">
-                                <div class="badge badge-warning">
+                                <div class="badge badge-secondary">
                                     belum ada
                                 </div>
                             </td>
@@ -163,12 +160,28 @@
                                 <div class="badge badge-primary">
                                     {{ $letterSubmission->letterStatus->status }}
                                 </div>
+
                                 @elseif($letterSubmission->status_id == 2)
-                                <div class="badge badge-warning">
-                                    {{ $letterSubmission->letterStatus->status }}
-                                </div>
+                                <form action="action=" {{ route('manajemen-surat.pengajuan-surat.update') }}">
+                                    @csrf
+                                    @method('patch')
+                                    <div class="dropdown d-inline-block">
+                                        <button type="button" aria-haspopup="true" aria-expanded="false"
+                                            data-toggle="dropdown"
+                                            class="dropdown-toggle btn btn-primary btn-sm">{{ $letterSubmission->letterStatus->status }}</button>
+                                        <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu">
+                                            @foreach ($letterStatuses as $status)
+                                            <button type="button" value="{{ $status->id }}"
+                                                {{ old('status_id') == $status->id ? 'selected' : '' }} tabindex="0"
+                                                class="dropdown-item">{{ $status->status }}</button>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </form>
+
                                 @elseif($letterSubmission->status_id == 3)
                                 <div class="badge badge-success">
+
                                     {{ $letterSubmission->letterStatus->status }}
                                 </div>
                                 @else
@@ -194,6 +207,9 @@
         </div>
     </div>
 </div>
+
+{{-- <div class="badge badge-warning">{{ $letterSubmission->letterStatus->status }}
+</div> --}}
 
 <script>
     $(document).on("click", ".updateStatusModal", function () {

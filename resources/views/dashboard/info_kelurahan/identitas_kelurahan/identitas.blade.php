@@ -30,18 +30,7 @@
 </div>
 <div class="row">
 
-    <div class="col-lg-4">
-        <div class="main-card mb-3 card">
-            <div class="card-header">Sejarah
-            </div>
-            <div class="m-4">
-                <p>
-                    {{ $villageIdentity->history }}
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4">
+    <div class="col-lg-6">
         <div class="main-card mb-3 card">
             <div class="card-header">Visi
             </div>
@@ -52,13 +41,24 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-6">
         <div class="main-card mb-3 card">
             <div class="card-header">Misi
             </div>
             <div class="m-4">
                 <p>
                     {!! $villageIdentity->mission !!}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+        <div class="main-card mb-3 card">
+            <div class="card-header">Sejarah
+            </div>
+            <div class="m-4">
+                <p>
+                    {{ $villageIdentity->history }}
                 </p>
             </div>
         </div>
