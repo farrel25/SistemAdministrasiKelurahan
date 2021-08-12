@@ -1,5 +1,6 @@
 <?php
 
+use App\ComplaintCategory;
 use App\VillageIdentity;
 use Illuminate\Database\Seeder;
 
@@ -57,7 +58,10 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
 
             // Village Information
-            VillageIdentitySeeder::class
+            VillageIdentitySeeder::class,
+
+            // Complaint
+            ComplaintCategorySeeder::class
         ]);
     }
 }
