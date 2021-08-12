@@ -54,8 +54,7 @@
                         style="width: 100px; height: 100px; background-color:#F8B000; border-radius:50%;"></i>
                 </span>
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Pengaduan</h4>
-                <p class=" small"> Membuka peluang warga desa dalam pengembangan UMKM untuk disebarluaskan melalui
-                    website</p>
+                <p class=" small"> Memberikan kesempatan bagi warga desa dalam menyampaikan aspirasinya untuk meningkatkan berbagai pelayanan yang tersedia</p>
             </a>
             <a href="{{ route('layanan.kontributor') }}" class="col-lg-3 col-sm-6 text-center p-3 text-dark"
                 data-aos="fade-up" data-aos-delay="500">
@@ -424,38 +423,72 @@
             <div class="col-lg-10 ">
                 <h3 class="p-3">Form Pengaduan</h3>
                 <hr>
-                <form action="#" method="POST">
+                <form action="{{ route('visitors.complaint.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="user_id" id="user_id" value="{{$user_id}}">
                     <div class="row">
                         <div class=" col-sm-6 mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="Isikan Nama">
+                            <label for="name" class="form-label">Nama<span class="text-danger">*</span></label>
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"
+                                placeholder="Nama lengkap anda" value="{{$user ? $user->full_name : old('name') ?? ''}}">
+                            @error('name')
+                            <small>
+                                <font style="color: red; font-style: italic">{{$message}}</font>
+                            </small>
+                            @enderror
                         </div>
                         <div class=" col-sm-6 mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Alamat Email</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="name@example.com">
+                            <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email"
+                                placeholder="name@example.com" value="{{$user ? $user->email : old('email') ?? ''}}">
+                            @error('email')
+                            <small>
+                                <font style="color: red; font-style: italic">{{$message}}</font>
+                            </small>
+                            @enderror
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Nomor Handphone</label>
-                            <input type="email" class="form-control" id="exampleFormControlInput1"
-                                placeholder="081234567891">
+                            <label for="phone_number" class="form-label">Nomor Handphone<span class="text-danger">*</span></label>
+                            <input type="text" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" id="phone_number"
+                                placeholder="081234567891" value="{{$user ? $user->phone : old('phone_number') ?? ''}}">
+                            @error('phone_number')
+                            <small>
+                                <font style="color: red; font-style: italic">{{$message}}</font>
+                            </small>
+                            @enderror
                         </div>
                         <div class=" col-sm-6 mb-3">
-                            <label for="exampleFormControlInput1" class="form-label">Kategori</label>
-                            <select class="mb-2 form-control ">
-                                <option>Pilih Kategori</option>
-                                <option>Kegiatan Desa</option>
-                                <option>Website</option>
-                                <option>Administratif</option>
+                            <label for="complaint_category_id" class="form-label">Kategori<span class="text-danger">*</span></label>
+                            <select class="mb-2 form-control @error('complaint_category_id') is-invalid @enderror" name="complaint_category_id" id="complaint_category_id" value="{{ old('complaint_category_id') }}">
+                                <option value="{{ old('complaint_category_id') ?? '' }}">
+                                    {{ $complaint_categories[old('complaint_category_id') - 1]->category ?? 'Pilih salah satu...' }}
+                                </option>
+                                @foreach ($complaint_categories as $category)
+                                <option value="{{$category->id}}">
+                                    {{$category->category}}
+                                </option>
+                                @endforeach
                             </select>
+                            @error('complaint_category_id')
+                            <small>
+                                <font style="color: red; font-style: italic">{{$message}}</font>
+                            </small>
+                            @enderror
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlTextarea1" class="form-label">Isi Aduan</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <label for="complaint" class="form-label">Isi Aduan<span class="text-danger">*</span></label>
+                        <textarea class="form-control @error('complaint') is-invalid @enderror" name="complaint" id="complaint" rows="3">{{ old('complaint') }}</textarea>
+                        @error('complaint')
+                        <small>
+                            <font style="color: red; font-style: italic">{{$message}}</font>
+                        </small>
+                        @enderror
+                    </div>
+                    <div class="row justify-content-center mt-5">
+                        <button type="submit" class="btn-submit">Kirim</button>
                     </div>
                 </form>
             </div>

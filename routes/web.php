@@ -364,6 +364,8 @@ Route::middleware('auth')->group(function () {
 
 // Beranda
 Route::get('/', 'HomeController@beranda')->name('visitors.beranda.index');
+// Complaint
+Route::post('/pengaduan', 'ComplaintController@store')->name('visitors.complaint.store');
 
 
 // Artikel

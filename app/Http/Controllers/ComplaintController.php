@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Complaint;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ComplaintController extends Controller
 {
@@ -41,22 +44,44 @@ class ComplaintController extends Controller
      */
     public function store(Request $request)
     {
-        // $ComplaintController = request()->validate([
-        //     'nik' => 'required|digits:16',
-        //     'full_name' => 'required|string|max:255',
+        // $complaint = request()->validate([
+        //     'name' => 'required|string|max:255',
         //     'email' => 'required|email',
-        //     'letter_type_id' => 'required',
-        //     'keperluan' => 'required|string'
+        //     'phone_number' => 'required|string|max:255',
+        //     'complaint_category_id' => 'required',
+        //     'complaint' => 'required|string'
         // ]);
-        // $ComplaintController['user_id'] = Auth::user()->id;
-        // $ComplaintController['status_id'] = 1;
-        // $ComplaintController['phone'] = Auth::user()->phone;
 
-        // ComplaintController::create($ComplaintController);
-        // // Alert::success('Permohonan pengajuan surat berhasil dikirim', "Silahkan ke <a href=" . route('dashboard') . ">halaman dashboard</a>anda untuk info lebih lanjut");
-        // session()->flash('success', 'Pengajuan surat terkirim');
+        // $complaint['user_id'] = $request->user_id;
+        // dd($complaint);
 
-        // return redirect(route('pengajuan-surat.create'));
+        // // ComplaintController::create($ComplaintController);
+        // // // Alert::success('Permohonan pengajuan surat berhasil dikirim', "Silahkan ke <a href=" . route('dashboard') . ">halaman dashboard</a>anda untuk info lebih lanjut");
+        // // session()->flash('success', 'Pengajuan surat terkirim');
+
+        // return redirect(route('visitors.beranda.index'));
+
+
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'phone_number' => 'required|string|max:255',
+            'complaint_category_id' => 'required',
+            'complaint' => 'required|string'
+        ]);
+
+        if ($validator->fails()) {
+            Alert::error('Gagal', 'Terdapat kesalahan input data pengaduan, silahkan coba lagi');
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        Complaint::create($validator->getData());
+        Alert::success('Berhasil', 'Pengaduan anda terkirim');
+
+        return back();
     }
 
     /**

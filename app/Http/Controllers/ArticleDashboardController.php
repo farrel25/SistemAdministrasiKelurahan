@@ -6,10 +6,10 @@ use App\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
-use Alert;
 use App\ArticleCategory;
 use App\ArticleTag;
 use Illuminate\Validation\Rule;
+use RealRashid\SweetAlert\Facades\Alert;
 
 // use RealRashid\SweetAlert\Facades\Alert;
 

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use  App\Article;
 use  App\ArticleComment;
+use App\ComplaintCategory;
+use ComplaintCategorySeeder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -31,10 +34,26 @@ class HomeController extends Controller
     public function beranda()
     {
         $all_articles = Article::get();
-        $articles = Article::where('enabled', 1)->orderby('updated_at', 'desc')->paginate(6);
+        $articles = Article::where('enabled', 1)->orderby('updated_at', 'desc')->paginate(3);
         $count = $all_articles->count();
         $article_comments = ArticleComment::get();
+        $complaint_categories = ComplaintCategory::get();
 
-        return view('visitors.beranda.index', compact('all_articles', 'articles', 'count', 'article_comments'));
+        $user = null;
+        $user_id = null;
+        if(Auth::check()) {
+            $user = Auth::user();
+            $user_id = $user->id;
+        }
+
+        return view('visitors.beranda.index', compact(
+            'all_articles',
+            'articles',
+            'count',
+            'article_comments',
+            'complaint_categories',
+            'user',
+            'user_id'
+        ));
     }
 }
