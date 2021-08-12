@@ -1,5 +1,6 @@
 <?php
 
+use App\ComplaintCategory;
 use Illuminate\Database\Seeder;
 
 class ComplaintCategorySeeder extends Seeder
@@ -11,6 +12,18 @@ class ComplaintCategorySeeder extends Seeder
      */
     public function run()
     {
-        //
+        $categories = collect([
+            'Website',
+            'Administratif',
+            'Pelayanan',
+            'Kegiatan Desa'
+        ]);
+
+        $categories->each(function ($category) {
+            ComplaintCategory::create([
+                'category' => $category,
+                'is_enable' => 1
+            ]);
+        });
     }
 }
