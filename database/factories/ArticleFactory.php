@@ -6,7 +6,8 @@ use App\Article;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
-// factory(App\Article::class, 20)->create();
+// factory(App\Article::class, 10)->create();
+// factory ('App\Article', 10)->create();
 $factory->define(Article::class, function (Faker $faker) {
     $title = $faker->sentence($nbWords = 3);
     $slug = Str::slug($title);
@@ -26,4 +27,3 @@ $factory->define(Article::class, function (Faker $faker) {
         'read_count' => 0,
     ];
 });
-// factory ('App\Article', 10)->create();

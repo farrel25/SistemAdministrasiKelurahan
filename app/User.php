@@ -70,4 +70,12 @@ class User extends Authenticatable
     // {
     //     return $this->hasMany(ArticleComment::class, 'email', 'email');
     // }
+
+    public function complaints() {
+        $this->hasMany(Complaint::class);
+    }
+
+    public function complaintComments() {
+        return $this->hasMany(ComplaintComment::class);
+    }
 }
