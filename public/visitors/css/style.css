@@ -1720,6 +1720,31 @@ ul.page-numbers li a:hover {
 
 
 /* Footer */
+.footer-distributed {
+    text-align: left;
+    font-weight: 600;
+}
+
+.footer-distributed p span {
+    text-align: left;
+    font-weight: 400;
+}
+
+.footer-distributed p  {
+    margin-bottom: 0px !important;
+}
+.footer-distributed  i {
+    background-color: #181747;
+    color: #ffffff;
+    font-size: 16px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 33px;
+    margin: 5px 10px;
+    vertical-align: middle;
+}
 
 
 /* Responsive Style */

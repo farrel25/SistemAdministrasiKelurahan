@@ -8,27 +8,23 @@
             </div>
             <div class="col-lg-7 text-lg-left pl-lg-4  text-center h-100 d-block footer-info">
                 <h3>Desa</h3>
-                <p class="text-justify mr-lg-5">Website administrasi desa merupakan aplikasi berbasis website yang
+                <p class="text-center mr-lg-5 text-md-left">Website administrasi desa merupakan aplikasi berbasis
+                    website yang
                     digunakan untuk membantu pengurus desa dalam
                     mengelola data administratif serta meningkatkan pelayanan kepada penduduk desa
                 </p>
             </div>
-            {{-- <div class="col-lg-4">
-                <form>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Aduan</label>
-                        <textarea class="form-control" id="#" placeholder="Isi Aduan ..."></textarea>
-                    </div>
-                    <div class="form-group row ">
-                        <div class=" col-lg-9">
-                            <input type="text" class="form-control mb-3" id="#" placeholder="Pengirim">
-                        </div>
-                        <div class=" col-lg-3 ">
-                            <button type="submit" class="btn btn-primary btn-responsive btn-blue ">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div> --}}
+            <ul class=" col-lg-4 footer-distributed d-flex flex-column justify-content-center">
+                <li>
+                    <p><i class="fa fa-map-marker"></i><span>Jl. Kemutug Kidul</span> Sumpbang, Purworejo</p>
+                </li>
+                <li>
+                    <p><i class="fa fa-phone"></i>+62 555 666 777 888</p>
+                </li>
+                <li>
+                    <p><i class="fa fa-envelope"></i><a href="mailto:support@company.com">support@company.com</a></p>
+                </li>
+            </ul>
         </div>
     </div>
 </footer>
@@ -36,7 +32,7 @@
     <div class="container ">
         <span class=" ">
             <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
-            <a href="#"><i class="fab fa-twitter ffa-lg"></i></a>
+            <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
             <a href="#"><i class="fab fa-facebook-square fa-lg"></i></a>
             <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
         </span>
