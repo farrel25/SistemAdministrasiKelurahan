@@ -51,19 +51,23 @@
                                     <td class=" text-center">{{ ++$number }}</td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center">
-                                            <a href="{{ route('manajemen-menu.sub-menu') }}"
-                                                class="btn btn-alternate btn-sm mr-1 text-white" data-toggle="tooltip"
-                                                title="Sub Menu " data-placement="bottom">
-                                                <i class="fas fa-bars"></i>
+
+                                            <a href="#" target="_blank" class="btn btn-info btn-sm mr-1"
+                                                data-toggle="tooltip" title="Pindah Posisi Keatas" title="Pindah Atas"
+                                                data-placement="bottom">
+                                                <i class="fas fa-caret-square-up "></i>
                                             </a>
-                                            {{-- <button type="submit" class="btn btn-focus btn-sm mr-1"
-                                                data-toggle="tooltip" title="Non Aktifkan Menu" data-placement="bottom">
-                                                <i class="fas fa-lock-open"></i>
-                                            </button>
-                                            <a href="#" class="btn btn-focus btn-sm mr-1 " data-toggle="tooltip"
-                                                title="Aktifkan Menu" data-placement="bottom">
+
+                                            <a href="#" target="_blank" class="btn btn-info btn-sm mr-1"
+                                                data-toggle="tooltip" title="Pindah Posisi Kebawah" title="Pindah Bawah"
+                                                data-placement="bottom">
+                                                <i class="fas fa-caret-square-down"></i>
+                                            </a>
+                                            <a href="{{ route('manajemen-menu.sub-menu') }}"
+                                                class="btn btn-secondary btn-sm mr-1 text-white" data-toggle="tooltip"
+                                                title="Sub Menu " data-placement="bottom">
                                                 <i class="fas fa-lock"></i>
-                                            </a> --}}
+                                            </a>
                                             <a href="{{ route('manajemen-menu.sub-menu') }}"
                                                 class="btn btn-success btn-sm mr-1 " data-toggle="tooltip"
                                                 title="Tambah Sub Menu " data-placement="bottom">

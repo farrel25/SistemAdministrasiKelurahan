@@ -363,7 +363,7 @@
                         </div>
                         <div class=" col-lg-9">
                             <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="position-relative form-group">
                                         <label for="instagram" class="">Instagram</label>
                                         <input name="instagram" id="instagram" type="text"
@@ -376,7 +376,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="position-relative form-group">
                                         <label for="facebook" class="">Facebook</label>
                                         <input name="facebook" id="facebook" type="text"
@@ -389,9 +389,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <div class="position-relative form-group">
                                         <label for="twitter" class="">Twitter</label>
                                         <input name="twitter" id="twitter" type="text"
@@ -404,9 +402,25 @@
                                         @enderror
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-row">
+
                                 <div class="col-md-6">
                                     <div class="position-relative form-group">
                                         <label for="youtube" class="">Youtube</label>
+                                        <input name="youtube" id="youtube" type="text"
+                                            class="form-control @error('youtube') is-invalid @enderror"
+                                            value="{{ old('youtube') ?? $villageIdentity->youtube }}">
+                                        @error('youtube')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="position-relative form-group">
+                                        <label for="youtube" class="">Link Google Maps</label>
                                         <input name="youtube" id="youtube" type="text"
                                             class="form-control @error('youtube') is-invalid @enderror"
                                             value="{{ old('youtube') ?? $villageIdentity->youtube }}">

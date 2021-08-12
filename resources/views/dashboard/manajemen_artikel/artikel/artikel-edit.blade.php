@@ -72,21 +72,22 @@
                                         @enderror
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md">
-                                <div class="form-group">
-                                    <label for="editor">Isi</label>
-                                    <textarea class="form-control @error('body') is-invalid @enderror" name="body"
-                                        id="editor" rows="5">
-                                        {{ old('body') ?? $article->body }}
-                                    </textarea>
-                                    @error('body')
-                                    <span class="invalid-feedback mt-2" role="alert">
-                                        <i>{{ $message }}</i>
-                                    </span>
-                                    @enderror
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="editor">Isi</label>
+                                        <textarea class="form-control @error('body') is-invalid @enderror" name="body"
+                                            id="editor" rows="5">
+                                                                        {{ old('body') ?? $article->body }}
+                                                                    </textarea>
+                                        @error('body')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                     <div tabindex="-1" class="dropdown-divider mt-4"></div>
@@ -198,7 +199,8 @@
 <script>
     $(document).ready(function() {
         $('.select2').select2({
-            placeholder: "Pilih tag yang sesuai"
+            placeholder: "Pilih tag yang sesuai",
+            width: '100%'
         });
     });
 </script>

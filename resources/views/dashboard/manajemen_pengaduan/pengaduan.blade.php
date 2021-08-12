@@ -22,18 +22,18 @@
                 <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
                     <thead>
                         <tr>
-                            <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No</th>
                             <th class=" text-center">Aksi</th>
                             <th class=" text-center">Aduan</th>
-                            <th class=" text-center">Pengirim</th>
+                            <th class=" text-center">Nama</th>
+                            <th class=" text-center">Email</th>
+                            <th class=" text-center">No. telepon</th>
                             <th class=" text-center">Tanggal</th>
                             <th class=" text-center">Komentar Pengaduan</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td class=" text-center"><input type="checkbox" name="chkbox[]" value="#"></td>
                             <td class=" text-center">#</td>
                             <td class=" text-center">
                                 <div class="d-flex justify-content-center">
@@ -53,6 +53,8 @@
                                     </form>
                                 </div>
                             </td>
+                            <td class=" text-center">#</td>
+                            <td class=" text-center">#</td>
                             <td class=" text-center">#</td>
                             <td class=" text-center">#</td>
                             <td class=" text-center">#

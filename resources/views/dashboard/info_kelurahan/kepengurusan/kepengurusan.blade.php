@@ -25,18 +25,19 @@
                     <button type="button"
                         class="btn btn-lg btn-success btn-sm text-white font-weight-normal btn-responsive m-1 mb-2 "
                         data-toggle="modal" data-target="#importExcelVillagerModal">
-                        <i class="fas fa-file-upload"></i> Unggah Data Excel
+                        <i class="fas fa-file-upload mr-1"></i> Unggah Data Excel
                     </button>
                     <a type="button"
                         class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
-                        href="#"><i class="fas fa-print "></i> Cetak </a>
+                        href="#"><i class="fas fa-print  mr-1"></i> Cetak </a>
                     <a type="button"
                         class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
-                        href="#"><i class="fas fa-trash-alt"></i> Hapus Data Terpilih</a>
+                        href="#"><i class="fas fa-trash-alt mr-1"></i> Hapus Data Terpilih</a>
                     <a type="button"
                         class="btn btn-lg btn-focus btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
-                        href="{{route('info-desa.kepengurusan-create')}}">+
-                        Tambah Data
+                        href="{{route('info-desa.kepengurusan-create')}}">
+                        <i class="fa fa-plus mr-1"></i>
+                        Tambah Pengurus
                     </a>
                 </div>
             </div>
@@ -64,7 +65,7 @@
                                     <a href="#" target="_blank" class="btn btn-success btn-sm mr-1"
                                         data-toggle="tooltip" title="Pindah Posisi Keatas" title="Pindah Atas"
                                         data-placement="bottom">
-                                        <i class="fas fa-caret-square-up"></i>
+                                        <i class="fas fa-caret-square-up "></i>
                                     </a>
 
                                     <a href="#" target="_blank" class="btn btn-success btn-sm mr-1"
@@ -76,7 +77,7 @@
                                     <a href="{{route('info-desa.kepengurusan-edit', $st->nik)}}"
                                         class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
                                         title="Edit Kepengurusan Kelurahan" data-placement="bottom">
-                                        <i class="fas fa-edit"></i>
+                                        <i class="fas fa-edit "></i>
                                     </a>
 
                                     <form id="delete-form"
@@ -98,7 +99,7 @@
                                         <input type="hidden" name="is_active" value="0">
                                         <button type="submit" class="btn btn-secondary btn-sm mr-1"
                                             data-toggle="tooltip" title="Non Aktifkan Staff" data-placement="bottom">
-                                            <i class="fas fa-lock-open"></i>
+                                            <i class="fas fa-lock-open "></i>
                                         </button>
                                     </form>
                                     @else
@@ -109,7 +110,7 @@
                                         <input type="hidden" name="is_active" value="1">
                                         <button type="submit" class="btn btn-secondary btn-sm mr-1"
                                             data-toggle="tooltip" title="Aktifkan Staff" data-placement="bottom">
-                                            <i class="fas fa-lock"></i>
+                                            <i class="fas fa-lock "></i>
                                         </button>
                                     </form>
                                     @endif

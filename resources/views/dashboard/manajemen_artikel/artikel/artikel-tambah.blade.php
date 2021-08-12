@@ -67,13 +67,13 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-md">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="editor">Isi</label>
                                         <textarea class="form-control @error('body') is-invalid @enderror" name="body"
                                             id="editor" rows="5">
-                                            {{ old('body') }}
-                                        </textarea>
+                                                                            {{ old('body') }}
+                                                                        </textarea>
                                         @error('body')
                                         <span class="invalid-feedback mt-2" role="alert">
                                             <i>{{ $message }}</i>
