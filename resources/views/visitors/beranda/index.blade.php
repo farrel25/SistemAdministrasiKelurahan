@@ -54,7 +54,8 @@
                         style="width: 100px; height: 100px; background-color:#F8B000; border-radius:50%;"></i>
                 </span>
                 <h4 class="mb-2 mt-2" style="font-weight: 600;">Pengaduan</h4>
-                <p class=" small"> Memberikan kesempatan bagi warga desa dalam menyampaikan aspirasinya untuk meningkatkan berbagai pelayanan yang tersedia</p>
+                <p class=" small"> Memberikan kesempatan bagi warga desa dalam menyampaikan aspirasinya untuk
+                    meningkatkan berbagai pelayanan yang tersedia</p>
             </a>
             <a href="{{ route('layanan.kontributor') }}" class="col-lg-3 col-sm-6 text-center p-3 text-dark"
                 data-aos="fade-up" data-aos-delay="500">
@@ -135,84 +136,72 @@
                 </p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="all-blog-posts">
-                    <div class="row ">
-                        @forelse ($articles as $article)
-                        <div class="col-lg-12 " data-aos="fade-up" data-aos-delay="500">
-                            <div class="blog-post">
-                                <div class="blog-thumb">
-                                    {{-- <img src="{{ asset('/images') }}/img-article-01.png" alt=""> --}}
-                                    {{-- <img src="{{ $article->thumbnail }}" alt=""> --}}
-                                    <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="">
-                                </div>
-                                <div class="down-content">
-                                    {{-- <a href="post-details.html"> --}}
-                                    <a href="{{ route('visitors.artikel.show', $article->slug) }}">
-                                        <h4>{{$article->title}}</h4>
-                                    </a>
-                                    @php
-                                    // $userId = $article->user_id;
-                                    // dd($article->user->roles->first()->name);
-
-                                    // $roleId = \DB::table('model_has_roles')
-                                    // ->where('model_id', $userId)->value('role_id');
-                                    // var_dump($roleId);
-                                    // $role = \DB::table('roles')
-                                    // ->select('model_has_roles.model_id','model_has_roles.role_id', 'roles.name')
-                                    // ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
-                                    // ->where('model_has_roles.role_id', $roleId)->get()->toArray();
-                                    // var_dump($role);
-                                    @endphp
-
-                                    <ul class="post-info ">
-                                        {{-- <li><a href="#">{{$role[0]->name}}</a></li> --}}
-                                        <li><a href="#">{{$article->user->roles->first()->name}}</a></li>
-                                        <li>
-                                            <a href="#">
-                                                {{-- {{$article->created_at->diffForHumans()}} --}}
-                                                {{$article->created_at->format('d F, Y')}}
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <hr>
-                                    <p>{!!Str::limit($article->body,200)!!}
-                                        <br>
-                                        <a href="{{ route('visitors.artikel.show', $article->slug) }}">
-                                            lebih lanjut...
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
+        <div class="all-blog-posts">
+            <div class="row ">
+                @forelse ($articles as $article)
+                <div class="col-lg-4 " data-aos="fade-up" data-aos-delay="500">
+                    <div class="blog-post">
+                        <div class="bt-home">
+                            {{-- <img src="{{ asset('/images') }}/img-article-01.png" alt=""> --}}
+                            {{-- <img src="{{ $article->thumbnail }}" alt=""> --}}
+                            <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="">
                         </div>
+                        <div class="down-content">
+                            {{-- <a href="post-details.html"> --}}
+                            <a href="{{ route('visitors.artikel.show', $article->slug) }}">
+                                <h4>{{$article->title}}</h4>
+                            </a>
+                            @php
+                            // $userId = $article->user_id;
+                            // dd($article->user->roles->first()->name);
 
-                        @empty
-                        <div class="row justify-content-center m-sm-2 pl-3 pr-3" data-aos="fade-up"
-                            data-aos-delay="500">
-                            <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="500">
-                                {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="500">
+                            // $roleId = \DB::table('model_has_roles')
+                            // ->where('model_id', $userId)->value('role_id');
+                            // var_dump($roleId);
+                            // $role = \DB::table('roles')
+                            // ->select('model_has_roles.model_id','model_has_roles.role_id', 'roles.name')
+                            // ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
+                            // ->where('model_has_roles.role_id', $roleId)->get()->toArray();
+                            // var_dump($role);
+                            @endphp
+
+                            {{-- <ul class="post-info ">
+                                <li><a href="#">{{$role[0]->name}}</a></li>
+                            <li><a href="#">{{$article->user->roles->first()->name}}</a></li>
+                            <li>
+                                <a href="#">
+                                    {{$article->created_at->diffForHumans()}}
+                                    {{$article->created_at->format('d F, Y')}}
+                                </a>
+                            </li>
+                            </ul> --}}
+                            <hr>
+                            <p>{!!Str::limit($article->body,150)!!}
+                                <hr>
+                                <a href="{{ route('visitors.artikel.show', $article->slug) }}">
+                                    Baca Selanjutnya
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                @empty
+                <div class="row justify-content-center m-sm-2 pl-3 pr-3" data-aos="fade-up" data-aos-delay="500">
+                    <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="500">
+                        {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="500">
                                     <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
-                            </div> --}}
-                            <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat
-                                menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service.
-                                Terima kasih.</div>
-                        </div>
-                    </div>
-                    @endforelse
-                    <div class="col-lg-12 mb-5 ">
-                        <ul class="pagination justify-content-center">
-                            {{$articles->links()}}
-                        </ul>
-                    </div>
+                    </div> --}}
+                    <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat
+                        menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service.
+                        Terima kasih.</div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="1000">
-            <div class="sidebar">
-                <div class="row">
-                    @include('visitors.layouts.sidebar.sidebar-artikel')
-                </div>
+            @endforelse
+            <div class="col-lg-12 mb-5 ">
+                <ul class="pagination justify-content-center">
+                    {{$articles->links()}}
+                </ul>
             </div>
         </div>
     </div>
@@ -429,8 +418,9 @@
                     <div class="row">
                         <div class=" col-sm-6 mb-3">
                             <label for="name" class="form-label">Nama<span class="text-danger">*</span></label>
-                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name"
-                                placeholder="Nama lengkap anda" value="{{$user ? $user->full_name : old('name') ?? ''}}">
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                id="name" placeholder="Nama lengkap anda"
+                                value="{{$user ? $user->full_name : old('name') ?? ''}}">
                             @error('name')
                             <small>
                                 <font style="color: red; font-style: italic">{{$message}}</font>
@@ -439,8 +429,9 @@
                         </div>
                         <div class=" col-sm-6 mb-3">
                             <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
-                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email"
-                                placeholder="name@example.com" value="{{$user ? $user->email : old('email') ?? ''}}">
+                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                                id="email" placeholder="name@example.com"
+                                value="{{$user ? $user->email : old('email') ?? ''}}">
                             @error('email')
                             <small>
                                 <font style="color: red; font-style: italic">{{$message}}</font>
@@ -450,8 +441,10 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-6 mb-3">
-                            <label for="phone_number" class="form-label">Nomor Handphone<span class="text-danger">*</span></label>
-                            <input type="text" name="phone_number" class="form-control @error('phone_number') is-invalid @enderror" id="phone_number"
+                            <label for="phone_number" class="form-label">Nomor Handphone<span
+                                    class="text-danger">*</span></label>
+                            <input type="text" name="phone_number"
+                                class="form-control @error('phone_number') is-invalid @enderror" id="phone_number"
                                 placeholder="081234567891" value="{{$user ? $user->phone : old('phone_number') ?? ''}}">
                             @error('phone_number')
                             <small>
@@ -460,8 +453,11 @@
                             @enderror
                         </div>
                         <div class=" col-sm-6 mb-3">
-                            <label for="complaint_category_id" class="form-label">Kategori<span class="text-danger">*</span></label>
-                            <select class="mb-2 form-control @error('complaint_category_id') is-invalid @enderror" name="complaint_category_id" id="complaint_category_id" value="{{ old('complaint_category_id') }}">
+                            <label for="complaint_category_id" class="form-label">Kategori<span
+                                    class="text-danger">*</span></label>
+                            <select class="mb-2 form-control @error('complaint_category_id') is-invalid @enderror"
+                                name="complaint_category_id" id="complaint_category_id"
+                                value="{{ old('complaint_category_id') }}">
                                 <option value="{{ old('complaint_category_id') ?? '' }}">
                                     {{ $complaint_categories[old('complaint_category_id') - 1]->category ?? 'Pilih salah satu...' }}
                                 </option>
@@ -480,7 +476,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="complaint" class="form-label">Isi Aduan<span class="text-danger">*</span></label>
-                        <textarea class="form-control @error('complaint') is-invalid @enderror" name="complaint" id="complaint" rows="3">{{ old('complaint') }}</textarea>
+                        <textarea class="form-control @error('complaint') is-invalid @enderror" name="complaint"
+                            id="complaint" rows="3">{{ old('complaint') }}</textarea>
                         @error('complaint')
                         <small>
                             <font style="color: red; font-style: italic">{{$message}}</font>

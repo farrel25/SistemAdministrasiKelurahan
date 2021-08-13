@@ -79,8 +79,10 @@ $data=[
                                     <hr>
                                     <p class=" text-justify">
                                         {!! Str::limit($article->body,200) !!}
-                                        <a href="{{ route('visitors.artikel.show', $article->slug) }}">
-                                            lebih lanjut...
+                                        <hr>
+                                        <a href="{{ route('visitors.artikel.show', $article->slug) }}"
+                                            class=" justify-content-center">
+                                            Baca Selanjutnya
                                         </a>
                                     </p>
                                 </div>

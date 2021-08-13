@@ -1025,8 +1025,15 @@ section {
     object-fit: cover;
 }
 
+#article .bt-home img {
+    width: 100%;
+    height: 20vh;
+    overflow: hidden;
+    object-fit: cover;
+}
+
 #article .down-content {
-    padding: 30px;
+    padding: 20px;
     border-right: 1px solid #eee;
     border-left: 1px solid #eee;
     border-bottom: 1px solid #eee;
@@ -1785,17 +1792,12 @@ ul.page-numbers li a:hover {
     }
 }
 
-@media all and (max-width: 480px) {
+
+@media (max-width: 575px) {
     .btn-responsive {
         width: 100%;
         display: block;
     }
-    p{
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 575px) {
     #page-title .hero-img img {
         width: 80%;
     }
@@ -1810,6 +1812,20 @@ ul.page-numbers li a:hover {
     }
     #article .blog-thumb img {
         height: 17vh;
+    }
+    #article .down-content h4 {
+        font-size: 16px;
+        text-transform: capitalize;
+        letter-spacing: 0.5px;
+        font-weight: 900;
+        color: #20232e;
+        margin: 10px 0px 12px 0px;
+    }
+    #article .down-content a {
+        font-size: 16px;
+    }
+    p {
+        font-size: 12px;
     }
 }
 @media (max-width: 768px) {
