@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Complaint;
+use App\ComplaintCategory;
+use App\Mail\ComplaintMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -44,25 +48,6 @@ class ComplaintController extends Controller
      */
     public function store(Request $request)
     {
-        // $complaint = request()->validate([
-        //     'name' => 'required|string|max:255',
-        //     'email' => 'required|email',
-        //     'phone_number' => 'required|string|max:255',
-        //     'complaint_category_id' => 'required',
-        //     'complaint' => 'required|string'
-        // ]);
-
-        // $complaint['user_id'] = $request->user_id;
-        // dd($complaint);
-
-        // // ComplaintController::create($ComplaintController);
-        // // // Alert::success('Permohonan pengajuan surat berhasil dikirim', "Silahkan ke <a href=" . route('dashboard') . ">halaman dashboard</a>anda untuk info lebih lanjut");
-        // // session()->flash('success', 'Pengajuan surat terkirim');
-
-        // return redirect(route('visitors.beranda.index'));
-
-
-
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|email',
@@ -78,9 +63,18 @@ class ComplaintController extends Controller
                 ->withInput();
         }
 
+        $complaint_data = $validator->getData();
         // Complaint::create($validator->valid());
-        Complaint::create($validator->getData());
-        Alert::success('Berhasil', 'Pengaduan anda terkirim');
+        Complaint::create($complaint_data);
+
+        $category = ComplaintCategory::find($complaint_data['complaint_category_id'])->category;
+        $complaint_data = Arr::add($complaint_data, 'category', $category);
+
+        // Send to Gmail
+        Mail::to($complaint_data['email'])
+            ->send(new ComplaintMail($complaint_data));
+
+        Alert::success('Berhasil', 'Pengaduan anda terkirim, silahkan cek email anda');
 
         return back();
     }
