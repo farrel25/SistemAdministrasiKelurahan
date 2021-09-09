@@ -179,7 +179,7 @@
                             <p>{!!Str::limit($article->body,150)!!}
                                 <hr>
                                 <a href="{{ route('visitors.artikel.show', $article->slug) }}">
-                                    Baca Selanjutnya
+                                    Baca lebih lanjut
                                 </a>
                             </p>
                         </div>

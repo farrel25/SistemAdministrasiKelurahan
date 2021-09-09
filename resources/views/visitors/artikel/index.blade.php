@@ -82,7 +82,7 @@ $data=[
                                         <hr>
                                         <a href="{{ route('visitors.artikel.show', $article->slug) }}"
                                             class=" justify-content-center">
-                                            Baca Selanjutnya
+                                            Baca lebih lanjut
                                         </a>
                                     </p>
                                 </div>

@@ -25,6 +25,10 @@ class ArticleController extends Controller
         $article_comments = ArticleComment::take(5)->latest()->get();
         $countComments = $article->comments->count();
 
+        // dd($article->read_count);
+        $read_count = $article->read_count + 1;
+        $article->update(['read_count' => $read_count]);
+
         return view('visitors.artikel.view-artikel', compact('all_articles', 'article', 'count', 'article_comments', 'countComments'));
     }
 }
