@@ -33,10 +33,9 @@ class HomeController extends Controller
 
     public function beranda()
     {
-        $all_articles = Article::get();
+        // $all_articles = Article::get();
         $articles = Article::where('enabled', 1)->orderby('updated_at', 'desc')->paginate(6);
-        $count = $all_articles->count();
-        $article_comments = ArticleComment::get();
+        // $count = $all_articles->count();
         $complaint_categories = ComplaintCategory::get();
 
         $user = null;
@@ -47,10 +46,7 @@ class HomeController extends Controller
         }
 
         return view('visitors.beranda.index', compact(
-            'all_articles',
             'articles',
-            'count',
-            'article_comments',
             'complaint_categories',
             'user',
             'user_id'

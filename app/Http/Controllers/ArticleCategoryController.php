@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\ArticleCategory;
-use App\ArticleComment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Alert;
-use App\Article;
+use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ArticleCategoryController extends Controller
 {
@@ -48,7 +46,7 @@ class ArticleCategoryController extends Controller
             'category' => 'required|string'
         ]);
 
-        $attr['slug'] = \Str::slug($attr['category']);
+        $attr['slug'] = Str::slug($attr['category']);
         $attr['enabled'] = 1;
 
         ArticleCategory::create($attr);
@@ -65,13 +63,13 @@ class ArticleCategoryController extends Controller
      */
     public function show(ArticleCategory $category)
     {
-        $all_articles = Article::get();
-        $articles = $category->articles()->where('enabled', 1)->latest()->paginate(6);
+        // $all_articles = Article::get();
+        $articles = $category->articles()->with('user')->where('enabled', 1)->latest()->paginate(6);
         // dd($articles);
-        $count = $articles->count();
-        $article_comments = ArticleComment::take(5)->latest()->get();
+        // $count = $articles->count();
+        // $article_comments = ArticleComment::take(5)->latest()->get();
 
-        return view('visitors.artikel.index', compact('all_articles', 'articles', 'category', 'count', 'article_comments'));
+        return view('visitors.artikel.index', compact('articles', 'category'));
     }
 
     /**
@@ -97,7 +95,7 @@ class ArticleCategoryController extends Controller
         $attr = $request->validate([
             'category' => 'required|string'
         ]);
-        $attr['slug'] = \Str::slug($attr['category']);
+        $attr['slug'] = Str::slug($attr['category']);
 
         $articleCategory->update($attr);
 

@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
         User::create([
             'nik' => '3374101234567891',
             'full_name' => 'Codice Pugnator',
-            'email' => 'admin@desa.com',
+            'email' => 'admin@desawonosuko.com',
             'email_verified_at' => null,
             'password' => Hash::make('123456'),
             'phone' => '082112345678',

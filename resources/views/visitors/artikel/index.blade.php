@@ -91,12 +91,14 @@ $data=[
                         @empty
                         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                             <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800">
-                                {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
-                                    <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
+                            {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
                             </div> --}}
-                            <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat
+                            <div class="alert alert-info text-center">
+                                Layanan artikel belum tersedia, mohon dapat
                                 menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service.
-                                Terima kasih.</div>
+                                Terima kasih.
+                            </div>
                         </div>
                     </div>
                     @endforelse
@@ -116,8 +118,6 @@ $data=[
                 </div>
             </div>
         </div>
-
-    </div>
     </div>
 </section>
 {{-- End Article Section --}}
