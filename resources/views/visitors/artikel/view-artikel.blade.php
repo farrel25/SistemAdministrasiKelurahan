@@ -145,7 +145,27 @@
                                 <div class="content">
                                     <ul class="">
                                         <hr>
+                                        @forelse ($article_comments as $comment)
                                         <li>
+                                            <div class="right-content">
+                                                <h4>{{ $comment->full_name }}<span>{{ $comment->created_at->format('d F, Y') }}</span></h4>
+                                                <small>
+                                                    {{ $comment->comments }}
+                                                </small>
+                                                <a href="#" class="mt-3 d-flex">
+                                                    <small>reply</small>
+                                                </a>
+                                            </div>
+                                        </li><br>
+                                        @empty
+                                        <li class="mb-4">
+                                            <div class="right-content mb-4">
+                                                <h4>Belum ada komentar</h4>
+                                            </div>
+                                        </li>
+                                        @endforelse
+
+                                        {{-- <li>
                                             <div class="right-content">
                                                 <h4>Charles Kate<span>May 16, 2020</span></h4>
                                                 <small>Fusce ornare mollis eros. Duis et diam vitae justo fringilla
@@ -168,7 +188,7 @@
                                                     <small>reply</small>
                                                 </a>
                                             </div>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                             </div>

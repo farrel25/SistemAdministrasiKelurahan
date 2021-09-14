@@ -41,14 +41,16 @@ class ArticleController extends Controller
             $user_id = $user->id;
         }
 
-        $countComments = $article->comments->count();
+        $article_comments = $article->comments()->latest()->get();
+        $countComments = $article_comments->count();
+        // dd($article_comments);
 
-        // dd($article->read_count);
         $read_count = $article->read_count + 1;
         $article->update(['read_count' => $read_count]);
 
         return view('visitors.artikel.view-artikel', compact(
             'article',
+            'article_comments',
             'countComments',
             'user',
             'user_id'
