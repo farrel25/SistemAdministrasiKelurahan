@@ -1,9 +1,23 @@
-<div class="col-lg-12 mb-4">
+<div class="col-lg-12 mb-4 mt-1">
     <div class="sidebar-item search">
-        <form id="search_form" name="gs" method="GET" action="#">
-            <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
+        <form id="search_form" name="gs" action="{{ route('visitors.artikel.index')}}">
+            <input type="text" name="search" id="search" class="searchText" placeholder="Ketik untuk mencari..." value="{{ request('search') ?? '' }}">
         </form>
     </div>
+
+    {{-- <form class="form-row justify-content-center" action="{{ route('visitors.artikel.index')}}">
+        <div class="input-group">
+            <input type="text" class="form-control mr-3" type="Ketik untuk mencari..." placeholder="Search" aria-label="Ketik untuk mencari...">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Cari</button>
+        </div>
+    </form> --}}
+
+    {{-- <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">Button</button>
+        </div>
+    </div> --}}
 </div>
 
 <div class="col-lg-12  mb-4">

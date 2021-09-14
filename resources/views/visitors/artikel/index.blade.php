@@ -54,6 +54,9 @@ $data=[
                                     <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="">
                                 </div>
                                 <div class="down-content">
+                                    <a href="{{ route('visitors.artikel.category.show', $article->category->slug) }}">
+                                        <span>{{$article->category->category}}</span>
+                                    </a>
                                     <a href="{{ route('visitors.artikel.show', $article->slug) }}">
                                         <h4>{{$article->title}}</h4>
                                     </a>
@@ -95,8 +98,7 @@ $data=[
                                 <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
                             </div> --}}
                             <div class="alert alert-info text-center">
-                                Layanan artikel belum tersedia, mohon dapat
-                                menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service.
+                                Artikel tidak ditemukan. nantikan artikel terbaru dari admin atau bisa laporkan melalui form pengaduan.
                                 Terima kasih.
                             </div>
                         </div>

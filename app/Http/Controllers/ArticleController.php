@@ -10,11 +10,20 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        // $all_articles = Article::get();
-        // $articles = Article::where('enabled', 1)->orderby('updated_at', 'desc')->paginate(6);
-        $articles = Article::with('user')->where('enabled', 1)->orderby('updated_at', 'desc')->paginate(6);
-        // $count = Article::all()->count();
-        // $article_comments = ArticleComment::take(5)->latest()->get();
+        // $articles = Article::with('user')->where('enabled', 1)->orderby('updated_at', 'desc')->paginate(6);
+
+        // $articles = Article::where('enabled', 1);
+        // if(request('search')) {
+        //     $articles
+        //         ->where('title', 'like', '%'.request('search').'%')
+        //         ->orWhere('body', 'like', '%'.request('search').'%');
+        // }
+        // $articles = $articles->orderby('updated_at', 'desc')->paginate(6);
+
+        $articles = Article::filter(request(['search', 'category']))
+            ->where('enabled', 1)
+            ->orderby('updated_at', 'desc')
+            ->paginate(6);
 
         return view('visitors.artikel.index', compact('articles'));
     }
