@@ -30,9 +30,7 @@
                                     <a href="{{ route('visitors.artikel.category.show', $article->category->slug) }}">
                                         <span>{{$article->category->category}}</span>
                                     </a>
-                                    <a href="post-details.html">
-                                        <h4>{{$article->title}}</h4>
-                                    </a>
+                                    <h4>{{$article->title}}</h4>
                                     <?php
                                     $userId = $article->user_id;
                                     $roleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');

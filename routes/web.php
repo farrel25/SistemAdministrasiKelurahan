@@ -382,9 +382,9 @@ Route::prefix('/artikel')->group(function () {
 
 // Profil_desa
 Route::prefix('profil-desa')->group(function () {
+    Route::get('/sejarah-visi-misi', 'ArticleController@showHistoryAndVisionMission')->name('profil-desa.sejarah-visi-misi');
+    Route::get('/struktur-pemerintahan', 'ArticleController@showGovernmentStructure')->name('profil-desa.struktur-pemerintahan');
     Route::get('/administratif', 'AdministratifController@index')->name('profil-desa.administratif.index');
-    Route::get('/struktur-pemerintahan', 'VillageProfileController@strukturPemerintahan')->name('profil-desa.struktur-pemerintahan');
-    Route::get('/sejarah-visi-misi', 'VillageProfileController@sejarahVisiMisi')->name('profil-desa.sejarah-visi-misi');
 });
 
 

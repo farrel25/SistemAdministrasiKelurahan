@@ -1,25 +1,31 @@
-<div class="col-lg-12 mb-4">
+{{-- <div class="col-lg-12 mb-4">
     <div class="sidebar-item search">
         <form id="search_form" name="gs" method="GET" action="#">
             <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
         </form>
     </div>
-</div>
+</div> --}}
 <div class="col-lg-12 mb-4">
     <div class="fitur">
         <div class="sidebar-heading text-center">
             <h2>Profil Desa</h2>
         </div>
         <ul>
-            <li><a href="#">
+            <li>
+                <a href="{{ route('profil-desa.sejarah-visi-misi') }}">
                     <h5>Sejarah dan Visi - Misi</h5>
-                </a></li>
-            <li><a href="#">
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('profil-desa.struktur-pemerintahan') }}">
                     <h5>Struktur Pemerintahan</h5>
-                </a></li>
-            <li><a href="#">
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('profil-desa.administratif.index') }}">
                     <h5>Administratif</h5>
-                </a></li>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

@@ -88,6 +88,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="tab-pane fade" id="pills-pendidikan" role="tabpanel" aria-labelledby="pills-pendidikan-tab">
                 <div class="row my-shadow justify-content-center " id="page1">
                     <div class="col-lg-5 m-5 ">
