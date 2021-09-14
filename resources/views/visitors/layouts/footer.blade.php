@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="col-lg-7 text-lg-left pl-lg-4  text-center h-100 d-block footer-info">
-                <h3>Desa</h3>
+                <h3>Desa Wonosuko</h3>
                 <p class="text-center mr-lg-5 text-md-left">Website administrasi desa merupakan aplikasi berbasis
                     website yang
                     digunakan untuk membantu pengurus desa dalam

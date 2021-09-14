@@ -374,6 +374,9 @@ Route::prefix('/artikel')->group(function () {
     Route::get('/{article:slug}', 'ArticleController@show')->name('visitors.artikel.show');
     Route::get('/categories/{category:slug}', 'ArticleCategoryController@show')->name('visitors.artikel.category.show');
     Route::get('/tags/{tag:slug}', 'ArticleTagController@show')->name('visitors.artikel.tag.show');
+
+    // Comments
+    Route::post('/tambah-komentar', 'ArticleCommentController@store')->name('visitors.article.comment.store');
 });
 
 

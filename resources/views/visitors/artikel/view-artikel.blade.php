@@ -50,7 +50,7 @@
                                             <a href="#">{{$article->created_at->format('d F, Y')}}</a>
                                         </li>
                                         <li>
-                                            <a href="#comments">{{ $countComments }} Comments</a>
+                                            <a href="#comments">{{ $countComments }} Komentar</a>
                                         </li>
                                     </ul>
                                     <hr>
@@ -89,30 +89,49 @@
                                     <h2>Komentar</h2>
                                 </div>
                                 <div class="content">
-                                    <form id="comment" action="#" method="post">
+                                    <form id="comment" action="{{ route('visitors.article.comment.store') }}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="user_id" id="user_id" value="{{$user_id}}">
+                                        <input type="hidden" name="article_id" id="article_id" value="{{$article->id}}">
                                         <div class="row">
                                             <div class="col-md-6 col-sm-12">
                                                 <fieldset>
-                                                    <input name="name" type="text" id="name" placeholder="Nama anda"
-                                                        required="">
+                                                    <input class="@error('full_name') is-invalid @enderror" name="full_name" type="text" id="full_name" placeholder="Nama anda" value="{{$user ? $user->full_name : old('full_name') ?? ''}}"
+                                                        >
+                                                    @error('full_name')
+                                                    <small>
+                                                        <font style="color: red; font-style: italic">{{$message}}</font>
+                                                    </small>
+                                                    @enderror
                                                 </fieldset>
                                             </div>
                                             <div class="col-md-6 col-sm-12">
                                                 <fieldset>
-                                                    <input name="email" type="text" id="email" placeholder="Email anda"
-                                                        required="">
+                                                    <input name="email" type="email" id="email" placeholder="Email anda"
+                                                        class="@error('email') is-invalid @enderror" value="{{$user ? $user->email : old('email') ?? ''}}">
+                                                    @error('email')
+                                                    <small>
+                                                        <font style="color: red; font-style: italic">{{$message}}</font>
+                                                    </small>
+                                                    @enderror
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset>
-                                                    <textarea name="message" rows="6" id="message"
-                                                        placeholder="Masukkan komentar anda" required=""></textarea>
+                                                    <textarea name="comments" rows="6" id="message" placeholder="Masukkan komentar anda"
+                                                        class="@error('comments') is-invalid @enderror" value="{{old('comments') ?? ''}}"></textarea>
+                                                    @error('comments')
+                                                    <small>
+                                                        <font style="color: red; font-style: italic">{{$message}}</font>
+                                                    </small>
+                                                    @enderror
                                                 </fieldset>
                                             </div>
                                             <div class="col-lg-12">
                                                 <fieldset>
-                                                    <button type="submit" id="form-submit"
-                                                        class="btn btn-primary btn-responsive btn-blue">Submit</button>
+                                                    <button type="submit" id="form-submit" class="btn btn-primary btn-responsive btn-blue">
+                                                        Kirim
+                                                    </button>
                                                 </fieldset>
                                             </div>
                                         </div>
@@ -122,7 +141,7 @@
                         </div>
                         <div class="col-lg-12" id="comments">
                             <div class="sidebar-item comments">
-                                <h4>4 Comments</h4>
+                                <h4>{{$countComments}} Komentar</h4>
                                 <div class="content">
                                     <ul class="">
                                         <hr>

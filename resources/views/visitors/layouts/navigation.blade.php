@@ -5,7 +5,7 @@
             <h1 class="text-light text-uppercase">
                 <a href="{{ route('visitors.beranda.index') }}">
                     <img src="{{ asset('/images') }}/logo.png" alt="">
-                    <span>DESA</span>
+                    <span>Desa Wonosuko</span>
                 </a>
             </h1>
             <!-- Uncomment below if you prefer to use an image logo -->
@@ -59,8 +59,8 @@
                     <a href="{{ route('pengajuan-surat.create') }}">Pengajuan Surat</a>
                 </li>
                 @guest
-                <li class="btn-register"><a href="{{ route('register') }}">Register</a></li>
-                <li class="btn-login"><a href="{{ route('login') }}">Login</a></li>
+                <li class="btn-register"><a href="{{ route('register') }}">Daftar</a></li>
+                <li class="btn-login"><a href="{{ route('login') }}">Masuk</a></li>
                 @else
                 <?php
                     $name = explode(' ', Auth::user()->full_name);

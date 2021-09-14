@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\ArticleComment;
 use Illuminate\Http\Request;
-use App\ArticleCategory;
-use Illuminate\Support\Facades\Auth;
-use Alert;
+use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ArticleCommentController extends Controller
 {
@@ -40,7 +39,30 @@ class ArticleCommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'full_name' => 'required|string',
+            'email' => 'required|email',
+            'comments' => 'required|string'
+        ]);
+
+        if ($validator->fails()) {
+            Alert::error('Gagal', 'Terdapat kesalahan input komentar, silahkan coba lagi');
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $comment_data = $validator->getData();
+        $comment_data['parent_comment_id'] = null;
+        $comment_data['enabled'] = 1;
+        // dd($comment_data);
+
+        // Complaint::create($validator->valid());
+        ArticleComment::create($comment_data);
+
+        Alert::success('Berhasil', 'komentar anda sudah terkirim');
+
+        return back();
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Article;
 use App\ArticleComment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
 {
@@ -33,12 +34,24 @@ class ArticleController extends Controller
         // $all_articles = Article::get();
         // $count = $all_articles->count();
         // $article_comments = ArticleComment::take(5)->latest()->get();
+        $user = null;
+        $user_id = null;
+        if(Auth::check()) {
+            $user = Auth::user();
+            $user_id = $user->id;
+        }
+
         $countComments = $article->comments->count();
 
         // dd($article->read_count);
         $read_count = $article->read_count + 1;
         $article->update(['read_count' => $read_count]);
 
-        return view('visitors.artikel.view-artikel', compact('article', 'countComments'));
+        return view('visitors.artikel.view-artikel', compact(
+            'article',
+            'countComments',
+            'user',
+            'user_id'
+        ));
     }
 }
