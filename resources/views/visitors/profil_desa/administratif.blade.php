@@ -208,6 +208,8 @@
                                 @php
                                     $grandTotal = 0;
                                     $grandPercentage = 0;
+                                    $relTotalArr = [];
+                                    $relArr = [];
                                 @endphp
                                 @foreach ($relDatas as $number => $religion)
                                 <tr class=" text-center">
@@ -219,6 +221,8 @@
                                 @php
                                     $grandTotal += $religion['total'];
                                     $grandPercentage += $religion['percentage'];
+                                    $relTotalArr[$number] = $religion['total'];
+                                    $relArr[$number] = $religion['religion'];
                                 @endphp
                                 @endforeach
                                 <tr class=" text-center">
@@ -427,18 +431,18 @@
             var ctx_4 = document.getElementById("agama").getContext('2d');
             var data_4 = {
                 datasets: [{
-                    data: [10, 20, 30],
+                    data: @json($relTotalArr),
                     backgroundColor: [
                         '#3c8dbc',
                         '#f56954',
                         '#f39c12',
+                        '#26de81',
+                        '#a55eea',
+                        '#636e72',
+                        '#ffeaa7',
                     ],
                 }],
-                labels: [
-                    'Request',
-                    'Layanan',
-                    'Problem'
-                ]
+                labels: @json($relArr)
             };
             var myDoughnutChart_4 = new Chart(ctx_4, {
                 type: 'doughnut',
