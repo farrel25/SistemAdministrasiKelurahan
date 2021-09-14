@@ -36,13 +36,13 @@
                             aria-controls="pills-home" aria-selected="true">Agama</a>
                     </li>
                     <li class="nav-item btn-responsive">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-wn" role="tab"
+                        aria-controls="pills-contact" aria-selected="false">Warga Negara</a>
+                    </li>
+                    {{-- <li class="nav-item btn-responsive">
                         <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-wilayah" role="tab"
                             aria-controls="pills-profile" aria-selected="false">Wilayah</a>
-                    </li>
-                    <li class="nav-item btn-responsive">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-wn" role="tab"
-                            aria-controls="pills-contact" aria-selected="false">Warga Negara</a>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>
@@ -65,23 +65,31 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $grandTotal = 0;
+                                    $grandPercentage = 0;
+                                    $sexTotalArr = [];
+                                    $sexArr = [];
+                                @endphp
+                                @foreach ($sexDatas as $number => $sex)
                                 <tr class=" text-center">
-                                    <th scope="row">1</th>
-                                    <td>Laki-laki</td>
-                                    <td>{{$countSexMale}}</td>
-                                    <td>{{ number_format($sexMalePercentation, 2) }} %</td>
+                                    <th scope="row">{{$number + 1}}</th>
+                                    <td>{{$sex['sex']}}</td>
+                                    <td>{{$sex['total']}}</td>
+                                    <td>{{number_format($sex['percentage'], 2)}} %</td>
                                 </tr>
-                                <tr class=" text-center">
-                                    <th scope="row">2</th>
-                                    <td>Perempuan</td>
-                                    <td>{{$countSexFemale}}</td>
-                                    <td>{{ number_format($sexFemalePercentation, 2) }} %</td>
-                                </tr>
+                                @php
+                                    $grandTotal += $sex['total'];
+                                    $grandPercentage += $sex['percentage'];
+                                    $sexTotalArr[$number] = $sex['total'];
+                                    $sexArr[$number] = $sex['sex'];
+                                @endphp
+                                @endforeach
                                 <tr class=" text-center">
                                     <th scope="row"></th>
                                     <td>Total</td>
-                                    <td>{{$countVillager}}</td>
-                                    <td>100 %</td>
+                                    <td>{{$grandTotal}}</td>
+                                    <td>{{number_format($grandPercentage, 2)}} %</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -102,28 +110,32 @@
                                 <tr class=" text-center">
                                     <th scope="col">No</th>
                                     <th scope="col">Kelompok</th>
-                                    <th scope="col">Laki-laki</th>
-                                    <th scope="col">Perempuan</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th scope="col">Persentase</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $grandTotal = 0;
+                                    $grandPercentage = 0;
+                                @endphp
+                                @foreach ($eduDatas as $number => $education)
                                 <tr class=" text-center">
-                                    <th scope="row">1</th>
-                                    <td>Laki-laki</td>
-                                    <td>n</td>
-                                    <td>n</td>
+                                    <th scope="row">{{$number + 1}}</th>
+                                    <td>{{$education['education']}}</td>
+                                    <td>{{$education['total']}}</td>
+                                    <td>{{number_format($education['percentage'], 2)}} %</td>
                                 </tr>
-                                <tr class=" text-center">
-                                    <th scope="row">2</th>
-                                    <td>Perempuan</td>
-                                    <td>n</td>
-                                    <td>n</td>
-                                </tr>
+                                @php
+                                    $grandTotal += $education['total'];
+                                    $grandPercentage += $education['percentage'];
+                                @endphp
+                                @endforeach
                                 <tr class=" text-center">
                                     <th scope="row"></th>
-                                    <td>Jumlah</td>
-                                    <td>n</td>
-                                    <td>n</td>
+                                    <td>Total</td>
+                                    <td>{{$grandTotal}}</td>
+                                    <td>{{number_format($grandPercentage, 2)}} %</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -143,28 +155,32 @@
                                 <tr class=" text-center">
                                     <th scope="col">No</th>
                                     <th scope="col">Kelompok</th>
-                                    <th scope="col">Laki-laki</th>
-                                    <th scope="col">Perempuan</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th scope="col">Persentase</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $grandTotal = 0;
+                                    $grandPercentage = 0;
+                                @endphp
+                                @foreach ($profDatas as $number => $profession)
                                 <tr class=" text-center">
-                                    <th scope="row">1</th>
-                                    <td>Laki-laki</td>
-                                    <td>n</td>
-                                    <td>n</td>
+                                    <th scope="row">{{$number + 1}}</th>
+                                    <td>{{$profession['profession']}}</td>
+                                    <td>{{$profession['total']}}</td>
+                                    <td>{{number_format($profession['percentage'], 2)}} %</td>
                                 </tr>
-                                <tr class=" text-center">
-                                    <th scope="row">2</th>
-                                    <td>Perempuan</td>
-                                    <td>n</td>
-                                    <td>n</td>
-                                </tr>
+                                @php
+                                    $grandTotal += $profession['total'];
+                                    $grandPercentage += $profession['percentage'];
+                                @endphp
+                                @endforeach
                                 <tr class=" text-center">
                                     <th scope="row"></th>
-                                    <td>Jumlah</td>
-                                    <td>n</td>
-                                    <td>n</td>
+                                    <td>Total</td>
+                                    <td>{{$grandTotal}}</td>
+                                    <td>{{number_format($grandPercentage, 2)}} %</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -184,35 +200,90 @@
                                 <tr class=" text-center">
                                     <th scope="col">No</th>
                                     <th scope="col">Kelompok</th>
-                                    <th scope="col">Laki-laki</th>
-                                    <th scope="col">Perempuan</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th scope="col">Persentase</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $grandTotal = 0;
+                                    $grandPercentage = 0;
+                                @endphp
+                                @foreach ($relDatas as $number => $religion)
                                 <tr class=" text-center">
-                                    <th scope="row">1</th>
-                                    <td>Laki-laki</td>
-                                    <td>n</td>
-                                    <td>n</td>
+                                    <th scope="row">{{$number + 1}}</th>
+                                    <td>{{$religion['religion']}}</td>
+                                    <td>{{$religion['total']}}</td>
+                                    <td>{{number_format($religion['percentage'], 2)}} %</td>
                                 </tr>
-                                <tr class=" text-center">
-                                    <th scope="row">2</th>
-                                    <td>Perempuan</td>
-                                    <td>n</td>
-                                    <td>n</td>
-                                </tr>
+                                @php
+                                    $grandTotal += $religion['total'];
+                                    $grandPercentage += $religion['percentage'];
+                                @endphp
+                                @endforeach
                                 <tr class=" text-center">
                                     <th scope="row"></th>
-                                    <td>Jumlah</td>
-                                    <td>n</td>
-                                    <td>n</td>
+                                    <td>Total</td>
+                                    <td>{{$grandTotal}}</td>
+                                    <td>{{number_format($grandPercentage, 2)}} %</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane fade" id="pills-wilayah" role="tabpanel" aria-labelledby="pills-wilayah-tab">
+
+            <div class="tab-pane fade" id="pills-wn" role="tabpanel" aria-labelledby="pills-wn-tab">
+                <div class="row my-shadow justify-content-center " id="page1">
+                    <div class="col-lg-5 m-5 ">
+                        <canvas id="warganegara" width="400vw" height="250vh"></canvas>
+                    </div>
+                </div>
+                <div class="row my-shadow justify-content-center mt-5 pt-5 pb-5 pr-4 pl-4  " id="page2">
+                    <div class="col-12 table-responsive">
+                        <table class=" table">
+                            <thead class="thead-dark">
+                                <tr class=" text-center">
+                                    <th scope="col">No</th>
+                                    <th scope="col">Kelompok</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th scope="col">Persentase</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                    $grandTotal = 0;
+                                    $grandPercentage = 0;
+                                    $natTotalArr = [];
+                                    $natArr = [];
+                                @endphp
+                                @foreach ($natDatas as $number => $nationality)
+                                <tr class=" text-center">
+                                    <th scope="row">{{$number + 1}}</th>
+                                    <td>{{$nationality['nationality']}}</td>
+                                    <td>{{$nationality['total']}}</td>
+                                    <td>{{number_format($nationality['percentage'], 2)}} %</td>
+                                </tr>
+                                @php
+                                    $grandTotal += $nationality['total'];
+                                    $grandPercentage += $nationality['percentage'];
+                                    $natTotalArr[$number] = $nationality['total'];
+                                    $natArr[$number] = $nationality['nationality'];
+                                @endphp
+                                @endforeach
+                                <tr class=" text-center">
+                                    <th scope="row"></th>
+                                    <td>Total</td>
+                                    <td>{{$grandTotal}}</td>
+                                    <td>{{number_format($grandPercentage, 2)}} %</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            {{-- <div class="tab-pane fade" id="pills-wilayah" role="tabpanel" aria-labelledby="pills-wilayah-tab">
                 <div class="row my-shadow justify-content-center " id="page1">
                     <div class="col-lg-5 m-5 ">
                         <canvas id="wilayah" width="400vw" height="250vh"></canvas>
@@ -252,48 +323,8 @@
                         </table>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="pills-wn" role="tabpanel" aria-labelledby="pills-wn-tab">
-                <div class="row my-shadow justify-content-center " id="page1">
-                    <div class="col-lg-5 m-5 ">
-                        <canvas id="warganegara" width="400vw" height="250vh"></canvas>
-                    </div>
-                </div>
-                <div class="row my-shadow justify-content-center mt-5 pt-5 pb-5 pr-4 pl-4  " id="page2">
-                    <div class="col-12 table-responsive">
-                        <table class=" table">
-                            <thead class="thead-dark">
-                                <tr class=" text-center">
-                                    <th scope="col">No</th>
-                                    <th scope="col">Kelompok</th>
-                                    <th scope="col">Laki-laki</th>
-                                    <th scope="col">Perempuan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class=" text-center">
-                                    <th scope="row">1</th>
-                                    <td>Laki-laki</td>
-                                    <td>n</td>
-                                    <td>n</td>
-                                </tr>
-                                <tr class=" text-center">
-                                    <th scope="row">2</th>
-                                    <td>Perempuan</td>
-                                    <td>n</td>
-                                    <td>n</td>
-                                </tr>
-                                <tr class=" text-center">
-                                    <th scope="row"></th>
-                                    <td>Jumlah</td>
-                                    <td>n</td>
-                                    <td>n</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            </div> --}}
+
         </div>
     </div>
 </section>
@@ -306,16 +337,13 @@
             var ctx = document.getElementById("jeniskelamin").getContext('2d');
             var data = {
                 datasets: [{
-                    data: [{{$countSexMale}}, {{$countSexFemale}}],
+                    data: @json($sexTotalArr),
                     backgroundColor: [
                         '#3c8dbc',
                         '#f56954',
                     ],
                 }],
-                labels: [
-                    'Laki - laki',
-                    'Perempuan',
-                ]
+                labels: @json($sexArr)
             };
             var myDoughnutChart = new Chart(ctx, {
                 type: 'doughnut',
@@ -427,54 +455,18 @@
                 }
             });
 
-        //wilayah
-            var ctx_5 = document.getElementById("wilayah").getContext('2d');
-            var data_5 = {
-                datasets: [{
-                    data: [10, 20, 30],
-                    backgroundColor: [
-                        '#3c8dbc',
-                        '#f56954',
-                        '#f39c12',
-                    ],
-                }],
-                labels: [
-                    'Request',
-                    'Layanan',
-                    'Problem'
-                ]
-            };
-            var myDoughnutChart_5 = new Chart(ctx_5, {
-                type: 'doughnut',
-                data: data_5,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    legend: {
-                        position: 'right',
-                        labels: {
-                            boxWidth: 12
-                        }
-                    }
-                }
-            });
-
         //warga negara
             var ctx_6 = document.getElementById("warganegara").getContext('2d');
             var data_6 = {
                 datasets: [{
-                    data: [10, 20, 30],
+                    data: @json($natTotalArr),
                     backgroundColor: [
                         '#3c8dbc',
                         '#f56954',
                         '#f39c12',
                     ],
                 }],
-                labels: [
-                    'Request',
-                    'Layanan',
-                    'Problem'
-                ]
+                labels: @json($natArr)
             };
             var myDoughnutChart_6 = new Chart(ctx_6, {
                 type: 'doughnut',
@@ -491,7 +483,39 @@
                 }
             });
 
-        });
+        //wilayah
+            // var ctx_5 = document.getElementById("wilayah").getContext('2d');
+            // var data_5 = {
+            //     datasets: [{
+            //         data: [10, 20, 30],
+            //         backgroundColor: [
+            //             '#3c8dbc',
+            //             '#f56954',
+            //             '#f39c12',
+            //         ],
+            //     }],
+            //     labels: [
+            //         'Request',
+            //         'Layanan',
+            //         'Problem'
+            //     ]
+            // };
+            // var myDoughnutChart_5 = new Chart(ctx_5, {
+            //     type: 'doughnut',
+            //     data: data_5,
+            //     options: {
+            //         responsive: true,
+            //         maintainAspectRatio: true,
+            //         legend: {
+            //             position: 'right',
+            //             labels: {
+            //                 boxWidth: 12
+            //             }
+            //         }
+            //     }
+            // });
+    });
+
 
 </script>
 @endsection
