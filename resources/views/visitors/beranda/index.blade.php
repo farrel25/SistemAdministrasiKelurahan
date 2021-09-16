@@ -132,7 +132,7 @@
             <div class="col text-center mb-4 title-section">
                 <h1 style="font-weight: 600;">- Artikel -</h1>
                 <p class="m-auto w-50">Memudahkan pengguna dalam membaca dan mencari
-                    artikel,berita terbaru,dan kegiatan dalam Desa
+                    artikel, berita terbaru, dan kegiatan dalam Desa
                 </p>
             </div>
         </div>
@@ -187,14 +187,14 @@
                 </div>
 
                 @empty
-                <div class="row justify-content-center m-sm-2 pl-3 pr-3" data-aos="fade-up" data-aos-delay="500">
-                    <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="500">
+                <div class="row justify-content-center mx-auto pl-3 pr-3" data-aos="fade-up" data-aos-delay="500">
+                    {{-- <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="500"> --}}
                         {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="500">
                                     <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
                     </div> --}}
-                    <div class="alert alert-info text-center">Layanan artikel belum tersedia, mohon dapat
-                        menantikan artikel terbaru dari admin atau bisa laporkan sistem ke customer service.
-                        Terima kasih.</div>
+                    <div class="alert alert-info text-center">
+                        Artikel belum tersedia. nantikan artikel terbaru dari kami atau bisa laporkan melalui form pengaduan. Terima kasih.
+                    </div>
                 </div>
             </div>
             @endforelse

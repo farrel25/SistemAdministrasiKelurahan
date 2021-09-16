@@ -98,8 +98,7 @@ $data=[
                                 <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
                             </div> --}}
                             <div class="alert alert-info text-center">
-                                Artikel tidak ditemukan. nantikan artikel terbaru dari admin atau bisa laporkan melalui form pengaduan.
-                                Terima kasih.
+                                Artikel belum tersedia. nantikan artikel terbaru dari kami atau bisa laporkan melalui form pengaduan. Terima kasih.
                             </div>
                         </div>
                     </div>

@@ -19,6 +19,7 @@
             <div class="col-lg-8" data-aos="fade-up" data-aos-delay="500">
                 <div class="all-blog-posts">
                     <div class="row">
+                        @if ($article)
                         <div class="col-lg-12">
                             <div class="blog-post">
                                 <div class="blog-thumb">
@@ -63,6 +64,17 @@
                                 </div>
                             </div>
                         </div>
+                        @else
+                        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                            {{-- <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800"> --}}
+                            {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
+                            </div> --}}
+                            <div class="alert alert-info text-center">
+                                Informasi belum tersedia. nantikan informasi terbaru dari kami atau bisa laporkan melalui form pengaduan. Terima kasih.
+                            </div>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
