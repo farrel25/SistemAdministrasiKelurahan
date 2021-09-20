@@ -52,6 +52,8 @@
 </head>
 
 <body>
+
+    @include('visitors.layouts.modal')
     @include('sweetalert::alert')
     <!-- Start Header -->
     @include('visitors.layouts.navigation')

@@ -11,10 +11,13 @@
             <h2>Produk Populer</h2>
         </div>
         <ul>
-            <li><a href="#">
+            <li>
+                <a href="#">
                     <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
-                    <h5>Product 1</h5>
-
+                    <div class="d-flex flex-column">
+                        <h5>Product 1</h5>
+                        <p>Rp. 15.000</p>
+                    </div>
                 </a>
             </li>
             <li><a href="#">
