@@ -8,7 +8,6 @@
     <link rel="icon" href="{{ asset('/images') }}/logo.png">
     <title>{{ $title ?? 'Kelurahan' }}</title>
 
-
     {{-- Icon --}}
     <script src="https://kit.fontawesome.com/95e7b49a0c.js" crossorigin="anonymous"></script>
 
@@ -42,7 +41,7 @@
     <script src="{{ asset('/visitors/vendor') }}/aos/aos.js"></script>
     <script src="{{ asset('/visitors/vendor') }}/slick/slick.min.js"></script>
 
-    {{-- main css file --}}
+    {{-- Main CSS file --}}
     <link rel="stylesheet" href="{{ asset('/visitors/css') }}/style.css">
 
     {{-- Main JS File --}}

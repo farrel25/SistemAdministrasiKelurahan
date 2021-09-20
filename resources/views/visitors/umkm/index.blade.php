@@ -127,112 +127,15 @@
                         </div>
                     </div>
                 </div>
-                {{-- <div class="mb-4">
-                    <div class="dropdown mb-4 d-flex">
-                        <h4 class=" d-inline-block">Toko</h4>
-                        <button class="btn btn-secondary dropdown-toggle ml-auto" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                            style="background-color: #FE5670; border:none;">
-                            Recently Added
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Recently Added</a>
-                            <a class="dropdown-item" href="#">View Count</a>
-                        </div>
+            </div>
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="800">
+                <div class="sidebar">
+                    <div class="row">
+                        @include('visitors.layouts.sidebar.sidebar-umkm')
                     </div>
-                    <div class="all-blog-posts">
-                        <div class="row card-columns ">
-                            <div class="col-12 ">
-                                <div class="row">
-                                    <div class=" col-12 sliderstore " id="store">
-                                        <div class="card-wrapper mr-2 card">
-                                            <div class="card-img-wrapper">
-                                                <img class="card-img-top" src="{{ asset('/images') }}/default.png"
-                alt="Card image cap">
-            </div>
-            <div class="card-body">
-                <h4 class="card-title font-weight-bold text-center">Store Name</h4>
-                <hr>
-                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Produk
-                    : 10</p>
-                <hr>
-                <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
-                <hr>
-                <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10
-                </p>
-                <hr>
-                <div class=" text-center">
-                    <a href="#"><button type="button" class=" btn btn-red ">Kunjungi
-                            toko</button></a>
-                    <a href="#"><button type="button" class="btn btn-red ">Hubungi
-                            penjual</button></a>
                 </div>
             </div>
         </div>
-        <div class=" card-wrapper mr-2 card">
-            <div class="card-img-wrapper">
-                <img class="card-img-top" src="{{ asset('/images') }}/default.png" alt="Card image cap">
-            </div>
-            <div class="card-body">
-                <h4 class="card-title font-weight-bold text-center">Store Name</h4>
-                <hr>
-                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Produk
-                    : 10</p>
-                <hr>
-                <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
-                <hr>
-                <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10
-                </p>
-                <hr>
-                <div class=" text-center">
-                    <a href="#"><button type="button" class=" btn btn-red ">Kunjungi
-                            toko</button></a>
-                    <a href="#"><button type="button" class="btn btn-red ">Hubungi
-                            penjual</button></a>
-                </div>
-            </div>
-        </div>
-        <div class="card-wrapper mr-2 card">
-            <div class="card-img-wrapper">
-                <img class="card-img-top" src="{{ asset('/images') }}/default.png" alt="Card image cap">
-            </div>
-            <div class="card-body">
-                <h4 class="card-title font-weight-bold text-center">Store Name</h4>
-                <hr>
-                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Produk
-                    : 10</p>
-                <hr>
-                <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
-                <hr>
-                <p class="card-text"><i class="fas fa-pen-alt"></i></i> Komentar : 10
-                </p>
-                <hr>
-                <div class=" text-center">
-                    <a href="#"><button type="button" class=" btn btn-red ">Kunjungi
-                            toko</button></a>
-                    <a href="#"><button type="button" class="btn btn-red ">Hubungi
-                            penjual</button></a>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
-    <div class="col-lg-12 mb-5 mt-4">
-        <a href="#"><button type="button" class=" btn-block btn-red-line"> View All</button></a>
-    </div>
-    </div>
-    </div>
-    </div> --}}
-    </div>
-    <div class="col-lg-4" data-aos="fade-up" data-aos-delay="800">
-        <div class="sidebar">
-            <div class="row">
-                @include('visitors.layouts.sidebar.sidebar-umkm')
-            </div>
-        </div>
-    </div>
-    </div>
     </div>
 </section>
 
@@ -339,5 +242,6 @@ $('.slidercard').slick({
                 }
             }
         ]
+
     }); --}}
 @endsection
