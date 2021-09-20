@@ -61,7 +61,10 @@ class DatabaseSeeder extends Seeder
             VillageIdentitySeeder::class,
 
             // Complaint
-            ComplaintCategorySeeder::class
+            ComplaintCategorySeeder::class,
+
+            //UMKM
+            UmkmCategorySeeder::class,
         ]);
     }
 }

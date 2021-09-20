@@ -78,4 +78,8 @@ class User extends Authenticatable
     public function complaintComments() {
         return $this->hasMany(ComplaintComment::class);
     }
+
+    public function umkmProfile() {
+        return $this->hasOne(UmkmProfile::class);
+    }
 }

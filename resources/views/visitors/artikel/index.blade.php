@@ -62,7 +62,11 @@ $data=[
                                     </a>
                                     <ul class="post-info ">
                                         {{-- <li><a href="#">{{$role[0]->name}}</a></li> --}}
-                                        <li><a href="#">{{$article->user->roles->first()->name}}</a></li>
+                                        <li>
+                                            <a href="#">
+                                                {{$article->user->roles->first()->name}}
+                                            </a>
+                                        </li>
                                         <li>
                                             <a href="#">
                                                 {{-- {{$article->created_at->diffForHumans()}} --}}

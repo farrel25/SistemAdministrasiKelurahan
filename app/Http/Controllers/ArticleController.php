@@ -66,6 +66,6 @@ class ArticleController extends Controller
     public function showGovernmentStructure() {
         $article = Article::where('category_id', 2)->first();
         // dd($article);
-        return view('visitors.profil_desa.sejarah-visi-misi', compact('article'));
+        return view('visitors.profil_desa.struktur-pemerintahan', compact('article'));
     }
 }

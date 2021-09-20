@@ -150,9 +150,9 @@
                                                 <small>
                                                     {{ $comment->comments }}
                                                 </small>
-                                                <a href="#" class="mt-3 d-flex">
+                                                {{-- <a href="#" class="mt-3 d-flex">
                                                     <small>reply</small>
-                                                </a>
+                                                </a> --}}
                                             </div>
                                         </li><br>
                                         @empty

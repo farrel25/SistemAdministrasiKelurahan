@@ -1,8 +1,7 @@
-@extends('visitors.layouts.master', ['title' => "Artikel"])
+@extends('visitors.layouts.master', ['title' => "Profil Desa"])
 
 @section('content')
 
-@section('content')
 {{-- Start Breadcumb Section --}}
 <?php
     $data=[
@@ -20,42 +19,30 @@
             <div class="col-lg-8" data-aos="fade-up" data-aos-delay="500">
                 <div class="all-blog-posts">
                     <div class="row">
+                        @if ($article)
                         <div class="col-lg-12">
                             <div class="blog-post">
                                 <div class="blog-thumb">
-                                    <img src="{{ asset('/images') }}/img-article-01.png" alt="">
+                                    {{-- <img src="{{ asset('/images') }}/img-article-01.png" alt=""> --}}
+                                    <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="">
                                 </div>
                                 <div class="down-content">
-                                    <span>Lifestyle</span>
-                                    <a href="post-details.html">
-                                        <h4>Aenean pulvinar gravida sem nec</h4>
-                                    </a>
+                                    <span>{{$article->category->category}}</span>
+                                    <h4>{{$article->title}}</h4>
+                                    <?php
+                                        $userId = $article->user_id;
+                                        $roleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
+                                        $role = \DB::table('roles')->select('model_has_roles.model_id','model_has_roles.role_id', 'roles.name')
+                                            ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
+                                            ->where('model_has_roles.role_id', $roleId)->get()->toArray();
+                                    ?>
                                     <ul class="post-info">
-                                        <li><a href="#">Admin</a></li>
-                                        <li><a href="#">May 12, 2020</a></li>
-                                        <li><a href="#">10 Comments</a></li>
+                                        <li><a href="#">{{$role[0]->name}}</a></li>
+                                        <li><a href="#">{{$article->created_at->format('d F, Y')}}</a></li>
                                     </ul>
-                                    <p>You can browse different tags such as <a rel="nofollow"
-                                            href="https://templatemo.com/tag/multi-page"
-                                            target="_parent">multi-page</a>, <a rel="nofollow"
-                                            href="https://templatemo.com/tag/resume" target="_parent">resume</a>, <a
-                                            rel="nofollow" href="https://templatemo.com/tag/video"
-                                            target="_parent">video</a>, etc. to see more CSS templates. Sed hendrerit
-                                        rutrum arcu, non malesuada nisi.
-                                        Sed id facilisis turpis. Donec justo elit, dapibus vel ultricies in, molestie
-                                        sit amet risus. In nunc augue,
-                                        rhoncus sed libero et, tincidunt tempor nisl. Donec egestas, quam eu rutrum
-                                        ultrices, sapien ante posuere
-                                        nisl, ac eleifend eros orci vel ante. Pellentesque vitae eleifend velit. Etiam
-                                        blandit felis sollicitudin
-                                        vestibulum feugiat.
-                                        <br><br>Donec tincidunt leo nec magna gravida varius. Suspendisse felis orci,
-                                        egestas ac sodales quis,
-                                        venenatis et neque. Vivamus facilisis dignissim arcu et blandit. Maecenas
-                                        finibus dui non pulvinar lacinia. Ut
-                                        lacinia finibus lorem vel porttitor. Suspendisse et metus nec libero ultrices
-                                        varius eget in risus. Cras id
-                                        nibh at erat pulvinar malesuada et non ipsum. Suspendisse id ipsum leo.
+                                    <hr>
+                                    <p class=" text-justify">
+                                        {!! $article->body !!}
                                     </p>
                                     <div class="post-options">
                                         <div class="row">
@@ -66,11 +53,10 @@
                                                     <li><a href="#">TemplateMo</a></li>
                                                 </ul>
                                             </div>
-                                            <div class="col-6">
-                                                <ul class="post-share">
+                                            <div class="col-md-6 ">
+                                                <ul class="post-share right-align">
                                                     <li><i class="fa fa-share-alt"></i></li>
-                                                    <li><a href="#">Facebook</a>,</li>
-                                                    <li><a href="#"> Twitter</a></li>
+                                                    <li><a href="#">Copy Link</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -78,6 +64,17 @@
                                 </div>
                             </div>
                         </div>
+                        @else
+                        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                            {{-- <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800"> --}}
+                            {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
+                            </div> --}}
+                            <div class="alert alert-info text-center">
+                                Informasi belum tersedia. nantikan informasi terbaru dari kami atau bisa laporkan melalui form pengaduan. Terima kasih.
+                            </div>
+                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
