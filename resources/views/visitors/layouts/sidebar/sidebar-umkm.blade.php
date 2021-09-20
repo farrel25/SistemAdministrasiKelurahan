@@ -12,49 +12,37 @@
         </div>
         <ul>
             <li>
-                <a href="#">
+                <div class="d-flex align-items-center">
                     <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
-                    <div class="d-flex flex-column">
-                        <h5>Product 1</h5>
-                        <p>Rp. 15.000</p>
+                    <div class="d-flex flex-column ml-3">
+                        <a href="#">
+                            <h5>Product 1</h5>
+                        </a>
+                        <p class=" mb-0">Rp. 15.000</p>
                     </div>
-                </a>
-            </li>
-            <li><a href="#">
-                    <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
-                    <h5>Product 2</h5>
-                </a></li>
-            <li><a href="#">
-                    <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
-                    <h5>Product 3</h5>
-                </a></li>
-        </ul>
-    </div>
-</div>
-<div class="col-lg-12 mb-4">
-    <div class="pop-store">
-        <div class="sidebar-heading text-center">
-            <h2>Toko Populer</h2>
-        </div>
-        <ul>
-            <li>
-                <a href="#">
-                    <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
-                    <div class="icon-search">
-                        <div class="icon"><i class="icofont-ui-search"></i></div>
-                    </div>
-                    <h5>Toko</h5>
-                </a>
+                </div>
             </li>
             <li>
-                <a href="#">
-                    <img src="{{ asset('/images') }}/default.png" alt="">
-                    <div class="icon-search">
-                        <div class="icon"><i class="icofont-ui-search"></i></div>
+                <div class="d-flex align-items-center">
+                    <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
+                    <div class="d-flex flex-column ml-3">
+                        <a href="#">
+                            <h5>Product 1</h5>
+                        </a>
+                        <p class=" mb-0">Rp. 15.000</p>
                     </div>
-                    <h5>Toko</h5>
-
-                </a>
+                </div>
+            </li>
+            <li>
+                <div class="d-flex align-items-center">
+                    <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
+                    <div class="d-flex flex-column ml-3">
+                        <a href="#">
+                            <h5>Product 1</h5>
+                        </a>
+                        <p class=" mb-0">Rp. 15.000</p>
+                    </div>
+                </div>
             </li>
         </ul>
     </div>

@@ -189,21 +189,22 @@
                 @empty
                 <div class="row justify-content-center mx-auto pl-3 pr-3" data-aos="fade-up" data-aos-delay="500">
                     {{-- <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="500"> --}}
-                        {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="500">
+                    {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="500">
                                     <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
-                    </div> --}}
-                    <div class="alert alert-info text-center">
-                        Artikel belum tersedia. nantikan artikel terbaru dari kami atau bisa laporkan melalui form pengaduan. Terima kasih.
-                    </div>
+                </div> --}}
+                <div class="alert alert-info text-center">
+                    Artikel belum tersedia. nantikan artikel terbaru dari kami atau bisa laporkan melalui form
+                    pengaduan. Terima kasih.
                 </div>
             </div>
-            @endforelse
-            <div class="col-lg-12 mb-5 ">
-                <ul class="pagination justify-content-center">
-                    {{$articles->links()}}
-                </ul>
-            </div>
         </div>
+        @endforelse
+        <div class="col-lg-12 mb-5 ">
+            <ul class="pagination justify-content-center">
+                {{$articles->links()}}
+            </ul>
+        </div>
+    </div>
     </div>
 </section>
 {{-- End Article Section --}}
@@ -495,113 +496,101 @@
 {{-- End Services Section --}}
 
 <script type="text/javascript">
-    $('.sliderh').slick({
-            dots: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            autoplay: true,
-            infinite: false,
-            cssEase: 'linear',
-            autoplaySpeed: 4000,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                    }
-                },
-                {
-                    breakpoint: 575,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1,
-                        prevArrow: '<div class="d-none "></div>',
-                        nextArrow: '<div class="d-none"></div>',
-                    }
-                }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
-            ]
-        });
-        $('.sliderv').slick({
-            vertical: true,
-            verticalSwiping: true,
-            dots: true,
-            touchThreshold: 100,
+$('.sliderh').slick({
+    dots: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    infinite: false,
+    cssEase: 'linear',
+    autoplaySpeed: 4000,
+    responsive: [{
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                dots: true
+            }
+        },
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+            }
+        },
+        {
+            breakpoint: 575,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                prevArrow: '<div class="d-none "></div>',
+                nextArrow: '<div class="d-none"></div>',
+            }
+        }
+    ]
+});
+$('.sliderv').slick({
+    vertical: true,
+    verticalSwiping: true,
+    dots: true,
+    touchThreshold: 100,
+    slidesToShow: 1,
+    cssEase: 'ease-in-out',
+    dotsClass: "slick-dots-vertical",
+    slidesToScroll: 1,
+    autoplay: true,
+    infinite: false,
+    autoplaySpeed: 4000,
+    prevArrow: false,
+    nextArrow: false,
+    responsive: [{
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true
+            }
+        },
+        {
+            breakpoint: 780,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+    ]
+});
+$('.sliderimage').slick({
+    draggable: true,
+    arrows: true,
+    prevArrow: '<div class="slick-prev-image" ></div>',
+    nextArrow: '<div class="slick-next-image"></div>',
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    fade: true,
+    dotsClass: "slick-dots-image",
+    speed: 900,
+    infinite: true,
+    cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
+    responsive: [{
+        breakpoint: 480,
+        settings: {
             slidesToShow: 1,
-            cssEase: 'ease-in-out',
-            dotsClass: "slick-dots-vertical",
             slidesToScroll: 1,
-            autoplay: true,
-            infinite: false,
-            autoplaySpeed: 4000,
-            prevArrow: false,
-            nextArrow: false,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        dots: true
-                    }
-                },
-                {
-                    breakpoint: 780,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
-                }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
-            ]
-        });
-        $('.sliderimage').slick({
-            draggable: true,
-            arrows: true,
-            prevArrow: '<div class="slick-prev-image" ></div>',
-            nextArrow: '<div class="slick-next-image"></div>',
-            dots: true,
-            autoplay: true,
-            autoplaySpeed: 5000,
-            fade: true,
-            dotsClass: "slick-dots-image",
-            speed: 900,
-            infinite: true,
-            cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)',
-            responsive: [
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        prevArrow: '<div class="d-none"></div>',
-                        nextArrow: '<div class="d-none"></div>',
-                    }
-                }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
-            ]
-        });
-
+            prevArrow: '<div class="d-none"></div>',
+            nextArrow: '<div class="d-none"></div>',
+        }
+    }]
+});
 </script>
 
 @endsection

@@ -43,14 +43,6 @@
                     <li><a href="">Kegiatan Pemuda</a></li>
                 </ul>
                 </li> --}}
-                <?php
-                // function activePelayanan($urlPath)
-                // {
-                // if ($urlPath == 'pelayanan/pengajuan-surat' || $urlPath == 'pelayanan/pengaduan' || $urlPath == 'pelayanan/kontributor') {
-                // return ' active';
-                // }
-                // }
-                ?>
                 <li class="{{ request()->is('pelayanan/pengajuan-surat') ? 'active' : '' }}">
                     <a href="{{ route('pengajuan-surat.create') }}">Pengajuan Surat</a>
                 </li>

@@ -60,15 +60,6 @@ $data=[
                                     <a href="{{ route('visitors.artikel.show', $article->slug) }}">
                                         <h4>{{$article->title}}</h4>
                                     </a>
-
-                                    <?php
-                                    // $userId = $article->user_id;
-                                    // $roleId = \DB::table('model_has_roles')->where('model_id', $userId)->value('role_id');
-                                    // $role = \DB::table('roles')->select('model_has_roles.model_id','model_has_roles.role_id', 'roles.name')
-                                    // ->join('model_has_roles', 'roles.id', '=', 'model_has_roles.role_id')
-                                    // ->where('model_has_roles.role_id', $roleId)->get()->toArray();
-                                    ?>
-
                                     <ul class="post-info ">
                                         {{-- <li><a href="#">{{$role[0]->name}}</a></li> --}}
                                         <li><a href="#">{{$article->user->roles->first()->name}}</a></li>
@@ -94,11 +85,12 @@ $data=[
                         @empty
                         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                             <div class="col-lg-12 justify-content-center" data-aos="fade-up" data-aos-delay="800">
-                            {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
+                                {{-- <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="800">
                                 <img src="{{ asset('/images') }}/sorry.png" style="height: 250px; width:250px;">
                             </div> --}}
                             <div class="alert alert-info text-center">
-                                Artikel belum tersedia. nantikan artikel terbaru dari kami atau bisa laporkan melalui form pengaduan. Terima kasih.
+                                Artikel belum tersedia. nantikan artikel terbaru dari kami atau bisa laporkan melalui
+                                form pengaduan. Terima kasih.
                             </div>
                         </div>
                     </div>
