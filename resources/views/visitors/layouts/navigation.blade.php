@@ -37,8 +37,8 @@
                         </li>
                     </ul>
                 </li>
-                <li class="{{ request()->is('kegiatan-masyarakat/umkm') ? 'active' : '' }}">
-                    <a href="{{ route('visitors.kegiatan_masyarakat.umkm.index') }}">UMKM</a>
+                <li class="{{ request()->is('umkm') ? 'active' : '' }}">
+                    <a href="{{ route('visitors.umkm.index') }}">UMKM</a>
                 </li>
                 {{-- <li class="drop-down{{ request()->is('/kegiatan-masyarakat/umkm') ? 'active' : '' }}">
                 <a href="#">Kegiatan Masyarakat</a>

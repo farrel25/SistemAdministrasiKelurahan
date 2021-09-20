@@ -98,13 +98,12 @@
                                         <div class="cart-img">
                                             <img src="{{ asset('/images') }}/img-umkm-1.png" class="" alt="...">
                                             <div class="icon">
-                                                <a href="{{ route('visitors.kegiatan_masyarakat.umkm.view-product') }}"><i
-                                                        class="fas fa-shopping-basket"></i></a>
+                                                <a href="#"><i class="fas fa-shopping-basket"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body p-3">
-                                        <a href="{{ route('visitors.kegiatan_masyarakat.umkm.view-product') }}">
+                                        <a href="#">
                                             <h5 class="card-title font-weight-bold mb-0">Product </h5>
                                         </a>
                                         <p>Category</p>
@@ -362,13 +361,12 @@
                                             <img src="{{ asset('/images') }}/img-umkm-1.png" class="card-img-top"
                                                 alt="...">
                                             <div class="icon">
-                                                <a href="{{ route('visitors.kegiatan_masyarakat.umkm.view-product') }}"><i
-                                                        class="fas fa-shopping-basket"></i></a>
+                                                <a href="#"><i class="fas fa-shopping-basket"></i></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body p-3">
-                                        <a href="{{ route('visitors.kegiatan_masyarakat.umkm.view-product') }}">
+                                        <a href="#">
                                             <h5 class="card-title font-weight-bold mb-0">Product </h5>
                                         </a>
                                         <p>Category</p>
