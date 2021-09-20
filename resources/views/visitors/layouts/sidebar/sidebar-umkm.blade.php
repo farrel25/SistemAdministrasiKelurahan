@@ -16,7 +16,7 @@
                     <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
                     <div class="d-flex flex-column ml-3">
                         <a href="#">
-                            <h5>Product 1</h5>
+                            <h5>Produk 1</h5>
                         </a>
                         <p class=" mb-0">Rp. 15.000</p>
                     </div>
@@ -27,7 +27,7 @@
                     <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
                     <div class="d-flex flex-column ml-3">
                         <a href="#">
-                            <h5>Product 1</h5>
+                            <h5>Produk 1</h5>
                         </a>
                         <p class=" mb-0">Rp. 15.000</p>
                     </div>
@@ -38,7 +38,7 @@
                     <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
                     <div class="d-flex flex-column ml-3">
                         <a href="#">
-                            <h5>Product 1</h5>
+                            <h5>Produk 1</h5>
                         </a>
                         <p class=" mb-0">Rp. 15.000</p>
                     </div>

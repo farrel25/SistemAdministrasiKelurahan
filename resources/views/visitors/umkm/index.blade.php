@@ -12,7 +12,7 @@
                         <img src="{{ asset('/images') }}/vector-1.png"
                             class=" float-left mr-5 w-auto mb-3 rounded-lg animated img-fluid" alt="Responsive image" />
                         <div class="d-flex flex-column align-items-start">
-                            <h3 class="card-title mt-4" style="font-weight: 700;">Mempermudah Belanja</h3>
+                            <h3 class="card-title mt-4" style="font-weight: 700;">Mempermudah Dalam Berbelanja</h3>
                             <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
                                 sint.
                                 Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt
@@ -26,11 +26,11 @@
                     <div class="card-body">
                         <img src="{{ asset('/images') }}/vector-1.png"
                             class=" float-left mr-5 w-auto mb-3 rounded-lg animated img-fluid" alt="Responsive image">
-                        <h3 class="card-title mt-4" style="font-weight: 700;">Mempermudah Belanja</h3>
+                        <h3 class="card-title mt-4" style="font-weight: 700;">Terjaga Kualitasnya</h3>
                         <p class="card-text">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
                             Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud
                             amet. </p>
-                        <a href="#" class="btn btn-red">Yuk Belanja</a>
+                        <a href="#" class="btn btn-red">Yuk Belanja </a>
                     </div>
                 </div>
             </div>
@@ -44,28 +44,28 @@
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-4 mb-lg-0 ">
                 <div class="icon-box " data-aos="fade-up" data-aos-delay="100" style="width: 100%;">
                     <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                    <h4 class="title"><a href="">Category 1</a></h4>
+                    <h4 class="title"><a href="">Kategori 1</a></h4>
                     <p class="description">Voluptatum deleniti atque corrupti </p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-4 mb-lg-0">
                 <div class="icon-box " data-aos="fade-up" data-aos-delay="200" style="width: 100%;">
                     <div class="icon"><i class="bx bx-file"></i></div>
-                    <h4 class="title"><a href="">Category 2</a></h4>
+                    <h4 class="title"><a href="">Kategori 2</a></h4>
                     <p class="description">Duis aute irure dolor in reprehenderit </p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-4 mb-lg-0">
                 <div class="icon-box " data-aos="fade-up" data-aos-delay="300" style="width: 100%;">
                     <div class="icon"><i class="bx bx-tachometer"></i></div>
-                    <h4 class="title"><a href="">Category 3</a></h4>
+                    <h4 class="title"><a href="">Kategori 3</a></h4>
                     <p class="description">Excepteur sint occaecat cupidatat </p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-4 mb-lg-0">
                 <div class="icon-box " data-aos="fade-up" data-aos-delay="400" style="width: 100%;">
                     <div class="icon"><i class="bx bx-world"></i></div>
-                    <h4 class="title"><a href="">Category 4</a></h4>
+                    <h4 class="title"><a href="">Kategori 4</a></h4>
                     <p class="description">At vero eos et accusamus et iusto </p>
                 </div>
             </div>
@@ -105,9 +105,9 @@
                                     </div>
                                     <div class="card-body p-3">
                                         <a href="#" data-toggle="modal" data-target=".bd-example-modal-lg">
-                                            <h5 class="card-title font-weight-bold mb-0">Product </h5>
+                                            <h5 class="card-title font-weight-bold mb-0">Produk </h5>
                                         </a>
-                                        <p>Category</p>
+                                        <p>Kategori</p>
                                         <ul class="list-unstyled list-inline my-2">
                                             <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
                                             </li>
@@ -153,7 +153,7 @@
             <div class="card-body">
                 <h4 class="card-title font-weight-bold text-center">Store Name</h4>
                 <hr>
-                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product
+                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Produk
                     : 10</p>
                 <hr>
                 <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
@@ -176,7 +176,7 @@
             <div class="card-body">
                 <h4 class="card-title font-weight-bold text-center">Store Name</h4>
                 <hr>
-                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product
+                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Produk
                     : 10</p>
                 <hr>
                 <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
@@ -199,7 +199,7 @@
             <div class="card-body">
                 <h4 class="card-title font-weight-bold text-center">Store Name</h4>
                 <hr>
-                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Product
+                <p class="card-text"><i class="fas fa-shopping-cart"></i> Jumlah Produk
                     : 10</p>
                 <hr>
                 <p class="card-text"><i class="fas fa-star"></i> Penilaian : 4.5</p>
