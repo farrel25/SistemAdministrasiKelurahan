@@ -92,15 +92,16 @@
 </section>
 
 <script>
-    const flash = $('.flash-data').data('flash');
-    // console.log(flash);
-    if (flash) {
-        Swal.fire({
-            icon: 'success',
-            title: flash,
-            html: 'Silahkan ke <a href="{{route('layanan.pengajuan-surat')}}">halaman dashboard</a> anda untuk info lebih lanjut',
-        });
-    }
+const flash = $('.flash-data').data('flash');
+// console.log(flash);
+if (flash) {
+    Swal.fire({
+        icon: 'success',
+        title: flash,
+        html: 'Silahkan ke <a href="{{route('
+        layanan.pengajuan - surat ')}}">halaman dashboard</a> anda untuk info lebih lanjut',
+    });
+}
 </script>
 
 @endsection

@@ -1,7 +1,7 @@
 {{-- @if ($products) --}}
 <div class="modal fade modal-detail-product" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Nama Produk</h5>
@@ -81,7 +81,7 @@
                         metus ac porttitor. In vitae mi urna.</p>
                 </div>
 
-      </div>
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">
                     <i class="fas fa-envelope mr-2"></i>bambang@gmail.com</button>
