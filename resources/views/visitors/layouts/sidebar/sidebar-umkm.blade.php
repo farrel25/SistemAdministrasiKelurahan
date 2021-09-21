@@ -11,39 +11,26 @@
             <h2>Produk Populer</h2>
         </div>
         <ul>
+            @php
+                $popular_products = \DB::table('umkm_products')->orderBy('view_count', 'desc')->latest()->take(3)->get();
+            @endphp
+            @forelse ($popular_products as $product)
             <li>
                 <div class="d-flex align-items-center">
-                    <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
+                    {{-- <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
+                    <img src="{{ asset('storage/' . $product->photo) }}" alt="Avatar" class="image"> --}}
+                    <img src="{{$product->photo}}" alt="Avatar" class="image">
                     <div class="d-flex flex-column ml-3">
                         <a href="#">
-                            <h5>Produk 1</h5>
+                            <h5>{{$product->product_name}}</h5>
                         </a>
-                        <p class=" mb-0">Rp. 15.000</p>
+                        <p class=" mb-0">Rp. {{$product->price}}</p>
                     </div>
                 </div>
             </li>
-            <li>
-                <div class="d-flex align-items-center">
-                    <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
-                    <div class="d-flex flex-column ml-3">
-                        <a href="#">
-                            <h5>Produk 1</h5>
-                        </a>
-                        <p class=" mb-0">Rp. 15.000</p>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="d-flex align-items-center">
-                    <img src="{{ asset('/images') }}/default.png" alt="Avatar" class="image">
-                    <div class="d-flex flex-column ml-3">
-                        <a href="#">
-                            <h5>Produk 1</h5>
-                        </a>
-                        <p class=" mb-0">Rp. 15.000</p>
-                    </div>
-                </div>
-            </li>
+            @empty
+            <li></li>
+            @endforelse
         </ul>
     </div>
 </div>

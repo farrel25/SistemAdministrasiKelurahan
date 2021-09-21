@@ -388,11 +388,13 @@ Route::prefix('profil-desa')->group(function () {
 });
 
 
-// kegiatan masyarakat
-Route::get('/umkm', function () {
-    return view('visitors.umkm.index');
-})->name('visitors.umkm.index');
+// UMKM
+Route::prefix('/umkm')->group(function() {
+    Route::get('', 'UmkmVisitorController@index')->name('visitors.umkm.index');
+});
+
 
 Route::get('/kegiatan-masyarakat/umkm/view-product', function () {
     return view('visitors.kegiatan_masyarakat.umkm.view-product');
 })->name('visitors.kegiatan_masyarakat.umkm.view-product');
+

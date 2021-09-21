@@ -16,7 +16,9 @@ class CreateUmkmProductsTable extends Migration
         Schema::create('umkm_products', function (Blueprint $table) {
             $table->id();
             $table->foreignId('umkm_category_id');
+            $table->foreignId('umkm_profile_id');
             $table->string('product_name');
+            $table->string('photo');
             $table->string('description');
             $table->string('price');
             $table->string('stock');

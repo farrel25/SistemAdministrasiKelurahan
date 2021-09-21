@@ -50,8 +50,8 @@ $data=[
                             <div class="blog-post">
                                 <div class="blog-thumb ">
                                     {{-- <img src="{{ asset('/images') }}/img-article-01.png" alt=""> --}}
-                                    {{-- <img src="{{ $article->thumbnail }}" alt=""> --}}
-                                    <img src="{{ asset('storage/' . $article->thumbnail) }}" alt="">
+                                    <img src="{{$article->thumbnail}}" alt="">
+                                    {{-- <img src="{{ asset('storage/' . $article->thumbnail) }}" alt=""> --}}
                                 </div>
                                 <div class="down-content">
                                     <a href="{{ route('visitors.artikel.category.show', $article->category->slug) }}">

@@ -41,34 +41,25 @@
 <section id="category" class="category">
     <div class="container">
         <div class="row mt-4 mb-5">
+            @forelse ($categories as $category)
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-4 mb-lg-0 ">
                 <div class="icon-box " data-aos="fade-up" data-aos-delay="100" style="width: 100%;">
                     <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                    <h4 class="title"><a href="">Kategori 1</a></h4>
+                    <h4 class="title"><a href="">{{$category->category}}</a></h4>
                     <p class="description">Voluptatum deleniti atque corrupti </p>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-4 mb-lg-0">
-                <div class="icon-box " data-aos="fade-up" data-aos-delay="200" style="width: 100%;">
-                    <div class="icon"><i class="bx bx-file"></i></div>
-                    <h4 class="title"><a href="">Kategori 2</a></h4>
-                    <p class="description">Duis aute irure dolor in reprehenderit </p>
-                </div>
+            @empty
+            <div class="col-md-6 col-lg-12 d-flex align-items-stretch mb-4 mb-lg-0 ">
+                {{-- <div class="icon-box " data-aos="fade-up" data-aos-delay="100" style="width: 100%;">
+                    <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                    <h4 class="title"><a href="">Kategori belum tersedia</a></h4>
+                    <p class="description">
+                        Kategori produk masih belum tersedia,nantikan kategori produk terbaru dari kami atau bisa laporkan melalui form pengaduan. Terima kasih.
+                    </p>
+                </div> --}}
             </div>
-            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-4 mb-lg-0">
-                <div class="icon-box " data-aos="fade-up" data-aos-delay="300" style="width: 100%;">
-                    <div class="icon"><i class="bx bx-tachometer"></i></div>
-                    <h4 class="title"><a href="">Kategori 3</a></h4>
-                    <p class="description">Excepteur sint occaecat cupidatat </p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-4 mb-lg-0">
-                <div class="icon-box " data-aos="fade-up" data-aos-delay="400" style="width: 100%;">
-                    <div class="icon"><i class="bx bx-world"></i></div>
-                    <h4 class="title"><a href="">Kategori 4</a></h4>
-                    <p class="description">At vero eos et accusamus et iusto </p>
-                </div>
-            </div>
+            @endforelse
         </div>
     </div>
 </section>
@@ -86,17 +77,23 @@
                             Kategori
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Makanan</a>
-                            <a class="dropdown-item" href="#">Kerajinan</a>
+                            @forelse ($categories as $category)
+                            <a class="dropdown-item" href="#">{{$category->category}}</a>
+                            @empty
+                            <a class="dropdown-item" href="#">belum tersedia</a>
+                            @endforelse
                         </div>
                     </div>
                     <div class="all-blog-posts">
                         <div class="row card-columns ">
+                            @forelse ($products as $product)
                             <div class="col-3">
                                 <div class="card mr-2 " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            <img src="{{ asset('/images') }}/img-umkm-1.png" class="" alt="...">
+                                            {{-- <img src="{{ asset('/images') }}/img-umkm-1.png" class="" alt="..."> --}}
+                                            {{-- <img src="{{ asset('storage/' . $product->photo) }}" class="" alt="..."> --}}
+                                            <img src="{{$product->photo}}" class="" alt="...">
                                             <div class="icon">
                                                 <a href="#" data-toggle="modal" data-target=".modal-detail-product"><i
                                                         class="fas fa-shopping-basket"></i></a>
@@ -105,9 +102,9 @@
                                     </div>
                                     <div class="card-body p-3">
                                         <a href="#" data-toggle="modal" data-target=".bd-example-modal-lg">
-                                            <h5 class="card-title font-weight-bold mb-0">Produk </h5>
+                                            <h5 class="card-title font-weight-bold mb-0">{{$product->product_name}}</h5>
                                         </a>
-                                        <p>Kategori</p>
+                                        <p>{{$product->category->category}}</p>
                                         <ul class="list-unstyled list-inline my-2">
                                             <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
                                             </li>
@@ -120,10 +117,18 @@
                                             <li class="list-inline-item mx-0"><i class="fas fa-star mimosa-text"></i>
                                             </li>
                                         </ul>
-                                        <p>Rp 10.000</p>
+                                        <p>Rp. {{$product->price}}</p>
                                     </div>
                                 </div>
                             </div>
+                            @empty
+                            <div class="row justify-content-center mt-3" data-aos="fade-up" data-aos-delay="800">
+                                <div class="alert alert-info text-center">
+                                    Produk belum tersedia. nantikan produk terbaru dari UMKM Desa Wonosuko atau bisa laporkan melalui
+                                    form pengaduan. Terima kasih.
+                                </div>
+                            </div>
+                            @endforelse
                         </div>
                     </div>
                 </div>
