@@ -7,6 +7,7 @@ use App\LetterType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Alert;
+use App\Complaint;
 use App\LetterStatus;
 
 class ServiceComplaintController extends Controller
@@ -22,7 +23,10 @@ class ServiceComplaintController extends Controller
         // $letterSubmissions = LetterSubmission::paginate(10);
         // $letterSubmissionTotal = count(LetterSubmission::where('status_id', '!=', 4)->get());
         // $letterStatuses = LetterStatus::get();
-        return view('dashboard.layanan.pengaduan.pengaduan'/*, compact('letterSubmissions', 'letterSubmissionTotal', 'letterStatuses')*/);
+        $userId = Auth::user()->id;
+        $complaints = Complaint::where('user_id', $userId)->get();
+        // return $complaints;
+        return view('dashboard.layanan.pengaduan.pengaduan', compact('complaints'));
     }
 
     /**

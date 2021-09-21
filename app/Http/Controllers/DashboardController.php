@@ -31,6 +31,7 @@ class DashboardController extends Controller
     }
     public function suratkeluar()
     {
+
         return view('dashboard.manajemen_surat.surat_keluar.surat-keluar');
     }
     public function suratmasuk()

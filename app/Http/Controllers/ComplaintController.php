@@ -24,7 +24,9 @@ class ComplaintController extends Controller
         // $letterSubmissions = ComplaintController::paginate(10);
         // $letterSubmissionTotal = count(ComplaintController::where('status_id', '!=', 4)->get());
         // $letterStatuses = LetterStatus::get();
-        return view('dashboard.manajemen_pengaduan.pengaduan'/*, compact('letterSubmissions', 'letterSubmissionTotal', 'letterStatuses')*/);
+        $complaints = Complaint::get();
+        // return $complaints;
+        return view('dashboard.manajemen_pengaduan.pengaduan', compact('complaints'));
     }
 
     /**

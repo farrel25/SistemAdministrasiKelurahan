@@ -25,16 +25,17 @@
                             <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No</th>
                             {{-- <th class=" text-center">Aksi</th> --}}
+                            <th class=" text-center">Kategori</th>
                             <th class=" text-center">Aduan</th>
-                            <th class=" text-center">Pengirim</th>
                             <th class=" text-center">Tanggal</th>
                             <th class=" text-center">Komentar Pengaduan</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($complaints as $number => $complaint)
                         <tr>
                             <td class=" text-center"><input type="checkbox" name="chkbox[]" value="#"></td>
-                            <td class=" text-center">#</td>
+                            <td class=" text-center">{{$number + 1}}</td>
                             {{-- <td class=" text-center">
                                 <div class="d-flex justify-content-center">
                                     <button data-toggle="modal" data-target="#updateStatusModal" data-community="#"
@@ -57,13 +58,16 @@
                                     </form>
                                 </div>
                             </td> --}}
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#
-                                {{-- {{ date('d-m-Y', strtotime($letterSubmission->updated_at)) }} --}}
+                            <td class=" text-center">{{$complaint->category->category}}</td>
+                            <td class=" text-center">{{$complaint->complaint}}</td>
+                            <td class=" text-center">
+                                {{ date('d-m-Y', strtotime($complaint->created_at)) }}
                             </td>
-                            <td class=" text-center">#</td>
+                            <td class=" text-center"><i>belum ada komentar</i></td>
                         </tr>
+                        @empty
+                        <tr></tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
