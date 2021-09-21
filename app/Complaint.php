@@ -15,8 +15,10 @@ class Complaint extends Model
         'complaint'
     ];
 
+    protected $with = ['category', 'user'];
+
     public function category() {
-        return $this->belongsTo(ComplaintCategory::class);
+        return $this->belongsTo(ComplaintCategory::class, 'complaint_category_id');
     }
 
     public function user() {

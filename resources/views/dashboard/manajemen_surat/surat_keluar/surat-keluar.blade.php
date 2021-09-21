@@ -22,7 +22,7 @@
                         <div class="widget-subheading">Total Surat Masuk</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-primary">100</div>
+                        <div class="widget-numbers text-primary">0</div>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                         <div class="widget-subheading">Total Surat Keluar</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-warning">100</div>
+                        <div class="widget-numbers text-warning">0</div>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                         <div class="widget-subheading">Total Permohonan Surat</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-success">100</div>
+                        <div class="widget-numbers text-success">0</div>
                     </div>
                 </div>
             </div>
