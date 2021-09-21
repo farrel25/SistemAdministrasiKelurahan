@@ -94,7 +94,7 @@ class VillageIdentityController extends Controller
             'logo' => 'nullable|image|max:2000',
             'background_pic' => 'nullable|image|max:2048',
             'office_address' => 'nullable|string|max:255',
-            'village_email' => 'nullable|email|unique:village_identities,village_email,',
+            'village_email' => 'nullable|email',
             'phone' => 'nullable|numeric',
             'website' => 'nullable|url',
             'instagram' => 'nullable|url',

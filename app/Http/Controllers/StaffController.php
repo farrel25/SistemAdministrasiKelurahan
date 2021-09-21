@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Staff;
 use Illuminate\Http\Request;
-use Alert;
 use App\Villager;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Carbon;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class StaffController extends Controller
 {
@@ -221,12 +221,12 @@ class StaffController extends Controller
 
         $staff->update($attr);
 
-        if ($request->enabled == 1) {
+        if ($request->is_active == 1) {
             Alert::success(' Berhasil ', 'Staff di aktifkan');
         } else {
             Alert::success(' Berhasil ', 'Staff di non-aktifkan');
         }
 
-        return redirect()->route('info-kelurahan.kepengurusan');
+        return redirect()->route('info-desa.kepengurusan');
     }
 }

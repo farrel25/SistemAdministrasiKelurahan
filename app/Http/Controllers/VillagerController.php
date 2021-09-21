@@ -39,13 +39,24 @@ class VillagerController extends Controller
         $activeVillager = count(Villager::where('life_status_id', 1)->where('user_id', '!=', null)->get());
         $activePercentage = ($activeVillager / $totalVillager) * 100;
 
+        // menghitung persentase penduduk yg tidak aktif dari total penduduk
+        $notActiveVillager = count(Villager::where('life_status_id', 1)->where('user_id', '==', null)->get());
+        $notActivePercentage = ($notActiveVillager / $totalVillager) * 100;
+
         // mengambil data penduduk dan ditampilkan 10 saja per pagination
         $villagers = Villager::latest()->paginate(15);
         // $villagers = Villager::latest()->simplePaginate(10);
         // $villagers = Villager::latest()->paginate(10)->fragment('villagers');
 
         // return $villagers;
-        return view('dashboard.penduduk.penduduk', compact('villagers', 'totalVillager', 'activePercentage'));
+        return view('dashboard.penduduk.penduduk', compact(
+            'villagers',
+            'totalVillager',
+            'activeVillager',
+            'activePercentage',
+            'notActiveVillager',
+            'notActivePercentage'
+        ));
     }
 
     /**

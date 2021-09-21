@@ -15,9 +15,9 @@
     <div class="col-md-12 ">
         <div class="main-card mb-3 card ">
             <div class=" btn-actions-pane-left m-3 ">
-                <a type="button" class="btn btn-lg btn-success btn-sm text-white font-weight-normal btn-responsive m-1"
+                {{-- <a type="button" class="btn btn-lg btn-success btn-sm text-white font-weight-normal btn-responsive m-1"
                     href="#">
-                    <i class="fas fa-plus mr-1"></i> Tambah Identitas Kelurahan </a>
+                    <i class="fas fa-plus mr-1"></i> Tambah Identitas Kelurahan </a> --}}
                 <a type="button" class="btn btn-lg btn-primary btn-sm text-white font-weight-normal btn-responsive m-1"
                     href="{{route('info-desa.identitas.edit', $villageIdentity->id)}}">
                     <i class="fas fa-edit mr-1"></i> Edit Identitas Kelurahan</a>
@@ -47,7 +47,7 @@
             </div>
             <div class="m-4">
                 <p>
-                    {!! $villageIdentity->mission !!}
+                    {{ $villageIdentity->mission }}
                 </p>
             </div>
         </div>

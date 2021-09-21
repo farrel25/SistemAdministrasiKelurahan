@@ -98,7 +98,7 @@ if (flash) {
     Swal.fire({
         icon: 'success',
         title: flash,
-        html: 'Silahkan ke <a href="{{route('layanan.pengajuan - surat ')}}">halaman dashboard</a> anda untuk info lebih lanjut',
+        html: 'Silahkan ke <a href="{{route('layanan.pengajuan-surat')}}">halaman dashboard</a> anda untuk info lebih lanjut',
     });
 }
 </script>

@@ -23,7 +23,7 @@
                         <div class="widget-subheading">Total Seluruh Penduduk </div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-danger">100</div>
+                        <div class="widget-numbers text-danger">{{$totalVillager}}</div>
                     </div>
                 </div>
                 <div class="widget-progress-wrapper">
@@ -44,17 +44,17 @@
                         <div class="widget-subheading">Total Penduduk Aktif</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-success">75</div>
+                        <div class="widget-numbers text-success">{{$activeVillager}}</div>
                     </div>
                 </div>
                 <div class="widget-progress-wrapper">
                     <div class="progress-bar-lg progress-bar-animated progress">
-                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="75" aria-valuemin="0"
-                            aria-valuemax="100" style="width: 75%;">75%</div>
+                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="{{number_format($activePercentage, 2)}}" aria-valuemin="0"
+                            aria-valuemax="100" style="width: {{number_format($activePercentage, 2)}}%;">{{number_format($activePercentage, 2)}}%</div>
                     </div>
                     <div class="progress-sub-label">
                         <div class="sub-label-left">presentase</div>
-                        <div class="sub-label-right">100%</div>
+                        <div class="sub-label-right">{{number_format($activePercentage, 2)}}%</div>
                     </div>
                 </div>
             </div>
@@ -69,17 +69,17 @@
                         <div class="widget-subheading">Total Penduduk Tidak Aktif</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-warning">25</div>
+                        <div class="widget-numbers text-warning">{{$notActiveVillager}}</div>
                     </div>
                 </div>
                 <div class="widget-progress-wrapper">
                     <div class="progress-bar-lg progress-bar-animated progress">
-                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="47" aria-valuemin="0"
-                            aria-valuemax="100" style="width: 25%;">25%</div>
+                        <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="{{number_format($notActivePercentage, 2)}}" aria-valuemin="0"
+                            aria-valuemax="100" style="width: {{number_format($notActivePercentage, 2)}}%;">{{number_format($notActivePercentage, 2)}}%</div>
                     </div>
                     <div class="progress-sub-label">
                         <div class="sub-label-left">presentase</div>
-                        <div class="sub-label-right">100%</div>
+                        <div class="sub-label-right">{{number_format($notActivePercentage, 2)}}%</div>
                     </div>
                 </div>
             </div>
