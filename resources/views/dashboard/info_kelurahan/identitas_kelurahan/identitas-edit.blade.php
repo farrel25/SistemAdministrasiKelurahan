@@ -34,8 +34,7 @@
                                     <div class="position-relative form-group">
                                         <label for="vision" class="">Visi</label>
                                         <textarea name="vision" id="vision" style='text-align:left;' rows="3"
-                                            class="form-control @error('vision') is-invalid @enderror">{{ old('vision') ?? $villageIdentity->vision }}
-                                        </textarea>
+                                            class="form-control @error('vision') is-invalid @enderror">{{ old('vision') ?? $villageIdentity->vision }}</textarea>
                                         @error('vision')
                                         <span class="invalid-feedback mt-2" role="alert">
                                             <i>{{ $message }}</i>
@@ -47,9 +46,7 @@
                                     <div class="position-relative form-group">
                                         <label for="editor" class="">Misi</label>
                                         <textarea name="mission" id="mission" rows="5"
-                                            class="form-control @error('mission') is-invalid @enderror">
-                                            {{ old('mission') ?? $villageIdentity->mission }}
-                                        </textarea>
+                                            class="form-control @error('mission') is-invalid @enderror">{{ old('mission') ?? $villageIdentity->mission }}</textarea>
                                         @error('mission')
                                         <span class="invalid-feedback mt-2" role="alert">
                                             <i>{{ $message }}</i>
@@ -72,9 +69,7 @@
                                     <div class="position-relative form-group">
                                         <label for="history" class="">Sejarah</label>
                                         <textarea name="history" id="history" rows="5"
-                                            class="form-control @error('history') is-invalid @enderror">
-                                                {{ old('history') ?? $villageIdentity->history }}
-                                        </textarea>
+                                            class="form-control @error('history') is-invalid @enderror">{{ old('history') ?? $villageIdentity->history }}</textarea>
                                         @error('history')
                                         <span class="invalid-feedback mt-2" role="alert">
                                             <i>{{ $message }}</i>
@@ -164,9 +159,7 @@
                             <div class="position-relative form-group">
                                 <label for="office_address" class="">Alamat Kantor Desa</label>
                                 <textarea name="office_address" id="office_address"
-                                    class="form-control @error('office_address') is-invalid @enderror">
-                                    {{ old('office_address') ?? $villageIdentity->office_address }}
-                                </textarea>
+                                    class="form-control @error('office_address') is-invalid @enderror">{{ old('office_address') ?? $villageIdentity->office_address }}</textarea>
                                 @error('office_address')
                                 <span class="invalid-feedback mt-2" role="alert">
                                     <i>{{ $message }}</i>

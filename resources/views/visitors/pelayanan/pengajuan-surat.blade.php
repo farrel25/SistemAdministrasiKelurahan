@@ -79,7 +79,7 @@
                     <div class="custom-control custom-checkbox mt-2">
                         <input type="checkbox" class="custom-control-input" id="checkSetuju">
                         <label class="custom-control-label" for="checkSetuju">
-                            Anda telah menyetujui segala <a href="">persyaratan dan ketentuan</a> yang berlaku
+                            Anda telah menyetujui segala <a href="" data-toggle="modal" data-target=".modal-compliment">persyaratan dan ketentuan</a> yang berlaku
                         </label>
                     </div>
                     <div class="row justify-content-center mt-4">
@@ -98,8 +98,7 @@ if (flash) {
     Swal.fire({
         icon: 'success',
         title: flash,
-        html: 'Silahkan ke <a href="{{route('
-        layanan.pengajuan - surat ')}}">halaman dashboard</a> anda untuk info lebih lanjut',
+        html: 'Silahkan ke <a href="{{route('layanan.pengajuan - surat ')}}">halaman dashboard</a> anda untuk info lebih lanjut',
     });
 }
 </script>
