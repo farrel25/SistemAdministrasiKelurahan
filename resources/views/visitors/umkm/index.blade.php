@@ -1,8 +1,5 @@
 @extends('visitors.layouts.master', ['title' => "UMKM"])
-
 @section('content')
-
-
 <section id="card">
     <div class="container" style="margin-top: 112px;" data-aos="fade-up" data-aos-delay="400">
         <div class="row slider ">
@@ -37,7 +34,6 @@
         </div>
     </div>
 </section>
-
 <section id="category" class="category">
     <div class="container">
         <div class="row mt-4 mb-5">
@@ -45,7 +41,9 @@
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-4 mb-lg-0 ">
                 <div class="icon-box " data-aos="fade-up" data-aos-delay="100" style="width: 100%;">
                     <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                    <h4 class="title"><a href="{{ route('visitors.umkm.index') . '?category=' . $category->category }}">{{$category->category}}</a></h4>
+                    <h4 class="title"><a
+                            href="{{ route('visitors.umkm.index') . '?category=' . $category->category }}">{{$category->category}}</a>
+                    </h4>
                     <p class="description">Voluptatum deleniti atque corrupti </p>
                 </div>
             </div>
@@ -63,7 +61,6 @@
         </div>
     </div>
 </section>
-
 <section id="product" class="grid-system">
     <div class="container">
         <div class=" row ">
@@ -79,8 +76,10 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             @forelse ($categories as $category)
                             {{-- <a class="dropdown-item" href="#">{{$category->category}}</a> --}}
-                            {{-- <a class="dropdown-item" href="/umkm?category={{$category->category}}">{{$category->category}}</a> --}}
-                            <a class="dropdown-item" href="{{ route('visitors.umkm.index') . '?category=' . $category->category }}">{{$category->category}}</a>
+                            {{-- <a class="dropdown-item" href="/umkm?category={{$category->category}}">{{$category->category}}</a>
+                            --}}
+                            <a class="dropdown-item"
+                                href="{{ route('visitors.umkm.index') . '?category=' . $category->category }}">{{$category->category}}</a>
                             @empty
                             <a class="dropdown-item" href="#">belum tersedia</a>
                             @endforelse
@@ -90,14 +89,17 @@
                         <div class="row card-columns ">
                             @forelse ($products as $product)
                             <div class="col-3">
-                                <div class="card mr-2 " style="width: 10rem;">
+                                <div class="card " style="width: 10rem;">
                                     <div class="cart">
                                         <div class="cart-img">
-                                            {{-- <img src="{{ asset('/images') }}/img-umkm-1.png" class="" alt="..."> --}}
-                                            {{-- <img src="{{ asset('storage/' . $product->photo) }}" class="" alt="..."> --}}
-                                            <img src="{{$product->photo}}" class="" alt="...">
+                                            {{-- <img src="{{ asset('/images') }}/img-umkm-1.png" class="" alt="...">
+                                            --}}
+                                            {{-- <img src="{{ asset('storage/' . $product->photo) }}" class=""
+                                            alt="..."> --}}
+                                            <img src="{{$product->photo}}" class="" alt="..." height="170px">
                                             <div class="icon">
-                                                <a href="#" data-toggle="modal" data-target=".modal-detail-product" data-id="{{ $product->id }}"><i
+                                                <a href="#" data-toggle="modal" data-target=".modal-detail-product"
+                                                    data-id="{{ $product->id }}"><i
                                                         class="fas fa-shopping-basket"></i></a>
                                             </div>
                                         </div>
@@ -126,7 +128,8 @@
                             @empty
                             <div class="row justify-content-center mt-3" data-aos="fade-up" data-aos-delay="800">
                                 <div class="alert alert-info text-center">
-                                    Produk belum tersedia. nantikan produk terbaru dari UMKM Desa Wonosuko atau bisa laporkan melalui
+                                    Produk belum tersedia. nantikan produk terbaru dari UMKM Desa Wonosuko atau bisa
+                                    laporkan melalui
                                     form pengaduan. Terima kasih.
                                 </div>
                             </div>
@@ -145,12 +148,11 @@
         </div>
     </div>
 </section>
-
 <script>
-    // $(document).on("click", ".modal-detail-product", function () {
-    //     const id = $(this).data('id');
-    //     $("#updateStatusModal .modal-body #id").val(id);
-    // });
+// $(document).on("click", ".modal-detail-product", function () {
+//     const id = $(this).data('id');
+//     $("#updateStatusModal .modal-body #id").val(id);
+// });
 $('.slidercard').slick({
     dots: false,
     arrows: false,
