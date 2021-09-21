@@ -15,46 +15,76 @@
 
 
 <div class="row">
-    <div class="col-md-6 col-xl-4">
+    <div class="col-md-6 col-xl">
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Surat Masuk</div>
-                        <div class="widget-subheading">Total Surat Masuk</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-primary">#</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Surat Keluar</div>
-                        <div class="widget-subheading">Total Surat Keluar</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-warning">#</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-xl-4">
-        <div class="card mb-3 widget-content">
-            <div class="widget-content-outer">
-                <div class="widget-content-wrapper">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Pengajuan Surat</div>
+                        <div class="widget-heading">Total</div>
                         <div class="widget-subheading">Total Pengajuan Surat</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="widget-numbers text-success">{{$letterSubmissionTotal}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Antrian</div>
+                        <div class="widget-subheading">Total Antrian Surat</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-primary">{{$totalAntrian}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Diproses</div>
+                        <div class="widget-subheading">Total Surat Diproses</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-warning">{{$totalDiproses}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Sudah Jadi</div>
+                        <div class="widget-subheading">Total Surat Sudah Jadi</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-success">{{$totalJadi}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Diambil</div>
+                        <div class="widget-subheading">Total Surat Sudah Diambil</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-primary">{{$totalDiambil}}</div>
                     </div>
                 </div>
             </div>

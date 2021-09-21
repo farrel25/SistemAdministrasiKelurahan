@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class LetterSubmission extends Model
 {
     protected $fillable = ['user_id', 'letter_type_id', 'status_id', 'keperluan', 'phone', 'dittd_oleh', 'disetujui_oleh'];
+    protected $with = ['user', 'letterType', 'letterStatus'];
 
     public function user()
     {

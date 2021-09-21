@@ -21,10 +21,24 @@ class LetterSubmissionController extends Controller
 
     public function index()
     {
-        $letterSubmissions = LetterSubmission::with('user', 'letterType', 'letterStatus')->paginate(10);
+        $letterSubmissions = LetterSubmission::paginate(10);
         $letterSubmissionTotal = count(LetterSubmission::where('status_id', '!=', 4)->get());
         $letterStatuses = LetterStatus::get();
-        return view('dashboard.manajemen_surat.permohonan_surat.permohonan-surat', compact('letterSubmissions', 'letterSubmissionTotal', 'letterStatuses'));
+
+        $totalAntrian = count(LetterSubmission::where('status_id', 1)->get());
+        $totalDiproses = count(LetterSubmission::where('status_id', 2)->get());
+        $totalJadi = count(LetterSubmission::where('status_id', 3)->get());
+        $totalDiambil = count(LetterSubmission::where('status_id', 4)->get());
+
+        return view('dashboard.manajemen_surat.permohonan_surat.permohonan-surat', compact(
+            'letterSubmissions',
+            'letterSubmissionTotal',
+            'letterStatuses',
+            'totalAntrian',
+            'totalDiproses',
+            'totalJadi',
+            'totalDiambil',
+        ));
     }
 
     /**
