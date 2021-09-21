@@ -87,6 +87,20 @@ Route::middleware('auth')->group(function () {
             // staff activation
             Route::patch('{staff:nik}/aktivasi', 'StaffController@activation')->name('info-desa.kepengurusan-activation');
         });
+        // Wilayah Desa
+        Route::prefix('/data-administratif')->group(function () {
+            Route::get('', 'InfoAdministratifController@index')->name('info-desa.data-administratif');
+            // store Wilayah
+            // Route::get('/tambah', 'InfoRegionController@create')->name('info-desa.wilayah-create');
+            // Route::post('/tambah', 'InfoRegionController@store')->name('info-desa.wilayah-store');
+            // // update category
+            // Route::get('/edit', 'InfoRegionController@edit')->name('info-desa.wilayah-edit');
+            // Route::patch('/edit', 'InfoRegionController@update')->name('info-desa-wilayah.update');
+            // delete category
+            // Route::delete('/{article_category}/delete', 'ArticleCategoryController@destroy')->name('info-kelurahan.identitas-kelurahan.destroy');
+            // category activation
+            // Route::patch('/{article_category}/aktivasi', 'ArticleCategoryController@activation')->name('info-kelurahan.identitas-kelurahan.activation');
+        });
     });
 
 
@@ -414,4 +428,3 @@ Route::prefix('/umkm')->group(function() {
 Route::get('/kegiatan-masyarakat/umkm/view-product', function () {
     return view('visitors.kegiatan_masyarakat.umkm.view-product');
 })->name('visitors.kegiatan_masyarakat.umkm.view-product');
-
