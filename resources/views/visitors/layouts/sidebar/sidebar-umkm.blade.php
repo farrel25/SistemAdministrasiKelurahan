@@ -1,7 +1,10 @@
 <div class="col-lg-12 mb-4">
     <div class="sidebar-item search">
-        <form id="search_form" name="gs" method="GET" action="#">
-            <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
+        <form id="search_form" name="gs" action="{{ route('visitors.umkm.index')}}">
+            @if (request('category'))
+                <input type="hidden" name="category" value="{{ request('category')}}">
+            @endif
+            <input type="text" name="search" id="search" class="searchText" placeholder="Ketik untuk mencari..." value="{{ request('search') ?? '' }}" autocomplete="off">
         </form>
     </div>
 </div>

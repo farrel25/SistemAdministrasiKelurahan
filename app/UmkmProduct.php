@@ -19,6 +19,21 @@ class UmkmProduct extends Model
 
     protected $with = ['category', 'profile'];
 
+    public function scopeFilter($query, array $filters) {
+
+        $query->when($filters['search'] ?? false, function($query, $search) {
+            return $query
+                ->where('product_name', 'like', '%'.$search.'%')
+                ->orWhere('description', 'like', '%'.$search.'%');
+        });
+
+        $query->when($filters['category'] ?? false, fn($query, $category) =>
+            $query->whereHas('category', fn($query) =>
+                $query->where('category', $category)
+            )
+        );
+    }
+
     public function category() {
         return $this->belongsTo(UmkmCategory::class, 'umkm_category_id');
     }

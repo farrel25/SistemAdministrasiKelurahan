@@ -18,7 +18,7 @@ class UmkmVisitorController extends Controller
     public function index()
     {
         $categories = UmkmCategory::get();
-        $products = UmkmProduct::get();
+        $products = UmkmProduct::filter(request(['search', 'category']))->latest()->get();
         // dd($products);
         // return $products;
         return view('visitors.umkm.index', compact('categories', 'products'));

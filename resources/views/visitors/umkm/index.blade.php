@@ -45,7 +45,7 @@
             <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-4 mb-lg-0 ">
                 <div class="icon-box " data-aos="fade-up" data-aos-delay="100" style="width: 100%;">
                     <div class="icon"><i class="bx bxl-dribbble"></i></div>
-                    <h4 class="title"><a href="">{{$category->category}}</a></h4>
+                    <h4 class="title"><a href="{{ route('visitors.umkm.index') . '?category=' . $category->category }}">{{$category->category}}</a></h4>
                     <p class="description">Voluptatum deleniti atque corrupti </p>
                 </div>
             </div>
@@ -78,7 +78,9 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             @forelse ($categories as $category)
-                            <a class="dropdown-item" href="#">{{$category->category}}</a>
+                            {{-- <a class="dropdown-item" href="#">{{$category->category}}</a> --}}
+                            {{-- <a class="dropdown-item" href="/umkm?category={{$category->category}}">{{$category->category}}</a> --}}
+                            <a class="dropdown-item" href="{{ route('visitors.umkm.index') . '?category=' . $category->category }}">{{$category->category}}</a>
                             @empty
                             <a class="dropdown-item" href="#">belum tersedia</a>
                             @endforelse
