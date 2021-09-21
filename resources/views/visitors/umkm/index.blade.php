@@ -97,7 +97,7 @@
                                             {{-- <img src="{{ asset('storage/' . $product->photo) }}" class="" alt="..."> --}}
                                             <img src="{{$product->photo}}" class="" alt="...">
                                             <div class="icon">
-                                                <a href="#" data-toggle="modal" data-target=".modal-detail-product"><i
+                                                <a href="#" data-toggle="modal" data-target=".modal-detail-product" data-id="{{ $product->id }}"><i
                                                         class="fas fa-shopping-basket"></i></a>
                                             </div>
                                         </div>
@@ -147,6 +147,10 @@
 </section>
 
 <script>
+    // $(document).on("click", ".modal-detail-product", function () {
+    //     const id = $(this).data('id');
+    //     $("#updateStatusModal .modal-body #id").val(id);
+    // });
 $('.slidercard').slick({
     dots: false,
     arrows: false,

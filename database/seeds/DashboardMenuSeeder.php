@@ -13,16 +13,16 @@ class DashboardMenuSeeder extends Seeder
     public function run()
     {
         $menus = collect([
-            'Dashboard',
+            'Menu Utama',
             'Info Desa',
             'Kependudukan',
             'Manajemen Surat',
             'Manajemen Artikel',
             'Manajemen Pengaduan',
+            'Manajemen UMKM',
             'Manajemen Menu',
             'Manajemen Pengguna',
             'Layanan',
-            'Kegiatan Masyarakat'
         ]);
 
         $menus->each(function ($menu) {

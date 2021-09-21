@@ -12,7 +12,7 @@ class DashboardSubMenuSeeder extends Seeder
      */
     public function run()
     {
-        $menuId = [1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 7, 7, 8, 8, 8, 9, 9, 9, 10, 10];
+        $menuId = [1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 6, 7, 7, 7, 8, 8, 9, 9, 9, 10, 10, 10, 10];
         $subMenus = [
             // 1
             'Dashboard',
@@ -41,19 +41,21 @@ class DashboardSubMenuSeeder extends Seeder
             // 6
             'Data pengaduan',
             // 7
+            'Data Penjual',
+            'Data Produk',
+            'Kategori',
+            // 8
             'Menu',
             'Sub Menu',
-            // 8
+            // 9
             'Pengguna',
             'Role dan Hak Akses',
             'Log Aktivitas Pengguna',
-            // 9
+            // 10
             'Pengajuan Surat',
             'Pengaduan',
             'Kontributor',
-            // 10
             'UMKM',
-            'Kegiatan Desa'
         ];
 
         $urlPath = [
@@ -83,19 +85,21 @@ class DashboardSubMenuSeeder extends Seeder
             // 6
             '/dashboard/manajemen-pengaduan/data-pengaduan',
             // 7
+            '/dashboard/manajemen-umkm/data-penjual',
+            '/dashboard/manajemen-umkm/data-produk',
+            '/dashboard/manajemen-umkm/kategori',
+            // 8
             '/dashboard/manajemen-menu/menu',
             '/dashboard/manajemen-menu/sub-menu',
-            // 8
+            // 9
             '/dashboard/manajemen-pengguna/pengguna',
             '/dashboard/manajemen-pengguna/role',
             '/dashboard/manajemen-pengguna/log-aktivitas',
-            // 9
+            // 10
             '/dashboard/layanan/pengajuan-surat',
             '/dashboard/layanan/pengaduan',
             '/dashboard/layanan/kontributor',
-            // 10
-            '/dashboard/kegiatan-masyarakat/umkm',
-            '/dashboard/kegiatan-masyarakat/kegiatan-desa',
+            '/dashboard/layanan/umkm',
         ];
 
         $icons = [
@@ -127,19 +131,21 @@ class DashboardSubMenuSeeder extends Seeder
             // 6
             'metismenu-icon pe-7s-hammer',
             // 7
+            'metismenu-icon pe-7s-cart',
+            'metismenu-icon pe-7s-cart',
+            'metismenu-icon pe-7s-cart',
+            // 8
             'metismenu-icon pe-7s-albums',
             'metismenu-icon pe-7s-photo-gallery',
-            // 8
+            // 9
             'metismenu-icon pe-7s-user',
             'metismenu-icon pe-7s-plugin',
             'metismenu-icon pe-7s-note2',
-            // 9
+            // 10
             'metismenu-icon pe-7s-mail',
             'metismenu-icon pe-7s-hammer',
             'metismenu-icon pe-7s-pen',
-            // 10
             'metismenu-icon pe-7s-cart',
-            'metismenu-icon pe-7s-bicycle'
         ];
 
         for ($i = 0; $i < count($menuId); $i++) {

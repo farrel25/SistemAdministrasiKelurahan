@@ -1,3 +1,4 @@
+{{-- @if ($products) --}}
 <div class="modal fade modal-detail-product" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -53,6 +54,7 @@
         </div>
     </div>
 </div>
+{{-- @endif --}}
 
 <div class="modal fade modal-requirements" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
@@ -78,7 +80,7 @@
                         semper. Praesent ac congue augue. Morbi id euismod massa. Etiam non nibh quam. Donec feugiat a
                         metus ac porttitor. In vitae mi urna.</p>
                 </div>
-      
+
       </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">

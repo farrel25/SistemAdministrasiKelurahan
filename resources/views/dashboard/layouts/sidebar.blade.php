@@ -318,14 +318,12 @@
                     <ul>
                         <li>
                             <a href="#">
-                                <i class="metismenu-icon">
-                                </i>Toko
+                                <i class="metismenu-icon"></i>Data Penjual
                             </a>
                         </li>
                         <li>
                             <a href="#">
-                                <i class="metismenu-icon">
-                                </i>Produk
+                                <i class="metismenu-icon"></i>Produk
                             </a>
                         </li>
                     </ul>

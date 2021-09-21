@@ -248,6 +248,31 @@ Route::middleware('auth')->group(function () {
         });
     });
 
+
+    //Manajemen Pengaduan
+    Route::prefix('/dashboard/manajemen-pengaduan')->group(function () {
+
+        // Pengaduan
+        Route::prefix('/data-pengaduan')->group(function () {
+            Route::get('', 'ComplaintController@index')->name('manajemen-pengaduan.data-pengaduan');
+        });
+    });
+
+
+    // Manajemen UMKM
+    Route::prefix('/dashboard/manajemen-umkm')->group(function () {
+        Route::prefix('/data-penjual')->group(function () {
+            Route::get('', 'UmkmProfileController@index')->name('manajemen-umkm.data-penjual');
+        });
+        Route::prefix('/data-produk')->group(function () {
+            Route::get('', 'UmkmProductController@index')->name('manajemen-umkm.data-produk');
+        });
+        Route::prefix('/kategori')->group(function () {
+            Route::get('', 'UmkmCategoryController@index')->name('manajemen-umkm.kategori');
+        });
+    });
+
+
     //Manajemen Menu
     Route::prefix('/dashboard/manajemen-menu')->middleware('permission:Manajemen Pengguna')->group(function () {
 
@@ -344,14 +369,6 @@ Route::middleware('auth')->group(function () {
             // Update
             Route::get('/{article}/ubah', 'ServiceArticleContributorController@edit')->name('layanan.kontributor-artikel.edit');
             Route::patch('/{article}/ubah', 'ServiceArticleContributorController@update')->name('layanan.kontributor-artikel.update');
-        });
-    });
-    //Layanan
-    Route::prefix('/dashboard/manajemen-pengaduan')->group(function () {
-
-        // Pengaduan
-        Route::prefix('/data-pengaduan')->group(function () {
-            Route::get('', 'ComplaintController@index')->name('manajemen-pengaduan.data-pengaduan');
         });
     });
 });
