@@ -1,5 +1,4 @@
 @extends('dashboard.layouts.master', ['title' => "Beranda"])
-
 @section('content')
 <?php
     $data=[
@@ -10,11 +9,10 @@
     ]
 ?>
 @include('dashboard.layouts.page-title',$data)
-
 @if (Auth::user()->roles->first()->name != 'Penduduk')
 {{-- Penduduk --}}
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-12">
         <div class="main-card mb-3 card">
             <div class="card-header">
                 Tabel Info Pengajuan Surat
@@ -55,7 +53,6 @@
                 <div class="card-body ">
                     <nav class=" " aria-label="Page navigation example">
                         <ul class="pagination ">
-
                         </ul>
                     </nav>
                 </div>
@@ -65,7 +62,6 @@
 </div>
 <div class="row">
     <div class="col">
-
     </div>
 </div>
 {{-- Admin --}}
@@ -110,7 +106,6 @@
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
@@ -157,10 +152,8 @@
             </div>
         </div>
     </div>
-
 </div>
 @endif
-
 <div class="row">
     <div class="col-md-12 col-lg-12">
         <div class="mb-3 card">
@@ -267,7 +260,6 @@
         </div>
     </div>
 </div>
-
 @if (Auth::user()->roles->first()->name != 'Penduduk')
 <div class="row">
     <div class="col-md-12">
@@ -306,7 +298,6 @@
                             </td>
                         </tr>
                         @endforeach
-
                     </tbody>
                 </table>
             </div>
@@ -314,7 +305,6 @@
                 <div class="card-body ">
                     <nav class=" " aria-label="Page navigation example">
                         <ul class="pagination justify-content-center ">
-
                             {{ $villagers->links() }}
                         </ul>
                     </nav>
@@ -324,38 +314,35 @@
     </div>
 </div>
 @endif
-
-
 <script>
-    $(function () {
-        //Penduduk
-            var ctx = document.getElementById("penduduk").getContext('2d');
-            var data = {
-                datasets: [{
-                    data: [ 75, 25],
-                    backgroundColor: [
-                        '#3ac47d',
-                        '#f7b924',
-                    ],
-                }],
-                labels: [
-                    'Aktif',
-                    'Tidak Aktif',
-                ]
-            };
-            var myDoughnutChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: data,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: true,
-                    legend: {
-                    display: false
-                    },
-                }
-            });
+$(function() {
+    //Penduduk
+    var ctx = document.getElementById("penduduk").getContext('2d');
+    var data = {
+        datasets: [{
+            data: [75, 25],
+            backgroundColor: [
+                '#3ac47d',
+                '#f7b924',
+            ],
+        }],
+        labels: [
+            'Aktif',
+            'Tidak Aktif',
+        ]
+    };
+    var myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            legend: {
+                display: false
+            },
+        }
+    });
 
-        });
-
+});
 </script>
 @endsection

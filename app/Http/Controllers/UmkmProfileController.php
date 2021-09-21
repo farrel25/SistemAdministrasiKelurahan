@@ -14,7 +14,8 @@ class UmkmProfileController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('dashboard.manajemen_umkm.penjual.data-penjual');
     }
 
     /**
@@ -57,7 +58,8 @@ class UmkmProfileController extends Controller
      */
     public function edit(UmkmProfile $umkmProfile)
     {
-        //
+
+        // return view('dashboard.manajemen_umkm.penjual.penjual'/*, compact('articleCategory')*/);
     }
 
     /**

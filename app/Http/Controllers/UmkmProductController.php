@@ -14,7 +14,8 @@ class UmkmProductController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('dashboard.manajemen_umkm.produk.data-produk');
     }
 
     /**

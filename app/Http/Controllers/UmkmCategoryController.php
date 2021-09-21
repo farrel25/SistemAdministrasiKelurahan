@@ -14,7 +14,8 @@ class UmkmCategoryController extends Controller
      */
     public function index()
     {
-        //
+
+        return view('dashboard.manajemen_umkm.kategori.kategori');
     }
 
     /**
